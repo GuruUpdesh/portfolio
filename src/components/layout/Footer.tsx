@@ -12,7 +12,7 @@ const Footer = () => {
 			<nav className="flex items-center justify-between w-full mb-5 overflow-hidden">
 				<Link
 					href="/"
-					className="opacity-70 hover:opacity-100 transition-opacity text-sm md:text-base"
+					className="opacity-50 hover:opacity-100 transition-opacity text-sm md:text-base"
 				>
 					guruupdeshsingh.dev
 				</Link>
@@ -20,7 +20,7 @@ const Footer = () => {
 					<li>
 						<Link
 							href="/projects"
-							className="opacity-70 hover:opacity-100 transition-opacity text-sm md:text-base"
+							className="opacity-50 hover:opacity-100 transition-opacity text-sm md:text-base"
 						>
 							projects
 						</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
 					<li>
 						<Link
 							href="/contact"
-							className="opacity-70 hover:opacity-100 transition-opacity text-sm md:text-base"
+							className="opacity-50 hover:opacity-100 transition-opacity text-sm md:text-base"
 						>
 							contact
 						</Link>
@@ -53,16 +53,16 @@ const Footer = () => {
 					<Button
 						variant="outline"
 						size="icon"
-						className="rounded-full"
+						className="rounded-full group"
 					>
-						<GitHubLogoIcon className="w-5 h-5" />
+						<GitHubLogoIcon className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
 					</Button>
 					<Button
 						variant="outline"
 						size="icon"
-						className="rounded-full"
+						className="rounded-full group"
 					>
-						<LinkedInLogoIcon className="w-5 h-5" />
+						<LinkedInLogoIcon className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
 					</Button>
 				</div>
 			</div>

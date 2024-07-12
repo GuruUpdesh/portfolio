@@ -28,31 +28,37 @@ export default function Portfolio() {
 					<ProjectCard
 						className="row-span-4 border-t-0"
 						title="Taskly"
+						stack={["Next.js"]}
 						year="2024"
 					/>
 					<ProjectCard
 						className="row-span-3 border-t-0"
 						title="Boats & Loads"
+						stack={["React"]}
 						year="2024"
 					/>
 					<ProjectCard
 						className="row-span-4 border-t-0"
 						title="TrackIt"
+						stack={["Next.js"]}
 						year="2023"
 					/>
 					<ProjectCard
 						className="row-span-4 col-span-1 col-start-1"
 						title="Home Designer"
+						stack={["React"]}
 						year="2022"
 					/>
 					<ProjectCard
 						className="row-span-5 row-start-4 col-start-2"
 						title="Shipment Tracker"
+						stack={["React"]}
 						year="2022"
 					/>
 					<ProjectCard
 						className="row-span-4"
 						title="Kuba Game"
+						stack={["Python"]}
 						year="2022"
 					/>
 				</div>
@@ -68,8 +74,8 @@ export default function Portfolio() {
 			</section>
 			<section className="max-w-[1360px] w-full relative border border-t-0 rounded-b-[80px] px-20 pb-20 before:-z-20 before:bg-border before:absolute before:h-screen before:w-[1px] before:-left-[1px] before:-top-[100vh] after:bg-border after:absolute after:h-screen after:w-[1px] after:-right-[1px] after:-top-[100vh] after:-z-20">
 				<div className="border relative border-t-0 rounded-b-[60px] px-20 pb-20 before:-z-20 before:bg-border before:absolute before:h-[60px] before:w-[1px] before:-left-[1px] before:top-[-60px] after:bg-border after:absolute after:h-[60px] after:w-[1px] after:-right-[1px] after:top-[-60px] after:-z-20">
-					<div className="border border-t-0 rounded-b-[40px] aspect-video grid grid-cols-3 overflow-hidden">
-						<div className="col-span-2 relative">
+					<div className="border border-t-0 rounded-b-[40px] aspect-video grid grid-cols-5 overflow-hidden">
+						<div className="col-span-3 relative">
 							{/* <Image
 								src="/placeholder.jpg"
 								fill

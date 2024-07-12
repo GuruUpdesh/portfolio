@@ -69,7 +69,7 @@ const ContactForm = () => {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="bg-[#0A0A0A] flex flex-col p-2 border-l"
+				className="bg-[#0A0A0A] flex flex-col col-span-2 p-2 border-l"
 			>
 				<FormField
 					control={form.control}

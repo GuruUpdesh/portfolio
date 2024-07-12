@@ -36,8 +36,8 @@ const Header = () => {
 					<span className="opacity-70">I’m</span> Guru Updesh Singh
 				</h1>
 				<div className="pl-[60px] opacity-70">
-					<h1 className="hidden md:block">I love to build</h1>
 					<h1 className="hidden md:block">I focus in full stack, cybersecurity, and design</h1>
+					<h1 className="hidden md:block">I love to build</h1>
 					<h1>this is my portfolio!</h1>
 				</div>
 			</div>
