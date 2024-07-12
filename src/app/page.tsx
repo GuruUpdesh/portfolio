@@ -1,10 +1,14 @@
 import ContactForm from "@/components/ContantForm";
 import Circle from "@/components/layout/Circle";
+import DynamicCircle from "@/components/layout/dynamic/DynamicCircle";
+import DynamicContainer from "@/components/layout/dynamic/DynamicContainer";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Portfolio() {
@@ -54,42 +58,34 @@ export default function Portfolio() {
 				</div>
 			</section>
 			<section className="max-w-[1360px] w-full relative px-20 border border-transparent">
-				<div className="border-t-0 border rounded-b-[60px] px-20 py-16">
-				</div>
+				{/* <div className="border-t-0 border rounded-b-[60px] px-20 py-16">
+					<Circle className="top-0" scale={11}/>
+				</div> */}
+				{/* <DynamicContainer className="border-t-0 border rounded-b-[60px] px-20 py-16">
+					<DynamicCircle />
+				</DynamicContainer> */}
+				<ProjectsDivider className="border-t-0 border rounded-b-[60px] px-20 py-16"/>
 			</section>
 			<section className="max-w-[1360px] w-full relative border border-t-0 rounded-b-[80px] px-20 pb-20 before:-z-20 before:bg-border before:absolute before:h-screen before:w-[1px] before:-left-[1px] before:-top-[100vh] after:bg-border after:absolute after:h-screen after:w-[1px] after:-right-[1px] after:-top-[100vh] after:-z-20">
-				<div className="border border-t-0 rounded-b-[60px] px-20 pb-20">
+				<div className="border relative border-t-0 rounded-b-[60px] px-20 pb-20 before:-z-20 before:bg-border before:absolute before:h-[60px] before:w-[1px] before:-left-[1px] before:top-[-60px] after:bg-border after:absolute after:h-[60px] after:w-[1px] after:-right-[1px] after:top-[-60px] after:-z-20">
 					<div className="border border-t-0 rounded-b-[40px] aspect-video grid grid-cols-3 overflow-hidden">
-						<div className="col-span-2 relative p-10">
-							<div>
-								<p className="opacity-70 leading-8">
-									I’m a new computer science graduate with a
-									focus in cybersecurity and full stack web
-									development. I live in Eugene, OR and
-									currently work at DealSumm as a junior
-									developer. I graduated with my Bachelors in
-									computer science from Oregon State
-									University.
+						<div className="col-span-2 relative">
+							{/* <Image
+								src="/placeholder.jpg"
+								fill
+								alt="placeholder"
+								className="object-cover grayscale mix-blend-overlay"
+							/> */}
+							<div className="bg-gradient-to-t from-black to-transparent absolute w-full bottom-0 left-0">
+								<p className="opacity-70 leading-8 bg-gradient-to-t p-10 ">
+									I’m a new computer science graduate from
+									Oregon State University with a focus in
+									cybersecurity and full stack web
+									development.
 								</p>
 							</div>
 						</div>
-						{/* <div className="bg-[#0A0A0A] flex flex-col p-2 border-l">
-							<div className="flex flex-col max-w-[600px] flex-1">
-								<Input
-									placeholder="name"
-									className="border-hidden bg-transparent"
-								/>
-								<Input
-									placeholder="email"
-									className="border-hidden bg-transparent"
-								/>
-								<Textarea
-									placeholder="message"
-									className="border-hidden resize-none bg-transparent flex-1 mb-2"
-								/>
-							</div>
-						</div> */}
-							<ContactForm />
+						<ContactForm />
 					</div>
 				</div>
 			</section>

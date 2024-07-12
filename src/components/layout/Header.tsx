@@ -22,14 +22,6 @@ const Header = () => {
 					</li>
 					<li>
 						<Link
-							href="/projects"
-							className="opacity-70 hover:opacity-100 transition-opacity text-sm md:text-base"
-						>
-							about
-						</Link>
-					</li>
-					<li>
-						<Link
 							href="/contact"
 							className="opacity-70 hover:opacity-100 transition-opacity text-sm md:text-base"
 						>

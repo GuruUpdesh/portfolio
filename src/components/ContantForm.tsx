@@ -121,6 +121,7 @@ const ContactForm = () => {
 				/>
 				<Button
 					type="submit"
+					variant="ghost"
 					className="rounded-br-[32px] justify-between"
 					disabled={!form.formState.isDirty}
 				>
