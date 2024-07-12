@@ -54,10 +54,7 @@ export default function Portfolio() {
 				</div>
 			</section>
 			<section className="max-w-[1360px] w-full relative px-20 border border-transparent">
-				<div className="border-t-0 border rounded-b-[60px] px-20 py-8">
-					<h1 className="opacity-70 hover:opacity-100 transition-opacity py-2 text-xl md:text-2xl text-center">
-						All Projects
-					</h1>
+				<div className="border-t-0 border rounded-b-[60px] px-20 py-16">
 				</div>
 			</section>
 			<section className="max-w-[1360px] w-full relative border border-t-0 rounded-b-[80px] px-20 pb-20 before:-z-20 before:bg-border before:absolute before:h-screen before:w-[1px] before:-left-[1px] before:-top-[100vh] after:bg-border after:absolute after:h-screen after:w-[1px] after:-right-[1px] after:-top-[100vh] after:-z-20">
