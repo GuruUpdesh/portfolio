@@ -5,7 +5,6 @@ import Header from "@/components/layout/Header";
 import HeroSection from "@/components/layout/HeroSection";
 import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
-import { Separator } from "@/components/ui/separator";
 
 export default function Portfolio() {
 	return (

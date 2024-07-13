@@ -51,7 +51,7 @@ const ContactForm = () => {
 		},
 	});
 
-	const [submitted, setSubmitted] = useState(true);
+	const [submitted, setSubmitted] = useState(false);
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
@@ -63,7 +63,6 @@ const ContactForm = () => {
 		if (result.result) {
 			setSubmitted(true);
 			form.reset();
-		} else {
 		}
 	}
 
