@@ -15,8 +15,14 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info, Loader2 } from "lucide-react";
 import { sendEmail } from "@/actions/EmailActions";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const formSchema = z.object({
 	name: z.string().min(1, {
@@ -45,7 +51,7 @@ const ContactForm = () => {
 		},
 	});
 
-	const [submitted, setSubmitted] = useState(false);
+	const [submitted, setSubmitted] = useState(true);
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log(values);
@@ -62,7 +68,39 @@ const ContactForm = () => {
 	}
 
 	if (submitted) {
-		return <SubmittedMessage />;
+		return (
+			<div className="justify-between items-center col-span-2 flex-1 bg-[#0A0A0A] flex flex-col p-8 border-l">
+				<div className="w-full">
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Button
+									variant="ghost"
+									size="icon"
+									className="rounded-full"
+									onClick={() => setSubmitted(false)}
+								>
+									<ArrowLeft className="h-4 w-4" />
+								</Button>
+							</TooltipTrigger>
+							<TooltipContent>
+								<p>Submit Another Message</p>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
+				</div>
+				<div>
+					<h1 className="text-lg">Thanks for reaching out!</h1>
+					<p className="text-sm opacity-75">
+						I look forward to speaking with you further.
+					</p>
+				</div>
+				<p className="text-xs opacity-75 flex items-center gap-1">
+					<Info className="w-4 h-4" />
+					You should receive a confirmation email shortly
+				</p>
+			</div>
+		);
 	}
 
 	return (
@@ -123,7 +161,6 @@ const ContactForm = () => {
 					type="submit"
 					variant="ghost"
 					className="rounded-br-[32px] justify-between"
-					disabled={!form.formState.isDirty}
 				>
 					{form.formState.isSubmitting ? "Contacting" : "Contact"}
 					{form.formState.isSubmitting ? (
@@ -134,19 +171,6 @@ const ContactForm = () => {
 				</Button>
 			</form>
 		</Form>
-	);
-};
-
-const SubmittedMessage = () => {
-	return (
-		<div className="justify-center items-center flex-1 bg-[#0A0A0A] flex flex-col p-8 border-l">
-			<div>
-				<h1 className="text-lg">Thanks for reaching out!</h1>
-				<p className="text-sm opacity-75">
-					I look forward to speaking with you further!
-				</p>
-			</div>
-		</div>
 	);
 };
 

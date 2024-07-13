@@ -46,7 +46,7 @@ const Footer = () => {
 			<Separator className="opacity-25" />
 			<div className="flex justify-between py-4">
 				<p className="text-xs md:text-sm opacity-50">
-					Copyright © 2024 Guru Updesh Singh
+					Copyright © 2024
 				</p>
 				<div className="flex item-center gap-1">
 					<TooltipProvider>
@@ -57,7 +57,7 @@ const Footer = () => {
 									className="rounded-full group flex items-center gap-2 px-2 lg:px-4"
 								>
 									<Download className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-									<span className="hidden lg:block">
+									<span className="hidden lg:block opacity-50 group-hover:opacity-100 transition-opacity">
 										Resume
 									</span>
 								</Button>
@@ -75,7 +75,7 @@ const Footer = () => {
 									className="rounded-full group flex items-center gap-2 px-2 lg:px-3"
 								>
 									<GitHubLogoIcon className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-									<span className="hidden lg:block">
+									<span className="hidden lg:block opacity-50 group-hover:opacity-100 transition-opacity">
 										GitHub
 									</span>
 								</Button>
@@ -93,7 +93,7 @@ const Footer = () => {
 									className="rounded-full group flex items-center gap-2 px-2 lg:px-4"
 								>
 									<LinkedInLogoIcon className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
-									<span className="hidden lg:block">
+									<span className="hidden lg:block opacity-50 group-hover:opacity-100 transition-opacity">
 										LinkedIn
 									</span>
 								</Button>
