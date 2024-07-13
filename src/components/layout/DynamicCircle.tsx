@@ -17,9 +17,10 @@ const DynamicCircle = ({
 }: Props) => {
     const [currentRadius, setCurrentRadius] = useState(100);
     useEffect(() => {
+        const container = containerRef.current;
         const updateDimensions = () => {
-            if (containerRef.current) {
-                const rect = containerRef.current.getBoundingClientRect();
+            if (container) {
+                const rect = container.getBoundingClientRect();
                 const L = rect.width - intersectionOffset * 2;
                 const dTop = rect.height;
                 const R = findRadius(L, dTop);
@@ -28,20 +29,20 @@ const DynamicCircle = ({
         };
 
         const observer = new ResizeObserver(updateDimensions);
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
+        if (container) {
+            observer.observe(container);
         }
 
         window.addEventListener("resize", updateDimensions);
         updateDimensions();
 
         return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
+            if (container) {
+                observer.unobserve(container);
             }
             window.removeEventListener("resize", updateDimensions);
         };
-    }, []);
+    }, [containerRef, intersectionOffset]);
 
     return (
         <div
