@@ -5,18 +5,18 @@ import "./globals.css";
 const sora = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Full Stack Developer Portfolio",
+    title: "Portfolio",
+    description: "Full Stack Developer Portfolio",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={sora.className}>{children}</body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={sora.className}>{children}</body>
+        </html>
+    );
 }
