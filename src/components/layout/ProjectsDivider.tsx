@@ -9,8 +9,16 @@ const ProjectsDivider = (props: ProjectsDividerProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	return (
 		<div ref={containerRef} {...props}>
-            <DynamicCircle containerRef={containerRef} intersectionOffset={1} direction="top" />
-			<DynamicCircle containerRef={containerRef} intersectionOffset={81} direction="bottom" />
+			{/* <DynamicCircle
+				containerRef={containerRef}
+				intersectionOffset={1}
+				direction="top"
+			/> */}
+			<DynamicCircle
+				containerRef={containerRef}
+				intersectionOffset={81}
+				direction="bottom"
+			/>
 		</div>
 	);
 };

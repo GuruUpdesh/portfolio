@@ -8,9 +8,10 @@ export function findRadius(L: number, dTop: number): number {
 
 	const maxIter = 1000;
 	const tol = 5;
+	let midPoint = 0;
 
 	for (let i = 0; i < maxIter; i++) {
-		let midPoint = (lowerBound + upperBound) / 2;
+		midPoint = (lowerBound + upperBound) / 2;
 		let curLength = chordLengthFunction(midPoint, dTop);
 
 		if (Math.abs(curLength - L) < tol) {
@@ -24,5 +25,13 @@ export function findRadius(L: number, dTop: number): number {
 		}
 	}
 
-	return 0;
+	console.warn(
+		"Dynamic Circle failed to calculate radius\nL:",
+		L,
+		"d_top:",
+		dTop,
+		"\nmidPoint:",
+		midPoint
+	);
+	return midPoint;
 }
