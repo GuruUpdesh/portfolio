@@ -30,7 +30,7 @@ export type TechStack = {
     [category in TechStackCategory]: Tech[];
 };
 
-const TasklyProject: Project = {
+const Taskly: Project = {
     id: 1,
     name: "Taskly",
     year: 2024,
@@ -116,15 +116,62 @@ const BoatsAndLoads: Project = {
     contributors: [],
 };
 
+const TrackIt: Project = {
+    id: 3,
+    name: "TrackIt",
+    year: 2023,
+    gitHubLink: "https://github.com/GuruUpdesh/track-it",
+    vercelLink: "https://vercel.com/guruupdeshs-projects/track-it",
+    websiteLink: "https://tackit.guruupdeshsingh.dev",
+    content: {
+        shortDescription:
+            "TrackIt is a web-based application that simplifies shipment tracking by providing a unified platform to monitor your packages' status and journey, across various couriers.",
+        longDescription: "",
+        features: [
+            "Centralized Tracking Dashboard",
+            "Multi-Courier Support",
+            "Detailed Tracking History",
+            "Accessible UI",
+            "Power User Friendly",
+        ],
+    },
+    techStack: {
+        frontend: [
+            { name: "Next.js", version: "13.4" },
+            { name: "React", version: "18.2" },
+            { name: "Tailwind CSS", version: "3.3" },
+            { name: "Framer Motion", version: "10.12" },
+            { name: "Radix UI" },
+            { name: "Google Maps", version: "2.18" },
+        ],
+        state: [],
+        backend: [],
+        testing: [
+            { name: "Jest", version: "29.6" },
+            { name: "Cypress", version: "12.17" },
+        ],
+        tools: [
+            { name: "VS Code" },
+            { name: "GitHub" },
+            { name: "Prettier", version: "3.0.0" },
+            { name: "ESLint", version: "8.44.0" },
+            { name: "Husky", version: "8.0.3" },
+            { name: "NPM" },
+        ],
+    },
+    contributors: [],
+};
+
 export function getProjectFromId(id: number) {
     const map: { [key: number]: Project } = {
-        1: TasklyProject,
+        1: Taskly,
         2: BoatsAndLoads,
+        3: TrackIt,
     };
     if (map[id]) {
         return map[id];
     }
-    return TasklyProject;
+    return Taskly;
 }
 
 type Technology =
@@ -140,6 +187,7 @@ type Technology =
     | "CSS"
     | "ShadcnUI"
     | "MaterialUI"
+    | "Radix UI"
     | "Bootstrap"
     | "HTML"
     | "ReCharts"
@@ -165,6 +213,9 @@ type Technology =
     | "Clerk"
     | "Resend"
     | "VS Code"
+    | "Prettier"
+    | "ESLint"
+    | "Husky"
     | "GitHub"
     | "GitHub API"
     | "Notion"

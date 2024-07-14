@@ -35,31 +35,28 @@ export default function Portfolio() {
                     />
                     <ProjectCard
                         className="row-span-4 border-t-0"
-                        // title="TrackIt"
-                        // stack={["Next.js"]}
-                        // year="2023"
-                        projectId = {1}
+                        projectId = {3}
                     />
                     <ProjectCard
                         className="col-span-1 col-start-1 row-span-4"
                         // title="Home Designer"
                         // stack={["React"]}
                         // year="2022"
-                        projectId = {1}
+                        projectId = {4}
                     />
                     <ProjectCard
                         className="col-start-2 row-span-5 row-start-4"
                         // title="Shipment Tracker"
                         // stack={["React"]}
                         // year="2022"
-                        projectId = {1}
+                        projectId = {5}
                     />
                     <ProjectCard
                         className="row-span-4"
                         // title="Kuba Game"
                         // stack={["Python"]}
                         // year="2022"
-                        projectId = {1}
+                        projectId = {6}
                     />
                 </div>
             </section>
