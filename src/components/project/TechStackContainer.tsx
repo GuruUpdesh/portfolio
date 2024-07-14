@@ -1,10 +1,21 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { TechStack, TechStackCategory } from "@/projectConfig";
 import React, { useEffect, useState } from "react";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-const TechStackContainer = () => {
-    const groups = ["Frontend", "State", "Backend", "Tools"];
+type Props = {
+    techStack: TechStack;
+};
+
+const TechStackContainer = ({ techStack }: Props) => {
+    const groups = Object.keys(techStack) as TechStackCategory[];
     const [currentGroup, setCurrentGroup] = useState(0);
     const [groupLock, setGroupLock] = useState(false);
 
@@ -31,39 +42,35 @@ const TechStackContainer = () => {
             <div className="pt-20">
                 <h1
                     key={groups[currentGroup]}
-                    className="mb-4 inline-block text-2xl"
+                    className="mb-4 inline-block text-2xl capitalize"
                 >
                     {groups[currentGroup]}
                 </h1>
-                <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between rounded-md bg-border/5 p-2">
-                        <p>React</p>
-                        <p className="opacity-75">18.0</p>
-                    </div>
-                    <div className="flex items-center justify-between rounded-md bg-border/5 p-2">
-                        <p>NextJS</p>
-                        <p className="opacity-75">18.0</p>
-                    </div>
-                    <div className="flex items-center justify-between rounded-md bg-border/5 p-2">
-                        <p>Tailwind CSS</p>
-                        <p className="opacity-75">18.0</p>
-                    </div>
-                    <div className="flex items-center justify-between rounded-md bg-border/5 p-2">
-                        <p>Radix UI</p>
-                        <p className="opacity-75">18.0</p>
-                    </div>
+                <div className="flex min-h-[400px] flex-col gap-2">
+                    {techStack[groups[currentGroup]].map((tech, i) => (
+                        <div
+                            key={i}
+                            className="flex items-center justify-between rounded-md bg-border/5 p-2"
+                        >
+                            <p>{tech.name}</p>
+                            <p className="opacity-75">{tech.version}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="relative flex items-center justify-center">
                 <div className="stack-container">
-                    {groups.map((_, i) => (
+                    {groups.map((group, i) => (
                         <div
                             key={i}
                             className={cn("stack-item", {
                                 "active-stack": i === currentGroup,
                             })}
+                            title={group}
+                            tabIndex={1}
                             onMouseEnter={() => handleHover(i)}
                             onMouseMove={() => handleHover(i)}
+                            onFocus={() => handleHover(i)}
                         />
                     ))}
                 </div>

@@ -42,6 +42,12 @@
     z-index: 1;
 }
 
+.stack-item:nth-child(5) {
+    --z: -175px;
+    transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
+    z-index: 1;
+}
+
 .stack-item.active-stack {
     transform: rotateX(60deg) rotateZ(calc(0.25turn + 0.125turn))
         translateZ(var(--z));

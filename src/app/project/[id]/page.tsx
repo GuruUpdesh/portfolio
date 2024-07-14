@@ -7,11 +7,15 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { ArrowLeft, ArrowRight, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight, File, Play, Star } from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import { getProjectFromId } from "@/projectConfig";
+import GitHubStars from "@/components/project/analytics/GitHubStars";
+import { Suspense } from "react";
+import GitHubFiles from "@/components/project/analytics/GitHubFiles";
 
 type Props = {
     params: {
@@ -20,6 +24,7 @@ type Props = {
 };
 
 export default function Project({ params: { id } }: Props) {
+    const project = getProjectFromId(parseInt(id));
     return (
         <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden px-5 transition-all sm:px-10 md:px-20">
             <section className="mb-8 w-full max-w-[1360px] px-40">
@@ -43,39 +48,35 @@ export default function Project({ params: { id } }: Props) {
                         </Tooltip>
                     </TooltipProvider>
                     <div>
-                        <h1 className="inline-block text-2xl">TrackIt</h1>
+                        <h1 className="inline-block text-2xl">
+                            {project.name}
+                        </h1>
                         <p className="ml-2 inline-block text-lg opacity-75">
-                            2023
+                            {project.year}
                         </p>
                     </div>
                     <div className="group flex flex-1 items-center justify-end gap-2">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="outline" className="gap-1">
+                                    <Button variant="outline" size="icon">
                                         <ArrowLeft className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                        <span className="opacity-75 transition-opacity group-hover:opacity-100">
-                                            Shipment Tracker
-                                        </span>
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>Previous Project</p>
+                                    <p>Shipment Tracker</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="outline" className="gap-1">
-                                        <span className="opacity-75 transition-opacity group-hover:opacity-100">
-                                            Taskly
-                                        </span>
+                                    <Button variant="outline" size="icon">
                                         <ArrowRight className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>Next Project</p>
+                                    <p>Taskly</p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -86,28 +87,30 @@ export default function Project({ params: { id } }: Props) {
                 </div>
             </section>
             <section className="flex w-full max-w-[1360px] px-40">
-                <p>
-                    TrackIt is a web-based application that simplifies shipment
-                    tracking by providing a unified platform to monitor your
-                    packages&apos; status and journey, across various couriers.
-                </p>
+                <p>{project.content.shortDescription}</p>
                 <div className="flex items-center gap-2">
-                    <Button className="rounded-full">Visit</Button>
+                    {project.websiteLink ? (
+                        <Link href={project.websiteLink} target="_blank">
+                            <Button className="rounded-full">Visit</Button>
+                        </Link>
+                    ) : null}
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                >
-                                    <GitHubLogoIcon className="h-5 w-5 transition-opacity" />
-                                    <span className="hidden transition-opacity lg:block">
-                                        GitHub
-                                    </span>
-                                </Button>
+                                <Link href={project.gitHubLink} target="_blank">
+                                    <Button
+                                        variant="outline"
+                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                    >
+                                        <GitHubLogoIcon className="h-5 w-5 transition-opacity" />
+                                        <span className="hidden transition-opacity lg:block">
+                                            GitHub
+                                        </span>
+                                    </Button>
+                                </Link>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>Check out my GitHub</p>
+                                <p>See source code on GitHub</p>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
@@ -115,59 +118,52 @@ export default function Project({ params: { id } }: Props) {
             </section>
             <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
             <section className="relative w-full max-w-[1360px] px-40 py-2">
+                <h1 className="py-2 text-2xl">Features</h1>
+                <ul className="grid grid-cols-3 gap-2">
+                    {project.content.features.map((feature, i) => (
+                        <li key={i} className="rounded-lg bg-border/5 p-4">
+                            <h3 className="font-semibold">{feature}</h3>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+            <section className="section-base !px-40 py-8">
+                <h1 className="py-2 text-2xl">Analytics</h1>
                 <ul className="grid grid-cols-3 gap-2">
                     <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">
-                            Centralized Tracking Dashboard
-                        </h3>
-                        <p className="font-light opacity-75">
-                            Consolidated view of shipments and their current
-                            statuses.
-                        </p>
+                        <h1 className="text-lg font-semibold">
+                            360{" "}
+                            <span className="font-normal opacity-75">
+                                Users
+                            </span>
+                        </h1>
                     </li>
-                    <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">Multi-Courier Support</h3>
-                        <p className="font-light opacity-75">
-                            Tracking support for UPS, USPS, FedEx, OnTrac, and
-                            more.
-                        </p>
+                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                        <Star className="h-4 w-4" />
+                        <h1 className="text-lg font-semibold">
+                            <Suspense fallback={0}>
+                                <GitHubStars gitHubLink={project.gitHubLink} />
+                            </Suspense>{" "}
+                            <span className="font-normal opacity-75">
+                                Stars
+                            </span>
+                        </h1>
                     </li>
-                    <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">
-                            Detailed Tracking History
-                        </h3>
-                        <p className="font-light opacity-75">
-                            View status, location, and date information for each
-                            shipment.
-                        </p>
-                    </li>
-                    <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">Easy Management</h3>
-                        <p className="font-light opacity-75">
-                            Add, delete, and update your shipments with ease.
-                        </p>
-                    </li>
-                    <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">
-                            Clear and easy to understand UI
-                        </h3>
-                        <p className="font-light opacity-75">
-                            Intuitive and responsive design for a seamless user
-                            experience. With mobile support for tracking on the
-                            go.
-                        </p>
-                    </li>
-                    <li className="rounded-lg bg-border/5 p-4">
-                        <h3 className="font-semibold">Power User Features</h3>
-                        <p className="font-light opacity-75">
-                            Search and filter functionality, undo accidental
-                            deletions, shortcuts, and links to courier websites.
-                        </p>
+                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                        <File className="h-4 w-4" />
+                        <h1 className="text-lg font-semibold">
+                            <Suspense fallback={0}>
+                                <GitHubFiles gitHubLink={project.gitHubLink} />
+                            </Suspense>{" "}
+                            <span className="font-normal opacity-75">
+                                Files
+                            </span>
+                        </h1>
                     </li>
                 </ul>
             </section>
-            <section className="relative grid min-h-[500px] w-full max-w-[1360px] grid-cols-2 px-40 py-2">
-                <TechStackContainer />
+            <section className="section-base grid min-h-[500px] grid-cols-2 rounded-xl bg-border/5 !px-40 py-8">
+                <TechStackContainer techStack={project.techStack} />
             </section>
             <Footer />
         </main>
