@@ -81,7 +81,7 @@ const Taskly: Project = {
             { name: "NPM" },
         ],
     },
-    contributors: ["Guru Updesh Singh", "Cameron Hollis", "Yash Sankanagouda"],
+    contributors: ["Cameron Hollis", "Yash Sankanagouda"],
 };
 
 const BoatsAndLoads: Project = {
@@ -162,11 +162,45 @@ const TrackIt: Project = {
     contributors: [],
 };
 
+const HomeDesigner: Project = {
+    id: 4,
+    name: "Home Designer",
+    year: 2022,
+    gitHubLink: "https://github.com/GuruUpdesh/Home-Designer",
+    vercelLink: "https://vercel.com/guruupdeshs-projects/home-designer",
+    websiteLink: "https://homedesigner.guruupdeshsingh.dev",
+    content: {
+        shortDescription:
+            "Home Designer is the final project for my introduction to databases class, where we learned about database design, SQL, and normalization.",
+        longDescription: "",
+        features: [
+            "Centralized Tracking Dashboard",
+            "Multi-Courier Support",
+            "Detailed Tracking History",
+            "Accessible UI",
+            "Power User Friendly",
+        ],
+    },
+    techStack: {
+        frontend: [{ name: "React", version: "17.0" }, { name: "SCSS" }],
+        state: [],
+        backend: [
+            { name: "Node" },
+            { name: "Express", version: "4.17" },
+            { name: "MySQL", version: "2.18" },
+        ],
+        testing: [],
+        tools: [{ name: "VS Code" }, { name: "GitHub" }, { name: "NPM" }],
+    },
+    contributors: ["Liheng Yi"],
+};
+
 export function getProjectFromId(id: number) {
     const map: { [key: number]: Project } = {
         1: Taskly,
         2: BoatsAndLoads,
         3: TrackIt,
+        4: HomeDesigner,
     };
     if (map[id]) {
         return map[id];
@@ -183,7 +217,7 @@ type Technology =
     | "React"
     | "Next.js"
     | "Tailwind CSS"
-    | "SASS"
+    | "SCSS"
     | "CSS"
     | "ShadcnUI"
     | "MaterialUI"
