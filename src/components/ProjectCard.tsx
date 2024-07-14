@@ -7,9 +7,6 @@ import Link from "next/link";
 import { getProjectFromId } from "@/projectConfig";
 
 type Props = {
-    // title: string;
-    // stack: Tech[];
-    // year: string;
     projectId: number;
     className?: string;
 };

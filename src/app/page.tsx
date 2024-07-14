@@ -39,23 +39,14 @@ export default function Portfolio() {
                     />
                     <ProjectCard
                         className="col-span-1 col-start-1 row-span-4"
-                        // title="Home Designer"
-                        // stack={["React"]}
-                        // year="2022"
                         projectId = {4}
                     />
                     <ProjectCard
                         className="col-start-2 row-span-5 row-start-4"
-                        // title="Shipment Tracker"
-                        // stack={["React"]}
-                        // year="2022"
                         projectId = {5}
                     />
                     <ProjectCard
                         className="row-span-4"
-                        // title="Kuba Game"
-                        // stack={["Python"]}
-                        // year="2022"
                         projectId = {6}
                     />
                 </div>

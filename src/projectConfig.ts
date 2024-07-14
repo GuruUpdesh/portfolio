@@ -195,18 +195,67 @@ const HomeDesigner: Project = {
     contributors: ["Liheng Yi"],
 };
 
+const ShipmentTracker: Project = {
+    id: 5,
+    name: "Shipment Tracker",
+    year: 2022,
+    gitHubLink: "https://github.com/GuruUpdesh/taskly",
+    vercelLink: "https://vercel.com/guruupdeshs-projects/taskly",
+    websiteLink: "https://www.tasklypm.com",
+    content: {
+        shortDescription: "",
+        longDescription: "",
+        features: [],
+    },
+    techStack: {
+        frontend: [],
+        state: [],
+        backend: [],
+        testing: [],
+        tools: [],
+    },
+    contributors: [],
+};
+
+const KubaGame: Project = {
+    id: 6,
+    name: "Kuba Game",
+    year: 2022,
+    gitHubLink: "https://github.com/GuruUpdesh/taskly",
+    vercelLink: "https://vercel.com/guruupdeshs-projects/taskly",
+    websiteLink: "https://www.tasklypm.com",
+    content: {
+        shortDescription: "",
+        longDescription: "",
+        features: [],
+    },
+    techStack: {
+        frontend: [],
+        state: [],
+        backend: [],
+        testing: [],
+        tools: [],
+    },
+    contributors: [],
+};
+
+const map: { [key: number]: Project } = {
+    1: Taskly,
+    2: BoatsAndLoads,
+    3: TrackIt,
+    4: HomeDesigner,
+    5: ShipmentTracker,
+    6: KubaGame,
+};
+
 export function getProjectFromId(id: number) {
-    const map: { [key: number]: Project } = {
-        1: Taskly,
-        2: BoatsAndLoads,
-        3: TrackIt,
-        4: HomeDesigner,
-    };
     if (map[id]) {
         return map[id];
     }
     return Taskly;
 }
+
+export const totalProjects = Object.keys(map).length;
 
 type Technology =
     | "Typescript"

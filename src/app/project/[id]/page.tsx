@@ -12,7 +12,7 @@ import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import { getProjectFromId } from "@/projectConfig";
+import { getProjectFromId, totalProjects } from "@/projectConfig";
 import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
@@ -59,24 +59,49 @@ export default function Project({ params: { id } }: Props) {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="outline" size="icon">
-                                        <ArrowLeft className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                    </Button>
+                                    <Link
+                                        href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
+                                    >
+                                        <Button variant="outline" size="icon">
+                                            <ArrowLeft className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
+                                        </Button>
+                                    </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>Shipment Tracker</p>
+                                    <p>
+                                        {
+                                            getProjectFromId(
+                                                ((parseInt(id) -
+                                                    2 +
+                                                    totalProjects) %
+                                                    totalProjects) +
+                                                    1,
+                                            ).name
+                                        }
+                                    </p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Button variant="outline" size="icon">
-                                        <ArrowRight className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                    </Button>
+                                    <Link
+                                        href={`/project/${(parseInt(id) % totalProjects) + 1}`}
+                                    >
+                                        <Button variant="outline" size="icon">
+                                            <ArrowRight className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
+                                        </Button>
+                                    </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>Taskly</p>
+                                    <p>
+                                        {
+                                            getProjectFromId(
+                                                (parseInt(id) % totalProjects) +
+                                                    1,
+                                            ).name
+                                        }
+                                    </p>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
