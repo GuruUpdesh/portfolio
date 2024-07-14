@@ -60,19 +60,24 @@ const TechStackContainer = ({ techStack }: Props) => {
             </div>
             <div className="relative flex items-center justify-center">
                 <div className="stack-container">
-                    {groups.map((group, i) => (
-                        <div
-                            key={i}
-                            className={cn("stack-item", {
-                                "active-stack": i === currentGroup,
-                            })}
-                            title={group}
-                            tabIndex={1}
-                            onMouseEnter={() => handleHover(i)}
-                            onMouseMove={() => handleHover(i)}
-                            onFocus={() => handleHover(i)}
-                        />
-                    ))}
+                    {groups.map((group, i) => {
+                        if (techStack[group].length === 0) {
+                            return null;
+                        }
+                        return (
+                            <div
+                                key={i}
+                                className={cn("stack-item", {
+                                    "active-stack": i === currentGroup,
+                                })}
+                                title={group}
+                                tabIndex={1}
+                                onMouseEnter={() => handleHover(i)}
+                                onMouseMove={() => handleHover(i)}
+                                onFocus={() => handleHover(i)}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         </>

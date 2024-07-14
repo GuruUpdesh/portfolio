@@ -6,7 +6,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon, PersonIcon } from "@radix-ui/react-icons";
 import { ArrowLeft, ArrowRight, File, Play, Star } from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
@@ -130,7 +130,8 @@ export default function Project({ params: { id } }: Props) {
             <section className="section-base !px-40 py-8">
                 <h1 className="py-2 text-2xl">Analytics</h1>
                 <ul className="grid grid-cols-3 gap-2">
-                    <li className="rounded-lg bg-border/5 p-4">
+                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                        <PersonIcon />
                         <h1 className="text-lg font-semibold">
                             360{" "}
                             <span className="font-normal opacity-75">
@@ -165,6 +166,18 @@ export default function Project({ params: { id } }: Props) {
             <section className="section-base grid min-h-[500px] grid-cols-2 rounded-xl bg-border/5 !px-40 py-8">
                 <TechStackContainer techStack={project.techStack} />
             </section>
+            {project.contributors.length > 0 ? (
+                <section className="relative w-full max-w-[1360px] px-40 py-2">
+                    <h1 className="py-2 text-2xl">Contributors</h1>
+                    <ul className="grid grid-cols-3 gap-2">
+                        {project.contributors.map((c, i) => (
+                            <li key={i} className="rounded-lg bg-border/5 p-4">
+                                <h3 className="font-semibold">{c}</h3>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            ) : null}
             <Footer />
         </main>
     );

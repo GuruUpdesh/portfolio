@@ -27,39 +27,39 @@ export default function Portfolio() {
                 <div className="grid min-h-[640px] grid-cols-3 grid-rows-8 gap-[1px] overflow-hidden border border-t-0 bg-border">
                     <ProjectCard
                         className="row-span-4 border-t-0"
-                        title="Taskly"
-                        stack={["Next.js"]}
-                        year="2024"
+                        projectId = {1}
                     />
                     <ProjectCard
                         className="row-span-3 border-t-0"
-                        title="Boats & Loads"
-                        stack={["React"]}
-                        year="2024"
+                        projectId = {2}
                     />
                     <ProjectCard
                         className="row-span-4 border-t-0"
-                        title="TrackIt"
-                        stack={["Next.js"]}
-                        year="2023"
+                        // title="TrackIt"
+                        // stack={["Next.js"]}
+                        // year="2023"
+                        projectId = {1}
                     />
                     <ProjectCard
                         className="col-span-1 col-start-1 row-span-4"
-                        title="Home Designer"
-                        stack={["React"]}
-                        year="2022"
+                        // title="Home Designer"
+                        // stack={["React"]}
+                        // year="2022"
+                        projectId = {1}
                     />
                     <ProjectCard
                         className="col-start-2 row-span-5 row-start-4"
-                        title="Shipment Tracker"
-                        stack={["React"]}
-                        year="2022"
+                        // title="Shipment Tracker"
+                        // stack={["React"]}
+                        // year="2022"
+                        projectId = {1}
                     />
                     <ProjectCard
                         className="row-span-4"
-                        title="Kuba Game"
-                        stack={["Python"]}
-                        year="2022"
+                        // title="Kuba Game"
+                        // stack={["Python"]}
+                        // year="2022"
+                        projectId = {1}
                     />
                 </div>
             </section>

@@ -16,7 +16,12 @@ type ProjectContent = {
     features: string[];
 };
 
-export type TechStackCategory = "frontend" | "state" | "backend" | "testing" | "tools";
+export type TechStackCategory =
+    | "frontend"
+    | "state"
+    | "backend"
+    | "testing"
+    | "tools";
 type Tech = {
     name: Technology;
     version?: string;
@@ -79,7 +84,46 @@ const TasklyProject: Project = {
     contributors: ["Guru Updesh Singh", "Cameron Hollis", "Yash Sankanagouda"],
 };
 
+const BoatsAndLoads: Project = {
+    id: 2,
+    name: "Boats & Loads",
+    year: 2024,
+    gitHubLink: "https://github.com/GuruUpdesh/boats-and-loads-api",
+    content: {
+        shortDescription:
+            "The Portfolio Assignment: The Boats & Loads API allows users to manage boats and their associated loads, featuring secure JWT-based authorization and comprehensive CRUD operations.",
+        longDescription: "",
+        features: [
+            "JWT-based Authorization",
+            "Boat Management",
+            "Load Management",
+            "Pagination Support",
+            "Data Validation",
+            "Relationship Handling",
+        ],
+    },
+    techStack: {
+        frontend: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
+        state: [],
+        backend: [
+            { name: "Node" },
+            { name: "Express" },
+            { name: "Google Datastore" },
+        ],
+        testing: [],
+        tools: [{ name: "VS Code" }, { name: "GitHub" }, { name: "NPM" }],
+    },
+    contributors: [],
+};
+
 export function getProjectFromId(id: number) {
+    const map: { [key: number]: Project } = {
+        1: TasklyProject,
+        2: BoatsAndLoads,
+    };
+    if (map[id]) {
+        return map[id];
+    }
     return TasklyProject;
 }
 
@@ -109,6 +153,7 @@ type Technology =
     | "MySQL"
     | "PostgreSQL"
     | "MongoDB"
+    | "Google Datastore"
     | "Redis"
     | "S3"
     | "RabbitMq"

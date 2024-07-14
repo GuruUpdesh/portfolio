@@ -4,15 +4,18 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import TechStack, { Tech } from "./TechStack";
 import Link from "next/link";
+import { getProjectFromId } from "@/projectConfig";
 
 type Props = {
-    title: string;
-    stack: Tech[];
-    year: string;
+    // title: string;
+    // stack: Tech[];
+    // year: string;
+    projectId: number;
     className?: string;
 };
 
-const ProjectCard = ({ title, stack, year, className }: Props) => {
+const ProjectCard = ({ projectId, className }: Props) => {
+    const project = getProjectFromId(projectId);
     return (
         <div
             className={cn(
@@ -22,19 +25,17 @@ const ProjectCard = ({ title, stack, year, className }: Props) => {
         >
             <div className="flex items-center justify-between px-2">
                 <div className="flex items-center gap-2">
-                    {stack.map((tech) => (
-                        <TechStack key={tech} title={tech} />
-                    ))}
+                    <TechStack title={"Next.js"} />
                 </div>
-                <p>{year}</p>
+                <p>{project.year}</p>
             </div>
             <div className="flex-1"></div>
-            <Link href="/project/1">
+            <Link href={`/project/${project.id}`}>
                 <Button
                     variant="ghost"
-                    className="flex items-center justify-between px-2 w-full"
+                    className="flex w-full items-center justify-between px-2"
                 >
-                    <p className="text-lg">{title}</p>
+                    <p className="text-lg">{project.name}</p>
                     <ArrowRight className="h-4 w-4" />
                 </Button>
             </Link>
