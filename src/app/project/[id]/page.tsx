@@ -26,9 +26,9 @@ type Props = {
 export default function Project({ params: { id } }: Props) {
     const project = getProjectFromId(parseInt(id));
     return (
-        <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden px-5 transition-all sm:px-10 md:px-20">
-            <section className="mb-8 w-full max-w-[1360px] px-40">
-                <div className="flex items-center gap-2 py-4">
+        <>
+            <header className="sticky top-0 z-20 w-full bg-background/50 py-4 backdrop-blur-xl px-5 transition-all sm:px-10 md:px-20 flex justify-center">
+                <div className="flex w-full max-w-[1360px] items-center gap-2 px-40">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -107,103 +107,117 @@ export default function Project({ params: { id } }: Props) {
                         </TooltipProvider>
                     </div>
                 </div>
-                <div className="relative z-10 flex aspect-video w-full items-center justify-center rounded-[40px] border bg-[#0A0A0A]">
-                    <Play className="h-10 w-10" />
-                </div>
-            </section>
-            <section className="flex w-full max-w-[1360px] px-40">
-                <p>{project.content.shortDescription}</p>
-                <div className="flex items-center gap-2">
-                    {project.websiteLink ? (
-                        <Link href={project.websiteLink} target="_blank">
-                            <Button className="rounded-full">Visit</Button>
-                        </Link>
-                    ) : null}
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Link href={project.gitHubLink} target="_blank">
-                                    <Button
-                                        variant="outline"
-                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+            </header>
+            <main className="relative flex min-h-screen w-full flex-col items-center px-5 transition-all sm:px-10 md:px-20">
+                <section className="mb-8 w-full max-w-[1360px] px-40">
+                    <div className="relative z-10 flex aspect-video w-full items-center justify-center rounded-[40px] border bg-[#0A0A0A]">
+                        <Play className="h-10 w-10" />
+                    </div>
+                </section>
+                <section className="flex w-full max-w-[1360px] px-40">
+                    <p>{project.content.shortDescription}</p>
+                    <div className="flex items-center gap-2">
+                        {project.websiteLink ? (
+                            <Link href={project.websiteLink} target="_blank">
+                                <Button className="rounded-full">Visit</Button>
+                            </Link>
+                        ) : null}
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Link
+                                        href={project.gitHubLink}
+                                        target="_blank"
                                     >
-                                        <GitHubLogoIcon className="h-5 w-5 transition-opacity" />
-                                        <span className="hidden transition-opacity lg:block">
-                                            GitHub
-                                        </span>
-                                    </Button>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>See source code on GitHub</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                </div>
-            </section>
-            <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-            <section className="relative w-full max-w-[1360px] px-40 py-2">
-                <h1 className="py-2 text-2xl">Features</h1>
-                <ul className="grid grid-cols-3 gap-2">
-                    {project.content.features.map((feature, i) => (
-                        <li key={i} className="rounded-lg bg-border/5 p-4">
-                            <h3 className="font-semibold">{feature}</h3>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-            <section className="section-base !px-40 py-8">
-                <h1 className="py-2 text-2xl">Analytics</h1>
-                <ul className="grid grid-cols-3 gap-2">
-                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                        <PersonIcon />
-                        <h1 className="text-lg font-semibold">
-                            360{" "}
-                            <span className="font-normal opacity-75">
-                                Users
-                            </span>
-                        </h1>
-                    </li>
-                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                        <Star className="h-4 w-4" />
-                        <h1 className="text-lg font-semibold">
-                            <Suspense fallback={0}>
-                                <GitHubStars gitHubLink={project.gitHubLink} />
-                            </Suspense>{" "}
-                            <span className="font-normal opacity-75">
-                                Stars
-                            </span>
-                        </h1>
-                    </li>
-                    <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                        <File className="h-4 w-4" />
-                        <h1 className="text-lg font-semibold">
-                            <Suspense fallback={0}>
-                                <GitHubFiles gitHubLink={project.gitHubLink} />
-                            </Suspense>{" "}
-                            <span className="font-normal opacity-75">
-                                Files
-                            </span>
-                        </h1>
-                    </li>
-                </ul>
-            </section>
-            <section className="section-base grid min-h-[500px] grid-cols-2 rounded-xl bg-border/5 !px-40 py-8">
-                <TechStackContainer techStack={project.techStack} />
-            </section>
-            {project.contributors.length > 0 ? (
+                                        <Button
+                                            variant="outline"
+                                            className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                        >
+                                            <GitHubLogoIcon className="h-5 w-5 transition-opacity" />
+                                            <span className="hidden transition-opacity lg:block">
+                                                GitHub
+                                            </span>
+                                        </Button>
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>See source code on GitHub</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </div>
+                </section>
+                <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
                 <section className="relative w-full max-w-[1360px] px-40 py-2">
-                    <h1 className="py-2 text-2xl">Contributors</h1>
+                    <h1 className="py-2 text-2xl">Features</h1>
                     <ul className="grid grid-cols-3 gap-2">
-                        {project.contributors.map((c, i) => (
+                        {project.content.features.map((feature, i) => (
                             <li key={i} className="rounded-lg bg-border/5 p-4">
-                                <h3 className="font-semibold">{c}</h3>
+                                <h3 className="font-semibold">{feature}</h3>
                             </li>
                         ))}
                     </ul>
                 </section>
-            ) : null}
-            <Footer />
-        </main>
+                <section className="section-base !px-40 py-8">
+                    <h1 className="py-2 text-2xl">Analytics</h1>
+                    <ul className="grid grid-cols-3 gap-2">
+                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                            <PersonIcon />
+                            <h1 className="text-lg font-semibold">
+                                360{" "}
+                                <span className="font-normal opacity-75">
+                                    Users
+                                </span>
+                            </h1>
+                        </li>
+                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                            <Star className="h-4 w-4" />
+                            <h1 className="text-lg font-semibold">
+                                <Suspense fallback={0}>
+                                    <GitHubStars
+                                        gitHubLink={project.gitHubLink}
+                                    />
+                                </Suspense>{" "}
+                                <span className="font-normal opacity-75">
+                                    Stars
+                                </span>
+                            </h1>
+                        </li>
+                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                            <File className="h-4 w-4" />
+                            <h1 className="text-lg font-semibold">
+                                <Suspense fallback={0}>
+                                    <GitHubFiles
+                                        gitHubLink={project.gitHubLink}
+                                    />
+                                </Suspense>{" "}
+                                <span className="font-normal opacity-75">
+                                    Files
+                                </span>
+                            </h1>
+                        </li>
+                    </ul>
+                </section>
+                <section className="section-base grid min-h-[500px] grid-cols-2 rounded-xl bg-border/5 !px-40 py-8">
+                    <TechStackContainer techStack={project.techStack} />
+                </section>
+                {project.contributors.length > 0 ? (
+                    <section className="relative w-full max-w-[1360px] px-40 py-2">
+                        <h1 className="py-2 text-2xl">Contributors</h1>
+                        <ul className="grid grid-cols-3 gap-2">
+                            {project.contributors.map((c, i) => (
+                                <li
+                                    key={i}
+                                    className="rounded-lg bg-border/5 p-4"
+                                >
+                                    <h3 className="font-semibold">{c}</h3>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                ) : null}
+                <Footer />
+            </main>
+        </>
     );
 }
