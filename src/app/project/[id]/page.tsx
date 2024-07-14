@@ -16,6 +16,7 @@ import { getProjectFromId, totalProjects } from "@/projectConfig";
 import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
+import VercelVisitors from "@/components/project/analytics/VercelVisitors";
 
 type Props = {
     params: {
@@ -27,7 +28,7 @@ export default function Project({ params: { id } }: Props) {
     const project = getProjectFromId(parseInt(id));
     return (
         <>
-            <header className="sticky top-0 z-20 w-full bg-background/50 py-4 backdrop-blur-xl px-5 transition-all sm:px-10 md:px-20 flex justify-center">
+            <header className="sticky top-0 z-20 flex w-full justify-center bg-background/50 px-5 py-4 backdrop-blur-xl transition-all sm:px-10 md:px-20">
                 <div className="flex w-full max-w-[1360px] items-center gap-2 px-40">
                     <TooltipProvider>
                         <Tooltip>
@@ -108,7 +109,7 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </div>
             </header>
-            <main className="relative flex min-h-screen w-full flex-col items-center px-5 transition-all sm:px-10 md:px-20">
+            <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden px-5 transition-all sm:px-10 md:px-20">
                 <section className="mb-8 w-full max-w-[1360px] px-40">
                     <div className="relative z-10 flex aspect-video w-full items-center justify-center rounded-[40px] border bg-[#0A0A0A]">
                         <Play className="h-10 w-10" />
@@ -161,15 +162,24 @@ export default function Project({ params: { id } }: Props) {
                 <section className="section-base !px-40 py-8">
                     <h1 className="py-2 text-2xl">Analytics</h1>
                     <ul className="grid grid-cols-3 gap-2">
-                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                            <PersonIcon />
-                            <h1 className="text-lg font-semibold">
-                                360{" "}
-                                <span className="font-normal opacity-75">
-                                    Users
-                                </span>
-                            </h1>
-                        </li>
+                        {project.vercelProjectId ? (
+                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                                <PersonIcon />
+                                <h1 className="text-lg font-semibold">
+                                    <VercelVisitors
+                                        vercelProjectId={
+                                            project.vercelProjectId
+                                        }
+                                    />{" "}
+                                    <span className="font-normal opacity-75">
+                                        Visitors
+                                    </span>
+                                </h1>
+                                <p className="flex-1 text-right text-sm font-normal opacity-75">
+                                    This Month
+                                </p>
+                            </li>
+                        ) : null}
                         <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
                             <Star className="h-4 w-4" />
                             <h1 className="text-lg font-semibold">

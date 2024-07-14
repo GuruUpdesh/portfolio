@@ -52,15 +52,21 @@ const Footer = () => {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-4"
+                                <Link
+                                    href="/Resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <Download className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100" />
-                                    <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
-                                        Resume
-                                    </span>
-                                </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-4"
+                                    >
+                                        <Download className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100" />
+                                        <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
+                                            Resume
+                                        </span>
+                                    </Button>
+                                </Link>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Download my resume</p>
@@ -70,22 +76,27 @@ const Footer = () => {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                <Link
+                                    href="https://github.com/GuruUpdesh"
+                                    target="_blank"
                                 >
-                                    <GitHubLogoIcon className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
-                                    <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
-                                        GitHub
-                                    </span>
-                                </Button>
+                                    <Button
+                                        variant="outline"
+                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                    >
+                                        <GitHubLogoIcon className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
+                                        <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
+                                            GitHub
+                                        </span>
+                                    </Button>
+                                </Link>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Check out my GitHub</p>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
+                    {/* <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
@@ -102,7 +113,7 @@ const Footer = () => {
                                 <p>Follow me on LinkedIn</p>
                             </TooltipContent>
                         </Tooltip>
-                    </TooltipProvider>
+                    </TooltipProvider> */}
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -116,22 +127,6 @@ const Footer = () => {
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Send me an email</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    size="icon"
-                                    className="group flex items-center gap-2 rounded-full"
-                                >
-                                    <FaDiscord className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Add me on Discord</p>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>

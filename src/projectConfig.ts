@@ -3,7 +3,7 @@ type Project = {
     name: string;
     year: number;
     gitHubLink: string;
-    vercelLink?: string;
+    vercelProjectId?: string;
     websiteLink?: string;
     content: ProjectContent;
     techStack: TechStack;
@@ -35,7 +35,7 @@ const Taskly: Project = {
     name: "Taskly",
     year: 2024,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    vercelLink: "https://vercel.com/guruupdeshs-projects/taskly",
+    vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",
     websiteLink: "https://www.tasklypm.com",
     content: {
         shortDescription:
@@ -121,7 +121,7 @@ const TrackIt: Project = {
     name: "TrackIt",
     year: 2023,
     gitHubLink: "https://github.com/GuruUpdesh/track-it",
-    vercelLink: "https://vercel.com/guruupdeshs-projects/track-it",
+    vercelProjectId: "prj_VuKOQZjJA3tFdhvtxTXPvB7M9ma3",
     websiteLink: "https://tackit.guruupdeshsingh.dev",
     content: {
         shortDescription:
@@ -167,7 +167,7 @@ const HomeDesigner: Project = {
     name: "Home Designer",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/Home-Designer",
-    vercelLink: "https://vercel.com/guruupdeshs-projects/home-designer",
+    vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
     websiteLink: "https://homedesigner.guruupdeshsingh.dev",
     content: {
         shortDescription:
@@ -200,7 +200,6 @@ const ShipmentTracker: Project = {
     name: "Shipment Tracker",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    vercelLink: "https://vercel.com/guruupdeshs-projects/taskly",
     websiteLink: "https://www.tasklypm.com",
     content: {
         shortDescription: "",
@@ -222,7 +221,6 @@ const KubaGame: Project = {
     name: "Kuba Game",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    vercelLink: "https://vercel.com/guruupdeshs-projects/taskly",
     websiteLink: "https://www.tasklypm.com",
     content: {
         shortDescription: "",

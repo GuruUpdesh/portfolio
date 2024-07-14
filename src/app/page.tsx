@@ -27,28 +27,25 @@ export default function Portfolio() {
                 <div className="grid min-h-[640px] grid-cols-3 grid-rows-8 gap-[1px] overflow-hidden border border-t-0 bg-border">
                     <ProjectCard
                         className="row-span-4 border-t-0"
-                        projectId = {1}
+                        projectId={1}
                     />
                     <ProjectCard
                         className="row-span-3 border-t-0"
-                        projectId = {2}
+                        projectId={2}
                     />
                     <ProjectCard
                         className="row-span-4 border-t-0"
-                        projectId = {3}
+                        projectId={3}
                     />
                     <ProjectCard
                         className="col-span-1 col-start-1 row-span-4"
-                        projectId = {4}
+                        projectId={4}
                     />
                     <ProjectCard
                         className="col-start-2 row-span-5 row-start-4"
-                        projectId = {5}
+                        projectId={5}
                     />
-                    <ProjectCard
-                        className="row-span-4"
-                        projectId = {6}
-                    />
+                    <ProjectCard className="row-span-4" projectId={6} />
                 </div>
             </section>
             <section className="section-base border border-transparent">
