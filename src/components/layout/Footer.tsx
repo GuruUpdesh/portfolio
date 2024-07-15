@@ -15,7 +15,7 @@ import {
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col pb-10 pt-20">
+        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col px-10 pb-10 pt-20 sm:px-0">
             <div className="flex-1" />
             <nav className="mb-5 flex w-full items-center justify-between overflow-hidden">
                 <Link
@@ -24,7 +24,7 @@ const Footer = () => {
                 >
                     guruupdeshsingh.dev
                 </Link>
-                <ul className="ml-20 flex items-center gap-4">
+                <ul className="hidden items-center gap-4 sm:flex">
                     <li>
                         <Link
                             href="/projects"

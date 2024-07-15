@@ -3,15 +3,15 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <header className="z-10 w-full max-w-[1360px] rounded-b-[80px] border border-t-0 bg-background px-20 pb-5 pt-10">
-            <nav className="mb-5 flex w-full items-center justify-between overflow-hidden">
+        <header className="z-10 w-full max-w-[1360px] rounded-b-[40px] border bg-background px-5 pb-5 pt-2 transition-all sm:border-t-0 md:rounded-b-[80px] md:px-20 md:pt-10">
+            <nav className="mb-2 flex w-full items-center justify-between overflow-hidden md:mb-5">
                 <Link
                     href="/"
                     className="text-sm opacity-70 transition-opacity hover:opacity-100 md:text-base"
                 >
                     guruupdeshsingh.dev
                 </Link>
-                <ul className="ml-20 flex items-center gap-4">
+                <ul className="ml-20 hidden items-center gap-4 md:flex">
                     <li>
                         <Link
                             href="/projects"
@@ -36,11 +36,15 @@ const Header = () => {
                     <span className="opacity-70">I’m</span> Guru Updesh Singh
                 </h1>
                 <div className="pl-5 opacity-70 lg:pl-[60px]">
-                    <h1 className="whitespace-nowrap">
+                    <h2 className="text-base md:text-inherit">
                         I focus in full stack, cybersecurity, and design
-                    </h1>
-                    <h1 className="whitespace-nowrap">I love to build</h1>
-                    <h1 className="whitespace-nowrap">this is my portfolio!</h1>
+                    </h2>
+                    <h2 className="text-base md:text-inherit">
+                        I love to build
+                    </h2>
+                    <h2 className="text-base md:text-inherit">
+                        this is my portfolio!
+                    </h2>
                 </div>
             </div>
         </header>

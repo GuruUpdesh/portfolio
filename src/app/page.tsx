@@ -9,7 +9,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 export default function Portfolio() {
     return (
-        <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden px-5 transition-all sm:px-10 md:px-20">
+        <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
             <Header />
             <section
                 className="extend-border-lines section-base rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
@@ -66,15 +66,13 @@ export default function Portfolio() {
                     }
                 >
                     <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
-                        <div className="relative min-h-[100px] md:col-span-3">
-                            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent">
-                                <p className="bg-gradient-to-t p-5 pt-0 text-sm opacity-70 xl:p-10 xl:text-base xl:leading-8">
-                                    I’m a new computer science graduate from
-                                    Oregon State University with a focus in
-                                    cybersecurity and full stack web
-                                    development.
-                                </p>
-                            </div>
+                        <div className="relative flex flex-col md:col-span-3">
+                            <div className="flex-1" />
+                            <p className="bg-gradient-to-t p-5 text-sm opacity-70 xl:p-10 xl:text-base xl:leading-8">
+                                I’m a new computer science graduate from Oregon
+                                State University with a focus in cybersecurity
+                                and full stack web development.
+                            </p>
                         </div>
                         <ContactForm />
                     </div>
