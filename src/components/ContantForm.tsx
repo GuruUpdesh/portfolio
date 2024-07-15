@@ -68,7 +68,7 @@ const ContactForm = () => {
 
     if (submitted) {
         return (
-            <div className="col-span-2 flex flex-1 flex-col items-center justify-between border-l bg-[#0A0A0A] p-8">
+            <div className="order-t flex flex-1 flex-col items-center justify-between bg-[#0A0A0A] p-8 sm:border-l sm:border-t-0 md:col-span-2">
                 <div className="w-full">
                     <TooltipProvider>
                         <Tooltip>
@@ -106,7 +106,7 @@ const ContactForm = () => {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="col-span-2 flex flex-col border-l bg-[#0A0A0A] p-2"
+                className="flex flex-col border-t bg-[#0A0A0A] p-2 sm:border-l sm:border-t-0 md:col-span-2"
             >
                 <FormField
                     control={form.control}
@@ -159,7 +159,7 @@ const ContactForm = () => {
                 <Button
                     type="submit"
                     variant="ghost"
-                    className="justify-between rounded-br-[32px]"
+                    className="justify-between rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl"
                 >
                     {form.formState.isSubmitting ? "Contacting" : "Contact"}
                     {form.formState.isSubmitting ? (

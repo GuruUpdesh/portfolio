@@ -18,7 +18,23 @@ const ProjectsDivider = (props: ProjectsDividerProps) => {
                 containerRef={containerRef}
                 intersectionOffset={81}
                 direction="bottom"
+                cut="bottom"
+                className="opacity-0 transition-opacity lg:opacity-100"
             />
+            <DynamicCircle
+                containerRef={containerRef}
+                intersectionOffset={-160}
+                direction="bottom"
+                cut="bottom"
+                className="opacity-0 transition-opacity md:opacity-100 lg:opacity-0"
+            />
+            {/* <DynamicCircle
+                containerRef={containerRef}
+                intersectionOffset={-160}
+                direction="bottom"
+                cut="bottom"
+                className="opacity-0 transition-opacity md:opacity-100 xl:opacity-0"
+            /> */}
         </div>
     );
 };

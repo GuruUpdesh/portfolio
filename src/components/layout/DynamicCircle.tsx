@@ -2,18 +2,23 @@
 
 import { cn } from "@/lib/utils";
 import { findRadius } from "@/utils/circleCalculations";
+import { CircleCut, getMaskImage } from "@/utils/cricleMask";
 import React, { useEffect, useState } from "react";
 
 type Props = {
     containerRef: React.RefObject<HTMLDivElement>;
     intersectionOffset: number;
     direction: "top" | "bottom";
+    cut?: CircleCut;
+    className?: String;
 };
 
 const DynamicCircle = ({
     containerRef,
     intersectionOffset,
     direction,
+    cut,
+    className,
 }: Props) => {
     const [currentRadius, setCurrentRadius] = useState(100);
     useEffect(() => {
@@ -48,6 +53,7 @@ const DynamicCircle = ({
         <div
             style={{
                 width: `${currentRadius * 2}px`,
+                maskImage: getMaskImage(cut),
             }}
             className={cn(
                 "pointer-events-none absolute left-[50%] aspect-square translate-x-[-50%] rounded-[50%] border",
@@ -55,6 +61,7 @@ const DynamicCircle = ({
                     "top-0": direction == "bottom",
                     "bottom-0": direction == "top",
                 },
+                className,
             )}
         ></div>
     );

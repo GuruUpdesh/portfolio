@@ -30,17 +30,17 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <div className="py-2 text-xl md:text-2xl">
+            <div className="py-2 text-lg md:text-xl lg:text-2xl">
                 <h1 className="opacity-70">Hey!</h1>
                 <h1>
                     <span className="opacity-70">I’m</span> Guru Updesh Singh
                 </h1>
-                <div className="pl-[60px] opacity-70">
-                    <h1 className="hidden md:block">
+                <div className="pl-5 opacity-70 lg:pl-[60px]">
+                    <h1 className="whitespace-nowrap">
                         I focus in full stack, cybersecurity, and design
                     </h1>
-                    <h1 className="hidden md:block">I love to build</h1>
-                    <h1>this is my portfolio!</h1>
+                    <h1 className="whitespace-nowrap">I love to build</h1>
+                    <h1 className="whitespace-nowrap">this is my portfolio!</h1>
                 </div>
             </div>
         </header>
