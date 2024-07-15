@@ -116,6 +116,7 @@ const ContactForm = () => {
                             <FormControl>
                                 <Input
                                     placeholder="name"
+                                    type="text"
                                     {...field}
                                     className="border-hidden bg-transparent"
                                 />
@@ -132,6 +133,7 @@ const ContactForm = () => {
                             <FormControl>
                                 <Input
                                     placeholder="email"
+                                    type="email"
                                     {...field}
                                     className="border-hidden bg-transparent"
                                 />
