@@ -7,7 +7,15 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { GitHubLogoIcon, PersonIcon } from "@radix-ui/react-icons";
-import { ArrowLeft, ArrowRight, File, Play, Star } from "lucide-react";
+import {
+    ArrowLeft,
+    ArrowRight,
+    ChevronDown,
+    ChevronUp,
+    File,
+    Play,
+    Star,
+} from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
 import Footer from "@/components/layout/Footer";
@@ -17,6 +25,7 @@ import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
 import VercelVisitors from "@/components/project/analytics/VercelVisitors";
+import Image from "next/image";
 
 type Props = {
     params: {
@@ -63,8 +72,8 @@ export default function Project({ params: { id } }: Props) {
                                     <Link
                                         href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
                                     >
-                                        <Button variant="outline" size="icon">
-                                            <ArrowLeft className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
+                                        <Button variant="ghost" size="icon">
+                                            <ChevronUp className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                         </Button>
                                     </Link>
                                 </TooltipTrigger>
@@ -89,8 +98,8 @@ export default function Project({ params: { id } }: Props) {
                                     <Link
                                         href={`/project/${(parseInt(id) % totalProjects) + 1}`}
                                     >
-                                        <Button variant="outline" size="icon">
-                                            <ArrowRight className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
+                                        <Button variant="ghost" size="icon">
+                                            <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                         </Button>
                                     </Link>
                                 </TooltipTrigger>
@@ -116,13 +125,10 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </section>
                 <section className="flex w-full max-w-[1360px] px-40">
-                    <p>{project.content.shortDescription}</p>
-                    <div className="flex items-center gap-2">
-                        {project.websiteLink ? (
-                            <Link href={project.websiteLink} target="_blank">
-                                <Button className="rounded-full">Visit</Button>
-                            </Link>
-                        ) : null}
+                    <p className="font-light leading-7">
+                        {project.content.shortDescription}
+                    </p>
+                    <div className="ml-2 flex items-center gap-2">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -146,86 +152,116 @@ export default function Project({ params: { id } }: Props) {
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
+                        {project.websiteLink ? (
+                            <Link href={project.websiteLink} target="_blank">
+                                <Button className="rounded-full">Visit</Button>
+                            </Link>
+                        ) : null}
                     </div>
                 </section>
                 <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                <section className="relative w-full max-w-[1360px] px-40 py-2">
-                    <h1 className="py-2 text-2xl">Features</h1>
-                    <ul className="grid grid-cols-3 gap-2">
-                        {project.content.features.map((feature, i) => (
-                            <li key={i} className="rounded-lg bg-border/5 p-4">
-                                <h3 className="font-semibold">{feature}</h3>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-                <section className="section-base !px-40 py-8">
-                    <h1 className="py-2 text-2xl">Analytics</h1>
-                    <ul className="grid grid-cols-3 gap-2">
-                        {project.vercelProjectId ? (
-                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                                <PersonIcon />
-                                <h1 className="text-lg font-semibold">
-                                    <VercelVisitors
-                                        vercelProjectId={
-                                            project.vercelProjectId
-                                        }
-                                    />{" "}
-                                    <span className="font-normal opacity-75">
-                                        Visitors
-                                    </span>
-                                </h1>
-                                <p className="flex-1 text-right text-sm font-normal opacity-75">
-                                    This Month
-                                </p>
-                            </li>
-                        ) : null}
-                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                            <Star className="h-4 w-4" />
-                            <h1 className="text-lg font-semibold">
-                                <Suspense fallback={0}>
-                                    <GitHubStars
-                                        gitHubLink={project.gitHubLink}
-                                    />
-                                </Suspense>{" "}
-                                <span className="font-normal opacity-75">
-                                    Stars
-                                </span>
-                            </h1>
-                        </li>
-                        <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
-                            <File className="h-4 w-4" />
-                            <h1 className="text-lg font-semibold">
-                                <Suspense fallback={0}>
-                                    <GitHubFiles
-                                        gitHubLink={project.gitHubLink}
-                                    />
-                                </Suspense>{" "}
-                                <span className="font-normal opacity-75">
-                                    Files
-                                </span>
-                            </h1>
-                        </li>
-                    </ul>
-                </section>
-                <section className="section-base grid min-h-[500px] grid-cols-2 rounded-xl bg-border/5 !px-40 py-8">
-                    <TechStackContainer techStack={project.techStack} />
-                </section>
-                {project.contributors.length > 0 ? (
-                    <section className="relative w-full max-w-[1360px] px-40 py-2">
-                        <h1 className="py-2 text-2xl">Contributors</h1>
-                        <ul className="grid grid-cols-3 gap-2">
-                            {project.contributors.map((c, i) => (
+                <div className="my-10 grid h-[800px] w-full grid-cols-4 grid-rows-2 gap-2">
+                    <div className="relative col-span-3 overflow-hidden rounded-lg bg-border/5">
+                        <Image
+                            src="/projects/taskly/homepage.png"
+                            fill
+                            className="object-cover object-top"
+                            alt=""
+                        />
+                    </div>
+                    <div className="relative overflow-hidden rounded-lg bg-border/5">
+                        <Image
+                            src="/projects/taskly/homepage.png"
+                            fill
+                            className="object-cover object-top"
+                            alt=""
+                        />
+                    </div>
+                    <div className="relative overflow-hidden rounded-lg bg-border/5">
+                        <Image
+                            src="/projects/taskly/homepage.png"
+                            fill
+                            className="object-cover object-top"
+                            alt=""
+                        />
+                    </div>
+                    <div className="relative col-span-3 overflow-hidden rounded-lg bg-border/5">
+                        <Image
+                            src="/projects/taskly/homepage.png"
+                            fill
+                            className="object-cover object-top"
+                            alt=""
+                        />
+                    </div>
+                </div>
+                <section className="relative w-full max-w-[1360px] px-40 py-6">
+                    {project.content.detailedContent}
+                    <div className="mb-16">
+                        <h1 className="py-2 text-2xl">Features</h1>
+                        <ul className="grid grid-cols-4 gap-2">
+                            {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
                                     className="rounded-lg bg-border/5 p-4"
                                 >
-                                    <h3 className="font-semibold">{c}</h3>
+                                    <h3 className="font-semibold">{feature}</h3>
                                 </li>
                             ))}
                         </ul>
-                    </section>
-                ) : null}
+                    </div>
+                    <div>
+                        <h1 className="py-2 text-2xl">Analytics</h1>
+                        <ul className="grid grid-cols-3 gap-2">
+                            {project.vercelProjectId ? (
+                                <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                                    <PersonIcon />
+                                    <h1 className="text-lg font-semibold">
+                                        <VercelVisitors
+                                            vercelProjectId={
+                                                project.vercelProjectId
+                                            }
+                                        />{" "}
+                                        <span className="font-normal opacity-75">
+                                            Visitors
+                                        </span>
+                                    </h1>
+                                    <p className="flex-1 text-right text-sm font-normal opacity-75">
+                                        This Month
+                                    </p>
+                                </li>
+                            ) : null}
+                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                                <Star className="h-4 w-4" />
+                                <h1 className="text-lg font-semibold">
+                                    <Suspense fallback={0}>
+                                        <GitHubStars
+                                            gitHubLink={project.gitHubLink}
+                                        />
+                                    </Suspense>{" "}
+                                    <span className="font-normal opacity-75">
+                                        Stars
+                                    </span>
+                                </h1>
+                            </li>
+                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                                <File className="h-4 w-4" />
+                                <h1 className="text-lg font-semibold">
+                                    <Suspense fallback={0}>
+                                        <GitHubFiles
+                                            gitHubLink={project.gitHubLink}
+                                        />
+                                    </Suspense>{" "}
+                                    <span className="font-normal opacity-75">
+                                        Files
+                                    </span>
+                                </h1>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section className="section-base grid grid-cols-2 px-40">
+                    <TechStackContainer techStack={project.techStack} />
+                </section>
                 <Footer />
             </main>
         </>
