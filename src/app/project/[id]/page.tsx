@@ -12,8 +12,6 @@ import {
     ArrowRight,
     ChevronDown,
     ChevronUp,
-    Download,
-    ExternalLink,
     File,
     Play,
     Star,
@@ -125,15 +123,30 @@ export default function Project({ params: { id } }: Props) {
             </header>
             <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
                 <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
-                    <div className="relative z-10 flex aspect-video w-full items-center justify-center rounded-[40px] border bg-[#0A0A0A]">
+                    <div className="relative z-10 overflow-hidden flex aspect-video w-full items-center justify-center rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
+                        <video
+                            autoPlay
+                            muted
+                            playsInline
+                            controls
+                            loop
+                            preload="none"
+                            aria-label=""
+                        >
+                            <source
+                                src="/projects/trackit/demo.mp4"
+                                type="video/mp4"
+                            />
+                            Your borwser does not support the video tag.
+                        </video>
                         <Play className="h-10 w-10" />
                     </div>
                 </section>
-                <section className="flex w-full max-w-[1360px] flex-col-reverse lg:flex-row gap-2 px-5 transition-all lg:px-20 xl:px-40">
+                <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
                     <p className="font-light leading-7">
                         {project.content.shortDescription}
                     </p>
-                    <div className="flex items-center gap-2 justify-end">
+                    <div className="flex items-center justify-end gap-2">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -146,9 +159,7 @@ export default function Project({ params: { id } }: Props) {
                                             className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
                                         >
                                             <GitHubLogoIcon className="h-5 w-5" />
-                                            <span>
-                                                GitHub
-                                            </span>
+                                            <span>GitHub</span>
                                         </Button>
                                     </Link>
                                 </TooltipTrigger>
@@ -170,9 +181,7 @@ export default function Project({ params: { id } }: Props) {
                                                 target="_blank"
                                             >
                                                 <Button className="rounded-full px-2.5 lg:px-3">
-                                                    <span>
-                                                        Visit
-                                                    </span>
+                                                    <span>Visit</span>
                                                 </Button>
                                             </Link>
                                         </Link>
@@ -186,49 +195,51 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </section>
                 <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                <div className="my-10 grid h-[800px] w-full grid-cols-5 grid-rows-2 gap-5">
-                    <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                        <Image
-                            src="/projects/taskly/backlog.png"
-                            fill
-                            className="object-cover object-top"
-                            alt=""
-                        />
+                {project.images && project.images.length > 0 ? (
+                    <div className="my-10 grid h-[800px] w-full grid-cols-5 grid-rows-2 gap-5">
+                        <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
+                            <Image
+                                src="/projects/taskly/backlog.png"
+                                fill
+                                className="object-cover object-top"
+                                alt=""
+                            />
+                        </div>
+                        <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
+                            <Image
+                                src="/projects/taskly/dashboard.png"
+                                fill
+                                className="object-cover object-top"
+                                alt=""
+                            />
+                        </div>
+                        <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
+                            <Image
+                                src="/projects/taskly/homepage.png"
+                                fill
+                                className="object-cover object-top"
+                                alt=""
+                            />
+                        </div>
+                        <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
+                            <Image
+                                src="/projects/taskly/task.png"
+                                fill
+                                className="object-cover object-right-top"
+                                alt=""
+                            />
+                        </div>
                     </div>
-                    <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                        <Image
-                            src="/projects/taskly/dashboard.png"
-                            fill
-                            className="object-cover object-top"
-                            alt=""
-                        />
-                    </div>
-                    <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                        <Image
-                            src="/projects/taskly/homepage.png"
-                            fill
-                            className="object-cover object-top"
-                            alt=""
-                        />
-                    </div>
-                    <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                        <Image
-                            src="/projects/taskly/task.png"
-                            fill
-                            className="object-cover object-right-top"
-                            alt=""
-                        />
-                    </div>
-                </div>
+                ) : null}
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
                         <h1 className="py-2 text-2xl">Features</h1>
-                        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                        <ul className="grid grid-cols-2 gap-2 lg:grid-cols-4">
                             {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
-                                    className="rounded-lg bg-border/5 p-4 pr-0 whitespace-nowrap overflow-hidden"
+                                    className="overflow-hidden whitespace-nowrap rounded-lg bg-border/5 p-4 pr-0"
                                 >
                                     <h3 className="font-semibold">{feature}</h3>
                                 </li>
@@ -238,7 +249,7 @@ export default function Project({ params: { id } }: Props) {
                     <TechStackContainer techStack={project.techStack} />
                     <div>
                         <h1 className="py-2 text-2xl">Analytics</h1>
-                        <ul className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
                             {project.vercelProjectId ? (
                                 <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
                                     <PersonIcon />
@@ -283,14 +294,20 @@ export default function Project({ params: { id } }: Props) {
                         </ul>
                     </div>
                     <div className="flex w-full justify-between gap-4">
-                        <h1 className="flex items-center gap-4 text-4xl">
+                        <Link
+                            href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
+                            className="flex items-center gap-4 text-4xl"
+                        >
                             <ArrowLeft />
                             Last Project
-                        </h1>
-                        <h1 className="flex items-center gap-4 text-4xl">
+                        </Link>
+                        <Link
+                            href={`/project/${(parseInt(id) % totalProjects) + 1}`}
+                            className="flex items-center gap-4 text-4xl"
+                        >
                             Next Project
                             <ArrowRight />
-                        </h1>
+                        </Link>
                     </div>
                 </section>
                 <Footer />

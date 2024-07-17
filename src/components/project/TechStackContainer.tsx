@@ -64,6 +64,10 @@ const TechStackContainer = ({ techStack }: Props) => {
             <div className="relative flex items-center justify-end">
                 <div className="stack-container">
                     {groups.map((group, i) => {
+                        if (techStack[group].length === 0) {
+                            return null;
+                        }
+
                         return (
                             <div
                                 key={i}

@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Project } from "./projectConfig";
 
-const imagesDirectory = "/projects/taskly/";
-
 const Taskly: Project = {
     id: 1,
     name: "Taskly",
@@ -10,6 +8,12 @@ const Taskly: Project = {
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
     vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",
     websiteLink: "https://www.tasklypm.com",
+    images: [
+        "/projects/taskly/backlog.png",
+        "/projects/taskly/dashboard.png",
+        "/projects/taskly/homepage.png",
+        "/projects/taskly/task.png",
+    ],
     content: {
         shortDescription: (
             <p>
@@ -221,7 +225,6 @@ const Taskly: Project = {
             { name: "NPM" },
         ],
     },
-    contributors: [],
 };
 
 export default Taskly;

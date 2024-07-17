@@ -49,6 +49,9 @@ export default function Portfolio() {
                         className="lg:col-start-2 lg:row-span-5 lg:row-start-4"
                         projectId={5}
                     />
+                    <ProjectCard className="" projectId={7} />
+                    <ProjectCard className="" projectId={8} />
+                    <ProjectCard className="" projectId={9} />
                     <ProjectCard className="lg:row-span-4" projectId={6} />
                 </div>
             </section>
