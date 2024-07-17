@@ -1,7 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { TechStack, TechStackCategory } from "@/projectConfig";
+import {
+    TechStack,
+    TechStackCategory,
+} from "@/app/project/[id]/config/projectConfig";
 import React, { useEffect, useState } from "react";
 import {
     Tooltip,
@@ -38,7 +41,7 @@ const TechStackContainer = ({ techStack }: Props) => {
     }, [currentGroup]);
 
     return (
-        <>
+        <div className="grid grid-cols-2">
             <div className="pt-20">
                 <h1
                     key={groups[currentGroup]}
@@ -58,7 +61,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                     ))}
                 </div>
             </div>
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-end">
                 <div className="stack-container">
                     {groups.map((group, i) => {
                         return (
@@ -77,7 +80,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                     })}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

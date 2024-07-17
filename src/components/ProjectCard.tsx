@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import TechStack, { Tech } from "./TechStack";
 import Link from "next/link";
-import { getProjectFromId } from "@/projectConfig";
+import { getProjectFromId } from "@/app/project/[id]/config/projectConfig";
 
 type Props = {
     projectId: number;

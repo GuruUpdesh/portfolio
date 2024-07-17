@@ -1,5 +1,5 @@
 .stack-container {
-    width: 400px;
+    width: 410px;
     height: 400px;
     perspective: 15000px;
     transform-style: preserve-3d;
@@ -7,8 +7,8 @@
 }
 
 .stack-item {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
