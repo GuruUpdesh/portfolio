@@ -29,6 +29,7 @@ import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
 import VercelVisitors from "@/components/project/analytics/VercelVisitors";
 import Image from "next/image";
+import Gallery from "@/components/project/Gallery";
 
 type Props = {
     params: {
@@ -123,7 +124,7 @@ export default function Project({ params: { id } }: Props) {
             </header>
             <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
                 <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
-                    <div className="relative z-10 overflow-hidden flex aspect-video w-full items-center justify-center rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
+                    <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
                         <video
                             autoPlay
                             muted
@@ -195,42 +196,7 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </section>
                 <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                {project.images && project.images.length > 0 ? (
-                    <div className="my-10 grid h-[800px] w-full grid-cols-5 grid-rows-2 gap-5">
-                        <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                            <Image
-                                src="/projects/taskly/backlog.png"
-                                fill
-                                className="object-cover object-top"
-                                alt=""
-                            />
-                        </div>
-                        <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                            <Image
-                                src="/projects/taskly/dashboard.png"
-                                fill
-                                className="object-cover object-top"
-                                alt=""
-                            />
-                        </div>
-                        <div className="relative col-span-2 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                            <Image
-                                src="/projects/taskly/homepage.png"
-                                fill
-                                className="object-cover object-top"
-                                alt=""
-                            />
-                        </div>
-                        <div className="relative col-span-3 overflow-hidden rounded-xl border border-border/5 bg-border/5">
-                            <Image
-                                src="/projects/taskly/task.png"
-                                fill
-                                className="object-cover object-right-top"
-                                alt=""
-                            />
-                        </div>
-                    </div>
-                ) : null}
+                <Gallery images={project.images} />
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>

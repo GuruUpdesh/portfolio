@@ -29,8 +29,8 @@ const BoatsAndLoads: Project = {
                         development skills and concepts, including RESTful API
                         design, user authentication, and cloud deployment. The
                         system is built to handle essential maritime logistics,
-                        providing users with an intuitive interface to manage
-                        their boats and loads securely.
+                        and serves as the final project for{" "}
+                        <b>CS 493 Cloud Application Development</b>.
                     </p>
                 </div>
                 <div>
@@ -54,6 +54,7 @@ const BoatsAndLoads: Project = {
             "Data Validation",
         ],
     },
+    primaryTech: "Express",
     techStack: {
         frontend: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
         state: [],
@@ -61,9 +62,15 @@ const BoatsAndLoads: Project = {
             { name: "Node" },
             { name: "Express" },
             { name: "Google Datastore" },
+            { name: "Auth0" },
         ],
         testing: [],
-        tools: [{ name: "VS Code" }, { name: "GitHub" }, { name: "NPM" }],
+        tools: [
+            { name: "VS Code" },
+            { name: "GitHub" },
+            { name: "NPM" },
+            { name: "Postman" },
+        ],
     },
 };
 

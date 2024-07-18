@@ -22,7 +22,7 @@ const ProjectCard = ({ projectId, className }: Props) => {
         >
             <div className="flex items-center justify-between px-2">
                 <div className="flex items-center gap-2">
-                    <TechStack title={"Next.js"} />
+                    <TechStack title={project.primaryTech} />
                 </div>
                 <p>{project.year}</p>
             </div>

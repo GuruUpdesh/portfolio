@@ -2,6 +2,9 @@ import React from "react";
 import Taskly from "./taskly";
 import BoatsAndLoads from "./boatsandloads";
 import TrackIt from "./trackit";
+import HomeDesigner from "./homeDesigner";
+import ShipmentTracker from "./shipmentTracker";
+import { PrimaryTech } from "@/components/TechStack";
 
 export type Project = {
     id: number;
@@ -12,6 +15,7 @@ export type Project = {
     websiteLink?: string;
     images?: string[];
     content: ProjectContent;
+    primaryTech: PrimaryTech;
     techStack: TechStack;
 };
 
@@ -35,58 +39,6 @@ export type TechStack = {
     [category in TechStackCategory]: Tech[];
 };
 
-const HomeDesigner: Project = {
-    id: 4,
-    name: "Home Designer",
-    year: 2022,
-    gitHubLink: "https://github.com/GuruUpdesh/Home-Designer",
-    vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
-    websiteLink: "https://homedesigner.guruupdeshsingh.dev",
-    content: {
-        shortDescription:
-            "Home Designer is the final project for my introduction to databases class, where we learned about database design, SQL, and normalization.",
-        detailedContent: "",
-        features: [
-            "Centralized Tracking Dashboard",
-            "Multi-Courier Support",
-            "Detailed Tracking History",
-            "Accessible UI",
-            "Power User Friendly",
-        ],
-    },
-    techStack: {
-        frontend: [{ name: "React", version: "17.0" }, { name: "SCSS" }],
-        state: [],
-        backend: [
-            { name: "Node" },
-            { name: "Express", version: "4.17" },
-            { name: "MySQL", version: "2.18" },
-        ],
-        testing: [],
-        tools: [{ name: "VS Code" }, { name: "GitHub" }, { name: "NPM" }],
-    },
-};
-
-const ShipmentTracker: Project = {
-    id: 5,
-    name: "Shipment Tracker",
-    year: 2022,
-    gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    websiteLink: "https://www.tasklypm.com",
-    content: {
-        shortDescription: "",
-        detailedContent: "",
-        features: [],
-    },
-    techStack: {
-        frontend: [],
-        state: [],
-        backend: [],
-        testing: [],
-        tools: [],
-    },
-};
-
 const KubaGame: Project = {
     id: 6,
     name: "Kuba Game",
@@ -98,6 +50,7 @@ const KubaGame: Project = {
         detailedContent: "",
         features: [],
     },
+    primaryTech: "Python",
     techStack: {
         frontend: [],
         state: [],
@@ -118,6 +71,7 @@ const EffortlessEats: Project = {
         detailedContent: "",
         features: [],
     },
+    primaryTech: "Figma",
     techStack: {
         frontend: [],
         state: [],
@@ -138,6 +92,7 @@ const MobileTreasureHunt: Project = {
         detailedContent: "",
         features: [],
     },
+    primaryTech: "Jetpack Compose",
     techStack: {
         frontend: [],
         state: [],
@@ -158,6 +113,7 @@ const Portfolio: Project = {
         detailedContent: "",
         features: [],
     },
+    primaryTech: "Next.js",
     techStack: {
         frontend: [],
         state: [],
@@ -247,4 +203,6 @@ type Technology =
     | "Context API"
     | "Zustand"
     | "Jest"
-    | "Cypress";
+    | "Postman"
+    | "Cypress"
+    | "Auth0";

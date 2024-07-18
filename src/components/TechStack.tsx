@@ -3,11 +3,20 @@ import { FaPython, FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { PiFileSql } from "react-icons/pi";
 import { SiNextdotjs } from "react-icons/si";
+import { Dot } from "lucide-react";
 
-export type Tech = "Next.js" | "React" | "Python" | "SQL" | "Mongo";
+export type PrimaryTech =
+    | "Next.js"
+    | "React"
+    | "Python"
+    | "SQL"
+    | "Mongo"
+    | "Express"
+    | "Jetpack Compose"
+    | "Figma";
 
 type Props = {
-    title: Tech;
+    title: PrimaryTech;
 };
 
 function getIcon(title: Props["title"]) {
@@ -22,6 +31,8 @@ function getIcon(title: Props["title"]) {
             return <PiFileSql />;
         case "Mongo":
             return <DiMongodb />;
+        default:
+            return <Dot />;
     }
 }
 
