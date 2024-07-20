@@ -12,37 +12,20 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Navigation from "./Navigation";
 
 const Footer = () => {
     return (
         <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col px-10 pb-10 pt-20 sm:px-0">
             <div className="flex-1" />
-            <nav className="mb-5 flex w-full items-center justify-between overflow-hidden">
+            <div className="mb-5 flex w-full items-center justify-between">
                 <Link
                     href="/"
                     className="text-sm opacity-50 transition-opacity hover:opacity-100 md:text-base"
                 >
                     guruupdeshsingh.dev
                 </Link>
-                <ul className="hidden items-center gap-4 sm:flex">
-                    <li>
-                        <Link
-                            href="/projects"
-                            className="text-sm opacity-50 transition-opacity hover:opacity-100 md:text-base"
-                        >
-                            projects
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/contact"
-                            className="text-sm opacity-50 transition-opacity hover:opacity-100 md:text-base"
-                        >
-                            contact
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+            </div>
             <Separator className="opacity-25" />
             <div className="flex justify-between py-4">
                 <p className="text-xs opacity-50 md:text-sm">

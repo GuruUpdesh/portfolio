@@ -142,7 +142,9 @@ export function getProjectFromId(id: number) {
     return Taskly;
 }
 
-export const totalProjects = Object.keys(map).length;
+export const allProjects = Object.keys(map);
+
+export const totalProjects = allProjects.length;
 
 type Technology =
     | "Typescript"

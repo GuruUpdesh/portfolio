@@ -108,7 +108,7 @@ const HomeDesigner: Project = {
                                 - Firefox Rendering:
                             </strong>
                             <span className="ml-[0.5ch] font-light opacity-75">
-                                Firefox doesn't render the table correctly.
+                                Firefox doesn&apos;t render the table correctly.
                             </span>
                         </li>
                     </ul>

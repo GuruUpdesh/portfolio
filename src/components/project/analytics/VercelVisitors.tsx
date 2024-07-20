@@ -7,6 +7,13 @@ type Props = {
 
 const VercelVisitors = async ({ vercelProjectId }: Props) => {
     try {
+        if (!process.env.VERCEL_TOKEN) {
+            console.warn(
+                "Please add valid VERCEL_TOKEN environment variable to use Vercel analytic components",
+            );
+            return null;
+        }
+
         const from = sub(new Date(), { months: 1 });
         const to = new Date();
         const url =

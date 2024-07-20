@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
-import TechStack, { Tech } from "./TechStack";
+import TechStack from "./TechStack";
 import Link from "next/link";
 import { getProjectFromId } from "@/app/project/[id]/config/projectConfig";
 
