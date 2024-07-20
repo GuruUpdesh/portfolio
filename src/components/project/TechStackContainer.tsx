@@ -41,27 +41,36 @@ const TechStackContainer = ({ techStack }: Props) => {
     }, [currentGroup]);
 
     return (
-        <div className="grid grid-cols-2">
-            <div className="pt-20">
-                <h1
-                    key={groups[currentGroup]}
-                    className="mb-4 inline-block text-2xl capitalize"
-                >
-                    {groups[currentGroup]}
-                </h1>
-                <div className="flex min-h-[400px] flex-col gap-2">
-                    {techStack[groups[currentGroup]].map((tech, i) => (
-                        <div
-                            key={i}
-                            className="flex items-center justify-between rounded-md bg-border/5 p-2"
-                        >
-                            <p>{tech.name}</p>
-                            <p className="opacity-75">{tech.version}</p>
+        <div className="grid grid-cols-2 border border-red-500">
+            <div className="flex flex-col gap-10 border border-blue-500">
+                {groups.map((group, i) => {
+                    if (techStack[group].length === 0) {
+                        return null;
+                    }
+
+                    return (
+                        <div key={i}>
+                            <h1 className="sticky top-0 mb-4 inline-block text-2xl capitalize">
+                                {group}
+                            </h1>
+                            <div className="flex flex-col gap-2">
+                                {techStack[group].map((tech, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-center justify-between rounded-md bg-border/5 p-2"
+                                    >
+                                        <p>{tech.name}</p>
+                                        <p className="opacity-75">
+                                            {tech.version}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    ))}
-                </div>
+                    );
+                })}
             </div>
-            <div className="relative flex items-center justify-end">
+            <div className="sticky top-0 block self-start border border-green-500">
                 <div className="stack-container">
                     {groups.map((group, i) => {
                         if (techStack[group].length === 0) {

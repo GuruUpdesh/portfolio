@@ -122,7 +122,7 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </div>
             </header>
-            <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
+            <main id="1" className="transition-all sm:px-10 md:px-20">
                 <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
                     <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
                         <video
@@ -196,7 +196,9 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </section>
                 <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                <Gallery images={project.images} />
+            </main>
+            <Gallery images={project.images} />
+            <main id="2" className="transition-all sm:px-10 md:px-20">
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>

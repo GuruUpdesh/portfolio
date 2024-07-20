@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -17,7 +18,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={sora.className}>{children}</body>
+            <body
+                className={cn(
+                    sora.className,
+                    "flex flex-col items-center contain-content",
+                )}
+            >
+                {children}
+            </body>
             <Analytics />
         </html>
     );

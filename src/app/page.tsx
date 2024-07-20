@@ -9,7 +9,7 @@ import ProjectCard from "@/components/ProjectCard";
 
 export default function Portfolio() {
     return (
-        <main className="relative flex min-h-screen w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
+        <main className="transition-all sm:px-10 md:px-20">
             <Header />
             <section
                 className="extend-border-lines section-base rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
@@ -49,9 +49,6 @@ export default function Portfolio() {
                         className="lg:col-start-2 lg:row-span-5 lg:row-start-4"
                         projectId={5}
                     />
-                    {/* <ProjectCard className="" projectId={7} />
-                    <ProjectCard className="" projectId={8} />
-                    <ProjectCard className="" projectId={9} /> */}
                     <ProjectCard className="lg:row-span-4" projectId={6} />
                 </div>
             </section>

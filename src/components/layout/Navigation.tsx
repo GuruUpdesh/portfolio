@@ -42,7 +42,12 @@ const Navigation = () => {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="text-sm opacity-75">
-                    <Link href="/docs" legacyBehavior passHref>
+                    <Link
+                        href="#contact"
+                        passHref
+                        legacyBehavior
+                        scroll={false}
+                    >
                         <NavigationMenuLink>Contact</NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

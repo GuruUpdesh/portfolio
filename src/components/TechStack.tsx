@@ -2,7 +2,7 @@ import React from "react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { PiFileSql } from "react-icons/pi";
-import { SiNextdotjs } from "react-icons/si";
+import { SiNextdotjs, SiExpress } from "react-icons/si";
 import { Dot } from "lucide-react";
 
 export type PrimaryTech =
@@ -31,6 +31,8 @@ function getIcon(title: Props["title"]) {
             return <PiFileSql />;
         case "Mongo":
             return <DiMongodb />;
+        case "Express":
+            return <SiExpress />;
         default:
             return <Dot />;
     }
