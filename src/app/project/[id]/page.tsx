@@ -261,14 +261,14 @@ export default function Project({ params: { id } }: Props) {
                     <div className="flex w-full justify-between gap-4">
                         <Link
                             href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
-                            className="flex items-center gap-4 text-4xl"
+                            className="flex items-center gap-4 text-4xl animated-underline after:right-0 opacity-75 hover:opacity-100 transition-opacity"
                         >
                             <ArrowLeft />
                             Last Project
                         </Link>
                         <Link
                             href={`/project/${(parseInt(id) % totalProjects) + 1}`}
-                            className="flex items-center gap-4 text-4xl"
+                            className="flex items-center gap-4 text-4xl animated-underline after:left-0  opacity-75 hover:opacity-100 transition-opacity"
                         >
                             Next Project
                             <ArrowRight />

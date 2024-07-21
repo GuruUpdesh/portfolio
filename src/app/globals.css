@@ -68,3 +68,22 @@
     height: var(--height, 500vh);
     z-index: -20;
 }
+
+.animated-underline {
+    position: relative;
+}
+
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+.animated-underline::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    background-color: hsl(var(--border));
+    width: 0%;
+    height: 1px;
+    transition: width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0 1px 0 hsl(var(--background));
+}
