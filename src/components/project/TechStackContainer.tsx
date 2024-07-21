@@ -7,6 +7,7 @@ import {
 } from "@/app/project/[id]/config/projectConfig";
 import React, { useMemo, useState } from "react";
 import TechStackItems from "./TechStackItems";
+import handleScroll from "@/utils/handleScroll";
 
 type Props = {
     techStack: TechStack;
@@ -32,7 +33,7 @@ const TechStackContainer = ({ techStack }: Props) => {
 
     return (
         <div className="grid grid-cols-5 md:grid-cols-2">
-            <div className="flex flex-col gap-24 col-span-4 md:col-span-1">
+            <div className="col-span-4 flex flex-col gap-24 md:col-span-1">
                 {groups.map((group, i) => (
                     <TechStackItems
                         key={i}
@@ -43,21 +44,24 @@ const TechStackContainer = ({ techStack }: Props) => {
                     />
                 ))}
             </div>
-            <div className="sticky top-[calc(68px+64px)] flex justify-center self-start col-span-1">
-                <div className="stack-container scale-50 sm:scale-[65%] md:scale-75 lg:scale-90 xl:scale-100 origin-top-right transition-transform">
+            <div className="sticky top-[calc(68px+64px)] col-span-1 flex justify-center self-start">
+                <div className="stack-container origin-top-right scale-50 transition-transform sm:scale-[65%] md:scale-75 lg:scale-90 xl:scale-100">
                     {groups.map((group, i) => {
                         if (techStack[group].length === 0) {
                             return null;
                         }
 
                         return (
-                            <div
+                            <a
                                 key={i}
+                                role="button"
                                 className={cn("stack-item", {
                                     "active-stack": group === firstActiveGroup,
                                 })}
                                 title={group}
                                 tabIndex={1}
+                                onClick={handleScroll}
+                                href={`/#${group}`}
                             />
                         );
                     })}

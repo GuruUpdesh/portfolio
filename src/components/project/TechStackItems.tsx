@@ -33,7 +33,7 @@ const TechStackItems = ({ group, items, groupState, setGroupState }: Props) => {
         return null;
     }
     return (
-        <div ref={ref}>
+        <div ref={ref} id={group} className="scroll-m-[64px]">
             <h1 className="mb-4 inline-block text-2xl capitalize">{group}</h1>
             <div className="flex flex-col gap-2">
                 {items.map((tech, i) => (

@@ -158,7 +158,7 @@ const Gallery = ({ images }: Props) => {
                                     />
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className="max-w-[100vw] h-full max-h-[calc(100vh-24px)] overflow-visible border-transparent bg-transparent md:max-w-[calc(100vw-125px)] p-5 lg:p-6">
+                            <DialogContent className="max-w-[100vw] max-h-[calc(100vh-24px)] overflow-visible border-transparent bg-transparent md:max-w-[calc(100vw-125px)] p-5 lg:p-6">
                                 <DialogHeader className="text-left">
                                     <DialogTitle className="text-2xl">
                                         Project Gallery
@@ -179,7 +179,7 @@ const Gallery = ({ images }: Props) => {
                                                 key={idx}
                                                 className="xl:basis-10/12"
                                             >
-                                                <div className="relative h-[700px]">
+                                                <div className="relative h-[500px] lg:h-[700px]">
                                                     <Image
                                                         src={src}
                                                         fill
