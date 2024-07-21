@@ -157,19 +157,19 @@ const Gallery = ({ images }: Props) => {
                                     />
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className="max-w-[calc(100vw-200px)] border-border/25">
-                                <DialogHeader className="p-6">
+                            <DialogContent className="max-w-[100vw] h-full max-h-[calc(100vh-24px)] overflow-visible border-transparent bg-transparent md:max-w-[calc(100vw-125px)] p-5 lg:p-6">
+                                <DialogHeader className="text-left">
                                     <DialogTitle className="text-2xl">
-                                        Gallery
+                                        Project Gallery
                                     </DialogTitle>
                                 </DialogHeader>
                                 <Carousel setApi={setApi} opts={{ loop: true }}>
                                     <CarouselPrevious
-                                        variant="outline"
+                                        variant="ghost"
                                         className="h-full rounded-xl"
                                     />
                                     <CarouselNext
-                                        variant="outline"
+                                        variant="ghost"
                                         className="h-full rounded-xl"
                                     />
                                     <CarouselContent>
@@ -182,7 +182,7 @@ const Gallery = ({ images }: Props) => {
                                                     <Image
                                                         src={src}
                                                         fill
-                                                        className="rounded-xl border border-border/25 object-cover object-top"
+                                                        className="rounded-xl object-cover object-top"
                                                         alt=""
                                                     />
                                                 </div>
@@ -190,7 +190,7 @@ const Gallery = ({ images }: Props) => {
                                         ))}
                                     </CarouselContent>
                                 </Carousel>
-                                <div className="flex justify-between p-6">
+                                <div className="flex justify-between items-center">
                                     <div className="flex gap-1">
                                         {images.flat().map((src, idx) => (
                                             <button
