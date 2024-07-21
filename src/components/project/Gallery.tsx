@@ -191,10 +191,28 @@ const Gallery = ({ images }: Props) => {
                                     </CarouselContent>
                                 </Carousel>
                                 <div className="flex justify-between p-6">
-                                    <div>
+                                    <div className="flex gap-1">
                                         {images.flat().map((src, idx) => (
-                                            <button key={idx}>
-                                                <div />
+                                            <button
+                                                key={idx}
+                                                onClick={() => {
+                                                    setInitial(idx);
+                                                }}
+                                                title={`Slide ${idx + 1}`}
+                                            >
+                                                <div
+                                                    className={cn(
+                                                        "h-4 w-4 rounded-full border bg-transparent",
+                                                        {
+                                                            "bg-primary":
+                                                                idx + 1 ===
+                                                                current,
+                                                        },
+                                                    )}
+                                                />
+                                                <span className="sr-only">
+                                                    Slide {idx + 1}
+                                                </span>
                                             </button>
                                         ))}
                                     </div>
