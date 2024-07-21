@@ -17,11 +17,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body
                 className={cn(
                     sora.className,
-                    "flex flex-col items-center contain-content",
+                    "flex w-full flex-col items-center",
                 )}
             >
                 {children}

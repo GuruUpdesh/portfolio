@@ -1,53 +1,141 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import { group } from "console";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
+    DialogFooter,
     DialogHeader,
-    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { EmblaCarouselType, EmblaEventType } from "embla-carousel";
 import {
     Carousel,
+    CarouselApi,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { DialogTitle } from "@radix-ui/react-dialog";
+
+const TWEEN_FACTOR_BASE = 0.6;
+
+const numberWithinRange = (number: number, min: number, max: number): number =>
+    Math.min(Math.max(number, min), max);
 
 type Props = {
-    images?: string[];
+    images?: string[][];
 };
 
 const Gallery = ({ images }: Props) => {
+    const [api, setApi] = React.useState<CarouselApi>();
+    const [current, setCurrent] = React.useState(0);
+    const [count, setCount] = React.useState(0);
+    const [initial, setInitial] = React.useState(0);
+    const tweenFactor = useRef(0);
+
+    const setTweenFactor = useCallback((api: EmblaCarouselType) => {
+        tweenFactor.current = TWEEN_FACTOR_BASE * api.scrollSnapList().length;
+    }, []);
+
+    const tweenOpacity = useCallback(
+        (api: EmblaCarouselType, eventName?: EmblaEventType) => {
+            const engine = api.internalEngine();
+            const scrollProgress = api.scrollProgress();
+            const slidesInView = api.slidesInView();
+            const isScrollEvent = eventName === "scroll";
+
+            api.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+                let diffToTarget = scrollSnap - scrollProgress;
+                const slidesInSnap = engine.slideRegistry[snapIndex];
+
+                slidesInSnap.forEach((slideIndex) => {
+                    if (isScrollEvent && !slidesInView.includes(slideIndex))
+                        return;
+
+                    if (engine.options.loop) {
+                        engine.slideLooper.loopPoints.forEach((loopItem) => {
+                            const target = loopItem.target();
+
+                            if (slideIndex === loopItem.index && target !== 0) {
+                                const sign = Math.sign(target);
+
+                                if (sign === -1) {
+                                    diffToTarget =
+                                        scrollSnap - (1 + scrollProgress);
+                                }
+                                if (sign === 1) {
+                                    diffToTarget =
+                                        scrollSnap + (1 - scrollProgress);
+                                }
+                            }
+                        });
+                    }
+
+                    const tweenValue =
+                        1 - Math.abs(diffToTarget * tweenFactor.current);
+                    const opacity = numberWithinRange(
+                        tweenValue,
+                        0,
+                        1,
+                    ).toString();
+                    api.slideNodes()[slideIndex].style.opacity = opacity;
+                });
+            });
+        },
+        [],
+    );
+
+    useEffect(() => {
+        if (!api) return;
+
+        // opacity control
+        setTweenFactor(api);
+        tweenOpacity(api);
+        api.on("reInit", setTweenFactor)
+            .on("reInit", tweenOpacity)
+            .on("scroll", tweenOpacity)
+            .on("slideFocus", tweenOpacity);
+
+        // total slide count
+        setCount(api.scrollSnapList().length);
+
+        // current slide
+        setCurrent(api.selectedScrollSnap() + 1);
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1);
+        });
+    }, [api, setTweenFactor, tweenOpacity]);
+
+    useEffect(() => {
+        if (!api) return;
+        api.scrollTo(initial);
+    }, [api, initial]);
+
     if (!images || images.length === 0) {
         return null;
-    }
-
-    const groupedImages = [];
-    for (let i = 0; i < images.length; i += 2) {
-        groupedImages.push(images.slice(i, i + 2));
     }
 
     return (
         <div
             className="my-10 grid w-full grid-cols-5 gap-5"
             style={{
-                height: `${groupedImages.length * 400}px`,
-                gridTemplateRows: `${groupedImages.length}`,
+                height: `${images.length * 400}px`,
+                gridTemplateRows: `${images.length}`,
             }}
         >
-            {groupedImages.reverse().map((group, groupIndex) => (
+            {images.reverse().map((group, groupIndex) => (
                 <React.Fragment key={groupIndex}>
                     {group.map((src, index) => (
-                        <Dialog key={index}>
+                        <Dialog key={index} modal>
                             <DialogTrigger asChild>
                                 <div
                                     className={cn(
-                                        "relative col-span-2 overflow-hidden rounded-xl border border-border/10 bg-border/5",
+                                        "relative col-span-2 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25",
                                         {
                                             "col-span-3":
                                                 (groupIndex % 2 == 0 &&
@@ -57,6 +145,9 @@ const Gallery = ({ images }: Props) => {
                                             "col-span-5": group.length === 1,
                                         },
                                     )}
+                                    onClick={() => {
+                                        setInitial(images.flat().indexOf(src));
+                                    }}
                                 >
                                     <Image
                                         src={src}
@@ -66,18 +157,32 @@ const Gallery = ({ images }: Props) => {
                                     />
                                 </div>
                             </DialogTrigger>
-                            <DialogContent>
-                                <Carousel>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
+                            <DialogContent className="max-w-[calc(100vw-200px)] border-border/25">
+                                <DialogHeader className="p-6">
+                                    <DialogTitle className="text-2xl">
+                                        Gallery
+                                    </DialogTitle>
+                                </DialogHeader>
+                                <Carousel setApi={setApi} opts={{ loop: true }}>
+                                    <CarouselPrevious
+                                        variant="outline"
+                                        className="h-full rounded-xl"
+                                    />
+                                    <CarouselNext
+                                        variant="outline"
+                                        className="h-full rounded-xl"
+                                    />
                                     <CarouselContent>
-                                        {images.map((src, idx) => (
-                                            <CarouselItem key={idx}>
-                                                <div className="relative h-[500px] max-w-4xl">
+                                        {images.flat().map((src, idx) => (
+                                            <CarouselItem
+                                                key={idx}
+                                                className="xl:basis-10/12"
+                                            >
+                                                <div className="relative h-[700px]">
                                                     <Image
                                                         src={src}
                                                         fill
-                                                        className="object-cover object-top"
+                                                        className="rounded-xl border border-border/25 object-cover object-top"
                                                         alt=""
                                                     />
                                                 </div>
@@ -85,6 +190,18 @@ const Gallery = ({ images }: Props) => {
                                         ))}
                                     </CarouselContent>
                                 </Carousel>
+                                <div className="flex justify-between p-6">
+                                    <div>
+                                        {images.flat().map((src, idx) => (
+                                            <button key={idx}>
+                                                <div />
+                                            </button>
+                                        ))}
+                                    </div>
+                                    <p>
+                                        Slide {current}/{count}
+                                    </p>
+                                </div>
                             </DialogContent>
                         </Dialog>
                     ))}

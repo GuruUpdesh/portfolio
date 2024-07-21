@@ -9,10 +9,11 @@ const HomeDesigner: Project = {
     vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
     websiteLink: "https://homedesigner.guruupdeshsingh.dev",
     images: [
-        "/projects/homedesigner/new.png",
-        "/projects/homedesigner/edit.png",
-        "/projects/homedesigner/homepage.png",
-        "/projects/homedesigner/addresses.png",
+        [
+            "/projects/homedesigner/homepage.png",
+            "/projects/homedesigner/addresses.png",
+        ],
+        ["/projects/homedesigner/new.png", "/projects/homedesigner/edit.png"],
     ],
     content: {
         shortDescription: (

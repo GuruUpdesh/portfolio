@@ -41,8 +41,8 @@ const TechStackContainer = ({ techStack }: Props) => {
     }, [currentGroup]);
 
     return (
-        <div className="grid grid-cols-2 border border-red-500">
-            <div className="flex flex-col gap-10 border border-blue-500">
+        <div className="grid grid-cols-2">
+            <div className="flex flex-col gap-16">
                 {groups.map((group, i) => {
                     if (techStack[group].length === 0) {
                         return null;
@@ -70,7 +70,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                     );
                 })}
             </div>
-            <div className="sticky top-0 block self-start border border-green-500">
+            <div className="sticky top-[68px] flex justify-center self-start">
                 <div className="stack-container">
                     {groups.map((group, i) => {
                         if (techStack[group].length === 0) {

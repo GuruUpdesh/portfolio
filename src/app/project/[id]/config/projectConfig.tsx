@@ -13,7 +13,7 @@ export type Project = {
     gitHubLink: string;
     vercelProjectId?: string;
     websiteLink?: string;
-    images?: string[];
+    images?: string[][];
     content: ProjectContent;
     primaryTech: PrimaryTech;
     techStack: TechStack;

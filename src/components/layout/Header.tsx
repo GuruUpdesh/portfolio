@@ -14,7 +14,7 @@ const Header = () => {
                 </Link>
                 <Navigation />
             </div>
-            <div className="py-2 text-lg md:text-xl lg:text-2xl">
+            <div className="mt-[36px] py-2 text-lg md:text-xl lg:text-2xl">
                 <h1 className="opacity-70">Hey!</h1>
                 <h1>
                     <span className="opacity-70">I’m</span> Guru Updesh Singh

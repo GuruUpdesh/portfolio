@@ -6,13 +6,14 @@ import Header from "@/components/layout/Header";
 import HeroVideo from "@/components/layout/HeroVideo";
 import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
+import Navigation from "@/components/layout/Navigation";
 
 export default function Portfolio() {
     return (
-        <main className="transition-all sm:px-10 md:px-20">
+        <main className="transition-all sm:px-10 md:px-20 overflow-hidden">
             <Header />
             <section
-                className="extend-border-lines section-base rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
+                className="extend-border-lines section-base z-0 rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
                 style={
                     {
                         "--top": "80px",
@@ -27,7 +28,10 @@ export default function Portfolio() {
                     className="-z-10 opacity-0 transition-opacity lg:opacity-100"
                 />
             </section>
-            <section className="section-base border border-transparent px-10 transition-all md:px-20">
+            <section
+                id="projects"
+                className="section-base border border-transparent px-10 transition-all md:px-20"
+            >
                 <div className="grid-row-auto grid min-h-[640px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-8">
                     <ProjectCard
                         className="border-t-0 lg:row-span-4"

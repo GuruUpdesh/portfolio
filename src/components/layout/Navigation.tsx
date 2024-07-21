@@ -20,9 +20,11 @@ const Navigation = () => {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-normal opacity-75">
-                        Projects
-                    </NavigationMenuTrigger>
+                    <Link href="#projects" legacyBehavior scroll={true}>
+                        <NavigationMenuTrigger className="text-sm font-normal opacity-75">
+                            Projects
+                        </NavigationMenuTrigger>
+                    </Link>
                     <NavigationMenuContent className="flex flex-col gap-2">
                         {allProjects.map((projectId) => {
                             const project = getProjectFromId(
@@ -42,12 +44,7 @@ const Navigation = () => {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="text-sm opacity-75">
-                    <Link
-                        href="#contact"
-                        passHref
-                        legacyBehavior
-                        scroll={false}
-                    >
+                    <Link href="#contact" passHref legacyBehavior scroll={true}>
                         <NavigationMenuLink>Contact</NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

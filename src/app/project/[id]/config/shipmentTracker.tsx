@@ -7,10 +7,14 @@ const ShipmentTracker: Project = {
     gitHubLink: "https://github.com/GuruUpdesh/shipment-tracker",
     websiteLink: "https://shipmenttracker.guruupdeshsingh.dev",
     images: [
-        "/projects/shipmenttracker/tracking-light.png",
-        "/projects/shipmenttracker/add-light.png",
-        "/projects/shipmenttracker/dashboard-dark.png",
-        "/projects/shipmenttracker/map-dark.png",
+        [
+            "/projects/shipmenttracker/dashboard-dark.png",
+            "/projects/shipmenttracker/map-dark.png",
+        ],
+        [
+            "/projects/shipmenttracker/tracking-light.png",
+            "/projects/shipmenttracker/add-light.png",
+        ],
     ],
     content: {
         shortDescription: (

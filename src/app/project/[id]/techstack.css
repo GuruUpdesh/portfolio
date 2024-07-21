@@ -1,9 +1,9 @@
 .stack-container {
-    width: 410px;
-    height: 400px;
-    perspective: 15000px;
-    transform-style: preserve-3d;
-    position: absolute;
+    width: 350px;
+    height: 440px;
+    /* perspective: 15000px;
+    transform-style: preserve-3d; */
+    /* position: absolute; */
 }
 
 .stack-item {
@@ -19,33 +19,33 @@
 }
 
 .stack-item:nth-child(1) {
-    --z: 125px;
+    --z: 100px;
     transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
     z-index: 4;
 }
 
 .stack-item:nth-child(2) {
-    --z: 50px;
+    --z: 25px;
     transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
     z-index: 3;
 }
 
 .stack-item:nth-child(3) {
-    --z: -25px;
+    --z: -50px;
     transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
     z-index: 2;
 }
 
 .stack-item:nth-child(4) {
-    --z: -100px;
+    --z: -125px;
     transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
     z-index: 1;
 }
 
 .stack-item:nth-child(5) {
-    --z: -175px;
+    --z: -200px;
     transform: rotateX(60deg) rotateZ(0.125turn) translateZ(var(--z));
-    z-index: 1;
+    z-index: 0;
 }
 
 .stack-item.active-stack {

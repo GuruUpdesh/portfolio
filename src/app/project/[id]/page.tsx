@@ -122,54 +122,36 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                 </div>
             </header>
-            <main id="1" className="transition-all sm:px-10 md:px-20">
-                <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
-                    <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
-                        <video
-                            autoPlay
-                            muted
-                            playsInline
-                            controls
-                            loop
-                            preload="none"
-                            aria-label=""
-                        >
-                            <source
-                                src="/projects/trackit/demo.mp4"
-                                type="video/mp4"
-                            />
-                            Your borwser does not support the video tag.
-                        </video>
-                        <Play className="h-10 w-10" />
-                    </div>
-                </section>
-                <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
-                    <p className="font-light leading-7">
-                        {project.content.shortDescription}
-                    </p>
-                    <div className="flex items-center justify-end gap-2">
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Link
-                                        href={project.gitHubLink}
-                                        target="_blank"
-                                    >
-                                        <Button
-                                            variant="outline"
-                                            className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                        >
-                                            <GitHubLogoIcon className="h-5 w-5" />
-                                            <span>GitHub</span>
-                                        </Button>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p>See on GitHub</p>
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        {project.websiteLink ? (
+            <div className="overflow-hidden w-full flex justify-center">
+                <main
+                    id="1"
+                    className="transition-all sm:px-10 md:px-20"
+                >
+                    <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
+                        <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
+                            <video
+                                autoPlay
+                                muted
+                                playsInline
+                                controls
+                                loop
+                                preload="none"
+                                aria-label=""
+                            >
+                                <source
+                                    src="/projects/trackit/demo.mp4"
+                                    type="video/mp4"
+                                />
+                                Your borwser does not support the video tag.
+                            </video>
+                            <Play className="h-10 w-10" />
+                        </div>
+                    </section>
+                    <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
+                        <p className="font-light leading-7">
+                            {project.content.shortDescription}
+                        </p>
+                        <div className="flex items-center justify-end gap-2">
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
@@ -177,27 +159,52 @@ export default function Project({ params: { id } }: Props) {
                                             href={project.gitHubLink}
                                             target="_blank"
                                         >
-                                            <Link
-                                                href={project.websiteLink}
-                                                target="_blank"
+                                            <Button
+                                                variant="outline"
+                                                className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
                                             >
-                                                <Button className="rounded-full px-2.5 lg:px-3">
-                                                    <span>Visit</span>
-                                                </Button>
-                                            </Link>
+                                                <GitHubLogoIcon className="h-5 w-5" />
+                                                <span>GitHub</span>
+                                            </Button>
                                         </Link>
                                     </TooltipTrigger>
                                     <TooltipContent>
-                                        <p>Visit {project.websiteLink}</p>
+                                        <p>See on GitHub</p>
                                     </TooltipContent>
                                 </Tooltip>
                             </TooltipProvider>
-                        ) : null}
-                    </div>
-                </section>
-                <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-            </main>
-            <Gallery images={project.images} />
+                            {project.websiteLink ? (
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Link
+                                                href={project.gitHubLink}
+                                                target="_blank"
+                                            >
+                                                <Link
+                                                    href={project.websiteLink}
+                                                    target="_blank"
+                                                >
+                                                    <Button className="rounded-full px-2.5 lg:px-3">
+                                                        <span>Visit</span>
+                                                    </Button>
+                                                </Link>
+                                            </Link>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p>Visit {project.websiteLink}</p>
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            ) : null}
+                        </div>
+                    </section>
+                    <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
+                </main>
+            </div>
+            <section className="w-full px-5">
+                <Gallery images={project.images} />
+            </section>
             <main id="2" className="transition-all sm:px-10 md:px-20">
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}

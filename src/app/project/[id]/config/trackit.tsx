@@ -9,9 +9,11 @@ const TrackIt: Project = {
     vercelProjectId: "prj_VuKOQZjJA3tFdhvtxTXPvB7M9ma3",
     websiteLink: "https://tackit.guruupdeshsingh.dev",
     images: [
-        "/projects/trackit/userguide.png",
-        "/projects/trackit/trackinghistory.png",
-        "/projects/trackit/dashboard2.png",
+        ["/projects/trackit/dashboard2.png"],
+        [
+            "/projects/trackit/userguide.png",
+            "/projects/trackit/trackinghistory.png",
+        ],
     ],
     content: {
         shortDescription: (

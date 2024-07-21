@@ -22,6 +22,7 @@ const Footer = () => {
                 <Link
                     href="/"
                     className="text-sm opacity-50 transition-opacity hover:opacity-100 md:text-base"
+                    scroll={true}
                 >
                     guruupdeshsingh.dev
                 </Link>
