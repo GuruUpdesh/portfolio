@@ -110,7 +110,7 @@ const ContactForm = () => {
             <form
                 id="contact"
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col border-t bg-[#0A0A0A] p-2 sm:border-l sm:border-t-0 md:col-span-2"
+                className="flex flex-col border-t bg-[#0A0A0A] p-2 sm:border-l sm:border-t-0 md:col-span-2 text-base"
             >
                 <FormField
                     control={form.control}

@@ -2,7 +2,8 @@ import React from "react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
 import { PiFileSql } from "react-icons/pi";
-import { SiNextdotjs, SiExpress } from "react-icons/si";
+import { SiNextdotjs, SiExpress, SiJetpackcompose } from "react-icons/si";
+import { CgFigma } from "react-icons/cg";
 import { Dot } from "lucide-react";
 
 export type PrimaryTech =
@@ -33,12 +34,16 @@ function getIcon(title: Props["title"]) {
             return <DiMongodb />;
         case "Express":
             return <SiExpress />;
+        case "Figma":
+            return <CgFigma />;
+        case "Jetpack Compose":
+            return <SiJetpackcompose />;
         default:
             return <Dot />;
     }
 }
 
-const TechStack = ({ title }: Props) => {
+const PrimaryTech = ({ title }: Props) => {
     return (
         <p className="flex items-center gap-1 opacity-50">
             {getIcon(title)}
@@ -47,4 +52,4 @@ const TechStack = ({ title }: Props) => {
     );
 };
 
-export default TechStack;
+export default PrimaryTech;

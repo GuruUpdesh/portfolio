@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
-import TechStack from "./TechStack";
+import PrimaryTech from "./PrimaryTech";
 import Link from "next/link";
 import { getProjectFromId } from "@/app/project/[id]/config/projectConfig";
 
@@ -22,7 +22,7 @@ const ProjectCard = ({ projectId, className }: Props) => {
         >
             <div className="flex items-center justify-between px-2">
                 <div className="flex items-center gap-2">
-                    <TechStack title={project.primaryTech} />
+                    <PrimaryTech title={project.primaryTech} />
                 </div>
                 <p>{project.year}</p>
             </div>

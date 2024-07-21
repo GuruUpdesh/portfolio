@@ -57,14 +57,14 @@
 
 .extend-border-lines::before {
     left: -1px;
-    top: calc(var(--top, 100vh) * -1);
-    height: var(--height, 100vh);
+    top: calc(var(--top, 500vh) * -1);
+    height: var(--height, 500vh);
     z-index: -20;
 }
 
 .extend-border-lines::after {
     right: -1px;
-    top: calc(var(--top, 100vh) * -1);
-    height: var(--height, 100vh);
+    top: calc(var(--top, 500vh) * -1);
+    height: var(--height, 500vh);
     z-index: -20;
 }
