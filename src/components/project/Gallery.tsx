@@ -128,7 +128,7 @@ const Gallery = ({ images }: Props) => {
                 gridTemplateRows: `${images.length}`,
             }}
         >
-            {images.reverse().map((group, groupIndex) => (
+            {images.map((group, groupIndex) => (
                 <React.Fragment key={groupIndex}>
                     {group.map((src, index) => (
                         <Dialog key={index} modal>
@@ -153,6 +153,7 @@ const Gallery = ({ images }: Props) => {
                                         src={src}
                                         fill
                                         className="object-cover object-top"
+                                        priority
                                         alt=""
                                     />
                                 </div>

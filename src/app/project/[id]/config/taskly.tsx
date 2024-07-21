@@ -9,8 +9,8 @@ const Taskly: Project = {
     vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",
     websiteLink: "https://www.tasklypm.com",
     images: [
-        ["/projects/taskly/backlog.png", "/projects/taskly/settings.png"],
-        ["/projects/taskly/createproject.png", "/projects/taskly/task.png"],
+        ["/projects/taskly/backlog.webp", "/projects/taskly/settings.webp"],
+        ["/projects/taskly/createproject.webp", "/projects/taskly/task.webp"],
     ],
     content: {
         shortDescription: (
