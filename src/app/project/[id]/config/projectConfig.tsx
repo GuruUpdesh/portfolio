@@ -5,6 +5,7 @@ import TrackIt from "./trackit";
 import HomeDesigner from "./homeDesigner";
 import ShipmentTracker from "./shipmentTracker";
 import { PrimaryTech } from "@/components/PrimaryTech";
+import KubaGame from "./kubaGame";
 
 export type Project = {
     id: number;
@@ -37,27 +38,6 @@ export type Tech = {
 };
 export type TechStack = {
     [category in TechStackCategory]: Tech[];
-};
-
-const KubaGame: Project = {
-    id: 6,
-    name: "Kuba Game",
-    year: 2022,
-    gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    websiteLink: "https://www.tasklypm.com",
-    content: {
-        shortDescription: "",
-        detailedContent: "",
-        features: [],
-    },
-    primaryTech: "Python",
-    techStack: {
-        frontend: [],
-        state: [],
-        backend: [],
-        testing: [],
-        tools: [],
-    },
 };
 
 const EffortlessEats: Project = {
@@ -207,4 +187,6 @@ type Technology =
     | "Jest"
     | "Postman"
     | "Cypress"
-    | "Auth0";
+    | "Auth0"
+    | "PyGame"
+    | "PyCharm";
