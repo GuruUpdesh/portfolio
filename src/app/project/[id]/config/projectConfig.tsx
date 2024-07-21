@@ -4,7 +4,7 @@ import BoatsAndLoads from "./boatsandloads";
 import TrackIt from "./trackit";
 import HomeDesigner from "./homeDesigner";
 import ShipmentTracker from "./shipmentTracker";
-import { PrimaryTech } from "@/components/TechStack";
+import { PrimaryTech } from "@/components/PrimaryTech";
 
 export type Project = {
     id: number;

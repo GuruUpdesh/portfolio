@@ -27,7 +27,8 @@ const TechStackItems = ({ group, items, groupState, setGroupState }: Props) => {
         const newGroupState = { ...groupState };
         newGroupState[group] = isInView;
         setGroupState(newGroupState);
-    }, [isInView, group]);
+    }, [isInView, group, groupState, setGroupState]);
+    
     if (items.length === 0) {
         return null;
     }
