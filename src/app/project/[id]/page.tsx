@@ -142,28 +142,7 @@ export default function Project({ params: { id } }: Props) {
                             {project.content.shortDescription}
                         </div>
                         <div className="flex items-center justify-end gap-2">
-                            <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <Link
-                                            href={project.gitHubLink}
-                                            target="_blank"
-                                        >
-                                            <Button
-                                                variant="outline"
-                                                className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                            >
-                                                <GitHubLogoIcon className="h-5 w-5" />
-                                                <span>GitHub</span>
-                                            </Button>
-                                        </Link>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        See on GitHub
-                                    </TooltipContent>
-                                </Tooltip>
-                            </TooltipProvider>
-                            {project.websiteLink ? (
+                            {project.gitHubLink ? (
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
@@ -171,14 +150,32 @@ export default function Project({ params: { id } }: Props) {
                                                 href={project.gitHubLink}
                                                 target="_blank"
                                             >
-                                                <Link
-                                                    href={project.websiteLink}
-                                                    target="_blank"
+                                                <Button
+                                                    variant="outline"
+                                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
                                                 >
-                                                    <Button className="rounded-full px-2.5 lg:px-3">
-                                                        <span>Visit</span>
-                                                    </Button>
-                                                </Link>
+                                                    <GitHubLogoIcon className="h-5 w-5" />
+                                                    <span>GitHub</span>
+                                                </Button>
+                                            </Link>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            See on GitHub
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
+                            ) : null}
+                            {project.websiteLink ? (
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Link
+                                                href={project.websiteLink}
+                                                target="_blank"
+                                            >
+                                                <Button className="rounded-full px-2.5 lg:px-3">
+                                                    <span>Visit</span>
+                                                </Button>
                                             </Link>
                                         </TooltipTrigger>
                                         <TooltipContent>
@@ -192,7 +189,7 @@ export default function Project({ params: { id } }: Props) {
                     <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
                 </main>
             </div>
-            <section className="w-full px-5 overflow-clip">
+            <section className="w-full overflow-clip px-5">
                 <Gallery images={project.images} />
             </section>
             <main

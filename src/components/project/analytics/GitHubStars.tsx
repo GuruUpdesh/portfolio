@@ -1,11 +1,15 @@
 import z from "zod";
 
 type Props = {
-    gitHubLink: string;
+    gitHubLink?: string;
 };
 
 const GitHubStars = async ({ gitHubLink }: Props) => {
     try {
+        if (!gitHubLink) {
+            return null;
+        }
+
         if (!process.env.GITHUB_TOKEN) {
             console.warn(
                 "Please add valid GITHUB_TOKEN environment variable to use GitHub analytic components",

@@ -6,12 +6,13 @@ import HomeDesigner from "./homeDesigner";
 import ShipmentTracker from "./shipmentTracker";
 import { PrimaryTech } from "@/components/PrimaryTech";
 import KubaGame from "./kubaGame";
+import EffortlessEats from "./effortlessEats";
 
 export type Project = {
     id: number;
     name: string;
     year: number;
-    gitHubLink: string;
+    gitHubLink?: string;
     vercelProjectId?: string;
     websiteLink?: string;
     images?: string[][];
@@ -38,27 +39,6 @@ export type Tech = {
 };
 export type TechStack = {
     [category in TechStackCategory]: Tech[];
-};
-
-const EffortlessEats: Project = {
-    id: 7,
-    name: "Effortless Eats",
-    year: 2023,
-    gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    websiteLink: "https://www.tasklypm.com",
-    content: {
-        shortDescription: "",
-        detailedContent: "",
-        features: [],
-    },
-    primaryTech: "Figma",
-    techStack: {
-        frontend: [],
-        state: [],
-        backend: [],
-        testing: [],
-        tools: [],
-    },
 };
 
 const MobileTreasureHunt: Project = {

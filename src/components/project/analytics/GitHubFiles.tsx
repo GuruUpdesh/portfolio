@@ -1,18 +1,22 @@
 import z from "zod";
 
 type Props = {
-    gitHubLink: string;
+    gitHubLink?: string;
 };
 
 const GitHubFiles = async ({ gitHubLink }: Props) => {
     try {
+        if (!gitHubLink) {
+            return null;
+        }
+
         if (!process.env.GITHUB_TOKEN) {
             console.warn(
                 "Please add valid GITHUB_TOKEN environment variable to use GitHub analytic components",
             );
             return null;
         }
-        
+
         const repo = gitHubLink.split("/")[gitHubLink.split("/").length - 1];
         const queryString =
             "q=" + encodeURIComponent(`repo:GuruUpdesh/${repo}`);
