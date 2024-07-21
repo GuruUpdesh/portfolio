@@ -56,9 +56,7 @@ export default function Project({ params: { id } }: Props) {
                                     </Button>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Back Home</p>
-                            </TooltipContent>
+                            <TooltipContent>Back Home</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <div>
@@ -82,17 +80,15 @@ export default function Project({ params: { id } }: Props) {
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>
-                                        {
-                                            getProjectFromId(
-                                                ((parseInt(id) -
-                                                    2 +
-                                                    totalProjects) %
-                                                    totalProjects) +
-                                                    1,
-                                            ).name
-                                        }
-                                    </p>
+                                    {
+                                        getProjectFromId(
+                                            ((parseInt(id) -
+                                                2 +
+                                                totalProjects) %
+                                                totalProjects) +
+                                                1,
+                                        ).name
+                                    }
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -108,28 +104,22 @@ export default function Project({ params: { id } }: Props) {
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <p>
-                                        {
-                                            getProjectFromId(
-                                                (parseInt(id) % totalProjects) +
-                                                    1,
-                                            ).name
-                                        }
-                                    </p>
+                                    {
+                                        getProjectFromId(
+                                            (parseInt(id) % totalProjects) + 1,
+                                        ).name
+                                    }
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                     </div>
                 </div>
             </header>
-            <div className="overflow-hidden w-full flex justify-center">
-                <main
-                    id="1"
-                    className="transition-all sm:px-10 md:px-20"
-                >
+            <div className="flex w-full justify-center overflow-hidden">
+                <main id="1" className="transition-all sm:px-10 md:px-20">
                     <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
                         <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
-                            <video
+                            {/* <video
                                 autoPlay
                                 muted
                                 playsInline
@@ -143,14 +133,14 @@ export default function Project({ params: { id } }: Props) {
                                     type="video/mp4"
                                 />
                                 Your borwser does not support the video tag.
-                            </video>
+                            </video> */}
                             <Play className="h-10 w-10" />
                         </div>
                     </section>
                     <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
-                        <p className="font-light leading-7">
+                        <div className="font-light leading-7">
                             {project.content.shortDescription}
-                        </p>
+                        </div>
                         <div className="flex items-center justify-end gap-2">
                             <TooltipProvider>
                                 <Tooltip>
@@ -169,7 +159,7 @@ export default function Project({ params: { id } }: Props) {
                                         </Link>
                                     </TooltipTrigger>
                                     <TooltipContent>
-                                        <p>See on GitHub</p>
+                                        See on GitHub
                                     </TooltipContent>
                                 </Tooltip>
                             </TooltipProvider>
@@ -192,7 +182,7 @@ export default function Project({ params: { id } }: Props) {
                                             </Link>
                                         </TooltipTrigger>
                                         <TooltipContent>
-                                            <p>Visit {project.websiteLink}</p>
+                                            Visit {project.websiteLink}
                                         </TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>

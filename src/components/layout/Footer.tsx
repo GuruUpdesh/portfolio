@@ -53,7 +53,7 @@ const Footer = () => {
                                 </Link>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>Download my resume</p>
+                                Download my resume
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
@@ -76,7 +76,7 @@ const Footer = () => {
                                 </Link>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>Check out my GitHub</p>
+                                Check out my GitHub
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
@@ -110,7 +110,7 @@ const Footer = () => {
                                 </Button>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>Send me an email</p>
+                                Send me an email
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>

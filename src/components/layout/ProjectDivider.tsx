@@ -13,6 +13,7 @@ const ProjectDivider = (props: ProjectDividerProps) => {
                 containerRef={containerRef}
                 intersectionOffset={0}
                 direction="top"
+                cut="top"
             />
         </div>
     );

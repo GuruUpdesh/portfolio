@@ -86,7 +86,7 @@ const ContactForm = () => {
                                 </Button>
                             </TooltipTrigger>
                             <TooltipContent>
-                                <p>Submit Another Message</p>
+                                Submit Another Message
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
