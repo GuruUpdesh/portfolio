@@ -192,10 +192,13 @@ export default function Project({ params: { id } }: Props) {
                     <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
                 </main>
             </div>
-            <section className="w-full px-5">
+            <section className="w-full px-5 overflow-clip">
                 <Gallery images={project.images} />
             </section>
-            <main id="2" className="transition-all sm:px-10 md:px-20">
+            <main
+                id="2"
+                className="overflow-clip transition-all sm:px-10 md:px-20"
+            >
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
@@ -261,17 +264,17 @@ export default function Project({ params: { id } }: Props) {
                     <div className="flex w-full justify-between gap-4">
                         <Link
                             href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
-                            className="flex items-center gap-4 text-4xl animated-underline after:right-0 opacity-75 hover:opacity-100 transition-opacity"
+                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
-                            <ArrowLeft />
+                            <ArrowLeft className="h-4 w-4 md:h-6 md:w-6" />
                             Last Project
                         </Link>
                         <Link
                             href={`/project/${(parseInt(id) % totalProjects) + 1}`}
-                            className="flex items-center gap-4 text-4xl animated-underline after:left-0  opacity-75 hover:opacity-100 transition-opacity"
+                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
                             Next Project
-                            <ArrowRight />
+                            <ArrowRight className="h-4 w-4 md:h-6 md:w-6" />
                         </Link>
                     </div>
                 </section>

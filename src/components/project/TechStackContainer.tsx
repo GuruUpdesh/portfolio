@@ -44,7 +44,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                 ))}
             </div>
             <div className="sticky top-[calc(68px+64px)] flex justify-center self-start col-span-1">
-                <div className="stack-container scale-50 md:scale-75 lg:scale-90 xl:scale-100 origin-top-right">
+                <div className="stack-container scale-50 sm:scale-[65%] md:scale-75 lg:scale-90 xl:scale-100 origin-top-right transition-transform">
                     {groups.map((group, i) => {
                         if (techStack[group].length === 0) {
                             return null;

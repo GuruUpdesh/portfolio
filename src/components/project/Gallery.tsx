@@ -122,7 +122,7 @@ const Gallery = ({ images }: Props) => {
 
     return (
         <div
-            className="my-10 grid w-full grid-cols-5 gap-5"
+            className="my-10 grid w-full grid-cols-10 gap-2 md:gap-5"
             style={{
                 height: `${images.length * 400}px`,
                 gridTemplateRows: `${images.length}`,
@@ -135,14 +135,14 @@ const Gallery = ({ images }: Props) => {
                             <DialogTrigger asChild>
                                 <div
                                     className={cn(
-                                        "relative col-span-2 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25",
+                                        "relative col-span-10 md:col-span-5 lg:col-span-4 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25",
                                         {
-                                            "col-span-3":
+                                            "lg:col-span-6":
                                                 (groupIndex % 2 == 0 &&
                                                     index == 0) ||
                                                 (groupIndex % 2 == 1 &&
                                                     index == 1),
-                                            "col-span-5": group.length === 1,
+                                            "lg:col-span-10": group.length === 1,
                                         },
                                     )}
                                     onClick={() => {
