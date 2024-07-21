@@ -31,7 +31,7 @@ export type TechStackCategory =
     | "backend"
     | "testing"
     | "tools";
-type Tech = {
+export type Tech = {
     name: Technology;
     version?: string;
 };

@@ -6,11 +6,10 @@ import Header from "@/components/layout/Header";
 import HeroVideo from "@/components/layout/HeroVideo";
 import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
-import Navigation from "@/components/layout/Navigation";
 
 export default function Portfolio() {
     return (
-        <main className="transition-all sm:px-10 md:px-20 overflow-hidden">
+        <main className="flex w-full flex-col items-center overflow-hidden transition-all sm:px-10 md:px-20">
             <Header />
             <section
                 className="extend-border-lines section-base z-0 rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
