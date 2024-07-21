@@ -30,6 +30,7 @@ import GitHubFiles from "@/components/project/analytics/GitHubFiles";
 import VercelVisitors from "@/components/project/analytics/VercelVisitors";
 import Image from "next/image";
 import Gallery from "@/components/project/Gallery";
+import VideoComponent from "@/components/project/VideoComponent";
 
 type Props = {
     params: {
@@ -134,7 +135,13 @@ export default function Project({ params: { id } }: Props) {
                                 />
                                 Your borwser does not support the video tag.
                             </video> */}
-                            <Play className="h-10 w-10" />
+                            {project.videoFileName ? (
+                                <VideoComponent
+                                    filename={project.videoFileName}
+                                />
+                            ) : (
+                                <Play className="h-10 w-10" />
+                            )}
                         </div>
                     </section>
                     <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">

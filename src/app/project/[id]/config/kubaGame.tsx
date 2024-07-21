@@ -6,6 +6,7 @@ const KubaGame: Project = {
     year: 2021,
     gitHubLink: "https://github.com/GuruUpdesh/kuba-game",
     websiteLink: "https://guruupdesh.github.io/kuba-game/",
+    videoFileName: "KubaTestDemo-68rkAcuN8R0AxUFw1giyLpm4rzVcqW",
     images: [],
     content: {
         shortDescription: (
@@ -19,7 +20,7 @@ const KubaGame: Project = {
             <>
                 <div className="flex flex-col items-center">
                     <h1 className="mb-2 text-2xl">Play Now!</h1>
-                    <div className="max-w-[600px] w-full">
+                    <div className="w-full max-w-[600px]">
                         <iframe
                             src="https://guruupdesh.github.io/kuba-game/"
                             width="100%"

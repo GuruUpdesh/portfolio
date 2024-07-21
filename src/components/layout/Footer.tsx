@@ -13,10 +13,11 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Navigation from "./Navigation";
+import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col px-10 pb-10 pt-20 sm:px-0">
+        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center px-10 pb-10 pt-20 sm:px-0">
             <div className="flex-1" />
             <div className="mb-5 flex w-full items-center justify-between">
                 <Link
@@ -28,7 +29,7 @@ const Footer = () => {
                 </Link>
             </div>
             <Separator className="opacity-25" />
-            <div className="flex justify-between py-4">
+            <div className="flex justify-between py-4 w-full">
                 <p className="text-xs opacity-50 md:text-sm">
                     Copyright © 2024
                 </p>
@@ -52,9 +53,7 @@ const Footer = () => {
                                     </Button>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent>
-                                Download my resume
-                            </TooltipContent>
+                            <TooltipContent>Download my resume</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <TooltipProvider>
@@ -75,9 +74,7 @@ const Footer = () => {
                                     </Button>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent>
-                                Check out my GitHub
-                            </TooltipContent>
+                            <TooltipContent>Check out my GitHub</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     {/* <TooltipProvider>
@@ -109,13 +106,19 @@ const Footer = () => {
                                     <MdEmail className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
                                 </Button>
                             </TooltipTrigger>
-                            <TooltipContent>
-                                Send me an email
-                            </TooltipContent>
+                            <TooltipContent>Send me an email</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                 </div>
             </div>
+            <Image
+                width={300}
+                height={300}
+                src="/logo.png"
+                alt="abstract colorful blob"
+                className="absolute bottom-[-100%] animate-spin-slow"
+                quality={100}
+            />
         </footer>
     );
 };

@@ -15,6 +15,7 @@ export type Project = {
     gitHubLink?: string;
     vercelProjectId?: string;
     websiteLink?: string;
+    videoFileName?: string;
     images?: string[][];
     content: ProjectContent;
     primaryTech: PrimaryTech;

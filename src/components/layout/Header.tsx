@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Navigation from "./Navigation";
+import Image from "next/image";
 
 const Header = () => {
     return (
@@ -8,9 +9,17 @@ const Header = () => {
             <div className="mb-2 flex w-full items-center justify-between md:mb-5">
                 <Link
                     href="/"
-                    className="text-sm opacity-70 transition-opacity hover:opacity-100 md:text-base"
+                    className="text-sm group md:text-base flex items-center gap-2"
                 >
-                    guruupdeshsingh.dev
+                    <Image
+                        width={20}
+                        height={20}
+                        alt="abstract colorful blob"
+                        src="/logo.png"
+                    />
+                    <span className="opacity-70 transition-opacity group-hover:opacity-100">
+                        guruupdeshsingh.dev
+                    </span>
                 </Link>
                 <Navigation />
             </div>
