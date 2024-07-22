@@ -4,7 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import PrimaryTech from "./PrimaryTech";
 import Link from "next/link";
-import { getProjectFromId } from "@/app/project/[id]/config/projectConfig";
+import { getProjectFromId } from "@/config/projectConfig";
+import Image from "next/image";
 
 type Props = {
     projectId: number;
@@ -32,7 +33,15 @@ const ProjectCard = ({ projectId, className }: Props) => {
                     variant="ghost"
                     className="flex w-full items-center justify-between px-2"
                 >
-                    <p className="text-lg">{project.name}</p>
+                    <p className="flex items-center gap-2 text-lg">
+                        <Image
+                            src={`/icons/${project.pathname}.ico`}
+                            height={16}
+                            width={16} 
+                            alt="website icon"
+                        />
+                        {project.name}
+                    </p>
                     <ArrowRight className="h-4 w-4" />
                 </Button>
             </Link>

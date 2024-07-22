@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
-import { ArrowUp, Download } from "lucide-react";
-import { FaDiscord } from "react-icons/fa";
+import { Download } from "lucide-react";
 import { MdEmail } from "react-icons/md";
 import {
     Tooltip,
@@ -17,7 +16,7 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center px-10 pb-10 pt-20 sm:px-0">
+        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center overflow-clip px-10 pb-10 pt-20 sm:px-0">
             <div className="flex-1" />
             <div className="mb-5 flex w-full items-center justify-between">
                 <Link
@@ -29,7 +28,7 @@ const Footer = () => {
                 </Link>
             </div>
             <Separator className="opacity-25" />
-            <div className="flex justify-between py-4 w-full">
+            <div className="flex w-full justify-between py-4">
                 <p className="text-xs opacity-50 md:text-sm">
                     Copyright © 2024
                 </p>
@@ -116,7 +115,15 @@ const Footer = () => {
                 height={300}
                 src="/logo.png"
                 alt="abstract colorful blob"
-                className="absolute bottom-[-100%] animate-spin-slow"
+                className="pointer-events-none absolute bottom-[-100%] -z-10 animate-spin-slow"
+                quality={100}
+            />
+            <Image
+                width={300}
+                height={300}
+                src="/logo.png"
+                alt="abstract colorful blob"
+                className="pointer-events-none absolute bottom-[-100%] -z-10 animate-spin-slow blur-3xl"
                 quality={100}
             />
         </footer>

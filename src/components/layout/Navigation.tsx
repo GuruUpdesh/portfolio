@@ -10,10 +10,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import {
-    allProjects,
-    getProjectFromId,
-} from "@/app/project/[id]/config/projectConfig";
+import { allProjects, getProjectFromId } from "@/config/projectConfig";
 
 const Navigation = () => {
     return (

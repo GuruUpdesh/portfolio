@@ -1,9 +1,6 @@
 "use client";
 
-import {
-    Tech,
-    TechStackCategory,
-} from "@/app/project/[id]/config/projectConfig";
+import { Tech, TechStackCategory } from "@/config/projectConfig";
 import React, { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 

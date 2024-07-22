@@ -44,9 +44,9 @@ export default function Portfolio() {
                         projectId={5}
                     />
                     <ProjectCard className="lg:row-span-5" projectId={6} />
-                    <ProjectCard className="lg:row-span-4" projectId={7} />
-                    <ProjectCard className="lg:row-span-5" projectId={8} />
-                    <ProjectCard className="lg:row-span-3" projectId={9} />
+                    <ProjectCard className="lg:row-span-4" projectId={8} />
+                    <ProjectCard className="lg:row-span-5" projectId={9} />
+                    <ProjectCard className="lg:row-span-3" projectId={7} />
                     <div className="hidden bg-[#0A0A0A] md:block" />
                 </div>
             </section>

@@ -28,9 +28,10 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
 
 type Props = {
     images?: string[][];
+    pathname: string;
 };
 
-const Gallery = ({ images }: Props) => {
+const Gallery = ({ pathname, images }: Props) => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
     const [count, setCount] = React.useState(0);
@@ -135,14 +136,15 @@ const Gallery = ({ images }: Props) => {
                             <DialogTrigger asChild>
                                 <div
                                     className={cn(
-                                        "relative col-span-10 md:col-span-5 lg:col-span-4 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25",
+                                        "relative col-span-10 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25 md:col-span-5 lg:col-span-4",
                                         {
                                             "lg:col-span-6":
                                                 (groupIndex % 2 == 0 &&
                                                     index == 0) ||
                                                 (groupIndex % 2 == 1 &&
                                                     index == 1),
-                                            "lg:col-span-10": group.length === 1,
+                                            "lg:col-span-10":
+                                                group.length === 1,
                                         },
                                     )}
                                     onClick={() => {
@@ -150,7 +152,7 @@ const Gallery = ({ images }: Props) => {
                                     }}
                                 >
                                     <Image
-                                        src={src}
+                                        src={getImage(pathname, src)}
                                         fill
                                         className="object-cover object-top"
                                         priority
@@ -158,7 +160,7 @@ const Gallery = ({ images }: Props) => {
                                     />
                                 </div>
                             </DialogTrigger>
-                            <DialogContent className="max-w-[100vw] max-h-[calc(100vh-24px)] overflow-visible border-transparent bg-transparent md:max-w-[calc(100vw-125px)] p-5 lg:p-6">
+                            <DialogContent className="max-h-[calc(100vh-24px)] max-w-[100vw] overflow-visible border-transparent bg-transparent p-5 md:max-w-[calc(100vw-125px)] lg:p-6">
                                 <DialogHeader className="text-left">
                                     <DialogTitle className="text-2xl">
                                         Project Gallery
@@ -181,7 +183,10 @@ const Gallery = ({ images }: Props) => {
                                             >
                                                 <div className="relative h-[500px] lg:h-[700px]">
                                                     <Image
-                                                        src={src}
+                                                        src={getImage(
+                                                            pathname,
+                                                            src,
+                                                        )}
                                                         fill
                                                         className="rounded-xl object-cover object-top"
                                                         alt=""
@@ -191,7 +196,7 @@ const Gallery = ({ images }: Props) => {
                                         ))}
                                     </CarouselContent>
                                 </Carousel>
-                                <div className="flex justify-between items-center">
+                                <div className="flex items-center justify-between">
                                     <div className="flex gap-1">
                                         {images.flat().map((src, idx) => (
                                             <button
@@ -229,5 +234,9 @@ const Gallery = ({ images }: Props) => {
         </div>
     );
 };
+
+function getImage(pathname: string, src: string) {
+    return `/projects/${pathname}${src}`;
+}
 
 export default Gallery;

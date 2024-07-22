@@ -20,10 +20,7 @@ import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import {
-    getProjectFromId,
-    totalProjects,
-} from "@/app/project/[id]/config/projectConfig";
+import { getProjectFromId, totalProjects } from "@/config/projectConfig";
 import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
@@ -197,7 +194,7 @@ export default function Project({ params: { id } }: Props) {
                 </main>
             </div>
             <section className="w-full overflow-clip px-5">
-                <Gallery images={project.images} />
+                <Gallery images={project.images} pathname={project.pathname} />
             </section>
             <main
                 id="2"

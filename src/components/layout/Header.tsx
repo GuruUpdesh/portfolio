@@ -9,7 +9,7 @@ const Header = () => {
             <div className="mb-2 flex w-full items-center justify-between md:mb-5">
                 <Link
                     href="/"
-                    className="text-sm group md:text-base flex items-center gap-2"
+                    className="group flex items-center gap-2 text-sm md:text-base"
                 >
                     <Image
                         width={20}
