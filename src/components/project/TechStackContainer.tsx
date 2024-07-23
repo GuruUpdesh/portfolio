@@ -30,7 +30,7 @@ const TechStackContainer = ({ techStack }: Props) => {
 
     return (
         <div className="grid grid-cols-5 md:grid-cols-2">
-            <div className="col-span-4 flex flex-col gap-24 md:col-span-1">
+            <div className="col-span-4 flex flex-col gap-32 md:col-span-1">
                 {groups.map((group, i) => (
                     <TechStackItems
                         key={i}

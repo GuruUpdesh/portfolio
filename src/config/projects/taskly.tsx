@@ -43,7 +43,7 @@ const Taskly: Project = {
                         paragraph="Our opinionated design approach emphasizes
                         simplicity to minimize learning curves and maximize
                         efficiency and success."
-                        className="w-full py-16"
+                        className="w-full pt-16"
                     />
                 </div>
                 <div>

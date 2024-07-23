@@ -28,6 +28,7 @@ import VercelVisitors from "@/components/project/analytics/VercelVisitors";
 import Image from "next/image";
 import Gallery from "@/components/project/Gallery";
 import VideoComponent from "@/components/project/VideoComponent";
+import StickyHeader from "@/components/layout/StickyHeader";
 
 type Props = {
     params: {
@@ -39,7 +40,7 @@ export default function Project({ params: { id } }: Props) {
     const project = getProjectFromId(parseInt(id));
     return (
         <>
-            <header className="sticky top-0 z-20 flex w-full justify-center bg-background/50 px-5 py-4 backdrop-blur-xl transition-all sm:px-10 md:px-20">
+            <StickyHeader>
                 <div className="flex w-full max-w-[1360px] items-center gap-2 transition-all lg:px-20 xl:px-40">
                     <TooltipProvider>
                         <Tooltip>
@@ -57,8 +58,15 @@ export default function Project({ params: { id } }: Props) {
                             <TooltipContent>Back Home</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <div>
-                        <h1 className="inline-block text-2xl">
+                    <div className="flex w-full justify-between">
+                        <h1 className="inline-flex items-baseline gap-2 text-2xl">
+                            <Image
+                                src={`/icons/${project.pathname}.ico`}
+                                height={20}
+                                width={20}
+                                alt="website icon"
+                                priority
+                            />
                             {project.name}
                         </h1>
                         <p className="ml-2 inline-block text-lg opacity-75">
@@ -112,26 +120,11 @@ export default function Project({ params: { id } }: Props) {
                         </TooltipProvider>
                     </div>
                 </div>
-            </header>
+            </StickyHeader>
             <div className="flex w-full justify-center overflow-hidden">
-                <main id="1" className="transition-all sm:px-10 md:px-20">
+                <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
                     <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
                         <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
-                            {/* <video
-                                autoPlay
-                                muted
-                                playsInline
-                                controls
-                                loop
-                                preload="none"
-                                aria-label=""
-                            >
-                                <source
-                                    src="/projects/trackit/demo.mp4"
-                                    type="video/mp4"
-                                />
-                                Your borwser does not support the video tag.
-                            </video> */}
                             {project.videoFileName ? (
                                 <VideoComponent
                                     filename={project.videoFileName}
@@ -193,14 +186,14 @@ export default function Project({ params: { id } }: Props) {
                     <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
                 </main>
             </div>
-            <section className="w-full overflow-clip px-5">
+            <section className="mb-8 w-full overflow-clip px-5">
                 <Gallery images={project.images} pathname={project.pathname} />
             </section>
             <main
                 id="2"
                 className="overflow-clip transition-all sm:px-10 md:px-20"
             >
-                <section className="relative flex w-full max-w-[1360px] flex-col gap-16 px-5 py-6 transition-all lg:px-20 xl:px-40">
+                <section className="relative flex w-full max-w-[1360px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
                         <h1 className="py-2 text-2xl">Features</h1>
@@ -262,7 +255,7 @@ export default function Project({ params: { id } }: Props) {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex w-full justify-between gap-4">
+                    <div className="mb-32 flex w-full justify-between gap-4">
                         <Link
                             href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
                             className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
