@@ -62,7 +62,6 @@ const MobileTreasureHunt: Project = {
         testing: [],
         tools: [],
     },
-    icon: "#0a55cf",
 };
 
 const Portfolio: Project = {
@@ -85,7 +84,6 @@ const Portfolio: Project = {
         testing: [],
         tools: [],
     },
-    icon: "white",
 };
 
 const map: { [key: number]: Project } = {
