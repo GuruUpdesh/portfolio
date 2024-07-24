@@ -3,9 +3,8 @@ import { Project } from "../projectConfig";
 import Paragraph from "@/lib/AnimatedParagraph";
 
 const BoatsAndLoads: Project = {
-    id: 2,
     name: "Boats & Loads",
-    pathname: "boats-and-loads",
+    key: "boats-and-loads",
     year: 2024,
     gitHubLink: "https://github.com/GuruUpdesh/boats-and-loads-api",
     content: {

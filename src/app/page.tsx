@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import HeroVideo from "@/components/layout/HeroVideo";
 import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/config/projectConfig";
 
 export default function Portfolio() {
     return (
@@ -29,28 +30,49 @@ export default function Portfolio() {
             </section>
             <section
                 id="projects"
-                className="section-base border border-transparent px-10 transition-all md:px-20"
+                className="section-base border border-transparent border-t-0 border-b-0 px-10 transition-all md:px-20"
             >
                 <div className="grid-row-auto grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-12">
-                    <ProjectCard className="lg:row-span-4" projectId={1} />
-                    <ProjectCard className="lg:row-span-3" projectId={2} />
-                    <ProjectCard className="lg:row-span-4" projectId={3} />
                     <ProjectCard
-                        className="lg:col-span-1 lg:col-start-1 lg:row-span-5"
-                        projectId={4}
+                        className="lg:row-span-4"
+                        project={projects.taskly}
                     />
                     <ProjectCard
-                        className="lg:col-start-2 lg:row-span-5 lg:row-start-4"
-                        projectId={5}
+                        className="lg:row-span-3"
+                        project={projects["boats-and-loads"]}
                     />
-                    <ProjectCard className="lg:row-span-5" projectId={6} />
-                    <ProjectCard className="lg:row-span-4" projectId={8} />
-                    <ProjectCard className="lg:row-span-5" projectId={9} />
-                    <ProjectCard className="lg:row-span-3" projectId={7} />
-                    <div className="hidden bg-[#fafafa] dark:bg-[#0A0A0A] md:block" />
+                    <ProjectCard
+                        className="lg:row-span-4"
+                        project={projects["track-it"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-5"
+                        project={projects["home-designer"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-5"
+                        project={projects["shipment-tracker"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-5"
+                        project={projects["kuba-game"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-4"
+                        project={projects["effortless-eats"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-3"
+                        project={projects["mobile-treasure-hunt"]}
+                    />
+                    <ProjectCard
+                        className="lg:row-span-3"
+                        project={projects.portfolio}
+                    />
+                    <div className="hidden bg-[#fafafa] dark:bg-[#0A0A0A] md:block rounded lg:hidden" />
                 </div>
             </section>
-            <section className="section-base overflow-hidden border border-transparent px-10 transition-all md:px-20 xl:overflow-visible">
+            <section className="section-base overflow-hidden border border-transparent border-t-0 border-b-0 px-10 transition-all md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
             <section className="section-base extend-border-lines rounded-b-[80px] border border-t-0 px-10 pb-10 transition-all md:px-20 md:pb-20">

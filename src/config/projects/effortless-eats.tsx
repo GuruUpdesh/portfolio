@@ -1,21 +1,14 @@
 import { Project } from "../projectConfig";
 
 const EffortlessEats: Project = {
-    id: 7,
     name: "Effortless Eats",
-    pathname: "effortless-eats",
+    key: "effortless-eats",
     year: 2023,
     websiteLink:
         "https://www.figma.com/proto/O0wG4BLDeQIDo8bkBqLs2x/Prototype?node-id=1019-51871&starting-point-node-id=1019%3A51871&t=tm9taTJIhQmsk4dW-1",
     images: [
-        [
-            "/home.png",
-            "/menu.png",
-        ],
-        [
-            "/cart.png",
-            "/placed.png",
-        ],
+        ["/home.png", "/menu.png"],
+        ["/cart.png", "/placed.png"],
     ],
     content: {
         shortDescription: (

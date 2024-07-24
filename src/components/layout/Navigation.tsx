@@ -10,7 +10,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { allProjects, getProjectFromId } from "@/config/projectConfig";
+import { projectOrder, projects } from "@/config/projectConfig";
 
 const Navigation = () => {
     return (
@@ -23,16 +23,14 @@ const Navigation = () => {
                         </NavigationMenuTrigger>
                     </Link>
                     <NavigationMenuContent className="flex flex-col gap-2">
-                        {allProjects.map((projectId) => {
-                            const project = getProjectFromId(
-                                parseInt(projectId),
-                            );
+                        {projectOrder.map((key) => {
+                            const project = projects[key];
 
                             return (
                                 <Link
-                                    href={`/project/${project.id}`}
+                                    href={`/projects/${project.key}`}
                                     className="whitespace-nowrap px-4 py-2 hover:bg-border/5"
-                                    key={projectId}
+                                    key={key}
                                 >
                                     {project.name}
                                 </Link>

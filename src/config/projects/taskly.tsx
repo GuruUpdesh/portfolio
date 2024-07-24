@@ -3,9 +3,8 @@ import { Project } from "../projectConfig";
 import Paragraph from "@/lib/AnimatedParagraph";
 
 const Taskly: Project = {
-    id: 1,
     name: "Taskly",
-    pathname: "taskly",
+    key: "taskly",
     year: 2024,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
     vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",

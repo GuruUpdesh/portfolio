@@ -7,7 +7,7 @@ export function findRadius(L: number, dTop: number): number {
     let upperBound = 10000;
 
     const maxIter = 1000;
-    const tol = 5;
+    const tol = 2;
     let midPoint = 0;
 
     for (let i = 0; i < maxIter; i++) {

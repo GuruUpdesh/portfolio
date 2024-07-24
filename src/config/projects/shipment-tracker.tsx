@@ -2,21 +2,14 @@ import Paragraph from "@/lib/AnimatedParagraph";
 import { Project } from "../projectConfig";
 
 const ShipmentTracker: Project = {
-    id: 5,
     name: "Shipment Tracker",
-    pathname: "shipment-tracker",
+    key: "shipment-tracker",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/shipment-tracker",
     websiteLink: "https://shipmenttracker.guruupdeshsingh.dev",
     images: [
-        [
-            "/dashboard-dark.png",
-            "/map-dark.png",
-        ],
-        [
-            "/tracking-light.png",
-            "/add-light.png",
-        ],
+        ["/dashboard-dark.png", "/map-dark.png"],
+        ["/tracking-light.png", "/add-light.png"],
     ],
     content: {
         shortDescription: (

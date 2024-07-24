@@ -2,18 +2,14 @@ import Link from "next/link";
 import { Project } from "../projectConfig";
 
 const HomeDesigner: Project = {
-    id: 4,
     name: "Home Designer",
-    pathname: "home-designer",
+    key: "home-designer",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/home-designer",
     vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
     websiteLink: "https://homedesigner.guruupdeshsingh.dev",
     images: [
-        [
-            "/homepage.png",
-            "/addresses.png",
-        ],
+        ["/homepage.png", "/addresses.png"],
         ["/new.png", "/edit.png"],
     ],
     content: {

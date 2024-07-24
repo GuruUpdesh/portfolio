@@ -8,8 +8,7 @@ import EffortlessEats from "./projects/effortless-eats";
 import KubaGame from "./projects/kuba-game";
 
 export type Project = {
-    id: number;
-    pathname: string;
+    key: string;
     name: string;
     year: number;
     gitHubLink?: string;
@@ -43,9 +42,8 @@ export type TechStack = {
 };
 
 const MobileTreasureHunt: Project = {
-    id: 8,
     name: "Mobile Treasure Hunt",
-    pathname: "mobile-treasure-hunt",
+    key: "mobile-treasure-hunt",
     year: 2024,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
     websiteLink: "https://www.tasklypm.com",
@@ -65,9 +63,8 @@ const MobileTreasureHunt: Project = {
 };
 
 const Portfolio: Project = {
-    id: 9,
     name: "Portfolio",
-    pathname: "portfolio",
+    key: "portfolio",
     year: 2024,
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
     websiteLink: "https://www.tasklypm.com",
@@ -86,28 +83,49 @@ const Portfolio: Project = {
     },
 };
 
-const map: { [key: number]: Project } = {
-    1: Taskly,
-    2: BoatsAndLoads,
-    3: TrackIt,
-    4: HomeDesigner,
-    5: ShipmentTracker,
-    6: KubaGame,
-    7: EffortlessEats,
-    8: MobileTreasureHunt,
-    9: Portfolio,
-};
+export const projects = {
+    taskly: Taskly,
+    "boats-and-loads": BoatsAndLoads,
+    "track-it": TrackIt,
+    "home-designer": HomeDesigner,
+    "shipment-tracker": ShipmentTracker,
+    "kuba-game": KubaGame,
+    "effortless-eats": EffortlessEats,
+    "mobile-treasure-hunt": MobileTreasureHunt,
+    portfolio: Portfolio,
+} as const;
 
-export function getProjectFromId(id: number) {
-    if (map[id]) {
-        return map[id];
-    }
-    return Taskly;
+type ProjectKey = keyof typeof projects;
+
+export function isValidProjectKey(key: string): key is ProjectKey {
+    return key in projects;
 }
 
-export const allProjects = Object.keys(map);
+export const projectOrder = [
+    "taskly",
+    "boats-and-loads",
+    "track-it",
+    "home-designer",
+    "shipment-tracker",
+    "kuba-game",
+    "effortless-eats",
+    "mobile-treasure-hunt",
+    "portfolio",
+] as const;
 
-export const totalProjects = allProjects.length;
+export function getNextProjectKey(currentKey: ProjectKey): ProjectKey {
+    const currentIndex = projectOrder.indexOf(currentKey);
+    return projectOrder[(currentIndex + 1) % projectOrder.length];
+}
+
+export function getPreviousProjectKey(currentKey: ProjectKey): ProjectKey {
+    const currentIndex = projectOrder.indexOf(currentKey);
+    return projectOrder[
+        (currentIndex - 1 + projectOrder.length) % projectOrder.length
+    ];
+}
+
+export const totalProjects = projectOrder.length;
 
 type Technology =
     | "Typescript"

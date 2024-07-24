@@ -20,7 +20,13 @@ import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import { getProjectFromId, totalProjects } from "@/config/projectConfig";
+import {
+    getNextProjectKey,
+    getPreviousProjectKey,
+    isValidProjectKey,
+    projects,
+    totalProjects,
+} from "@/config/projectConfig";
 import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
 import GitHubFiles from "@/components/project/analytics/GitHubFiles";
@@ -32,12 +38,19 @@ import StickyHeader from "@/components/layout/StickyHeader";
 
 type Props = {
     params: {
-        id: string;
+        key: string;
     };
 };
 
-export default function Project({ params: { id } }: Props) {
-    const project = getProjectFromId(parseInt(id));
+export default function Project({ params: { key } }: Props) {
+    if (!isValidProjectKey(key)) {
+        return <div>Invalid project</div>;
+    }
+
+    const project = projects[key];
+    const nextProjectKey = getNextProjectKey(key);
+    const previousProjectKey = getPreviousProjectKey(key);
+
     return (
         <>
             <StickyHeader>
@@ -61,7 +74,7 @@ export default function Project({ params: { id } }: Props) {
                     <div className="flex w-full justify-between">
                         <h1 className="inline-flex items-baseline gap-2 text-2xl">
                             <Image
-                                src={`/icons/${project.pathname}.ico`}
+                                src={`/icons/${project.key}.ico`}
                                 height={20}
                                 width={20}
                                 alt="website icon"
@@ -78,7 +91,7 @@ export default function Project({ params: { id } }: Props) {
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Link
-                                        href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
+                                        href={`/projects/${previousProjectKey}`}
                                     >
                                         <Button variant="ghost" size="icon">
                                             <ChevronUp className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
@@ -86,35 +99,21 @@ export default function Project({ params: { id } }: Props) {
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    {
-                                        getProjectFromId(
-                                            ((parseInt(id) -
-                                                2 +
-                                                totalProjects) %
-                                                totalProjects) +
-                                                1,
-                                        ).name
-                                    }
+                                    {projects[previousProjectKey].name}
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Link
-                                        href={`/project/${(parseInt(id) % totalProjects) + 1}`}
-                                    >
+                                    <Link href={`/projects/${nextProjectKey}`}>
                                         <Button variant="ghost" size="icon">
                                             <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                         </Button>
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    {
-                                        getProjectFromId(
-                                            (parseInt(id) % totalProjects) + 1,
-                                        ).name
-                                    }
+                                    {projects[nextProjectKey].name}
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -187,7 +186,7 @@ export default function Project({ params: { id } }: Props) {
                 </main>
             </div>
             <section className="mb-8 w-full overflow-clip px-5">
-                <Gallery images={project.images} pathname={project.pathname} />
+                <Gallery images={project.images} projectKey={project.key} />
             </section>
             <main
                 id="2"
@@ -257,14 +256,14 @@ export default function Project({ params: { id } }: Props) {
                     </div>
                     <div className="mb-32 flex w-full justify-between gap-4">
                         <Link
-                            href={`/project/${((parseInt(id) - 2 + totalProjects) % totalProjects) + 1}`}
+                            href={`/projects/${previousProjectKey}`}
                             className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
                             <ArrowLeft className="h-4 w-4 md:h-6 md:w-6" />
                             Last Project
                         </Link>
                         <Link
-                            href={`/project/${(parseInt(id) % totalProjects) + 1}`}
+                            href={`/projects/${nextProjectKey}`}
                             className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
                             Next Project

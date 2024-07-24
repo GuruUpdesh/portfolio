@@ -2,9 +2,8 @@ import Link from "next/link";
 import { Project } from "../projectConfig";
 
 const TrackIt: Project = {
-    id: 3,
     name: "TrackIt",
-    pathname: "track-it",
+    key: "track-it",
     year: 2023,
     gitHubLink: "https://github.com/GuruUpdesh/track-it",
     vercelProjectId: "prj_VuKOQZjJA3tFdhvtxTXPvB7M9ma3",

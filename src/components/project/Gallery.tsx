@@ -28,10 +28,10 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
 
 type Props = {
     images?: string[][];
-    pathname: string;
+    projectKey: string;
 };
 
-const Gallery = ({ pathname, images }: Props) => {
+const Gallery = ({ images, projectKey }: Props) => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
     const [count, setCount] = React.useState(0);
@@ -152,7 +152,7 @@ const Gallery = ({ pathname, images }: Props) => {
                                     }}
                                 >
                                     <Image
-                                        src={getImage(pathname, src)}
+                                        src={getImage(projectKey, src)}
                                         fill
                                         className="object-cover object-top"
                                         priority
@@ -183,10 +183,7 @@ const Gallery = ({ pathname, images }: Props) => {
                                             >
                                                 <div className="relative h-[500px] lg:h-[700px]">
                                                     <Image
-                                                        src={getImage(
-                                                            pathname,
-                                                            src,
-                                                        )}
+                                                        src={getImage(projectKey, src)}
                                                         fill
                                                         className="rounded-xl object-cover object-top"
                                                         alt=""
@@ -235,8 +232,8 @@ const Gallery = ({ pathname, images }: Props) => {
     );
 };
 
-function getImage(pathname: string, src: string) {
-    return `/projects/${pathname}${src}`;
+function getImage(projectKey: string, src: string) {
+    return `/projects/${projectKey}${src}`;
 }
 
 export default Gallery;

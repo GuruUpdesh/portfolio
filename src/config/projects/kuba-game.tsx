@@ -1,9 +1,8 @@
 import { Project } from "../projectConfig";
 
 const KubaGame: Project = {
-    id: 6,
     name: "Kuba Game",
-    pathname: "kuba-game",
+    key: "kuba-game",
     year: 2021,
     gitHubLink: "https://github.com/GuruUpdesh/kuba-game",
     websiteLink: "https://guruupdesh.github.io/kuba-game/",

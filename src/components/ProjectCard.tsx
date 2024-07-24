@@ -4,16 +4,15 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import PrimaryTech from "./PrimaryTech";
 import Link from "next/link";
-import { getProjectFromId } from "@/config/projectConfig";
+import { Project } from "@/config/projectConfig";
 import Image from "next/image";
 
 type Props = {
-    projectId: number;
+    project: Project;
     className?: string;
 };
 
-const ProjectCard = ({ projectId, className }: Props) => {
-    const project = getProjectFromId(projectId);
+const ProjectCard = ({ project, className }: Props) => {
     return (
         <div
             className={cn(
@@ -28,14 +27,14 @@ const ProjectCard = ({ projectId, className }: Props) => {
                 <p>{project.year}</p>
             </div>
             <div className="flex-1"></div>
-            <Link href={`/project/${project.id}`}>
+            <Link href={`/projects/${project.key}`}>
                 <Button
                     variant="ghost"
                     className="flex w-full items-center justify-between px-2"
                 >
                     <p className="flex items-center gap-2 text-lg">
                         <Image
-                            src={`/icons/${project.pathname}.ico`}
+                            src={`/icons/${project.key}.ico`}
                             height={16}
                             width={16}
                             alt="website icon"
