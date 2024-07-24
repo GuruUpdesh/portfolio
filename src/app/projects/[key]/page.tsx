@@ -25,7 +25,6 @@ import {
     getPreviousProjectKey,
     isValidProjectKey,
     projects,
-    totalProjects,
 } from "@/config/projectConfig";
 import GitHubStars from "@/components/project/analytics/GitHubStars";
 import { Suspense } from "react";
@@ -35,6 +34,7 @@ import Image from "next/image";
 import Gallery from "@/components/project/Gallery";
 import VideoComponent from "@/components/project/VideoComponent";
 import StickyHeader from "@/components/layout/StickyHeader";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: {
@@ -44,7 +44,7 @@ type Props = {
 
 export default function Project({ params: { key } }: Props) {
     if (!isValidProjectKey(key)) {
-        return <div>Invalid project</div>;
+        notFound() 
     }
 
     const project = projects[key];
