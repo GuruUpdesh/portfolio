@@ -17,7 +17,7 @@ const ProjectCard = ({ projectId, className }: Props) => {
     return (
         <div
             className={cn(
-                "flex flex-col rounded-sm bg-[#0A0A0A] p-2 text-sm",
+                "flex flex-col rounded-sm bg-[#fafafa] p-2 text-sm dark:bg-[#0A0A0A]",
                 className,
             )}
         >
@@ -37,7 +37,7 @@ const ProjectCard = ({ projectId, className }: Props) => {
                         <Image
                             src={`/icons/${project.pathname}.ico`}
                             height={16}
-                            width={16} 
+                            width={16}
                             alt="website icon"
                         />
                         {project.name}

@@ -70,7 +70,7 @@ const ContactForm = () => {
         return (
             <div
                 id="contact"
-                className="order-t flex flex-1 flex-col items-center justify-between bg-[#0A0A0A] p-8 sm:border-l sm:border-t-0 md:col-span-2"
+                className="order-t flex flex-1 flex-col items-center justify-between bg-[#fafafa] p-8 dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
             >
                 <div className="w-full">
                     <TooltipProvider>
@@ -110,7 +110,7 @@ const ContactForm = () => {
             <form
                 id="contact"
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col border-t bg-[#0A0A0A] p-2 sm:border-l sm:border-t-0 md:col-span-2 text-base"
+                className="flex flex-col border-t bg-[#fafafa] p-2 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
             >
                 <FormField
                     control={form.control}

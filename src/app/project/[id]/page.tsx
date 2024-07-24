@@ -124,7 +124,7 @@ export default function Project({ params: { id } }: Props) {
             <div className="flex w-full justify-center overflow-hidden">
                 <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
                     <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
-                        <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#0A0A0A]">
+                        <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#fafafa] dark:bg-[#0A0A0A]">
                             {project.videoFileName ? (
                                 <VideoComponent
                                     filename={project.videoFileName}

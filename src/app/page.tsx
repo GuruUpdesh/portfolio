@@ -47,7 +47,7 @@ export default function Portfolio() {
                     <ProjectCard className="lg:row-span-4" projectId={8} />
                     <ProjectCard className="lg:row-span-5" projectId={9} />
                     <ProjectCard className="lg:row-span-3" projectId={7} />
-                    <div className="hidden bg-[#0A0A0A] md:block" />
+                    <div className="hidden bg-[#fafafa] dark:bg-[#0A0A0A] md:block" />
                 </div>
             </section>
             <section className="section-base overflow-hidden border border-transparent px-10 transition-all md:px-20 xl:overflow-visible">

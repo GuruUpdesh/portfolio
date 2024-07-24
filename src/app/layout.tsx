@@ -3,6 +3,7 @@ import { Sora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/lib/ThemeProvider";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -24,7 +25,14 @@ export default function RootLayout({
                     "flex w-full flex-col items-center",
                 )}
             >
-                {children}
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableColorScheme
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
             </body>
             <Analytics />
         </html>

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import Navigation from "./Navigation";
 import Image from "next/image";
+import ThemeToggle from "../ThemeToggle";
 
 const Footer = () => {
     return (
@@ -76,24 +77,6 @@ const Footer = () => {
                             <TooltipContent>Check out my GitHub</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    {/* <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-4"
-                                >
-                                    <LinkedInLogoIcon className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
-                                    <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
-                                        LinkedIn
-                                    </span>
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Follow me on LinkedIn</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider> */}
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -108,6 +91,7 @@ const Footer = () => {
                             <TooltipContent>Send me an email</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
+                    <ThemeToggle />
                 </div>
             </div>
             <Image
