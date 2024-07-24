@@ -88,7 +88,7 @@ export default function Portfolio() {
                     <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
                         <div className="relative flex flex-col md:col-span-3">
                             <div className="flex-1" />
-                            <p className="bg-gradient-to-t p-5 text-sm opacity-70 xl:p-10 xl:text-base xl:leading-8">
+                            <p className="bg-gradient-to-t p-5 text-sm text-muted-foreground xl:p-10 xl:text-base xl:leading-8">
                                 I’m a new computer science graduate from Oregon
                                 State University with a focus in cybersecurity
                                 and full stack web development.

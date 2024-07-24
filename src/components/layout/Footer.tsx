@@ -22,15 +22,16 @@ const Footer = () => {
             <div className="mb-5 flex w-full items-center justify-between">
                 <Link
                     href="/"
-                    className="text-sm opacity-50 transition-opacity hover:opacity-100 md:text-base"
+                    className="text-sm text-muted transition-all hover:text-muted-foreground md:text-base"
                     scroll={true}
                 >
                     guruupdeshsingh.dev
                 </Link>
+                <ThemeToggle />
             </div>
-            <Separator className="opacity-25" />
+            <Separator className="bg-muted" />
             <div className="flex w-full justify-between py-4">
-                <p className="text-xs opacity-50 md:text-sm">
+                <p className="text-xs text-muted md:text-sm">
                     Copyright © 2024
                 </p>
                 <div className="item-center flex gap-1">
@@ -44,10 +45,10 @@ const Footer = () => {
                                 >
                                     <Button
                                         variant="outline"
-                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-4"
+                                        className="group flex items-center gap-2 rounded-full px-2 text-muted lg:px-4"
                                     >
-                                        <Download className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100" />
-                                        <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
+                                        <Download className="h-4 w-4" />
+                                        <span className="hidden lg:block">
                                             Resume
                                         </span>
                                     </Button>
@@ -65,10 +66,10 @@ const Footer = () => {
                                 >
                                     <Button
                                         variant="outline"
-                                        className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                        className="group flex items-center gap-2 rounded-full px-2 text-muted lg:px-3"
                                     >
-                                        <GitHubLogoIcon className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
-                                        <span className="hidden opacity-50 transition-opacity group-hover:opacity-100 lg:block">
+                                        <GitHubLogoIcon className="h-5 w-5" />
+                                        <span className="hidden lg:block">
                                             GitHub
                                         </span>
                                     </Button>
@@ -83,15 +84,14 @@ const Footer = () => {
                                 <Button
                                     variant="outline"
                                     size="icon"
-                                    className="group flex items-center gap-2 rounded-full"
+                                    className="group flex items-center gap-2 rounded-full text-muted"
                                 >
-                                    <MdEmail className="h-5 w-5 opacity-50 transition-opacity group-hover:opacity-100" />
+                                    <MdEmail className="h-5 w-5" />
                                 </Button>
                             </TooltipTrigger>
                             <TooltipContent>Send me an email</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <ThemeToggle />
                 </div>
             </div>
             <Image

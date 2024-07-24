@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import DynamicCircle from "./DynamicCircle";
+import dynamic from "next/dynamic";
+const DynamicCircle = dynamic(() => import("./DynamicCircle"), { ssr: false });
 
 interface ProjectDividerProps extends React.HTMLAttributes<HTMLDivElement> {}
 

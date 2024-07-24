@@ -17,18 +17,19 @@ const Header = () => {
                         alt="abstract colorful blob"
                         src="/logo.png"
                     />
-                    <span className="opacity-70 transition-opacity group-hover:opacity-100">
+                    <span className="text-muted transition-all group-hover:text-primary">
                         guruupdeshsingh.dev
                     </span>
                 </Link>
                 <Navigation />
             </div>
             <div className="mt-[36px] py-2 text-lg md:text-xl lg:text-2xl">
-                <h1 className="opacity-70">Hey!</h1>
+                <h1 className="text-muted-foreground">Hey!</h1>
                 <h1>
-                    <span className="opacity-70">I’m</span> Guru Updesh Singh
+                    <span className="text-muted-foreground">I’m</span> Guru
+                    Updesh Singh
                 </h1>
-                <div className="pl-5 opacity-70 lg:pl-[60px]">
+                <div className="text-muted-foreground pl-5 lg:pl-[60px]">
                     <h2 className="text-base md:text-inherit">
                         I focus in full stack, cybersecurity, and design
                     </h2>
