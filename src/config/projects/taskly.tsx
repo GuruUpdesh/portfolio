@@ -137,8 +137,8 @@ const Taskly: Project = {
                                 Realtime web-based collaboration:
                             </b>
                             <p className="ml-[0.5ch] font-light text-muted-foreground">
-                                Planned to use webhooks, but Vercel's serverless
-                                environment didn't support persistent
+                                Planned to use webhooks, but Vercel&apos;s serverless
+                                environment didn&apos;t support persistent
                                 connections. Implemented polling using React
                                 Query. In hindsight, a real-time database
                                 solution like Convex or Supabase would have been
