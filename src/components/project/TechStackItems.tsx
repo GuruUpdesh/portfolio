@@ -3,6 +3,7 @@
 import { Tech, TechStackCategory } from "@/config/projectConfig";
 import React, { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type Props = {
     group: TechStackCategory;
@@ -11,9 +12,16 @@ type Props = {
     setGroupState: React.Dispatch<
         React.SetStateAction<Record<TechStackCategory, boolean>>
     >;
+    active: Boolean;
 };
 
-const TechStackItems = ({ group, items, groupState, setGroupState }: Props) => {
+const TechStackItems = ({
+    group,
+    items,
+    groupState,
+    setGroupState,
+    active,
+}: Props) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "-64px 0px 0px 0px",
@@ -30,7 +38,13 @@ const TechStackItems = ({ group, items, groupState, setGroupState }: Props) => {
         return null;
     }
     return (
-        <div ref={ref} id={group} className="scroll-m-[64px]">
+        <div
+            ref={ref}
+            id={group}
+            className={cn("scroll-m-[64px] opacity-50 transition-opacity", {
+                "opacity-100": active,
+            })}
+        >
             <h1 className="mb-4 inline-block text-2xl capitalize">{group}</h1>
             <div className="flex flex-col gap-2">
                 {items.map((tech, i) => (

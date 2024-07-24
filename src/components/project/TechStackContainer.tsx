@@ -38,6 +38,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                         items={techStack[group]}
                         groupState={groupState}
                         setGroupState={setGroupState}
+                        active={group === firstActiveGroup}
                     />
                 ))}
             </div>

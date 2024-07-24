@@ -20,13 +20,13 @@ export default function Paragraph({ paragraph, className }: ParagraphProps) {
     const { scrollYProgress } = useScroll({
         target: container,
 
-        offset: ["start 0.9", "start 0.25"],
+        offset: ["start 0.8", "start 0.4"],
     });
 
     const words = paragraph.split(" ");
 
     return (
-        <p ref={container} className={cn("flex flex-wrap text-4xl", className)}>
+        <p ref={container} className={cn("flex flex-wrap text-2xl", className)}>
             {words.map((word, i) => {
                 const start = i / words.length;
 
@@ -38,7 +38,7 @@ export default function Paragraph({ paragraph, className }: ParagraphProps) {
                         progress={scrollYProgress}
                         range={[start, end]}
                         styles={{
-                            word: "relative mr-1 ml-1",
+                            word: "relative mr-[3px] ml-[3px]",
                             shadow: "absolute opacity-20",
                         }}
                     >
