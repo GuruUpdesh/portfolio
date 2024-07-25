@@ -61,8 +61,8 @@ const circleSlide = {
 
     exit: {
         x: "100%",
-        y: "-50%" ,
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], },
+        y: "-50%",
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
     },
 };
 
@@ -94,8 +94,8 @@ const ProjectSheet = () => {
         setOpen(!open);
     }
 
-    useEffect(() => {
-        if (open && circleRef.current && visibleAreaRef.current) {
+    const calculateMargins = () => {
+        if (circleRef.current && visibleAreaRef.current) {
             const circleRect = circleRef.current.getBoundingClientRect();
             const visibleRect = visibleAreaRef.current.getBoundingClientRect();
 
@@ -115,25 +115,44 @@ const ProjectSheet = () => {
             });
 
             const maxMargin = Math.max(...margins);
-            const adjustedMargins = margins.map(
-                (margin) => `${maxMargin - margin}px`,
-            );
+            return margins.map((margin) => `${maxMargin - margin}px`);
+        }
+        return [];
+    };
 
-            setItemMargins(adjustedMargins);
+    useEffect(() => {
+        if (open) {
+            const handleResize = () => {
+                setItemMargins(calculateMargins());
+            };
+
+            handleResize();
+
+            const resizeObserver = new ResizeObserver(handleResize);
+            if (visibleAreaRef.current) {
+                resizeObserver.observe(visibleAreaRef.current);
+            }
+
+            window.addEventListener("resize", handleResize);
+
+            return () => {
+                resizeObserver.disconnect();
+                window.removeEventListener("resize", handleResize);
+            };
         }
     }, [open]);
 
     useEffect(() => {
         if (open) {
-          document.body.classList.add('overflow-hidden');
+            document.body.classList.add("overflow-hidden");
         } else {
-          document.body.classList.remove('overflow-hidden');
+            document.body.classList.remove("overflow-hidden");
         }
-      
+
         return () => {
-          document.body.classList.remove('overflow-hidden');
+            document.body.classList.remove("overflow-hidden");
         };
-      }, [open]);
+    }, [open]);
 
     return (
         <>
@@ -164,13 +183,13 @@ const ProjectSheet = () => {
                                     initial="initial"
                                     animate="enter"
                                     exit="exit"
-                                    className="menu-shadow absolute top-[50%] z-10 h-[65%] w-[50%] translate-x-[65%] translate-y-[-50%] border-l bg-background rounded-[100%]"
+                                    className="menu-shadow absolute top-[50%] z-10 h-[65%] w-[50%] translate-x-[65%] translate-y-[-50%] rounded-[100%] border-l bg-background"
                                     onClick={toggleOpen}
                                 ></motion.div>
-                                <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center gap-8">
+                                <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center">
                                     <div
                                         ref={visibleAreaRef}
-                                        className="flex flex-col gap-8 pl-5"
+                                        className="flex flex-col gap-4 pl-5 md:gap-8"
                                     >
                                         {projectOrder.map((key, index) => {
                                             const project = projects[key];
@@ -192,13 +211,14 @@ const ProjectSheet = () => {
                                                 >
                                                     <Link
                                                         href={`/projects/${project.key}`}
-                                                        className="group relative flex w-fit items-center gap-4 whitespace-nowrap px-4 py-2 text-4xl transition-all"
+                                                        className="group relative flex w-fit items-center gap-2 whitespace-nowrap px-4 py-2 text-lg transition-all md:gap-4 md:text-4xl"
                                                     >
                                                         <Image
                                                             src={`/icons/${project.key}.ico`}
                                                             height={30}
                                                             width={30}
                                                             alt="website icon"
+                                                            className="scale-75 transition-all md:scale-100"
                                                         />
                                                         {project.name}
                                                         <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/5" />
