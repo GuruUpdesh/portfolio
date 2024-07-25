@@ -14,6 +14,8 @@ import {
 import Navigation from "./Navigation";
 import Image from "next/image";
 import ThemeToggle from "../ThemeToggle";
+import { getYear } from "date-fns";
+import { EmailButton } from "../EmailButton";
 
 const Footer = () => {
     return (
@@ -32,7 +34,7 @@ const Footer = () => {
             <Separator className="bg-muted" />
             <div className="flex w-full justify-between py-4">
                 <p className="text-xs text-muted md:text-sm">
-                    Copyright © 2024
+                    Copyright © {getYear(new Date())}
                 </p>
                 <div className="item-center flex gap-1">
                     <TooltipProvider>
@@ -78,20 +80,7 @@ const Footer = () => {
                             <TooltipContent>Check out my GitHub</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    size="icon"
-                                    className="group flex items-center gap-2 rounded-full text-muted"
-                                >
-                                    <MdEmail className="h-5 w-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>Send me an email</TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
+                    <EmailButton />
                 </div>
             </div>
             <Image
