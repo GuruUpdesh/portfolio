@@ -25,6 +25,19 @@ type Props = {
 };
 
 const VideoPlayer = ({ url }: Props) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const [isPlaying, setIsPlaying] = useState(false);
 
     const [uiProgress, setUiProgress] = useState(0);
@@ -184,79 +197,90 @@ const VideoPlayer = ({ url }: Props) => {
                 preload="metadata"
                 aria-label=""
                 className="h-full w-full"
-                onClick={togglePlay}
+                onClick={isMobile ? undefined : togglePlay}
+                controls={isMobile}
             >
                 <source src={url} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            <div className="absolute bottom-5 mt-4 w-full items-center space-x-4 px-5">
-                <div className="flex w-full items-center rounded-lg border border-border/5 bg-border/5 opacity-0 backdrop-blur-2xl transition-opacity group-hover:opacity-100">
-                    <Button variant="ghost" size="icon" onClick={togglePlay}>
-                        {isPlaying ? <FaPause /> : <FaPlay />}
-                    </Button>
-                    <p className="w-[3ch] text-xs text-muted-foreground">
-                        {formatTime(currentTime)}
-                    </p>
-                    <div
-                        className="relative mx-2 flex-1"
-                        onMouseMove={handleSliderHover}
-                        onMouseLeave={() => setHoverTime(null)}
-                    >
-                        {buffered.map((range, index) => (
-                            <div
-                                key={index}
-                                className="absolute h-full bg-muted-foreground/10"
-                                style={{
-                                    left: `${range.start}%`,
-                                    width: `${range.end - range.start}%`,
-                                }}
+            {!isMobile && (
+                <div className="absolute bottom-5 mt-4 w-full items-center space-x-4 px-5">
+                    <div className="flex w-full items-center rounded-lg border border-border/5 bg-border/5 opacity-0 backdrop-blur-2xl transition-opacity group-hover:opacity-100">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={togglePlay}
+                        >
+                            {isPlaying ? <FaPause /> : <FaPlay />}
+                        </Button>
+                        <p className="w-[3ch] text-xs text-muted-foreground">
+                            {formatTime(currentTime)}
+                        </p>
+                        <div
+                            className="relative mx-2 flex-1"
+                            onMouseMove={handleSliderHover}
+                            onMouseLeave={() => setHoverTime(null)}
+                        >
+                            {buffered.map((range, index) => (
+                                <div
+                                    key={index}
+                                    className="absolute h-full bg-muted-foreground/10"
+                                    style={{
+                                        left: `${range.start}%`,
+                                        width: `${range.end - range.start}%`,
+                                    }}
+                                />
+                            ))}
+                            <Slider
+                                max={100}
+                                step={0.1}
+                                value={[uiProgress]}
+                                onValueChange={handleProgressChange}
+                                onValueCommit={handleProgressCommit}
                             />
-                        ))}
+                            {hoverTime && (
+                                <div
+                                    className="absolute bottom-full left-0 mb-2 rounded border border-border/10 bg-background px-2 py-1 text-xs"
+                                    style={{
+                                        left: `${hoverTime.position}px`,
+                                        transform: "translateX(-50%)",
+                                    }}
+                                >
+                                    {formatTime(hoverTime.time)}
+                                </div>
+                            )}
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                            {formatTime(duration)}
+                        </p>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleMute}
+                        >
+                            <VolumeIcon />
+                        </Button>
                         <Slider
                             max={100}
-                            step={0.1}
-                            value={[uiProgress]}
-                            onValueChange={handleProgressChange}
-                            onValueCommit={handleProgressCommit}
+                            step={1}
+                            value={[volume * 100]}
+                            onValueChange={(value) => handleVolumeChange(value)}
+                            className="w-24"
                         />
-                        {hoverTime && (
-                            <div
-                                className="absolute bottom-full left-0 mb-2 rounded border border-border/10 bg-background px-2 py-1 text-xs"
-                                style={{
-                                    left: `${hoverTime.position}px`,
-                                    transform: "translateX(-50%)",
-                                }}
-                            >
-                                {formatTime(hoverTime.time)}
-                            </div>
-                        )}
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleFullscreen}
+                        >
+                            {isFullscreen ? (
+                                <Minimize2 className="h-4 w-4" />
+                            ) : (
+                                <Maximize2 className="h-4 w-4" />
+                            )}
+                        </Button>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                        {formatTime(duration)}
-                    </p>
-                    <Button variant="ghost" size="icon" onClick={toggleMute}>
-                        <VolumeIcon />
-                    </Button>
-                    <Slider
-                        max={100}
-                        step={1}
-                        value={[volume * 100]}
-                        onValueChange={(value) => handleVolumeChange(value)}
-                        className="w-24"
-                    />
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={toggleFullscreen}
-                    >
-                        {isFullscreen ? (
-                            <Minimize2 className="h-4 w-4" />
-                        ) : (
-                            <Maximize2 className="h-4 w-4" />
-                        )}
-                    </Button>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
