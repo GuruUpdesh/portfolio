@@ -27,6 +27,8 @@ const KubaGame: Project = {
                             className="aspect-square overflow-hidden rounded-xl border border-border/5"
                             title="Kuba Game"
                             scrolling="no"
+                            loading="lazy"
+                            tabIndex={-1}
                         ></iframe>
                     </div>
                     <p className="font-light leading-7 opacity-75">

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import Image from "next/image";
-import ProjectSheet from "../ProjectSheet/ProjectSheet";
+import ProjectSheet from "./ProjectSheet";
 
 const Header = () => {
     return (
@@ -32,13 +32,13 @@ const Header = () => {
                     Updesh Singh
                 </h1>
                 <div className="pl-5 text-muted-foreground lg:pl-[60px]">
-                    <h2 className="text-base md:text-inherit">
+                    <h2 className="text-base md:text-xl">
                         I focus in full stack, cybersecurity, and design
                     </h2>
-                    <h2 className="text-base md:text-inherit">
+                    <h2 className="text-base md:text-xl">
                         I love to build
                     </h2>
-                    <h2 className="text-base md:text-inherit">
+                    <h2 className="text-base md:text-xl">
                         this is my portfolio!
                     </h2>
                 </div>

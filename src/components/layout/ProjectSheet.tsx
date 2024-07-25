@@ -219,7 +219,7 @@ const ProjectSheet = () => {
                                 <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center">
                                     <div
                                         ref={visibleAreaRef}
-                                        className="flex flex-col gap-4 pl-1 md:gap-8 md:pl-5"
+                                        className="flex flex-col pl-1 md:pl-5"
                                     >
                                         {projectOrder.map((key, index) => {
                                             const project = projects[key];
@@ -241,7 +241,7 @@ const ProjectSheet = () => {
                                                 >
                                                     <Link
                                                         href={`/projects/${project.key}`}
-                                                        className="group relative flex w-fit items-center gap-2 whitespace-nowrap px-4 py-2 text-lg transition-all md:gap-4 md:text-4xl"
+                                                        className="group relative flex w-fit items-center gap-2 whitespace-nowrap px-4 py-4 md:py-5 text-lg transition-all md:gap-4 md:text-4xl"
                                                     >
                                                         <Image
                                                             src={`/icons/${project.key}.ico`}
@@ -283,10 +283,6 @@ const ProjectSheet = () => {
                             exit="exit"
                             className="fixed left-0 top-0 z-30 h-full w-full bg-background/75"
                             onClick={toggleOpen}
-                            drag="x"
-                            dragConstraints={{ left: 0, right: 0 }}
-                            dragElastic={0.2}
-                            onDragEnd={handleSwipe}
                         ></motion.div>
                     </>
                 )}

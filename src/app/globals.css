@@ -30,6 +30,9 @@
         --chart-5: 27 87% 67%;
 
         --radius: 0.5rem;
+
+        --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+        --scrollbar-track: rgba(0, 0, 0, 0.1);
     }
 
     .dark {
@@ -52,6 +55,9 @@
         --border: 240 5.9% 100%;
         --input: 240 3.7% 15.9%;
         --ring: 240 4.9% 83.9%;
+
+        --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+        --scrollbar-track: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -137,4 +143,33 @@
 
 body.overflow-hidden {
     overflow: hidden;
+}
+
+/* Webkit browsers (Chrome, Safari, newer versions of Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover, var(--scrollbar-thumb));
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* For Internet Explorer */
+body {
+    -ms-overflow-style: none;
 }

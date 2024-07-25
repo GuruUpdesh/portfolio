@@ -32,6 +32,7 @@ const TechStackItems = ({
         const newGroupState = { ...groupState };
         newGroupState[group] = isInView;
         setGroupState(newGroupState);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isInView, group]);
 
     if (items.length === 0) {

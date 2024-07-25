@@ -44,7 +44,7 @@ type Props = {
 
 export default function Project({ params: { key } }: Props) {
     if (!isValidProjectKey(key)) {
-        notFound() 
+        notFound();
     }
 
     const project = projects[key];
@@ -71,18 +71,22 @@ export default function Project({ params: { key } }: Props) {
                             <TooltipContent>Back Home</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <div className="flex w-full justify-between">
-                        <h1 className="inline-flex items-baseline gap-2 text-2xl">
+                    <div className="flex w-full items-center justify-between">
+                        <h1
+                            className="inline-flex max-w-[calc(100%-4ch)] items-baseline gap-2 truncate text-lg md:text-2xl"
+                            title={project.name}
+                        >
                             <Image
                                 src={`/icons/${project.key}.ico`}
                                 height={20}
                                 width={20}
                                 alt="website icon"
                                 priority
+                                className="flex-shrink-0"
                             />
                             {project.name}
                         </h1>
-                        <p className="ml-2 inline-block text-lg opacity-75">
+                        <p className="ml-2 inline-block flex-shrink-0 truncate text-sm opacity-75 md:text-lg">
                             {project.year}
                         </p>
                     </div>
@@ -123,15 +127,13 @@ export default function Project({ params: { key } }: Props) {
             <div className="flex w-full justify-center overflow-hidden">
                 <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
                     <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
-                        <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#fafafa] dark:bg-[#0A0A0A]">
-                            {project.videoFileName ? (
-                                <VideoComponent
-                                    filename={project.videoFileName}
-                                />
-                            ) : (
+                        {project.videoFileName ? (
+                            <VideoComponent filename={project.videoFileName} />
+                        ) : (
+                            <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#fafafa] dark:bg-[#0A0A0A]">
                                 <Play className="h-10 w-10" />
-                            )}
-                        </div>
+                            </div>
+                        )}
                     </section>
                     <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
                         <div className="font-light leading-7">
