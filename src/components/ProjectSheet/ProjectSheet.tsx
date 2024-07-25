@@ -189,7 +189,7 @@ const ProjectSheet = () => {
                                 <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center">
                                     <div
                                         ref={visibleAreaRef}
-                                        className="flex flex-col gap-4 pl-5 md:gap-8"
+                                        className="flex flex-col gap-4 pl-1 md:gap-8 md:pl-5"
                                     >
                                         {projectOrder.map((key, index) => {
                                             const project = projects[key];
