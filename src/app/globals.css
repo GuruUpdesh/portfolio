@@ -129,3 +129,7 @@
     filter: drop-shadow(-10px 0px 8px rgb(0 0 0 / 0.5))
         drop-shadow(-4px 0px 3px rgb(0 0 0 / 0.5));
 }
+
+body.overflow-hidden {
+    overflow: hidden;
+}

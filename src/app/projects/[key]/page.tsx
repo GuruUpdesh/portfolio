@@ -86,7 +86,7 @@ export default function Project({ params: { key } }: Props) {
                             {project.year}
                         </p>
                     </div>
-                    <div className="group flex flex-1 items-center justify-end gap-2">
+                    <div className="group flex flex-1 items-center justify-end">
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>

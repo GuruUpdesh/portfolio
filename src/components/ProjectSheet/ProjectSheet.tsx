@@ -10,12 +10,12 @@ import Image from "next/image";
 
 const itemVariants = {
     initial: { opacity: 0, x: 50 },
-    enter: (i) => ({
+    enter: (i: number) => ({
         opacity: 1,
         x: 0,
         transition: { delay: i * 0.05, duration: 0.5 },
     }),
-    exit: (i) => ({
+    exit: (i: number) => ({
         opacity: 0,
         x: 50,
         transition: { delay: i * 0.05, duration: 0.3 },
@@ -50,10 +50,38 @@ const menuCircle = {
     },
 };
 
+const circleSlide = {
+    initial: { x: "100%", y: "-50%" },
+
+    enter: {
+        x: "65%",
+        y: "-50%",
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.15 },
+    },
+
+    exit: {
+        x: "100%",
+        y: "-50%" ,
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], },
+    },
+};
+
 const backgroundVariants = {
     initial: { opacity: 0 },
     enter: { opacity: 1 },
     exit: { opacity: 0 },
+};
+
+const xButtonVariants = {
+    initial: { scale: 0 },
+    enter: {
+        scale: 1,
+        transition: { duration: 0.3, delay: 0.3 },
+    },
+    exit: {
+        scale: 0,
+        transition: { duration: 0.2 },
+    },
 };
 
 const ProjectSheet = () => {
@@ -95,6 +123,18 @@ const ProjectSheet = () => {
         }
     }, [open]);
 
+    useEffect(() => {
+        if (open) {
+          document.body.classList.add('overflow-hidden');
+        } else {
+          document.body.classList.remove('overflow-hidden');
+        }
+      
+        return () => {
+          document.body.classList.remove('overflow-hidden');
+        };
+      }, [open]);
+
     return (
         <>
             <Button variant="ghost" size="icon" onClick={toggleOpen}>
@@ -108,27 +148,30 @@ const ProjectSheet = () => {
                             initial="initial"
                             animate="enter"
                             exit="exit"
-                            className="max-w-[calc(100vw-20px)] fixed right-0 top-0 z-40 h-full w-[900px]"
+                            className="fixed right-0 top-0 z-40 h-full w-[900px] max-w-[calc(100vw-20px)]"
                         >
                             <motion.div
                                 ref={circleRef}
                                 variants={menuCircle}
                                 initial="initial"
                                 animate="enter"
-                                className="absolute top-[-50%] h-[200%] w-[200%] border-l bg-background menu-shadow"
+                                exit="exit"
+                                className="menu-shadow absolute top-[-50%] h-[200%] w-[200%] overflow-hidden border-l bg-background"
                             >
                                 <motion.div
                                     ref={circleRef}
-                                    variants={menuCircle}
+                                    variants={circleSlide}
                                     initial="initial"
                                     animate="enter"
                                     exit="exit"
-                                    className="absolute w-[50%] h-[65%] top-[50%] translate-y-[-50%] translate-x-[65%] border-l bg-background"
-                                >
-
-                                </motion.div>
+                                    className="menu-shadow absolute top-[50%] z-10 h-[65%] w-[50%] translate-x-[65%] translate-y-[-50%] border-l bg-background rounded-[100%]"
+                                    onClick={toggleOpen}
+                                ></motion.div>
                                 <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center gap-8">
-                                    <div ref={visibleAreaRef} className="pl-5 flex flex-col gap-8">
+                                    <div
+                                        ref={visibleAreaRef}
+                                        className="flex flex-col gap-8 pl-5"
+                                    >
                                         {projectOrder.map((key, index) => {
                                             const project = projects[key];
 
@@ -149,7 +192,7 @@ const ProjectSheet = () => {
                                                 >
                                                     <Link
                                                         href={`/projects/${project.key}`}
-                                                        className="flex items-center gap-4 whitespace-nowrap px-4 py-2 text-4xl text-muted-foreground hover:text-primary transition-all"
+                                                        className="group relative flex w-fit items-center gap-4 whitespace-nowrap px-4 py-2 text-4xl transition-all"
                                                     >
                                                         <Image
                                                             src={`/icons/${project.key}.ico`}
@@ -158,6 +201,7 @@ const ProjectSheet = () => {
                                                             alt="website icon"
                                                         />
                                                         {project.name}
+                                                        <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/5" />
                                                     </Link>
                                                 </motion.div>
                                             );
@@ -166,14 +210,22 @@ const ProjectSheet = () => {
                                 </div>
                             </motion.div>
                         </motion.div>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={toggleOpen}
+                        <motion.div
+                            variants={xButtonVariants}
+                            initial="initial"
+                            animate="enter"
+                            exit="exit"
                             className="absolute right-0 z-40"
                         >
-                            <X />
-                        </Button>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={toggleOpen}
+                                className="bg-background"
+                            >
+                                <X />
+                            </Button>
+                        </motion.div>
                         <motion.div
                             variants={backgroundVariants}
                             initial="initial"
