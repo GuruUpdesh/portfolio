@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+    motion,
+    AnimatePresence,
+    useDragControls,
+    PanInfo,
+} from "framer-motion";
 import { projectOrder, projects } from "@/config/projectConfig";
 import Link from "next/link";
 import Image from "next/image";
@@ -90,9 +95,16 @@ const ProjectSheet = () => {
     const circleRef = useRef<HTMLDivElement>(null);
     const visibleAreaRef = useRef<HTMLDivElement>(null);
 
-    function toggleOpen() {
-        setOpen(!open);
-    }
+    const toggleOpen = useCallback(() => {
+        setOpen((prevOpen) => !prevOpen);
+    }, []);
+
+    const handleSwipe = useCallback(
+        (event: TouchEvent | MouseEvent, info: PanInfo) => {
+            toggleOpen();
+        },
+        [toggleOpen],
+    );
 
     const calculateMargins = () => {
         if (circleRef.current && visibleAreaRef.current) {
@@ -154,6 +166,20 @@ const ProjectSheet = () => {
         };
     }, [open]);
 
+    useEffect(() => {
+        const handleEscKey = (event: KeyboardEvent) => {
+            if (event.key === "Escape" && open) {
+                toggleOpen();
+            }
+        };
+
+        document.addEventListener("keydown", handleEscKey);
+
+        return () => {
+            document.removeEventListener("keydown", handleEscKey);
+        };
+    }, [open, toggleOpen]);
+
     return (
         <>
             <Button variant="ghost" size="icon" onClick={toggleOpen}>
@@ -168,6 +194,10 @@ const ProjectSheet = () => {
                             animate="enter"
                             exit="exit"
                             className="fixed right-0 top-0 z-40 h-full w-[900px] max-w-[calc(100vw-20px)]"
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.2}
+                            onDragEnd={handleSwipe}
                         >
                             <motion.div
                                 ref={circleRef}
@@ -253,6 +283,10 @@ const ProjectSheet = () => {
                             exit="exit"
                             className="fixed left-0 top-0 z-30 h-full w-full bg-background/75"
                             onClick={toggleOpen}
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.2}
+                            onDragEnd={handleSwipe}
                         ></motion.div>
                     </>
                 )}
