@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { menuSlide } from "./anim";
 import { projectOrder, projects } from "@/config/projectConfig";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,25 +22,78 @@ const itemVariants = {
     }),
 };
 
-const ProjectSheet = (props: Props) => {
+const menuSlide = {
+    initial: { x: "100%" },
+
+    enter: {
+        x: "0",
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    },
+
+    exit: {
+        x: "100%",
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    },
+};
+
+const menuCircle = {
+    initial: { borderRadius: 0 },
+
+    enter: {
+        borderRadius: "100%",
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    },
+
+    exit: {
+        borderRadius: 0,
+        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+    },
+};
+
+const backgroundVariants = {
+    initial: { opacity: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
+};
+
+const ProjectSheet = () => {
     const [open, setOpen] = useState(false);
+    const [itemMargins, setItemMargins] = useState<string[]>([]);
+    const circleRef = useRef<HTMLDivElement>(null);
+    const visibleAreaRef = useRef<HTMLDivElement>(null);
 
     function toggleOpen() {
         setOpen(!open);
     }
 
-    const calculateMargins = useMemo(() => {
-        const maxMargin = 50; // Maximum margin at the edges
-        const middleIndex = (projectOrder.length - 1) / 2;
+    useEffect(() => {
+        if (open && circleRef.current && visibleAreaRef.current) {
+            const circleRect = circleRef.current.getBoundingClientRect();
+            const visibleRect = visibleAreaRef.current.getBoundingClientRect();
 
-        return projectOrder.map((_, index) => {
-            // Normalize the index to a range of -1 to 1
-            const normalizedIndex = (index - middleIndex) / middleIndex;
-            // Use a quadratic function to calculate the margin
-            const margin = maxMargin * normalizedIndex ** 2;
-            return `${margin}px`;
-        });
-    }, []);
+            const radius = circleRect.height / 2;
+            const visibleTop = visibleRect.top - circleRect.top;
+            const visibleBottom = visibleRect.bottom - circleRect.top;
+
+            const angleRange =
+                Math.acos((radius - visibleBottom) / radius) -
+                Math.acos((radius - visibleTop) / radius);
+
+            const margins = projectOrder.map((_, index) => {
+                const angle =
+                    Math.acos((radius - visibleTop) / radius) +
+                    (angleRange * index) / (projectOrder.length - 1);
+                return radius * Math.sin(angle);
+            });
+
+            const maxMargin = Math.max(...margins);
+            const adjustedMargins = margins.map(
+                (margin) => `${maxMargin - margin}px`,
+            );
+
+            setItemMargins(adjustedMargins);
+        }
+    }, [open]);
 
     return (
         <>
@@ -49,28 +101,37 @@ const ProjectSheet = (props: Props) => {
                 <Menu />
             </Button>
             <AnimatePresence mode="wait">
-                {open ? (
+                {open && (
                     <>
                         <motion.div
                             variants={menuSlide}
                             initial="initial"
                             animate="enter"
                             exit="exit"
-                            className="fixed right-0 top-0 z-50 h-[200%] w-[50%] translate-x-[50%] translate-y-[-25%] rounded-[100%] border-l bg-background/75 backdrop-blur-2xl"
+                            className="max-w-[calc(100vw-20px)] fixed right-0 top-0 z-40 h-full w-[900px]"
                         >
-                            <div className="h-[50%] w-full translate-y-[50%] pt-10">
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    onClick={toggleOpen}
-                                    className="absolute -left-5"
+                            <motion.div
+                                ref={circleRef}
+                                variants={menuCircle}
+                                initial="initial"
+                                animate="enter"
+                                className="absolute top-[-50%] h-[200%] w-[200%] border-l bg-background menu-shadow"
+                            >
+                                <motion.div
+                                    ref={circleRef}
+                                    variants={menuCircle}
+                                    initial="initial"
+                                    animate="enter"
+                                    exit="exit"
+                                    className="absolute w-[50%] h-[65%] top-[50%] translate-y-[-50%] translate-x-[65%] border-l bg-background"
                                 >
-                                    <X />
-                                </Button>
-                                <div className="flex h-full w-full items-center pl-5">
-                                    <div>
+
+                                </motion.div>
+                                <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center gap-8">
+                                    <div ref={visibleAreaRef} className="pl-5 flex flex-col gap-8">
                                         {projectOrder.map((key, index) => {
                                             const project = projects[key];
+
                                             return (
                                                 <motion.div
                                                     key={key}
@@ -81,19 +142,19 @@ const ProjectSheet = (props: Props) => {
                                                     exit="exit"
                                                     style={{
                                                         marginLeft:
-                                                            calculateMargins[
+                                                            itemMargins[
                                                                 index
-                                                            ],
+                                                            ] || "0px",
                                                     }}
                                                 >
                                                     <Link
                                                         href={`/projects/${project.key}`}
-                                                        className="flex items-center gap-2 whitespace-nowrap px-4 py-2 text-4xl hover:bg-border/5"
+                                                        className="flex items-center gap-4 whitespace-nowrap px-4 py-2 text-4xl text-muted-foreground hover:text-primary transition-all"
                                                     >
                                                         <Image
                                                             src={`/icons/${project.key}.ico`}
-                                                            height={16}
-                                                            width={16}
+                                                            height={30}
+                                                            width={30}
                                                             alt="website icon"
                                                         />
                                                         {project.name}
@@ -103,14 +164,26 @@ const ProjectSheet = (props: Props) => {
                                         })}
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
-                        <button
+                        <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={toggleOpen}
-                            className="fixed left-0 top-0 z-40 h-full w-full bg-background/25"
-                        ></button>
+                            className="absolute right-0 z-40"
+                        >
+                            <X />
+                        </Button>
+                        <motion.div
+                            variants={backgroundVariants}
+                            initial="initial"
+                            animate="enter"
+                            exit="exit"
+                            className="fixed left-0 top-0 z-30 h-full w-full bg-background/75"
+                            onClick={toggleOpen}
+                        ></motion.div>
                     </>
-                ) : null}
+                )}
             </AnimatePresence>
         </>
     );

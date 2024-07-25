@@ -7,7 +7,7 @@ import ProjectSheet from "../ProjectSheet/ProjectSheet";
 const Header = () => {
     return (
         <header className="z-20 w-full max-w-[1360px] rounded-b-[40px] border bg-background px-5 pb-5 pt-2 transition-all sm:border-t-0 md:rounded-b-[80px] md:px-20 md:pt-10">
-            <div className="mb-2 flex w-full items-center justify-between md:mb-5">
+            <div className="relative mb-2 flex w-full items-center justify-between md:mb-5">
                 <Link
                     href="/"
                     className="group flex items-center gap-2 text-sm md:text-base"
