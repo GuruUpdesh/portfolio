@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import Image from "next/image";
+import ProjectSheet from "../ProjectSheet/ProjectSheet";
 
 const Header = () => {
     return (
@@ -21,7 +22,8 @@ const Header = () => {
                         guruupdeshsingh.dev
                     </span>
                 </Link>
-                <Navigation />
+                {/* <Navigation /> */}
+                <ProjectSheet />
             </div>
             <div className="mt-[36px] py-2 text-lg md:text-xl lg:text-2xl">
                 <h1 className="text-muted-foreground">Hey!</h1>
@@ -29,7 +31,7 @@ const Header = () => {
                     <span className="text-muted-foreground">I’m</span> Guru
                     Updesh Singh
                 </h1>
-                <div className="text-muted-foreground pl-5 lg:pl-[60px]">
+                <div className="pl-5 text-muted-foreground lg:pl-[60px]">
                     <h2 className="text-base md:text-inherit">
                         I focus in full stack, cybersecurity, and design
                     </h2>
