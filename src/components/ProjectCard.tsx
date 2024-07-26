@@ -14,24 +14,22 @@ type Props = {
 
 const ProjectCard = ({ project, className }: Props) => {
     return (
-        <div
+        <Link
+            href={`/projects/${project.key}`}
             className={cn(
-                "flex flex-col rounded-sm bg-[#fafafa] p-2 text-sm dark:bg-[#0A0A0A]",
+                "group rounded-sm bg-[#fafafa] p-2 text-sm dark:bg-[#0A0A0A]",
                 className,
             )}
         >
-            <div className="flex items-center justify-between px-2">
-                <div className="flex items-center gap-2">
-                    <PrimaryTech title={project.primaryTech} />
+            <div className="flex flex-col h-full hover:bg-border/5 rounded px-2 py-1">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <PrimaryTech title={project.primaryTech} />
+                    </div>
+                    <p>{project.year}</p>
                 </div>
-                <p>{project.year}</p>
-            </div>
-            <div className="flex-1"></div>
-            <Link href={`/projects/${project.key}`}>
-                <Button
-                    variant="ghost"
-                    className="flex w-full items-center justify-between px-2"
-                >
+                <div className="flex-1"></div>
+                <div className="flex w-full items-center justify-between">
                     <p className="flex items-center gap-2 text-lg">
                         <Image
                             src={`/icons/${project.key}.ico`}
@@ -42,9 +40,9 @@ const ProjectCard = ({ project, className }: Props) => {
                         {project.name}
                     </p>
                     <ArrowRight className="h-4 w-4" />
-                </Button>
-            </Link>
-        </div>
+                </div>
+            </div>
+        </Link>
     );
 };
 

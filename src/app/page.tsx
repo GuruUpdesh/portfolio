@@ -32,41 +32,41 @@ export default function Portfolio() {
                 id="projects"
                 className="section-base border border-transparent border-t-0 border-b-0 px-10 transition-all md:px-20"
             >
-                <div className="grid-row-auto grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-12">
+                <div className="grid-row-auto grid min-h-[960px] grid-cols-1 gap-[1px] bg-border overflow-hidden border border-t-0 md:grid-cols-2 lg:grid-cols-3">
                     <ProjectCard
-                        className="lg:row-span-4"
+                        className=""
                         project={projects.taskly}
                     />
                     <ProjectCard
-                        className="lg:row-span-3"
+                        className=""
                         project={projects["boats-and-loads"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-4"
+                        className=""
                         project={projects["track-it"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-5"
+                        className=""
                         project={projects["home-designer"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-5"
+                        className=""
                         project={projects["shipment-tracker"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-5"
+                        className=""
                         project={projects["kuba-game"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-4"
+                        className=""
                         project={projects["effortless-eats"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-3"
+                        className=""
                         project={projects["mobile-treasure-hunt"]}
                     />
                     <ProjectCard
-                        className="lg:row-span-3"
+                        className=""
                         project={projects.portfolio}
                     />
                     <div className="hidden bg-[#fafafa] dark:bg-[#0A0A0A] md:block rounded lg:hidden" />
