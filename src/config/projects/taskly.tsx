@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Project } from "../projectConfig";
 import Paragraph from "@/lib/AnimatedParagraph";
-import ListShowcase from "@/components/project/content/ListShowcase";
+import CollapsibleList from "@/components/project/CollapsibleList";
 
 const featureImprovementItems = [
     {
@@ -225,7 +225,7 @@ const Taskly: Project = {
                         whole team, and has future potential with the right
                         direction.
                     </p>
-                    <ul className="condensed-list">
+                    {/* <ul className="condensed-list">
                         <li>
                             <strong>Emphasis on Real Customers </strong>
                             <span className="paragraph">
@@ -327,7 +327,8 @@ const Taskly: Project = {
                                 the product backlog.
                             </span>
                         </li>
-                    </ul>
+                    </ul> */}
+                    <CollapsibleList items={featureImprovementItems}/>
                     <p className="paragraph mt-4">
                         And more... If you are interested in contributing to the
                         project let me know!
