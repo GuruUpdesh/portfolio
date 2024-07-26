@@ -51,7 +51,7 @@ const TechStackItems = ({
                 {items.map((tech, i) => (
                     <div
                         key={i}
-                        className="flex items-center justify-between rounded-md bg-border/5 p-2"
+                        className="flex items-center justify-between rounded-md border border-border/5 bg-border/10 p-2"
                     >
                         <p>{tech.name}</p>
                         <p className="opacity-75">{tech.version}</p>

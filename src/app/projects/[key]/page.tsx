@@ -35,6 +35,7 @@ import Gallery from "@/components/project/Gallery";
 import VideoComponent from "@/components/project/VideoComponent";
 import StickyHeader from "@/components/layout/StickyHeader";
 import { notFound } from "next/navigation";
+import "./typography.css";
 
 type Props = {
     params: {
@@ -202,9 +203,9 @@ export default function Project({ params: { key } }: Props) {
                             {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
-                                    className="overflow-hidden whitespace-nowrap rounded-lg bg-border/5 p-4 pr-0"
+                                    className="overflow-hidden whitespace-nowrap rounded-lg border border-border/5 bg-border/10 p-4 pr-0"
                                 >
-                                    <h3 className="font-semibold">{feature}</h3>
+                                    <p>{feature}</p>
                                 </li>
                             ))}
                         </ul>
@@ -214,7 +215,7 @@ export default function Project({ params: { key } }: Props) {
                         <h1 className="py-2 text-2xl">Analytics</h1>
                         <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
                             {project.vercelProjectId ? (
-                                <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                                <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
                                     <PersonIcon />
                                     <h1 className="text-lg font-semibold">
                                         <VercelVisitors
@@ -228,7 +229,7 @@ export default function Project({ params: { key } }: Props) {
                                     </h1>
                                 </li>
                             ) : null}
-                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                            <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
                                 <Star className="h-4 w-4" />
                                 <h1 className="text-lg font-semibold">
                                     <Suspense fallback={0}>
@@ -241,7 +242,7 @@ export default function Project({ params: { key } }: Props) {
                                     </span>
                                 </h1>
                             </li>
-                            <li className="flex items-baseline gap-2 rounded-lg bg-border/5 p-4">
+                            <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
                                 <File className="h-4 w-4" />
                                 <h1 className="text-lg font-semibold">
                                     <Suspense fallback={0}>

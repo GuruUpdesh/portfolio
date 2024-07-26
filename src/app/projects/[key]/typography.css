@@ -1,0 +1,38 @@
+@tailwind utilities;
+
+@layer utilities {
+    .paragraph {
+        @apply mb-4 font-light leading-7 text-muted-foreground last:mb-0;
+    }
+    .header-1 {
+        @apply mb-4 text-4xl;
+    }
+    .header-2 {
+        @apply mb-4 mt-8 text-2xl;
+    }
+    .block-list {
+        @apply flex flex-col gap-4 leading-7;
+    }
+    .block-list li {
+        @apply rounded-lg border border-border/5 bg-border/10 p-5 py-4;
+    }
+    .block-list li b {
+        @apply font-normal;
+    }
+    .condensed-list {
+        @apply flex flex-col gap-2;
+        counter-reset: list-counter;
+    }
+    .condensed-list li {
+        @apply rounded-lg border border-border/5 bg-border/10 p-5 py-2;
+    }
+    .condensed-list li strong {
+        @apply overflow-hidden whitespace-nowrap font-normal;
+        counter-increment: list-counter;
+        position: relative;
+    }
+    .condensed-list li strong::before {
+        content: counter(list-counter) ". ";
+        margin-right: 0.5ch;
+    }
+}

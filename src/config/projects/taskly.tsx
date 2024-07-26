@@ -1,6 +1,80 @@
 import Link from "next/link";
 import { Project } from "../projectConfig";
 import Paragraph from "@/lib/AnimatedParagraph";
+import ListShowcase from "@/components/project/content/ListShowcase";
+
+const featureImprovementItems = [
+    {
+        title: "Emphasis on Real Customers",
+        description:
+            "Focus on acquiring and learning from actual users to drive product development.",
+    },
+    {
+        title: "WebSockets",
+        description:
+            "Implement for true real-time collaboration, improving upon the current polling solution.",
+    },
+    {
+        title: "Email Notifications",
+        description:
+            "Enhance user engagement and keep team members informed of project updates.",
+    },
+    {
+        title: "WebSockets",
+        description:
+            "Implement for true real-time collaboration, improving upon the current polling solution.",
+    },
+    {
+        title: "Improved UI Responsiveness",
+        description:
+            "Optimize the interface for various devices and screen sizes.",
+    },
+    {
+        title: "Encrypted Task Information",
+        description:
+            "Enhance security by implementing end-to-end encryption for sensitive project data.",
+    },
+    {
+        title: "Better Text Editor Integration",
+        description:
+            "Improve the built-in editor for more efficient task and project documentation, and implement it in all text areas across the application.",
+    },
+    {
+        title: "Custom Views",
+        description:
+            "Allow users to create personalized dashboards and task views.",
+    },
+    {
+        title: "More Organizational Hierarchy",
+        description:
+            "Implement team structures for better organization in larger projects.",
+    },
+    {
+        title: "An API",
+        description:
+            "Develop a public API to allow integrations with other tools and services.",
+    },
+    {
+        title: "Improved Search",
+        description:
+            "Enhance the search functionality for quicker access to tasks and information.",
+    },
+    {
+        title: "Batch Actions",
+        description:
+            "Implement the ability to perform actions on multiple tasks simultaneously.",
+    },
+    {
+        title: "AB Testing for UI design and Features",
+        description:
+            "Implement testing to make data-driven decisions on interface and feature improvements.",
+    },
+    {
+        title: "Sub Tasks in Backlog",
+        description:
+            "Allow for more granular task management within the product backlog.",
+    },
+];
 
 const Taskly: Project = {
     name: "Taskly",
@@ -27,8 +101,8 @@ const Taskly: Project = {
         detailedContent: (
             <>
                 <div>
-                    <h1 className="mb-4 text-4xl">Overview</h1>
-                    <p className="mb-4 font-light leading-7 text-muted-foreground">
+                    <h1 className="header-1">Overview</h1>
+                    <p className="paragraph">
                         When first brainstorming the direction we wanted to take
                         Taskly we identified that many of the dominant PM tools
                         in the software industry were plagued with complexity
@@ -39,7 +113,7 @@ const Taskly: Project = {
                         this problem was something we could provide a solution
                         to.
                     </p>
-                    <p className="font-light leading-7 text-muted-foreground">
+                    <p className="paragraph">
                         Taskly was born as a strait forward, opinionated,
                         approach to Agile PM that would reduce company
                         onboarding time, free up developer resources, and
@@ -48,9 +122,9 @@ const Taskly: Project = {
                     </p>
                     <Paragraph
                         paragraph="Our opinionated design approach emphasizes simplicity to minimize learning curves and maximize efficiency and success."
-                        className="my-8 w-full"
+                        className="w-full py-8"
                     />
-                    <p className="font-light leading-7 text-muted-foreground">
+                    <p className="paragraph">
                         Our hope was that small businesses would see the value
                         in a simplified tool, especially because they have less
                         margin for error. Despite never gaining traction the
@@ -60,16 +134,16 @@ const Taskly: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-4xl">Development</h1>
-                    <p className="mb-4">Nov 5, 2023 – Jun 15, 2024</p>
-                    <p className="mb-2 font-light leading-7 text-muted-foreground">
+                    <h1 className="header-1">Development</h1>
+                    <p className="">Sep, 2023 - Jun, 2024</p>
+                    <p className="paragraph">
                         The development of Taskly was divided into three key
-                        phases (3 Months each):
+                        phases.
                     </p>
-                    <ul className="mb-4 flex flex-col gap-4 leading-7">
-                        <li className="rounded-lg bg-border/5 p-5">
-                            <b className="font-normal">Initial Planning</b>
-                            <p className="font-light leading-7 text-muted-foreground">
+                    <ul className="block-list">
+                        <li>
+                            <b>Initial Planning</b>
+                            <p className="paragraph">
                                 In this phase the team met, researched the realm
                                 of project management, identified a goal, and
                                 constructed a loose plan of action including
@@ -78,9 +152,9 @@ const Taskly: Project = {
                                 responsibilities, and UI mockups.
                             </p>
                         </li>
-                        <li className="rounded-lg bg-border/5 p-5">
-                            <b className="font-normal">Active development</b>
-                            <p className="font-light leading-7 text-muted-foreground">
+                        <li>
+                            <b>Active development</b>
+                            <p className="paragraph">
                                 This was by far the most intense phase of our
                                 project, where we took the planned we had done
                                 and created sprints with overarching goals and
@@ -93,9 +167,9 @@ const Taskly: Project = {
                                 incomplete and unrefined.
                             </p>
                         </li>
-                        <li className="rounded-lg bg-border/5 p-5">
+                        <li>
                             <b className="font-normal">Refinement</b>
-                            <p className="font-light leading-7 text-muted-foreground">
+                            <p className="paragraph">
                                 We added missing features, overhauled the UI,
                                 went through most the codebase to improve
                                 stability and performance, worked on SEO,
@@ -106,7 +180,7 @@ const Taskly: Project = {
                             </p>
                         </li>
                     </ul>
-                    <p className="mb-8 font-light leading-7 text-muted-foreground">
+                    <p className="paragraph mt-4">
                         Our hope was that small businesses would see the value
                         in a simplified tool, especially because they have less
                         margin for error. Despite never gaining traction the
@@ -114,58 +188,154 @@ const Taskly: Project = {
                         whole team, and has future potential with the right
                         direction.
                     </p>
-                    <h2 className="mb-2 text-2xl">Challenges</h2>
-                    <p className="mb-2 font-light leading-7 text-muted-foreground">
+                    <h2 className="header-2">Challenges</h2>
+                    <p className="paragraph">
                         The road to production wasn’t always straightforward,
-                        and we faced a number of challenges:
+                        and we faced a number of challenges.
                     </p>
-                    <ul className="mb-4 ml-4 flex flex-col gap-4 leading-7">
-                        <li className="rounded-lg bg-border/5 p-5">
-                            <b className="font-normal">
-                                3rd party authentication:
-                            </b>
-                            <p className="ml-[0.5ch] font-light text-muted-foreground">
-                                Used Clerk for secure authentication, including
-                                Google OAuth. Needed Database sync for
-                                production, solved by integrating Webhooks and
-                                using the Next.js instrumentation hook for
-                                development server sync.
+                    <ul className="block-list">
+                        <li>
+                            <b>3rd Party Authentication</b>
+                            <p className="paragraph">
+                                Implemented Clerk for secure authentication,
+                                including Google OAuth. Addressed database sync
+                                challenges by integrating webhooks for
+                                production and utilizing Next.js instrumentation
+                                hook for development server sync.
                             </p>
                         </li>
-                        <li className="rounded-lg bg-border/5 p-5">
-                            <b className="font-normal">
-                                Realtime web-based collaboration:
-                            </b>
-                            <p className="ml-[0.5ch] font-light text-muted-foreground">
-                                Planned to use webhooks, but Vercel&apos;s serverless
-                                environment didn&apos;t support persistent
-                                connections. Implemented polling using React
-                                Query. In hindsight, a real-time database
-                                solution like Convex or Supabase would have been
-                                better, but we were invested in Drizzle.
+                        <li>
+                            <b>Realtime Web-Based Collaboration</b>
+                            <p className="paragraph">
+                                Implemented polling with React Query for
+                                real-time updates, overcoming Vercel's
+                                serverless environment limitations.
+                                Retrospectively, a real-time database solution
+                                like Convex or Supabase could have been more
+                                efficient, but we were committed to Drizzle ORM.
                             </p>
                         </li>
                     </ul>
-                    <h2 className="mb-2 text-2xl">Future Improvements</h2>
-                    <p className="font-light leading-7 text-muted-foreground">
-                        Given another opportunity, I would allocate less time to
-                        designing the homepage and place less emphasis on
-                        documentation. I would opt for WebSockets or another
-                        service better suited for real-time collaboration to
-                        enhance the responsiveness of the application.
-                        Additionally, I would ensure a more seamless integration
-                        of the text editor with the entire application and
-                        incorporate email notifications for better user
-                        engagement.
+                    <h2 className="header-2">Future Improvements</h2>
+                    <p className="paragraph">
+                        Our hope was that small businesses would see the value
+                        in a simplified tool, especially because they have less
+                        margin for error. Despite never gaining traction the
+                        project was a successful learning experience for the
+                        whole team, and has future potential with the right
+                        direction.
                     </p>
-                    {/* <Paragraph
-                        paragraph="During development we wore many hats, from owners and investors to developers and users."
-                        className="my-16 w-full"
-                    /> */}
+                    <ul className="condensed-list">
+                        <li>
+                            <strong>Emphasis on Real Customers </strong>
+                            <span className="paragraph">
+                                Focus on acquiring and learning from actual
+                                users to drive product development..
+                            </span>
+                        </li>
+                        <li>
+                            <strong>WebSockets </strong>
+                            <span className="paragraph">
+                                Implement for true real-time collaboration,
+                                improving upon the current polling solution.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Email Notifications </strong>
+                            <span className="paragraph">
+                                Enhance user engagement and keep team members
+                                informed of project updates.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>WebSockets </strong>
+                            <span className="paragraph">
+                                Implement for true real-time collaboration,
+                                improving upon the current polling solution.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Improved UI Responsiveness </strong>
+                            <span className="paragraph">
+                                Optimize the interface for various devices and
+                                screen sizes.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Encrypted Task Information </strong>
+                            <span className="paragraph">
+                                Enhance security by implementing end-to-end
+                                encryption for sensitive project data.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Better Text Editor Integration </strong>
+                            <span className="paragraph">
+                                Improve the built-in editor for more efficient
+                                task and project documentation, and implement it
+                                in all text areas across the application.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Custom Views </strong>
+                            <span className="paragraph">
+                                Allow users to create personalized dashboards
+                                and task views.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>More Organizational Hierarchy </strong>
+                            <span className="paragraph">
+                                Implement team structures for better
+                                organization in larger projects.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>An API </strong>
+                            <span className="paragraph">
+                                Develop a public API to allow integrations with
+                                other tools and services.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Improved Search </strong>
+                            <span className="paragraph">
+                                Enhance the search functionality for quicker
+                                access to tasks and information.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Batch Actions </strong>
+                            <span className="paragraph">
+                                Implement the ability to perform actions on
+                                multiple tasks simultaneously.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>
+                                AB Testing for UI design and Features{" "}
+                            </strong>
+                            <span className="paragraph">
+                                Implement testing to make data-driven decisions
+                                on interface and feature improvements.
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Sub Tasks in Backlog </strong>
+                            <span className="paragraph">
+                                Allow for more granular task management within
+                                the product backlog.
+                            </span>
+                        </li>
+                    </ul>
+                    <p className="paragraph mt-4">
+                        And more... If you are interested in contributing to the
+                        project let me know!
+                    </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-4xl">Lessons Learned</h1>
-                    <p className="font-light leading-7 text-muted-foreground">
+                    <h1 className="header-1">Lessons Learned</h1>
+                    <p className="paragraph">
                         This experience was priceless, and was the primary
                         aspect of the development which helped me grow as a
                         developer and as a person. My teammates and Taskly
@@ -177,7 +347,7 @@ const Taskly: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-4xl">The Team</h1>
+                    <h1 className="header-1">The Team</h1>
                     <ul className="ml-4 flex flex-col gap-2 leading-7">
                         <li>
                             <strong className="font-normal">- My Role:</strong>
