@@ -208,7 +208,7 @@ const Taskly: Project = {
                             <b>Realtime Web-Based Collaboration</b>
                             <p className="paragraph">
                                 Implemented polling with React Query for
-                                real-time updates, overcoming Vercel's
+                                real-time updates, overcoming Vercel&apos;s
                                 serverless environment limitations.
                                 Retrospectively, a real-time database solution
                                 like Convex or Supabase could have been more
@@ -225,109 +225,6 @@ const Taskly: Project = {
                         whole team, and has future potential with the right
                         direction.
                     </p>
-                    {/* <ul className="condensed-list">
-                        <li>
-                            <strong>Emphasis on Real Customers </strong>
-                            <span className="paragraph">
-                                Focus on acquiring and learning from actual
-                                users to drive product development..
-                            </span>
-                        </li>
-                        <li>
-                            <strong>WebSockets </strong>
-                            <span className="paragraph">
-                                Implement for true real-time collaboration,
-                                improving upon the current polling solution.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Email Notifications </strong>
-                            <span className="paragraph">
-                                Enhance user engagement and keep team members
-                                informed of project updates.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>WebSockets </strong>
-                            <span className="paragraph">
-                                Implement for true real-time collaboration,
-                                improving upon the current polling solution.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Improved UI Responsiveness </strong>
-                            <span className="paragraph">
-                                Optimize the interface for various devices and
-                                screen sizes.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Encrypted Task Information </strong>
-                            <span className="paragraph">
-                                Enhance security by implementing end-to-end
-                                encryption for sensitive project data.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Better Text Editor Integration </strong>
-                            <span className="paragraph">
-                                Improve the built-in editor for more efficient
-                                task and project documentation, and implement it
-                                in all text areas across the application.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Custom Views </strong>
-                            <span className="paragraph">
-                                Allow users to create personalized dashboards
-                                and task views.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>More Organizational Hierarchy </strong>
-                            <span className="paragraph">
-                                Implement team structures for better
-                                organization in larger projects.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>An API </strong>
-                            <span className="paragraph">
-                                Develop a public API to allow integrations with
-                                other tools and services.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Improved Search </strong>
-                            <span className="paragraph">
-                                Enhance the search functionality for quicker
-                                access to tasks and information.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Batch Actions </strong>
-                            <span className="paragraph">
-                                Implement the ability to perform actions on
-                                multiple tasks simultaneously.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>
-                                AB Testing for UI design and Features{" "}
-                            </strong>
-                            <span className="paragraph">
-                                Implement testing to make data-driven decisions
-                                on interface and feature improvements.
-                            </span>
-                        </li>
-                        <li>
-                            <strong>Sub Tasks in Backlog </strong>
-                            <span className="paragraph">
-                                Allow for more granular task management within
-                                the product backlog.
-                            </span>
-                        </li>
-                    </ul> */}
                     <CollapsibleList items={featureImprovementItems}/>
                     <p className="paragraph mt-4">
                         And more... If you are interested in contributing to the
