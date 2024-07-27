@@ -56,7 +56,7 @@ const DynamicCircle = ({
                 maskImage: getMaskImage(cut),
             }}
             className={cn(
-                "pointer-events-none absolute left-[50%] aspect-square translate-x-[-50%] rounded-[50%] border",
+                "pointer-events-none absolute left-[50%] aspect-square translate-x-[-50%] rounded-[50%] border animate-fade-in",
                 {
                     "top-0": direction == "bottom",
                     "bottom-0": direction == "top",

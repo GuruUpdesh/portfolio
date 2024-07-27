@@ -68,7 +68,7 @@ export default function Project({ params: { key } }: Props) {
                                     </Button>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent>Back Home</TooltipContent>
+                            <TooltipContent>Back</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
                     <div className="flex w-full items-center justify-between">
@@ -143,11 +143,11 @@ export default function Project({ params: { key } }: Props) {
                             </div>
                         )}
                     </section>
-                    <section className="flex w-full max-w-[1360px] flex-col-reverse gap-2 px-5 transition-all lg:flex-row lg:px-20 xl:px-40">
-                        <div className="font-light leading-7">
+                    <section className="flex w-full max-w-[1360px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
+                        <div className="paragraph">
                             {project.content.shortDescription}
                         </div>
-                        <div className="flex items-center justify-end gap-2">
+                        <div className="flex items-start justify-end gap-2">
                             {project.gitHubLink ? (
                                 <TooltipProvider>
                                     <Tooltip>
