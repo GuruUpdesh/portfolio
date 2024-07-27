@@ -7,6 +7,7 @@ import HeroVideo from "@/components/layout/HeroVideo";
 import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/config/projectConfig";
+import CursorTracker from "@/components/CursorTracker";
 
 export default function Portfolio() {
     return (
@@ -30,9 +31,9 @@ export default function Portfolio() {
             </section>
             <section
                 id="projects"
-                className="section-base border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20"
+                className="section-base px-10 transition-all md:px-20"
             >
-                <div className="grid-row-auto relative grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
+                <CursorTracker className="group/grid grid-row-auto relative grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
                     <ProjectCard className="" project={projects.taskly} />
                     <ProjectCard
                         className=""
@@ -58,7 +59,8 @@ export default function Portfolio() {
                     />
                     <ProjectCard className="" project={projects.portfolio} />
                     <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" />
-                </div>
+                    <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] z-10 h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity group-hover/grid:opacity-100" />
+                </CursorTracker>
             </section>
             <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />

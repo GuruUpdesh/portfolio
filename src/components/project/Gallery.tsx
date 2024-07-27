@@ -20,6 +20,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { getImage } from "@/utils/getImage";
 
 const TWEEN_FACTOR_BASE = 0.6;
 
@@ -234,9 +235,5 @@ const Gallery = ({ images, projectKey }: Props) => {
         </div>
     );
 };
-
-function getImage(projectKey: string, src: string) {
-    return `/projects/${projectKey}${src}`;
-}
 
 export default Gallery;
