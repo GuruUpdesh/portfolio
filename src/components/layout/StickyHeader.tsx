@@ -30,7 +30,7 @@ const StickyHeader = ({ children }: Props) => {
     return (
         <header
             ref={ref}
-            className="sticky top-[-1px] z-20 flex w-full justify-center border-b border-border/0 bg-background/50 px-5 py-4 backdrop-blur-2xl transition-all sm:px-10 md:px-20"
+            className="sticky top-[-1px] z-20 flex w-full justify-center border-b border-transparent bg-background/50 px-5 py-4 backdrop-blur-2xl transition-all sm:px-10 md:px-20"
         >
             {children}
         </header>

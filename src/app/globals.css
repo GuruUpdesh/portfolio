@@ -36,7 +36,7 @@
     }
 
     .dark {
-        --background: 240 10% 0%;
+        --background: 240 0% 3%;
         --foreground: 0 0% 98%;
         --card: 240 10% 3.9%;
         --card-foreground: 0 0% 98%;
@@ -52,7 +52,7 @@
         --accent-foreground: 0 0% 98%;
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
-        --border: 240 5.9% 100%;
+        --border: 240 5.9% 30%;
         --input: 240 3.7% 15.9%;
         --ring: 240 4.9% 83.9%;
 
@@ -113,7 +113,7 @@
 .animated-underline::after {
     content: "";
     position: absolute;
-    background-color: hsl(var(--border));
+    background-color: hsl(var(--primary));
     width: 0%;
     height: 1px;
     transition: width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -121,7 +121,7 @@
 }
 
 .is-pinned {
-    border-color: hsl(var(--border) / 0.1);
+    border-color: hsl(var(--primary) / 0.1) !important;
     filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.01))
         drop-shadow(0 4px 3px rgba(0, 0, 0, 0.05));
 }

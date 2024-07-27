@@ -29,7 +29,7 @@
         @apply overflow-hidden whitespace-nowrap font-normal;
     }
     .highlight {
-        @apply rounded-lg border border-border/5 bg-border/10 transition-colors hover:border-transparent hover:bg-border/15;
+        @apply rounded-lg border border-primary/5 bg-primary/5 transition-colors hover:border-transparent hover:bg-primary/10;
     }
 }
 
