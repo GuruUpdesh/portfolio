@@ -20,7 +20,7 @@ const ProjectCard = ({ project, className }: Props) => {
                 className,
             )}
         >
-            <div className="z-20 flex h-full flex-col rounded bg-inherit py-1 pl-2 transition-all group-hover:bg-border/10 group-hover:ring-1 group-hover:ring-ring/25 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 group-active:scale-[97.5%]">
+            <div className="z-20 flex h-full flex-col overflow-hidden rounded bg-inherit py-1 pl-2 transition-all group-hover:bg-border/10 group-hover:ring-1 group-hover:ring-ring/25 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 group-active:scale-[97.5%]">
                 <div className="flex items-center justify-between pr-2">
                     <div className="flex items-center gap-2">
                         <PrimaryTech title={project.primaryTech} />
