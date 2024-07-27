@@ -2,9 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
-import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
 import { Slider } from "../ui/slider";
-import * as SliderPrimitive from "@radix-ui/react-slider";
 import {
     Volume,
     Volume1,
@@ -13,23 +12,19 @@ import {
     Maximize2,
     Minimize2,
 } from "lucide-react";
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-} from "@/components/ui/hover-card";
 import { cn } from "@/lib/utils";
+import { useInView } from "framer-motion";
 
 type Props = {
     url: string;
 };
 
 const VideoPlayer = ({ url }: Props) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
+            // setIsMobile(window.innerWidth < 768);
         };
 
         checkMobile();
@@ -95,14 +90,41 @@ const VideoPlayer = ({ url }: Props) => {
             setDuration(video.duration);
         }
 
-        video.addEventListener("timeupdate", updateProgress);
-        video.addEventListener("progress", updateBuffer);
-
         return () => {
             video.removeEventListener("timeupdate", updateProgress);
             video.removeEventListener("progress", updateBuffer);
         };
     }, [url, isDragging]);
+
+    const inView = useInView(containerRef)
+
+    useEffect(() => {
+        if (!inView) {
+            enterPiP();
+        } else {
+            exitPiP();
+        }
+    }, [inView])
+
+    const enterPiP = async () => {
+        if (videoRef.current) {
+            try {
+                await videoRef.current.requestPictureInPicture();
+            } catch (error) {
+                console.error("Failed to enter Picture-in-Picture mode:", error);
+            }
+        }
+    };
+
+    const exitPiP = async () => {
+        if (document.pictureInPictureElement) {
+            try {
+                await document.exitPictureInPicture();
+            } catch (error) {
+                console.error("Failed to exit Picture-in-Picture mode:", error);
+            }
+        }
+    };
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -265,7 +287,9 @@ const VideoPlayer = ({ url }: Props) => {
                             step={1}
                             value={[volume * 100]}
                             onValueChange={(value) => handleVolumeChange(value)}
-                            className="w-24"
+                            className="w-20"
+                            thumb={false}
+                            sliderClassName="h-1"
                         />
                         <Button
                             variant="ghost"
