@@ -1,3 +1,4 @@
+import { File } from "lucide-react";
 import z from "zod";
 
 type Props = {
@@ -34,7 +35,18 @@ const GitHubFiles = async ({ gitHubLink }: Props) => {
             total_count: z.number(),
         });
         const result = resultSchema.parse(data);
-        return result.total_count;
+
+        return (
+            <li className="highlight flex items-baseline gap-2 p-4">
+                <File className="h-4 w-4 text-muted-foreground" />
+                <p className="text-lg font-normal">
+                    {result.total_count}{" "}
+                    <span className="font-light text-muted-foreground">
+                        Files
+                    </span>
+                </p>
+            </li>
+        );
     } catch (e) {
         console.error(e);
         return null;

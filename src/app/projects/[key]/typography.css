@@ -14,7 +14,7 @@
         @apply flex flex-col gap-4 leading-7;
     }
     .block-list li {
-        @apply rounded-lg border border-border/5 bg-border/10 p-5 py-4;
+        @apply highlight p-5 py-4;
     }
     .block-list li b {
         @apply font-normal;
@@ -23,10 +23,13 @@
         @apply flex flex-col gap-2;
     }
     .condensed-list li {
-        @apply rounded-lg border border-border/5 bg-border/10 p-5 py-2;
+        @apply highlight p-5 py-2;
     }
     .condensed-list li strong {
         @apply overflow-hidden whitespace-nowrap font-normal;
+    }
+    .highlight {
+        @apply rounded-lg border border-border/5 bg-border/10 transition-colors hover:border-transparent hover:bg-border/15;
     }
 }
 

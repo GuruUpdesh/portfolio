@@ -134,7 +134,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                     {group.map((src, index) => (
                         <Dialog key={index} modal>
                             <DialogTrigger asChild>
-                                <div
+                                <button
                                     className={cn(
                                         "relative col-span-10 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25 md:col-span-5 lg:col-span-4",
                                         {
@@ -158,7 +158,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                                         priority
                                         alt=""
                                     />
-                                </div>
+                                </button>
                             </DialogTrigger>
                             <DialogContent className="max-h-[calc(100vh-24px)] max-w-[100vw] overflow-visible border-transparent bg-transparent p-5 md:max-w-[calc(100vw-125px)] lg:p-6">
                                 <DialogHeader className="text-left">
@@ -183,7 +183,10 @@ const Gallery = ({ images, projectKey }: Props) => {
                                             >
                                                 <div className="relative h-[500px] lg:h-[700px]">
                                                     <Image
-                                                        src={getImage(projectKey, src)}
+                                                        src={getImage(
+                                                            projectKey,
+                                                            src,
+                                                        )}
                                                         fill
                                                         className="rounded-xl object-cover object-top"
                                                         alt=""

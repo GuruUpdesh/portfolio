@@ -42,16 +42,19 @@ const TechStackItems = ({
         <div
             ref={ref}
             id={group}
-            className={cn("scroll-m-[64px] opacity-50 transition-opacity", {
-                "opacity-100": active,
-            })}
+            className={cn(
+                "pointer-events-none scroll-m-[64px] opacity-50 transition-opacity",
+                {
+                    "pointer-events-auto opacity-100": active,
+                },
+            )}
         >
             <h1 className="mb-4 inline-block text-2xl capitalize">{group}</h1>
             <div className="flex flex-col gap-2">
                 {items.map((tech, i) => (
                     <div
                         key={i}
-                        className="flex items-center justify-between rounded-md border border-border/5 bg-border/10 p-2"
+                        className="highlight flex items-center justify-between !rounded-md p-2"
                     >
                         <p>{tech.name}</p>
                         <p className="opacity-75">{tech.version}</p>

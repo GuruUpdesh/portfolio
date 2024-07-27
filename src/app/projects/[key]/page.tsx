@@ -6,15 +6,13 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GitHubLogoIcon, PersonIcon } from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import {
     ArrowLeft,
     ArrowRight,
     ChevronDown,
     ChevronUp,
-    File,
     Play,
-    Star,
 } from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
@@ -64,6 +62,7 @@ export default function Project({ params: { key } }: Props) {
                                         variant="ghost"
                                         size="icon"
                                         className="rounded-full"
+                                        tabIndex={-1}
                                     >
                                         <ArrowLeft className="h-4 w-4" />
                                     </Button>
@@ -98,7 +97,11 @@ export default function Project({ params: { key } }: Props) {
                                     <Link
                                         href={`/projects/${previousProjectKey}`}
                                     >
-                                        <Button variant="ghost" size="icon">
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            tabIndex={-1}
+                                        >
                                             <ChevronUp className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                         </Button>
                                     </Link>
@@ -112,7 +115,11 @@ export default function Project({ params: { key } }: Props) {
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Link href={`/projects/${nextProjectKey}`}>
-                                        <Button variant="ghost" size="icon">
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            tabIndex={-1}
+                                        >
                                             <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
                                         </Button>
                                     </Link>
@@ -152,6 +159,7 @@ export default function Project({ params: { key } }: Props) {
                                                 <Button
                                                     variant="outline"
                                                     className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
+                                                    tabIndex={-1}
                                                 >
                                                     <GitHubLogoIcon className="h-5 w-5" />
                                                     <span>GitHub</span>
@@ -172,7 +180,10 @@ export default function Project({ params: { key } }: Props) {
                                                 href={project.websiteLink}
                                                 target="_blank"
                                             >
-                                                <Button className="rounded-full px-2.5 lg:px-3">
+                                                <Button
+                                                    className="rounded-full px-2.5 lg:px-3"
+                                                    tabIndex={-1}
+                                                >
                                                     <span>Visit</span>
                                                 </Button>
                                             </Link>
@@ -198,12 +209,12 @@ export default function Project({ params: { key } }: Props) {
                 <section className="relative flex w-full max-w-[1360px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
-                        <h1 className="py-2 text-2xl">Features</h1>
+                        <h1 className="header-1">Features</h1>
                         <ul className="grid grid-cols-2 gap-2 lg:grid-cols-4">
                             {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
-                                    className="overflow-hidden whitespace-nowrap rounded-lg border border-border/5 bg-border/10 p-4 pr-0"
+                                    className="highlight overflow-hidden whitespace-nowrap p-4 pr-0"
                                 >
                                     <p>{feature}</p>
                                 </li>
@@ -212,66 +223,74 @@ export default function Project({ params: { key } }: Props) {
                     </div>
                     <TechStackContainer techStack={project.techStack} />
                     <div>
-                        <h1 className="py-2 text-2xl">Analytics</h1>
+                        <h1 className="header-1">Analytics</h1>
                         <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
-                            {project.vercelProjectId ? (
-                                <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
-                                    <PersonIcon />
-                                    <h1 className="text-lg font-semibold">
-                                        <VercelVisitors
-                                            vercelProjectId={
-                                                project.vercelProjectId
-                                            }
-                                        />{" "}
-                                        <span className="font-normal opacity-75">
-                                            Visitors
-                                        </span>
-                                    </h1>
-                                </li>
-                            ) : null}
-                            <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
-                                <Star className="h-4 w-4" />
-                                <h1 className="text-lg font-semibold">
-                                    <Suspense fallback={0}>
-                                        <GitHubStars
-                                            gitHubLink={project.gitHubLink}
-                                        />
-                                    </Suspense>{" "}
-                                    <span className="font-normal opacity-75">
-                                        Stars
-                                    </span>
-                                </h1>
-                            </li>
-                            <li className="flex items-baseline gap-2 rounded-lg border border-border/5 bg-border/10 p-4">
-                                <File className="h-4 w-4" />
-                                <h1 className="text-lg font-semibold">
-                                    <Suspense fallback={0}>
-                                        <GitHubFiles
-                                            gitHubLink={project.gitHubLink}
-                                        />
-                                    </Suspense>{" "}
-                                    <span className="font-normal opacity-75">
-                                        Files
-                                    </span>
-                                </h1>
-                            </li>
+                            {project.vercelProjectId && (
+                                <Suspense>
+                                    <VercelVisitors
+                                        vercelProjectId={
+                                            project.vercelProjectId
+                                        }
+                                    />
+                                </Suspense>
+                            )}
+                            <Suspense fallback={0}>
+                                <GitHubStars gitHubLink={project.gitHubLink} />
+                            </Suspense>
+                            <Suspense fallback={0}>
+                                <GitHubFiles gitHubLink={project.gitHubLink} />
+                            </Suspense>
                         </ul>
                     </div>
                     <div className="mb-32 flex w-full justify-between gap-4">
-                        <Link
-                            href={`/projects/${previousProjectKey}`}
-                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
-                        >
-                            <ArrowLeft className="h-4 w-4 md:h-6 md:w-6" />
-                            Last Project
-                        </Link>
-                        <Link
-                            href={`/projects/${nextProjectKey}`}
-                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
-                        >
-                            Next Project
-                            <ArrowRight className="h-4 w-4 md:h-6 md:w-6" />
-                        </Link>
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <Link
+                                        href={`/projects/${previousProjectKey}`}
+                                        className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
+                                    >
+                                        <ArrowLeft className="h-4 w-4 md:h-6 md:w-6" />
+                                        Last Project
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent align="end" side="bottom">
+                                    <div className="flex items-center gap-1">
+                                        <Image
+                                            src={`/icons/${projects[previousProjectKey].key}.ico`}
+                                            height={11}
+                                            width={11}
+                                            alt="website icon"
+                                        />
+                                        {projects[previousProjectKey].name}
+                                    </div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                        <TooltipProvider>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <Link
+                                        href={`/projects/${nextProjectKey}`}
+                                        className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
+                                    >
+                                        Next Project
+                                        <ArrowRight className="h-4 w-4 md:h-6 md:w-6" />
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent align="start" side="bottom">
+                                    <div className="flex items-center gap-1">
+                                        <Image
+                                            src={`/icons/${projects[nextProjectKey].key}.ico`}
+                                            height={11}
+                                            width={11}
+                                            alt="website icon"
+                                        />
+                                        {projects[nextProjectKey].name}
+                                    </div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     </div>
                 </section>
                 <Footer />

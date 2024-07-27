@@ -225,7 +225,7 @@ const Taskly: Project = {
                         whole team, and has future potential with the right
                         direction.
                     </p>
-                    <CollapsibleList items={featureImprovementItems}/>
+                    <CollapsibleList items={featureImprovementItems} />
                     <p className="paragraph mt-4">
                         And more... If you are interested in contributing to the
                         project let me know!
@@ -256,21 +256,21 @@ const Taskly: Project = {
                         <li>
                             <strong className="font-normal">
                                 - Teammates:
-                            </strong>
+                            </strong>{" "}
                             <Link
                                 href="https://github.com/cameronhollis4"
                                 target="_blank"
-                                className="ml-[0.5ch] font-light hover:underline"
+                                className="animated-underline font-light after:bottom-0 after:left-0"
                             >
                                 Cameron Hollis
-                            </Link>
-                            <span className="ml-[0.5ch] font-light text-muted-foreground">
+                            </Link>{" "}
+                            <span className="font-light text-muted-foreground">
                                 and
-                            </span>
+                            </span>{" "}
                             <Link
                                 href="https://github.com/sankanay"
                                 target="_blank"
-                                className="ml-[0.5ch] font-light hover:underline"
+                                className="animated-underline font-light after:bottom-0 after:left-0"
                             >
                                 Yash Sankanagouda
                             </Link>

@@ -18,7 +18,7 @@ const Navigation = () => {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-normal opacity-75 px-2">
+                    <NavigationMenuTrigger className="px-2 text-sm font-normal opacity-75">
                         <Menu />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="flex flex-col gap-2">
@@ -28,7 +28,7 @@ const Navigation = () => {
                             return (
                                 <Link
                                     href={`/projects/${project.key}`}
-                                    className="whitespace-nowrap px-4 py-2 hover:bg-border/5 flex items-center gap-2"
+                                    className="flex items-center gap-2 whitespace-nowrap px-4 py-2 hover:bg-border/5"
                                     key={key}
                                 >
                                     <Image

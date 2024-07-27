@@ -30,21 +30,15 @@ export default function Portfolio() {
             </section>
             <section
                 id="projects"
-                className="section-base border border-transparent border-t-0 border-b-0 px-10 transition-all md:px-20"
+                className="section-base border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20"
             >
-                <div className="grid-row-auto grid min-h-[960px] grid-cols-1 gap-[1px] bg-border overflow-hidden border border-t-0 md:grid-cols-2 lg:grid-cols-3">
-                    <ProjectCard
-                        className=""
-                        project={projects.taskly}
-                    />
+                <div className="grid-row-auto relative grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
+                    <ProjectCard className="" project={projects.taskly} />
                     <ProjectCard
                         className=""
                         project={projects["boats-and-loads"]}
                     />
-                    <ProjectCard
-                        className=""
-                        project={projects["track-it"]}
-                    />
+                    <ProjectCard className="" project={projects["track-it"]} />
                     <ProjectCard
                         className=""
                         project={projects["home-designer"]}
@@ -53,10 +47,7 @@ export default function Portfolio() {
                         className=""
                         project={projects["shipment-tracker"]}
                     />
-                    <ProjectCard
-                        className=""
-                        project={projects["kuba-game"]}
-                    />
+                    <ProjectCard className="" project={projects["kuba-game"]} />
                     <ProjectCard
                         className=""
                         project={projects["effortless-eats"]}
@@ -65,14 +56,11 @@ export default function Portfolio() {
                         className=""
                         project={projects["mobile-treasure-hunt"]}
                     />
-                    <ProjectCard
-                        className=""
-                        project={projects.portfolio}
-                    />
-                    <div className="hidden bg-[#fafafa] dark:bg-[#0A0A0A] md:block rounded lg:hidden" />
+                    <ProjectCard className="" project={projects.portfolio} />
+                    <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" />
                 </div>
             </section>
-            <section className="section-base overflow-hidden border border-transparent border-t-0 border-b-0 px-10 transition-all md:px-20 xl:overflow-visible">
+            <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
             <section className="section-base extend-border-lines rounded-b-[80px] border border-t-0 px-10 pb-10 transition-all md:px-20 md:pb-20">

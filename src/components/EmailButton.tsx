@@ -38,22 +38,31 @@ export function EmailButton() {
                             size="icon"
                             className="group flex items-center gap-2 rounded-full text-muted"
                             onContextMenu={handleCopy}
+                            tabIndex={-1}
                         >
                             <MdCheck
-                                className={cn("h-5 w-5 transition-all scale-100", {
-                                    "scale-0": !copied,
-                                })}
+                                className={cn(
+                                    "h-5 w-5 scale-100 transition-all",
+                                    {
+                                        "scale-0": !copied,
+                                    },
+                                )}
                             />
                             <MdEmail
-                                className={cn("absolute h-5 w-5 transition-all scale-100", {
-                                    "scale-0": copied,
-                                })}
+                                className={cn(
+                                    "absolute h-5 w-5 scale-100 transition-all",
+                                    {
+                                        "scale-0": copied,
+                                    },
+                                )}
                             />
                         </Button>
                     </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                    {copied ? "Email copied!" : "Click to email, right-click to copy"}
+                    {copied
+                        ? "Email copied!"
+                        : "Click to email, right-click to copy"}
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>

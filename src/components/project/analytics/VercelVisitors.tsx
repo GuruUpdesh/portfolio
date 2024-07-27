@@ -1,5 +1,6 @@
 import z, { string } from "zod";
 import { sub, formatISO } from "date-fns";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 type Props = {
     vercelProjectId: string;
@@ -70,7 +71,17 @@ const VercelVisitors = async ({ vercelProjectId }: Props) => {
             0,
         );
 
-        return totalDevices;
+        return (
+            <li className="highlight flex items-baseline gap-2 p-4">
+                <PersonIcon className="h-4 w-4 text-muted-foreground" />
+                <p className="text-lg font-normal">
+                    {totalDevices}{" "}
+                    <span className="font-light text-muted-foreground">
+                        Visitors
+                    </span>
+                </p>
+            </li>
+        );
     } catch (e) {
         console.error(e);
         return null;

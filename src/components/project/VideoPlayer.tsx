@@ -186,7 +186,7 @@ const VideoPlayer = ({ url }: Props) => {
             className={cn(
                 "group relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden border border-transparent bg-[#fafafa] transition-all dark:bg-[#0A0A0A]",
                 {
-                    "rounded-[20px] lg:rounded-t-[40px] border-border":
+                    "rounded-[20px] border-border lg:rounded-t-[40px]":
                         !isFullscreen,
                 },
             )}

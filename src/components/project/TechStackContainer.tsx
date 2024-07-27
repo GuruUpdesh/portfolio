@@ -53,9 +53,13 @@ const TechStackContainer = ({ techStack }: Props) => {
                             <a
                                 key={i}
                                 role="button"
-                                className={cn("stack-item invert dark:invert-0", {
-                                    "active-stack": group === firstActiveGroup,
-                                })}
+                                className={cn(
+                                    "stack-item invert dark:invert-0",
+                                    {
+                                        "active-stack":
+                                            group === firstActiveGroup,
+                                    },
+                                )}
                                 title={group}
                                 tabIndex={1}
                                 onClick={handleScroll}

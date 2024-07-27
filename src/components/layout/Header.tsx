@@ -35,9 +35,7 @@ const Header = () => {
                     <h2 className="text-base md:text-xl">
                         I focus in full stack, cybersecurity, and design
                     </h2>
-                    <h2 className="text-base md:text-xl">
-                        I love to build
-                    </h2>
+                    <h2 className="text-base md:text-xl">I love to build</h2>
                     <h2 className="text-base md:text-xl">
                         this is my portfolio!
                     </h2>

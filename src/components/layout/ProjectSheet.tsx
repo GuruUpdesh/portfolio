@@ -213,7 +213,7 @@ const ProjectSheet = () => {
                                     initial="initial"
                                     animate="enter"
                                     exit="exit"
-                                    className="menu-shadow absolute top-[50%] z-10 h-[65%] w-[50%] translate-x-[65%] translate-y-[-50%] rounded-[100%] border-l bg-background"
+                                    className="menu-shadow absolute top-[50%] z-10 h-[65%] w-[60%] translate-x-[65%] translate-y-[-50%] rounded-[100%] border-l bg-background md:w-[50%]"
                                     onClick={toggleOpen}
                                 ></motion.div>
                                 <div className="absolute top-[25%] flex h-[50%] w-[50%] items-center">
@@ -225,35 +225,36 @@ const ProjectSheet = () => {
                                             const project = projects[key];
 
                                             return (
-                                                <motion.div
+                                                <Link
                                                     key={key}
-                                                    custom={index}
-                                                    variants={itemVariants}
-                                                    initial="initial"
-                                                    animate="enter"
-                                                    exit="exit"
-                                                    style={{
-                                                        marginLeft:
-                                                            itemMargins[
-                                                                index
-                                                            ] || "0px",
-                                                    }}
+                                                    href={`/projects/${project.key}`}
+                                                    className="group relative w-[400%] whitespace-nowrap px-4 py-4 text-lg transition-all md:gap-4 md:py-5 md:text-4xl"
                                                 >
-                                                    <Link
-                                                        href={`/projects/${project.key}`}
-                                                        className="group relative flex w-fit items-center gap-2 whitespace-nowrap px-4 py-4 md:py-5 text-lg transition-all md:gap-4 md:text-4xl"
+                                                    <motion.div
+                                                        custom={index}
+                                                        variants={itemVariants}
+                                                        initial="initial"
+                                                        animate="enter"
+                                                        exit="exit"
+                                                        className="flex items-center gap-2 lg:gap-4"
+                                                        style={{
+                                                            marginLeft:
+                                                                itemMargins[
+                                                                    index
+                                                                ] || "0px",
+                                                        }}
                                                     >
                                                         <Image
                                                             src={`/icons/${project.key}.ico`}
-                                                            height={30}
-                                                            width={30}
+                                                            height={25}
+                                                            width={25}
                                                             alt="website icon"
                                                             className="scale-75 transition-all md:scale-100"
                                                         />
                                                         {project.name}
-                                                        <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/5" />
-                                                    </Link>
-                                                </motion.div>
+                                                        <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/10 group-hover:ring-1 group-hover:ring-ring/25 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25" />
+                                                    </motion.div>
+                                                </Link>
                                             );
                                         })}
                                     </div>

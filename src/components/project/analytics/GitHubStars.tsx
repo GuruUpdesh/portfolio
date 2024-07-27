@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import z from "zod";
 
 type Props = {
@@ -16,7 +17,7 @@ const GitHubStars = async ({ gitHubLink }: Props) => {
             );
             return null;
         }
-        
+
         const repo = gitHubLink.split("/")[gitHubLink.split("/").length - 1];
         const response = await fetch(
             `https://api.github.com/repos/GuruUpdesh/${repo}`,
@@ -32,7 +33,17 @@ const GitHubStars = async ({ gitHubLink }: Props) => {
             stargazers_count: z.number(),
         });
         const result = resultSchema.parse(data);
-        return result.stargazers_count;
+        return (
+            <li className="highlight flex items-baseline gap-2 p-4">
+                <Star className="h-4 w-4 text-muted-foreground" />
+                <p className="text-lg font-normal">
+                    {result.stargazers_count}{" "}
+                    <span className="font-light text-muted-foreground">
+                        Stars
+                    </span>
+                </p>
+            </li>
+        );
     } catch (e) {
         console.error(e);
         return null;
