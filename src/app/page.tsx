@@ -33,7 +33,7 @@ export default function Portfolio() {
                 id="projects"
                 className="section-base px-10 transition-all md:px-20"
             >
-                <CursorTracker className="group/grid grid-row-auto relative grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
+                <CursorTracker className="group/grid grid-row-auto relative mx-[1px] mt-[-1px] grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden bg-border px-[1px] py-[1px] md:grid-cols-2 lg:grid-cols-3">
                     <ProjectCard project={projects.taskly} />
                     <ProjectCard project={projects["effortless-eats"]} />
                     <ProjectCard project={projects["track-it"]} />
@@ -44,7 +44,7 @@ export default function Portfolio() {
                     <ProjectCard project={projects["mobile-treasure-hunt"]} />
                     <ProjectCard project={projects.portfolio} /> */}
                     {/* <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" /> */}
-                    <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] z-10 h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity group-hover/grid:opacity-100" />
+                    <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
                 </CursorTracker>
             </section>
             <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20 xl:overflow-visible">

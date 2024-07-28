@@ -3,12 +3,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
-import {
-    motion,
-    AnimatePresence,
-    useDragControls,
-    PanInfo,
-} from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { projectOrder, projects } from "@/config/projectConfig";
 import Link from "next/link";
 import Image from "next/image";
@@ -99,12 +94,9 @@ const ProjectSheet = () => {
         setOpen((prevOpen) => !prevOpen);
     }, []);
 
-    const handleSwipe = useCallback(
-        (event: TouchEvent | MouseEvent, info: PanInfo) => {
-            toggleOpen();
-        },
-        [toggleOpen],
-    );
+    const handleSwipe = useCallback(() => {
+        setOpen(false);
+    }, []);
 
     const calculateMargins = () => {
         if (circleRef.current && visibleAreaRef.current) {

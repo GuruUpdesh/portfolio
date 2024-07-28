@@ -1,12 +1,13 @@
 import { Project } from "../projectConfig";
 
 const KubaGame: Project = {
-    name: "Kuba Game", 
+    name: "Kuba Game",
     key: "kuba-game",
     year: 2021,
     gitHubLink: "https://github.com/GuruUpdesh/kuba-game",
     websiteLink: "https://guruupdesh.github.io/kuba-game/",
-    videoFileName: "https://res.cloudinary.com/dioxu1vph/video/upload/v1722046497/xsgq0l4qsxzo6nux1rmu.mp4",
+    videoFileName:
+        "https://res.cloudinary.com/dioxu1vph/video/upload/v1722046497/xsgq0l4qsxzo6nux1rmu.mp4",
     images: [],
     content: {
         shortDescription: (

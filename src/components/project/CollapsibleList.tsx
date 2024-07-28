@@ -16,7 +16,7 @@ type Props = {
 
 const CollapsibleList = ({ items, visible = 5 }: Props) => {
     return (
-        <Collapsible className="relative">
+        <Collapsible className="relative max-w-full">
             <ul className="condensed-list">
                 {items
                     .filter((_, i) => i < visible)

@@ -83,7 +83,8 @@ const Taskly: Project = {
     gitHubLink: "https://github.com/GuruUpdesh/taskly",
     vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",
     websiteLink: "https://www.tasklypm.com",
-    videoFileName: "https://res.cloudinary.com/dioxu1vph/video/upload/f_auto:video,q_auto/v1/samples/elephants",
+    videoFileName:
+        "https://res.cloudinary.com/dioxu1vph/video/upload/f_auto:video,q_auto/v1/samples/elephants",
     images: [
         ["/backlog.webp", "/settings.webp"],
         ["/createproject.webp", "/task.webp"],
