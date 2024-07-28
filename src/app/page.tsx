@@ -33,32 +33,17 @@ export default function Portfolio() {
                 id="projects"
                 className="section-base px-10 transition-all md:px-20"
             >
-                <CursorTracker className="group/grid grid-row-auto relative grid min-h-[960px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
-                    <ProjectCard className="" project={projects.taskly} />
-                    <ProjectCard
-                        className=""
-                        project={projects["boats-and-loads"]}
-                    />
-                    <ProjectCard className="" project={projects["track-it"]} />
-                    <ProjectCard
-                        className=""
-                        project={projects["home-designer"]}
-                    />
-                    <ProjectCard
-                        className=""
-                        project={projects["shipment-tracker"]}
-                    />
-                    <ProjectCard className="" project={projects["kuba-game"]} />
-                    <ProjectCard
-                        className=""
-                        project={projects["effortless-eats"]}
-                    />
-                    <ProjectCard
-                        className=""
-                        project={projects["mobile-treasure-hunt"]}
-                    />
-                    <ProjectCard className="" project={projects.portfolio} />
-                    <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" />
+                <CursorTracker className="group/grid grid-row-auto relative grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden border border-t-0 bg-border md:grid-cols-2 lg:grid-cols-3">
+                    <ProjectCard project={projects.taskly} />
+                    <ProjectCard project={projects["effortless-eats"]} />
+                    <ProjectCard project={projects["track-it"]} />
+                    <ProjectCard project={projects["home-designer"]} />
+                    <ProjectCard project={projects["shipment-tracker"]} />
+                    <ProjectCard project={projects["kuba-game"]} />
+                    {/* <ProjectCard project={projects["effortless-eats"]} />
+                    <ProjectCard project={projects["mobile-treasure-hunt"]} />
+                    <ProjectCard project={projects.portfolio} /> */}
+                    {/* <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" /> */}
                     <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] z-10 h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity group-hover/grid:opacity-100" />
                 </CursorTracker>
             </section>

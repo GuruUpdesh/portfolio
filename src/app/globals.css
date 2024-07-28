@@ -145,6 +145,10 @@ body.overflow-hidden {
     overflow: hidden;
 }
 
+.linear-mask {
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
 /* Webkit browsers (Chrome, Safari, newer versions of Edge) */
 ::-webkit-scrollbar {
     width: 10px;

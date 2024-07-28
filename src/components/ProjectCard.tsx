@@ -17,7 +17,7 @@ const ProjectCard = ({ project, className }: Props) => {
         <Link
             href={`/projects/${project.key}`}
             className={cn(
-                "group z-20 min-h-[200px] rounded-sm bg-[#fafafa] p-2 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-[#0A0A0A] overflow-clip",
+                "group z-20 min-h-[200px] overflow-clip rounded-sm bg-[#fafafa] text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-[#0A0A0A]",
                 className,
             )}
         >
@@ -27,10 +27,17 @@ const ProjectCard = ({ project, className }: Props) => {
                         src={`/icons/${project.key}.ico`}
                         fill
                         alt="website icon"
-                        className="aspect-square opacity-[1%] blur-[100px] transition-opacity duration-300 group-hover:opacity-25 group-focus-visible:opacity-25"
+                        className="aspect-square opacity-0 blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25 ease-out-expo"
+                    />
+                    <Image
+                        src={`/${project.key}.webp`}
+                        fill
+                        alt="test"
+                        className="object-top-left object-scale-down pl-5 pt-5 drop-shadow-lg linear-mask transition-all z-10 mix-blend-screen"
+                        quality={100}
                     />
                 </div>
-                <div className="flex w-full items-center justify-between p-2 transition-all group-hover:pr-1 group-focus-visible:pr-1">
+                <div className="flex w-full items-center justify-between p-2 transition-all group-hover:pr-1 group-focus-visible:pr-1 ease-out">
                     <p className="flex items-center gap-2 truncate text-lg">
                         <Image
                             src={`/icons/${project.key}.ico`}
