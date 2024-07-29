@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 import PrimaryTech from "./PrimaryTech";
 import Link from "next/link";
 import { Project } from "@/config/projectConfig";
@@ -38,19 +38,24 @@ const ProjectCard = ({ project, className }: Props) => {
                     />
                 </div>
                 <div className="z-10 h-5 overflow-hidden pl-2 text-muted-foreground">
-                    <div className="transition-transform group-hover:-translate-y-6 group-focus-visible:-translate-y-6 ease-out-expo duration-300">
+                    <div className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-6 group-focus-visible:-translate-y-6">
                         <p>{project.year}</p>
                         <PrimaryTech title={project.primaryTech} />
                     </div>
                 </div>
-                <div className="z-10 flex w-full items-center justify-between p-2 pt-0 transition-all ease-out-expo group-hover:pr-1 group-focus-visible:pr-1">
+                <div className="z-10 flex w-full items-center justify-between p-2 pt-0 transition-all ease-out group-hover:pr-1 group-focus-visible:pr-1">
                     <p className="flex items-center gap-2 truncate text-lg text-muted-foreground transition-colors group-hover:text-primary group-focus-visible:text-primary">
-                        <Image
-                            src={`/icons/${project.key}.ico`}
-                            height={16}
-                            width={16}
-                            alt="website icon"
-                        />
+                        <div className="h-4 overflow-hidden">
+                            <div className="transition-transform duration-500 -translate-y-4 ease-out-expo group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                                <Eye className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" />
+                                <Image
+                                    src={`/icons/${project.key}.ico`}
+                                    height={16}
+                                    width={16}
+                                    alt="website icon"
+                                />
+                            </div>
+                        </div>
                         {project.name}
                     </p>
                     <ArrowRight className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" />
