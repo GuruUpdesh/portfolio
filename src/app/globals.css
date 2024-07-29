@@ -122,23 +122,13 @@
 
 .is-pinned {
     border-color: hsl(var(--primary) / 0.1) !important;
-    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.01))
-        drop-shadow(0 4px 3px rgba(0, 0, 0, 0.05));
-}
-
-.is-pinned:is(.dark *) {
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.5))
-        drop-shadow(0 4px 3px rgb(0 0 0 / 0.5));
+    filter: drop-shadow(0 10px 8px hsl(var(--background)))
+        drop-shadow(0 4px 3px hsl(var(--background)));
 }
 
 .menu-shadow {
-    filter: drop-shadow(-10px 0px 8px rgb(0 0 0 / 0.01))
-        drop-shadow(-4px 0px 3px rgb(0 0 0 / 0.05));
-}
-
-.menu-shadow:is(.dark *) {
-    filter: drop-shadow(-10px 0px 8px rgb(0 0 0 / 0.5))
-        drop-shadow(-4px 0px 3px rgb(0 0 0 / 0.5));
+    filter: drop-shadow(-10px 0px 8px hsl(var(--background)))
+        drop-shadow(-4px 0px 3px hsl(var(--background)));
 }
 
 body.overflow-hidden {
