@@ -19,10 +19,10 @@ import {
 } from "@/components/ui/chart";
 const chartData = [
     { browser: "next", visitors: 100, fill: "var(--color-next)" },
-    { browser: "react", visitors: 90, fill: "var(--color-react)" },
-    { browser: "firefox", visitors: 80, fill: "var(--color-firefox)" },
-    { browser: "edge", visitors: 70, fill: "var(--color-edge)" },
-    { browser: "other", visitors: 60, fill: "var(--color-other)" },
+    { browser: "react", visitors: 95, fill: "var(--color-react)" },
+    { browser: "python", visitors: 80, fill: "var(--color-python)" },
+    { browser: "django", visitors: 70, fill: "var(--color-django)" },
+    { browser: "express", visitors: 60, fill: "var(--color-express)" },
 ];
 
 const chartConfig = {
@@ -37,61 +37,49 @@ const chartConfig = {
         label: "React",
         color: "hsl(var(--chart-2))",
     },
-    firefox: {
-        label: "Firefox",
+    python: {
+        label: "Python",
         color: "hsl(var(--chart-3))",
     },
-    edge: {
-        label: "Edge",
+    django: {
+        label: "Django",
         color: "hsl(var(--chart-4))",
     },
-    other: {
-        label: "Other",
+    express: {
+        label: "Express",
         color: "hsl(var(--chart-5))",
     },
 } satisfies ChartConfig;
 
 export function TechChart() {
     return (
-        <>
-            <CardHeader>
-                <CardTitle>My Technology</CardTitle>
-                <CardDescription>
-                    I use a variety of technologies and platforms to deliver on
-                    features and requirements.
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <ChartContainer config={chartConfig}>
-                    <BarChart
-                        accessibilityLayer
-                        data={chartData}
-                        layout="vertical"
-                        margin={{
-                            left: 0,
-                        }}
-                    >
-                        <YAxis
-                            dataKey="browser"
-                            type="category"
-                            tickLine={false}
-                            tickMargin={10}
-                            axisLine={false}
-                            tickFormatter={(value) =>
-                                chartConfig[value as keyof typeof chartConfig]
-                                    ?.label
-                            }
-                        />
-                        <XAxis dataKey="visitors" type="number" hide />
-                        <ChartTooltip
-                            cursor={false}
-                            content={<ChartTooltipContent hideLabel />}
-                        />
-                        <Bar dataKey="visitors" layout="vertical" radius={5} />
-                    </BarChart>
-                </ChartContainer>
-            </CardContent>
-        </>
+        <ChartContainer config={chartConfig} className="h-[150px] aspect-auto">
+            <BarChart
+                accessibilityLayer
+                data={chartData}
+                layout="vertical"
+                margin={{
+                    left: 0,
+                }}
+            >
+                <YAxis
+                    dataKey="browser"
+                    type="category"
+                    tickLine={false}
+                    tickMargin={5}
+                    axisLine={false}
+                    tickFormatter={(value) =>
+                        chartConfig[value as keyof typeof chartConfig]?.label
+                    }
+                />
+                <XAxis dataKey="visitors" type="number" hide />
+                <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                />
+                <Bar dataKey="visitors" layout="vertical" radius={5} />
+            </BarChart>
+        </ChartContainer>
     );
 }
 

@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const itemVariants = {
-    initial: { opacity: 0, x: 50 },
+    initial: { opacity: 0, x: 100 },
     enter: (i: number) => ({
         opacity: 1,
         x: 0,
@@ -17,7 +17,7 @@ const itemVariants = {
     }),
     exit: (i: number) => ({
         opacity: 0,
-        x: 50,
+        x: 100,
         transition: { delay: i * 0.05, duration: 0.3 },
     }),
 };
@@ -225,7 +225,7 @@ const ProjectSheet = () => {
                                                 <Link
                                                     key={key}
                                                     href={`/projects/${project.key}`}
-                                                    className="group relative w-[400%] whitespace-nowrap px-4 py-4 text-lg transition-all md:gap-4 md:py-5 md:text-4xl"
+                                                    className="group relative w-[400%] whitespace-nowrap px-4 py-5 text-lg transition-all md:gap-4 md:py-8 md:text-4xl"
                                                 >
                                                     <motion.div
                                                         custom={index}
@@ -255,7 +255,7 @@ const ProjectSheet = () => {
                                                                 height={500}
                                                                 width={500}
                                                                 alt="website icon"
-                                                                className="ease-out-expo absolute -z-10 translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-100"
+                                                                className="absolute -z-10 translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-100"
                                                             />
                                                         </div>
                                                     </motion.div>

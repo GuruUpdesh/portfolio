@@ -22,12 +22,12 @@ const KubaGame: Project = {
                 <div className="flex flex-col items-center">
                     <h1 className="mb-2 text-2xl">Play Now!</h1>
                     <div className="w-full max-w-[600px]">
-                        {/* <iframe
+                        <iframe
                             src="https://guruupdesh.github.io/kuba-game/"
                             width="100%"
                             className="aspect-square overflow-hidden rounded-xl border border-border/5"
                             title="Kuba Game"
-                        ></iframe> */}
+                        ></iframe>
                     </div>
                     <p className="font-light leading-7 opacity-75">
                         This is an embedded link to the hosted web assembly

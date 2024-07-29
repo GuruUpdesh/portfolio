@@ -85,10 +85,10 @@ export default function Project({ params: { key } }: Props) {
                                 className="flex-shrink-0"
                             />
                             {project.name}
+                            <span className="inline-block flex-shrink-0 truncate text-sm opacity-75 md:text-lg">
+                                {" " + project.year}
+                            </span>
                         </h1>
-                        <p className="ml-2 inline-block flex-shrink-0 truncate text-sm opacity-75 md:text-lg">
-                            {project.year}
-                        </p>
                     </div>
                     <div className="group flex flex-1 items-center justify-end">
                         <TooltipProvider>

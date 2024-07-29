@@ -70,7 +70,7 @@ const ContactForm = () => {
         return (
             <div
                 id="contact"
-                className="order-t flex flex-1 flex-col items-center justify-between bg-[#fafafa] p-8 dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
+                className="order-t flex flex-1 flex-col items-center justify-between bg-[#fafafa] p-8 dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-3"
             >
                 <div className="w-full">
                     <TooltipProvider>
@@ -110,9 +110,9 @@ const ContactForm = () => {
             <form
                 id="contact"
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col gap-4 border-t bg-[#fafafa] p-2 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
+                className="flex flex-col gap-2 border-t bg-[#fafafa] p-5 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-3"
             >
-                <h1 className="text-5xl text-muted">Reach Out</h1>
+                <h1 className="text-5xl text-border">Reach Out</h1>
                 <FormField
                     control={form.control}
                     name="name"
@@ -151,7 +151,7 @@ const ContactForm = () => {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                        <FormItem className="mb-2 flex flex-1 flex-col border-b">
+                        <FormItem className="flex flex-1 flex-col border-b">
                             <FormControl>
                                 <Textarea
                                     placeholder="3. Your Message"
@@ -166,7 +166,7 @@ const ContactForm = () => {
                 <Button
                     type="submit"
                     variant="ghost"
-                    className="justify-between rounded-bl-[32px] rounded-br-[32px] lg:rounded-bl"
+                    className="justify-between rounded-bl-[26px] rounded-br-[26px] lg:rounded-bl"
                 >
                     {form.formState.isSubmitting ? "Contacting" : "Contact Me"}
                     {form.formState.isSubmitting ? (
