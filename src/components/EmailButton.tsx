@@ -34,28 +34,30 @@ export function EmailButton() {
                 <TooltipTrigger asChild>
                     <Link href={`mailto:${email}`}>
                         <Button
-                            variant="outline"
-                            size="icon"
-                            className="group flex items-center gap-2 rounded-full text-muted"
+                            variant="ghost"
+                            className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
                             onContextMenu={handleCopy}
                             tabIndex={-1}
                         >
-                            <MdCheck
-                                className={cn(
-                                    "h-5 w-5 scale-100 transition-all",
-                                    {
-                                        "scale-0": !copied,
-                                    },
-                                )}
-                            />
-                            <MdEmail
-                                className={cn(
-                                    "absolute h-5 w-5 scale-100 transition-all",
-                                    {
-                                        "scale-0": copied,
-                                    },
-                                )}
-                            />
+                            <div className="relative flex items-center">
+                                <MdCheck
+                                    className={cn(
+                                        "h-5 w-5 scale-100 transition-all",
+                                        {
+                                            "scale-0": !copied,
+                                        },
+                                    )}
+                                />
+                                <MdEmail
+                                    className={cn(
+                                        "absolute h-5 w-5 scale-100 transition-all",
+                                        {
+                                            "scale-0": copied,
+                                        },
+                                    )}
+                                />
+                            </div>
+                            <span className="hidden lg:block">Email</span>
                         </Button>
                     </Link>
                 </TooltipTrigger>
