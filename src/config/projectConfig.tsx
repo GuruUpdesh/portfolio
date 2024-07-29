@@ -85,14 +85,11 @@ const Portfolio: Project = {
 
 export const projects = {
     taskly: Taskly,
-    "boats-and-loads": BoatsAndLoads,
     "track-it": TrackIt,
     "home-designer": HomeDesigner,
     "shipment-tracker": ShipmentTracker,
     "kuba-game": KubaGame,
     "effortless-eats": EffortlessEats,
-    "mobile-treasure-hunt": MobileTreasureHunt,
-    portfolio: Portfolio,
 } as const;
 
 type ProjectKey = keyof typeof projects;
@@ -103,14 +100,11 @@ export function isValidProjectKey(key: string): key is ProjectKey {
 
 export const projectOrder = [
     "taskly",
-    "boats-and-loads",
+    "effortless-eats",
     "track-it",
     "home-designer",
     "shipment-tracker",
     "kuba-game",
-    "effortless-eats",
-    "mobile-treasure-hunt",
-    "portfolio",
 ] as const;
 
 export function getNextProjectKey(currentKey: ProjectKey): ProjectKey {

@@ -8,6 +8,10 @@ import ProjectsDivider from "@/components/layout/ProjectsDivider";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/config/projectConfig";
 import CursorTracker from "@/components/CursorTracker";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
+import TechChart from "@/components/TechChart";
 
 export default function Portfolio() {
     return (
@@ -40,10 +44,6 @@ export default function Portfolio() {
                     <ProjectCard project={projects["home-designer"]} />
                     <ProjectCard project={projects["shipment-tracker"]} />
                     <ProjectCard project={projects["kuba-game"]} />
-                    {/* <ProjectCard project={projects["effortless-eats"]} />
-                    <ProjectCard project={projects["mobile-treasure-hunt"]} />
-                    <ProjectCard project={projects.portfolio} /> */}
-                    {/* <div className="hidden rounded bg-[#fafafa] dark:bg-[#0A0A0A] md:block lg:hidden" /> */}
                     <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
                 </CursorTracker>
             </section>
@@ -60,7 +60,86 @@ export default function Portfolio() {
                         } as React.CSSProperties
                     }
                 >
-                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
+                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2">
+                        <div className="relative flex flex-col">
+                            <TechChart />
+                        </div>
+                        <div className="flex flex-col gap-8 border-l pt-5">
+                            <div className="px-5">
+                                <h3 className="mb-3">Work Experience</h3>
+                                <ul className="ml-1 flex flex-col gap-2 border-l py-1 pl-4">
+                                    <li>
+                                        <p>
+                                            Software Engineer{" "}
+                                            <span className="text-muted-foreground">
+                                                DealSumm
+                                            </span>
+                                        </p>
+
+                                        <p className="text-muted-foreground">
+                                            2022 - Present
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            IT{" "}
+                                            <span className="text-muted-foreground">
+                                                Sat Hari K Design
+                                            </span>
+                                        </p>
+
+                                        <p className="text-muted-foreground">
+                                            2020 - Present
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Graphic Designer{" "}
+                                            <span className="text-muted-foreground">
+                                                Freelance
+                                            </span>
+                                        </p>
+
+                                        <p className="text-muted-foreground">
+                                            2016 - 2021
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="px-5">
+                                <h3 className="mb-3">Education</h3>
+                                <ul className="ml-1 flex flex-col gap-2 border-l py-1 pl-4">
+                                    <li>
+                                        <p className="text-muted-foreground">
+                                            B.S. Computer Science
+                                        </p>
+                                        <p>Oregon State University</p>
+                                        <p className="text-muted-foreground">
+                                            2020 - 2024
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="flex-1" />
+                            <Link
+                                href="/Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2"
+                            >
+                                <Button
+                                    type="submit"
+                                    variant="ghost"
+                                    className="w-full justify-between rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl"
+                                    tabIndex={-1}
+                                >
+                                    Download my Resume
+                                    <ArrowRight className="h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="mt-[40px] grid grid-cols-1 overflow-hidden rounded-[40px] border sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
                         <div className="relative flex flex-col md:col-span-3">
                             <div className="flex-1" />
                             <p className="bg-gradient-to-t p-5 text-sm text-muted-foreground xl:p-10 xl:text-base xl:leading-8">

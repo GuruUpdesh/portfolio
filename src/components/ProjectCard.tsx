@@ -20,7 +20,7 @@ const ProjectCard = ({ project, className }: Props) => {
                 className,
             )}
         >
-            <div className="flex h-full flex-col overflow-hidden rounded-md transition-all group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 md:group-active:scale-[97.5%]">
+            <div className="flex h-full flex-col overflow-hidden rounded-md transition-all group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 group-active:bg-border/10">
                 <div className="relative flex-1">
                     <Image
                         src={`/icons/${project.key}.ico`}

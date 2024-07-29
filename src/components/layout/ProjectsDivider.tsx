@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import React, { useRef } from "react";
+import { SiNextdotjs } from "react-icons/si";
 const DynamicCircle = dynamic(() => import("./DynamicCircle"), { ssr: false });
 
 interface ProjectsDividerProps extends React.HTMLAttributes<HTMLDivElement> {}
