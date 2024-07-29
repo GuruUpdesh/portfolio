@@ -174,7 +174,12 @@ const ProjectSheet = () => {
 
     return (
         <>
-            <Button variant="ghost" size="icon" onClick={toggleOpen}>
+            <Button
+                variant="ghost"
+                aria-label="menu"
+                size="icon"
+                onClick={toggleOpen}
+            >
                 <Menu />
             </Button>
             <AnimatePresence mode="wait">
@@ -273,6 +278,7 @@ const ProjectSheet = () => {
                                 size="icon"
                                 onClick={toggleOpen}
                                 className="bg-background"
+                                aria-label="close"
                             >
                                 <X />
                             </Button>
