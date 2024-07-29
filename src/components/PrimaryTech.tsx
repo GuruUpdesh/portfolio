@@ -5,6 +5,7 @@ import { PiFileSql } from "react-icons/pi";
 import { SiNextdotjs, SiExpress, SiJetpackcompose } from "react-icons/si";
 import { CgFigma } from "react-icons/cg";
 import { Dot } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export type PrimaryTech =
     | "Next.js"
@@ -18,6 +19,7 @@ export type PrimaryTech =
 
 type Props = {
     title: PrimaryTech;
+    className?: string;
 };
 
 function getIcon(title: Props["title"]) {
@@ -43,9 +45,9 @@ function getIcon(title: Props["title"]) {
     }
 }
 
-const PrimaryTech = ({ title }: Props) => {
+const PrimaryTech = ({ title, className }: Props) => {
     return (
-        <p className="flex items-center gap-1 opacity-50">
+        <p className={cn("inline-flex items-center gap-1", className)}>
             {getIcon(title)}
             {title}
         </p>

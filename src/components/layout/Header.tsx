@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Navigation from "./Navigation";
 import Image from "next/image";
 import ProjectSheet from "./ProjectSheet";
 
