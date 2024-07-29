@@ -26,7 +26,7 @@ import {
 
 const formSchema = z.object({
     name: z.string().min(1, {
-        message: "Username must be at least 1 character.",
+        message: "Name must be at least 1 character.",
     }),
     email: z.string().email({
         message: "Email must be valid!",
@@ -110,16 +110,17 @@ const ContactForm = () => {
             <form
                 id="contact"
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col border-t bg-[#fafafa] p-2 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
+                className="flex flex-col gap-4 border-t bg-[#fafafa] p-2 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-2"
             >
+                <h1 className="text-5xl text-muted">Reach Out</h1>
                 <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="border-b">
                             <FormControl>
                                 <Input
-                                    placeholder="name"
+                                    placeholder="1. Your Name"
                                     type="text"
                                     {...field}
                                     className="border-hidden bg-transparent"
@@ -133,10 +134,10 @@ const ContactForm = () => {
                     control={form.control}
                     name="email"
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="border-b">
                             <FormControl>
                                 <Input
-                                    placeholder="email"
+                                    placeholder="2. Your Email"
                                     type="email"
                                     {...field}
                                     className="border-hidden bg-transparent"
@@ -150,12 +151,12 @@ const ContactForm = () => {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                        <FormItem className="mb-2 flex flex-1 flex-col">
+                        <FormItem className="mb-2 flex flex-1 flex-col border-b">
                             <FormControl>
                                 <Textarea
-                                    placeholder="message"
+                                    placeholder="3. Your Message"
                                     {...field}
-                                    className="flex-1 resize-none border-hidden bg-transparent"
+                                    className="flex-1 resize-none border-hidden bg-transparent min-h-[300px]"
                                 />
                             </FormControl>
                             <FormMessage className="ml-2" />
@@ -165,9 +166,9 @@ const ContactForm = () => {
                 <Button
                     type="submit"
                     variant="ghost"
-                    className="justify-between rounded-bl-[32px] rounded-br-[32px] sm:rounded-bl"
+                    className="justify-between rounded-bl-[32px] rounded-br-[32px] lg:rounded-bl"
                 >
-                    {form.formState.isSubmitting ? "Contacting" : "Contact"}
+                    {form.formState.isSubmitting ? "Contacting" : "Contact Me"}
                     {form.formState.isSubmitting ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (

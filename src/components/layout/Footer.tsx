@@ -19,7 +19,7 @@ import { FaDiscord } from "react-icons/fa";
 const Footer = () => {
     return (
         <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center px-10 pb-2 pt-20 sm:px-0">
-            <div className="flex w-full justify-between rounded-[40px] border p-5 px-20 mix-blend-luminosity">
+            <div className="flex w-full justify-between rounded-[40px] border p-5 lg:px-20 mix-blend-luminosity">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
                         <Link href="/" className="text-2xl" scroll={true}>
@@ -33,7 +33,7 @@ const Footer = () => {
                             .dev
                         </Link>
                     </div>
-                    <Button className="justify-between rounded-full">
+                    <Button className="justify-between rounded-full hover:invert">
                         Contact Me
                         <ArrowRight className="h-4 w-4" />
                     </Button>
