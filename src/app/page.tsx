@@ -60,7 +60,7 @@ export default function Portfolio() {
                         } as React.CSSProperties
                     }
                 >
-                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2">
+                    {/* <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 sm:aspect-video sm:grid-cols-2">
                         <div className="relative flex flex-col">
                             <TechChart />
                         </div>
@@ -138,8 +138,8 @@ export default function Portfolio() {
                                 </Button>
                             </Link>
                         </div>
-                    </div>
-                    <div className="mt-[40px] grid grid-cols-1 overflow-hidden rounded-[40px] border sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
+                    </div> */}
+                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border sm:aspect-video sm:grid-cols-2 md:grid-cols-5">
                         <div className="relative flex flex-col md:col-span-3">
                             <div className="flex-1" />
                             <p className="bg-gradient-to-t p-5 text-sm text-muted-foreground xl:p-10 xl:text-base xl:leading-8">
