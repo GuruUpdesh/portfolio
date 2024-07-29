@@ -10,7 +10,6 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Navigation from "./Navigation";
 import Image from "next/image";
 import ThemeToggle from "../ThemeToggle";
 import { getYear } from "date-fns";
