@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import {
     Tooltip,
@@ -15,11 +15,12 @@ import ThemeToggle from "../ThemeToggle";
 import { getYear } from "date-fns";
 import { EmailButton } from "../EmailButton";
 import { FaDiscord } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
     return (
         <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center px-10 pb-2 pt-20 sm:px-0">
-            <div className="flex w-full justify-between rounded-[40px] border p-5 lg:px-20 mix-blend-luminosity">
+            <div className="flex w-full justify-between rounded-[40px] border p-5 mix-blend-luminosity lg:px-20">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
                         <Link href="/" className="text-2xl" scroll={true}>
@@ -33,65 +34,71 @@ const Footer = () => {
                             .dev
                         </Link>
                     </div>
-                    <Button className="justify-between rounded-full hover:invert">
+                    <Button
+                        className="justify-between rounded-full hover:invert"
+                        aria-label="Contact Me"
+                    >
                         Contact Me
                         <ArrowRight className="h-4 w-4" />
                     </Button>
                 </div>
 
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2" aria-label="Social links">
                     <li>
-                        <Link
-                            href="https://github.com/GuruUpdesh"
-                            target="_blank"
-                            className="flex items-center gap-2"
+                        <Button
+                            variant="ghost"
+                            className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                            asChild
                         >
-                            <Button
-                                variant="ghost"
-                                className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                tabIndex={-1}
+                            <Link
+                                href="https://github.com/GuruUpdesh"
+                                target="_blank"
+                                aria-label="GitHub"
                             >
                                 <GitHubLogoIcon className="h-5 w-5" />
                                 <span className="hidden lg:block">GitHub</span>
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </li>
                     <li>
-                        <Link
-                            href="https://github.com/GuruUpdesh"
-                            target="_blank"
-                            className="flex items-center gap-2"
+                        <Button
+                            variant="ghost"
+                            className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                            asChild
                         >
-                            <Button
-                                variant="ghost"
-                                className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                tabIndex={-1}
+                            <Link
+                                href="https://www.linkedin.com/in/guru-updesh-singh-789050218/"
+                                target="_blank"
+                                aria-label="LinkedIn"
                             >
                                 <LinkedInLogoIcon className="h-5 w-5" />
                                 <span className="hidden lg:block">
                                     LinkedIn
                                 </span>
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </li>
                     <li>
-                        <Link
-                            href="https://github.com/GuruUpdesh"
-                            target="_blank"
-                            className="flex items-center gap-2"
+                        <Button
+                            variant="ghost"
+                            className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                            asChild
                         >
-                            <Button
-                                variant="ghost"
-                                className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                tabIndex={-1}
+                            <Link
+                                href="https://discord.com/channels/.gsingh"
+                                target="_blank"
+                                aria-label="Discord"
                             >
                                 <FaDiscord className="h-5 w-5" />
                                 <span className="hidden lg:block">Discord</span>
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </li>
                 </ul>
-                <ul className="flex flex-col gap-2">
+                <ul
+                    className="flex flex-col gap-2"
+                    aria-label="Additional links"
+                >
                     <li>
                         <EmailButton />
                     </li>
@@ -99,22 +106,23 @@ const Footer = () => {
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <Link
-                                        href="/Resume.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Button
+                                        variant="ghost"
+                                        className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                                        asChild
                                     >
-                                        <Button
-                                            variant="ghost"
-                                            className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                            tabIndex={-1}
+                                        <Link
+                                            href="/Resume.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Download Resume"
                                         >
                                             <Download className="h-5 w-5" />
                                             <span className="hidden lg:block">
                                                 Resume
                                             </span>
-                                        </Button>
-                                    </Link>
+                                        </Link>
+                                    </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>
                                     Download my resume
@@ -125,7 +133,7 @@ const Footer = () => {
                 </ul>
                 <ThemeToggle />
             </div>
-            <div className="flex w-full items-center justify-between px-[20px] py-2 mix-blend-luminosity font-medium">
+            <div className="flex w-full items-center justify-between px-[20px] py-2 font-medium mix-blend-luminosity">
                 <p className="text-xs md:text-sm">
                     Copyright © {getYear(new Date())}
                 </p>
@@ -138,11 +146,13 @@ const Footer = () => {
                     alt="abstract colorful blob"
                     className="animate-spin-slow blur-lg"
                 />
-                <Image
-                    fill
-                    src="/logo.png"
-                    alt="abstract colorful blob"
-                    className="animate-spin-slow blur-[100px] delay-75"
+                <div
+                    className="absolute inset-0 animate-spin-slow blur-[100px] delay-75"
+                    style={{
+                        backgroundImage: "url(/logo.png)",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
                 />
             </div>
         </footer>

@@ -76,7 +76,6 @@ const TechCircle = () => {
                                 "--total": iconComponents.length,
                             } as React.CSSProperties
                         }
-                        aria-label={`${name} icon`}
                         title={name}
                     >
                         <Icon className="animate-spin-slower-reverse" />

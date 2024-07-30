@@ -32,13 +32,13 @@ export function EmailButton() {
         <TooltipProvider>
             <Tooltip open={open} onOpenChange={setOpen}>
                 <TooltipTrigger asChild>
-                    <Link href={`mailto:${email}`}>
-                        <Button
-                            variant="ghost"
-                            className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                            onContextMenu={handleCopy}
-                            tabIndex={-1}
-                        >
+                    <Button
+                        variant="ghost"
+                        className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                        asChild
+                        onContextMenu={handleCopy}
+                    >
+                        <Link href={`mailto:${email}`} aria-label="Email">
                             <div className="relative flex items-center">
                                 <MdCheck
                                     className={cn(
@@ -58,8 +58,8 @@ export function EmailButton() {
                                 />
                             </div>
                             <span className="hidden lg:block">Email</span>
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </TooltipTrigger>
                 <TooltipContent>
                     {copied
