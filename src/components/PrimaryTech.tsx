@@ -22,7 +22,7 @@ type Props = {
     className?: string;
 };
 
-function getIcon(title: Props["title"]) {
+export function getIcon(title: Props["title"]) {
     switch (title) {
         case "Next.js":
             return <SiNextdotjs />;

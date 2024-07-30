@@ -12,6 +12,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import TechChart from "@/components/TechChart";
+import Image from "next/image";
+import TechCircle from "@/components/TechCircle";
+import Paragraph from "@/lib/AnimatedParagraph";
 
 export default function Portfolio() {
     return (
@@ -140,93 +143,45 @@ export default function Portfolio() {
                         </div>
                     </div> */}
                     <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
-                        <div className="relative flex flex-col p-5 md:col-span-3">
+                        <div className="relative flex flex-col p-5 pb-0 md:col-span-3">
                             <h1 className="mb-4 text-5xl text-border">
                                 About Me
                             </h1>
-                            <p className="bg-gradient-to-t text-sm text-muted-foreground xl:text-base xl:leading-8">
+                            <Image
+                                src="/self.webp"
+                                width={600}
+                                height={1500}
+                                alt=""
+                                className="absolute rounded-lg blur-[100px] -z-10"
+                            />
+                            <Image
+                                src="/self.webp"
+                                width={600}
+                                height={1500}
+                                alt=""
+                                className="rounded-lg"
+                            />
+                            <p className="absolute bottom-0 left-0 bg-gradient-to-t from-background to-transparent p-10 text-sm text-muted-foreground xl:text-base xl:leading-8">
                                 I’m a new computer science graduate from Oregon
                                 State University with a focus in cybersecurity
                                 and full stack web development.
                             </p>
                         </div>
-                        <div className="relative col-span-2 flex flex-col border-l p-5">
-                            <p className="mb-4 bg-gradient-to-t text-sm text-muted-foreground xl:text-base xl:leading-8">
-                                I use a variety of tools and software to deliver
-                                on feature rich web applications.
-                            </p>
-                            <TechChart />
+                        <div className="relative -z-20 col-span-2 flex flex-col justify-between px-5 py-10">
+                            <div className="relative -z-20 translate-x-0 transition-transform lg:translate-x-[-50%]">
+                                <TechCircle />
+                            </div>
+                            <Paragraph
+                                paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications."
+                                className="w-full"
+                            />
+                            <div className="-z-20 translate-x-0 transition-transform lg:translate-x-[50%]">
+                                <TechCircle />
+                            </div>
                         </div>
                     </div>
-                    <div className="mt-[80px] grid grid-cols-1 overflow-hidden rounded-[40px] border md:grid-cols-2 lg:grid-cols-5">
-                        <div className="col-span-2 flex flex-col gap-8 p-5">
-                            <div>
-                                <h3 className="mb-3 text-lg text-border">
-                                    Work Experience
-                                </h3>
-                                <ul className="ml-1 flex flex-col gap-4 border-l py-1 pl-4">
-                                    <li>
-                                        <p className="text-muted">DealSumm</p>
-                                        <p>
-                                            Software Engineer <span></span>
-                                        </p>
-
-                                        <p className="text-muted">
-                                            2022 - Present
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p className="text-muted">
-                                            Sat Hari K Design
-                                        </p>
-                                        <p>IT </p>
-                                        <p className="text-muted">
-                                            2020 - Present
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p className="text-muted">Freelance</p>
-                                        <p>Graphic Designer </p>
-
-                                        <p className="text-muted">
-                                            2016 - 2021
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="mb-3 text-lg text-border">
-                                    Education
-                                </h3>
-                                <ul className="ml-1 flex flex-col gap-2 border-l py-1 pl-4">
-                                    <li>
-                                        <p className="text-muted">
-                                            B.S. Computer Science
-                                        </p>
-                                        <p>Oregon State University</p>
-                                        <p className="text-muted">
-                                            2020 - 2024
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="flex-1" />
-                            <Link
-                                href="/Resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Button
-                                    type="submit"
-                                    variant="ghost"
-                                    className="w-full justify-between rounded-bl-[26px] rounded-br-[26px] sm:rounded-br"
-                                    tabIndex={-1}
-                                >
-                                    Download my Resume
-                                    <ArrowRight className="h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </div>
+                    <div className="mt-[80px] overflow-hidden rounded-[40px] border">
+            
                         <ContactForm />
                     </div>
                 </div>
