@@ -103,7 +103,7 @@ const Footer = () => {
                         <EmailButton />
                     </li>
                     <li>
-                        <TooltipProvider>
+                        <TooltipProvider disableHoverableContent>
                             <Tooltip>
                                 <TooltipTrigger asChild>
                                     <Button
@@ -142,14 +142,14 @@ const Footer = () => {
             <div className="pointer-events-none absolute -z-10 aspect-square w-[200%] opacity-80">
                 <Image
                     fill
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt="abstract colorful blob"
                     className="animate-spin-slow blur-lg"
                 />
                 <div
                     className="absolute inset-0 animate-spin-slow blur-[100px] delay-75"
                     style={{
-                        backgroundImage: "url(/logo.png)",
+                        backgroundImage: "url(/logo.webp)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                     }}

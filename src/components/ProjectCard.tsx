@@ -20,29 +20,29 @@ const ProjectCard = ({ project, className }: Props) => {
                 className,
             )}
         >
-            <div className="flex h-full flex-col overflow-hidden rounded-md transition-all group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 group-active:bg-border/10">
+            <div className="flex h-full flex-col overflow-hidden rounded-md group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 md:group-active:bg-border/10">
                 <div className="relative flex-1">
-                    <Image
-                        src={`/icons/${project.key}.ico`}
-                        fill
-                        alt="website icon"
-                        className="aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25"
+                    <div
+                        className="ease-out-expo absolute inset-0 aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25"
+                        style={{
+                            backgroundImage: `url(/icons/${project.key}.ico)`,
+                        }}
                     />
                     <Image
                         src={`/${project.key}.webp`}
                         fill
-                        alt="test"
+                        alt="Ghost Project GUI Outline"
                         className="object-top-left linear-mask z-10 object-scale-down pl-5 pt-5 mix-blend-screen drop-shadow-lg transition-all"
                         quality={100}
                     />
                 </div>
                 <div className="h-5 overflow-hidden pl-2 text-muted-foreground">
-                    <div className="-translate-y-6 transition-transform duration-500 ease-out-expo group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                    <div className="ease-out-expo -translate-y-6 transition-transform duration-500 group-hover:translate-y-0 group-focus-visible:translate-y-0">
                         <PrimaryTech title={project.primaryTech} />
                         <p>{project.year}</p>
                     </div>
                 </div>
-                <div className="flex w-full items-center justify-between p-2 pt-0 transition-all ease-out group-hover:pr-1 group-focus-visible:pr-1">
+                <div className="flex w-full items-center justify-between p-2 pt-0 transition-[padding] ease-out group-hover:pr-1 group-focus-visible:pr-1">
                     <p className="flex items-center gap-2 truncate text-lg text-muted-foreground transition-colors group-hover:text-primary group-focus-visible:text-primary">
                         <Image
                             src={`/icons/${project.key}.ico`}
@@ -52,7 +52,7 @@ const ProjectCard = ({ project, className }: Props) => {
                         />
                         {project.name}
                     </p>
-                    <ArrowRight className="h-4 w-4 opacity-50 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100" />
+                    <ArrowRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 </div>
             </div>
         </Link>

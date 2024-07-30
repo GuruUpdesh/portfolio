@@ -29,7 +29,7 @@ export function EmailButton() {
     };
 
     return (
-        <TooltipProvider>
+        <TooltipProvider disableHoverableContent>
             <Tooltip open={open} onOpenChange={setOpen}>
                 <TooltipTrigger asChild>
                     <Button

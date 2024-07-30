@@ -67,12 +67,13 @@ export default function Portfolio() {
                             <h1 className="mb-4 text-5xl text-border">
                                 About Me
                             </h1>
-                            <Image
-                                src="/self.webp"
-                                width={600}
-                                height={1500}
-                                alt=""
-                                className="absolute -z-10 rounded-lg blur-[100px]"
+                            <div
+                                className="absolute -z-10 inset-0 blur-[100px] mix-blend-lighten"
+                                style={{
+                                    backgroundImage: "url(/self.webp)",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
                             />
                             <Image
                                 src="/self.webp"
@@ -80,6 +81,7 @@ export default function Portfolio() {
                                 height={1500}
                                 alt=""
                                 className="rounded-lg"
+                                quality={100}
                             />
                             <p className="absolute bottom-0 left-0 bg-gradient-to-t from-background to-transparent p-10 text-sm text-muted-foreground xl:text-base xl:leading-8">
                                 I’m a new computer science graduate from Oregon
@@ -88,17 +90,17 @@ export default function Portfolio() {
                             </p>
                         </div>
                         <div className="relative -z-20 col-span-2 flex flex-col justify-between px-5 py-10">
-                            <div className="relative -z-20 translate-x-0 transition-transform lg:translate-x-[-50%] p-2 aspect-square">
+                            <div className="relative -z-20 aspect-square translate-x-0 p-2 transition-transform lg:translate-x-[-50%]">
                                 <TechCircle />
                             </div>
-                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:relative lg:translate-y-0 lg:p-0 lg:top-0">
+                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:relative lg:top-0 lg:translate-y-0 lg:p-0">
                                 <Paragraph
                                     paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications."
                                     className="w-full"
                                 />
                                 <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-xl" />
                             </div>
-                            <div className="-z-20 hidden translate-x-0 transition-transform lg:block lg:translate-x-[50%] aspect-square">
+                            <div className="-z-20 hidden aspect-square translate-x-0 transition-transform lg:block lg:translate-x-[50%]">
                                 <TechCircle />
                             </div>
                         </div>
