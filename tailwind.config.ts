@@ -75,11 +75,18 @@ const config = {
                     from: { opacity: "0" },
                     to: { opacity: "1" },
                 },
+                "spin-reverse": {
+                    from: { rotate: "0deg" },
+                    to: { rotate: "-365deg" },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 "spin-slow": "spin 9s linear infinite",
+                "spin-slow-reverse": "spin-reverse 9s linear infinite",
+                "spin-slower": "spin 20s linear infinite",
+                "spin-slower-reverse": "spin-reverse 20s linear infinite",
                 "fade-in": "fade 0.5s linear",
             },
         },

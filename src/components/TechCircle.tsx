@@ -14,18 +14,18 @@ import { DiMongodb } from "react-icons/di";
 import { CgFigma, CgGoogle } from "react-icons/cg";
 
 const iconComponents = [
-    SiDjango,
-    SiJetpackcompose,
-    SiNodedotjs,
-    CgFigma,
-    PiFileSql,
-    DiMongodb,
-    SiVercel,
-    CgGoogle,
-    FaAws,
-    SiNextdotjs,
-    FaReact,
-    FaPython,
+    { Icon: SiNextdotjs, name: "Next.js" },
+    { Icon: FaReact, name: "React" },
+    { Icon: FaPython, name: "Python" },
+    { Icon: SiDjango, name: "Django" },
+    { Icon: SiJetpackcompose, name: "Jetpack Compose" },
+    { Icon: SiNodedotjs, name: "Node.js" },
+    { Icon: CgFigma, name: "Figma" },
+    { Icon: PiFileSql, name: "SQL" },
+    { Icon: DiMongodb, name: "MongoDB" },
+    { Icon: SiVercel, name: "Vercel" },
+    { Icon: CgGoogle, name: "Google" },
+    { Icon: FaAws, name: "AWS" },
 ] as const;
 
 const TechCircle = () => {
@@ -59,14 +59,14 @@ const TechCircle = () => {
             className="animate-fade-in relative w-full pb-[100%]"
         >
             <div
-                className="absolute inset-0"
+                className="animate-spin-slower absolute inset-0"
                 style={
                     {
                         "--container-size": `${size}px`,
                     } as React.CSSProperties
                 }
             >
-                {iconComponents.map((Icon, index) => (
+                {iconComponents.map(({ Icon, name }, index) => (
                     <div
                         key={index}
                         className="tech-icon absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 text-4xl text-muted-foreground"
@@ -76,8 +76,10 @@ const TechCircle = () => {
                                 "--total": iconComponents.length,
                             } as React.CSSProperties
                         }
+                        aria-label={`${name} icon`}
+                        title={name}
                     >
-                        <Icon />
+                        <Icon className="animate-spin-slower-reverse" />
                     </div>
                 ))}
             </div>
