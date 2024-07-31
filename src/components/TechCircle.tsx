@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useState } from "react";
 import {
     SiNextdotjs,
     SiJetpackcompose,
@@ -12,6 +12,7 @@ import { FaReact, FaPython, FaAws } from "react-icons/fa";
 import { PiFileSql } from "react-icons/pi";
 import { DiMongodb } from "react-icons/di";
 import { CgFigma, CgGoogle } from "react-icons/cg";
+import useContainerDimensions from "@/hooks/useContainer";
 
 const iconComponents = [
     { Icon: SiNextdotjs, name: "Next.js" },
@@ -32,26 +33,17 @@ const TechCircle = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [size, setSize] = useState(0);
 
-    useLayoutEffect(() => {
-        const updateSize = () => {
-            if (containerRef.current) {
-                const width = containerRef.current.offsetWidth;
+    useContainerDimensions(
+        containerRef,
+        (ref) => {
+            const container = ref.current;
+            if (container) {
+                const width = container.offsetWidth;
                 setSize(width);
             }
-        };
-
-        const observer = new ResizeObserver(updateSize);
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
-        updateSize();
-
-        return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
-            }
-        };
-    }, []);
+        },
+        [],
+    );
 
     return (
         <div
@@ -69,7 +61,7 @@ const TechCircle = () => {
                 {iconComponents.map(({ Icon, name }, index) => (
                     <div
                         key={index}
-                        className="tech-icon absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 text-4xl text-muted-foreground"
+                        className="tech-icon absolute left-1/2 top-1/2 h-10 w-10 text-4xl text-muted-foreground"
                         style={
                             {
                                 "--index": index,

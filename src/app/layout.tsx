@@ -34,9 +34,9 @@ export default function RootLayout({
                 >
                     {children}
                 </ThemeProvider>
+                <SpeedInsights />
             </body>
             <Analytics />
-            <SpeedInsights />
         </html>
     );
 }

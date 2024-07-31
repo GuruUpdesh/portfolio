@@ -1,5 +1,6 @@
 "use client";
 
+import useContainerDimensions from "@/hooks/useContainer";
 import { cn } from "@/lib/utils";
 import { findRadius } from "@/utils/circleCalculations";
 import { CircleCut, getMaskImage } from "@/utils/cricleMask";
@@ -21,9 +22,11 @@ const DynamicCircle = ({
     className,
 }: Props) => {
     const [currentRadius, setCurrentRadius] = useState(100);
-    useEffect(() => {
-        const container = containerRef.current;
-        const updateDimensions = () => {
+
+    useContainerDimensions(
+        containerRef,
+        (ref) => {
+            const container = ref.current;
             if (container) {
                 const rect = container.getBoundingClientRect();
                 const L = rect.width - intersectionOffset * 2;
@@ -31,23 +34,9 @@ const DynamicCircle = ({
                 const R = findRadius(L, dTop);
                 setCurrentRadius(R);
             }
-        };
-
-        const observer = new ResizeObserver(updateDimensions);
-        if (container) {
-            observer.observe(container);
-        }
-
-        window.addEventListener("resize", updateDimensions);
-        updateDimensions();
-
-        return () => {
-            if (container) {
-                observer.unobserve(container);
-            }
-            window.removeEventListener("resize", updateDimensions);
-        };
-    }, [containerRef, intersectionOffset]);
+        },
+        [intersectionOffset],
+    );
 
     return (
         <div
