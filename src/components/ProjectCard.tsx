@@ -26,7 +26,7 @@ const ProjectCard = ({ project, className }: Props) => {
                         src={`/icons/${project.key}.ico`}
                         fill
                         alt="website icon"
-                        className="ease-out-expo aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25"
+                        className="aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25"
                         quality={10}
                     />
                     <Image
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, className }: Props) => {
                     />
                 </div>
                 <div className="h-5 overflow-hidden pl-2 text-muted-foreground">
-                    <div className="ease-out-expo -translate-y-6 transition-transform duration-500 group-hover:translate-y-0 group-focus-visible:translate-y-0">
+                    <div className="-translate-y-6 transition-transform duration-500 ease-out-expo group-hover:translate-y-0 group-focus-visible:translate-y-0">
                         <PrimaryTech title={project.primaryTech} />
                         <p>{project.year}</p>
                     </div>

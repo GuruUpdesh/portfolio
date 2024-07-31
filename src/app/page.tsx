@@ -14,6 +14,7 @@ const TechCircle = dynamic(() => import("@/components/TechCircle"), {
 });
 import Paragraph from "@/lib/AnimatedParagraph";
 import dynamic from "next/dynamic";
+import ContactInfo from "@/components/ContactInfo";
 
 export default function Portfolio() {
     return (
@@ -75,7 +76,7 @@ export default function Portfolio() {
                                     backgroundPosition: "center",
                                 }}
                             />
-                            <div className="relative w-full aspect-[9/15]">
+                            <div className="relative aspect-[9/15] w-full">
                                 <Image
                                     src="/self.webp"
                                     fill
@@ -105,8 +106,21 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-[80px] overflow-hidden rounded-[40px] border">
-                        <ContactForm />
+                    <div
+                        className="mt-[80px] grid grid-cols-1 overflow-hidden rounded-[40px] border lg:grid-cols-5"
+                        id="contact"
+                    >
+                        <div className="order-last col-span-2 p-5 lg:order-first">
+                            <ContactInfo />
+                        </div>
+                        <div className="col-span-3 p-5">
+                            <div className="relative overflow-hidden rounded-[20px] bg-border/50 p-5">
+                                <h1 className="mb-8 text-5xl">
+                                    Let&apos;s Connect!
+                                </h1>
+                                <ContactForm />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -15,13 +15,13 @@ const ProjectsDivider = (props: ProjectsDividerProps) => {
                 intersectionOffset={81}
                 cut="bottom"
                 direction="bottom"
-                className="opacity-0 transition-opacity lg:opacity-100 lg:animate-fade-in"
+                className="opacity-0 transition-opacity lg:animate-fade-in lg:opacity-100"
             />
             <DynamicCircle
                 containerRef={containerRef}
                 intersectionOffset={-160}
                 direction="bottom"
-                className="opacity-0 transition-opacity md:opacity-100 md:animate-fade-in lg:opacity-0 lg:animate-none"
+                className="opacity-0 transition-opacity md:animate-fade-in md:opacity-100 lg:animate-none lg:opacity-0"
             />
         </div>
     );

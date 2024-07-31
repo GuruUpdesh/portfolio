@@ -3,7 +3,7 @@ export type CircleCut = "bottom" | "top" | "left" | "right";
 export const getMaskImage = (cut: CircleCut | undefined) => {
     switch (cut) {
         case "bottom":
-            return "linear-gradient(to bottom, black 49%, transparent 50%)";
+            return "linear-gradient(to bottom, black 49%, transparent 80%)";
         case "top":
             return "linear-gradient(to top, black 49%, transparent 50%)";
         case "left":

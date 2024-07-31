@@ -53,7 +53,7 @@ const chartConfig = {
 
 export function TechChart() {
     return (
-        <ChartContainer config={chartConfig} className="h-[150px] aspect-auto">
+        <ChartContainer config={chartConfig} className="aspect-auto h-[150px]">
             <BarChart
                 accessibilityLayer
                 data={chartData}

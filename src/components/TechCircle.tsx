@@ -48,10 +48,10 @@ const TechCircle = () => {
     return (
         <div
             ref={containerRef}
-            className="animate-fade-in relative w-full pb-[100%]"
+            className="relative w-full animate-fade-in pb-[100%]"
         >
             <div
-                className="animate-spin-slower absolute inset-0"
+                className="absolute inset-0 animate-spin-slower"
                 style={
                     {
                         "--container-size": `${size}px`,

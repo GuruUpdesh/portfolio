@@ -11,6 +11,7 @@ import {
     FormControl,
     FormField,
     FormItem,
+    FormLabel,
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,8 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -63,67 +66,84 @@ const ContactForm = () => {
         if (result.result) {
             setSubmitted(true);
             form.reset();
+            form.clearErrors();
         }
-    }
-
-    if (submitted) {
-        return (
-            <div
-                id="contact"
-                className="order-t flex flex-1 flex-col items-center justify-between bg-[#fafafa] p-8 dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-3"
-            >
-                <div className="w-full">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-full"
-                                    onClick={() => setSubmitted(false)}
-                                >
-                                    <ArrowLeft className="h-4 w-4" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                Submit Another Message
-                            </TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                </div>
-                <div>
-                    <h1 className="text-lg">Thanks for reaching out!</h1>
-                    <p className="text-sm opacity-75">
-                        I look forward to speaking with you further.
-                    </p>
-                </div>
-                <p className="flex items-center gap-1 text-xs opacity-75">
-                    <Info className="h-4 w-4" />
-                    You should receive a confirmation email shortly
-                </p>
-            </div>
-        );
     }
 
     return (
         <Form {...form}>
             <form
-                id="contact"
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col gap-2 border-t bg-[#fafafa] p-5 text-base dark:bg-[#0A0A0A] sm:border-l sm:border-t-0 md:col-span-3"
+                className="flex flex-col gap-6"
             >
-                <h1 className="text-5xl text-border">Reach Out</h1>
+                {submitted && (
+                    <div
+                        id="contact"
+                        className="absolute left-0 top-0 z-10 flex h-full w-full flex-col items-center justify-between p-5 backdrop-blur-3xl"
+                    >
+                        <div className="w-full">
+                            <TooltipProvider>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            className="rounded-full"
+                                            onClick={() => setSubmitted(false)}
+                                        >
+                                            <ArrowLeft className="h-4 w-4" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        Submit Another Message
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </div>
+                        <div>
+                            <h1 className="text-lg">
+                                Thanks for reaching out!
+                            </h1>
+                            <p className="text-sm opacity-75">
+                                I look forward to speaking with you further.
+                            </p>
+                        </div>
+                        <p className="flex items-center gap-1 text-xs opacity-75">
+                            <Info className="h-4 w-4" />
+                            You should receive a confirmation email shortly
+                        </p>
+                    </div>
+                )}
+                <div
+                    className={cn(
+                        "absolute bottom-0 left-0 -z-10 h-[50%] w-full bg-gradient-to-b from-transparent to-[#2aaf70] opacity-0 transition-opacity duration-1000 ease-out-expo",
+                        {
+                            "opacity-25": form.formState.isValid,
+                            "to-[#ff1c02] opacity-25":
+                                form.formState.errors &&
+                                !form.formState.isValid &&
+                                form.formState.isDirty,
+                        },
+                    )}
+                />
                 <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                         <FormItem className="border-b">
+                            <FormLabel className="flex items-center gap-2">
+                                <p className="rounded-full border px-2 py-0.5 text-xs">
+                                    01
+                                </p>
+                                What&apos;s your name?
+                            </FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="1. Your Name"
+                                    placeholder="Type your full name"
                                     type="text"
                                     {...field}
-                                    className="border-hidden bg-transparent"
+                                    className="border-hidden bg-transparent focus-visible:ring-0"
+                                    disabled={submitted}
                                 />
                             </FormControl>
                             <FormMessage className="ml-2" />
@@ -135,12 +155,19 @@ const ContactForm = () => {
                     name="email"
                     render={({ field }) => (
                         <FormItem className="border-b">
+                            <FormLabel className="flex items-center gap-2">
+                                <p className="rounded-full border px-2 py-0.5 text-xs">
+                                    02
+                                </p>
+                                What&apos;s your email address?
+                            </FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="2. Your Email"
+                                    placeholder="example@email.com"
                                     type="email"
                                     {...field}
-                                    className="border-hidden bg-transparent"
+                                    className="border-hidden bg-transparent focus-visible:ring-0"
+                                    disabled={submitted}
                                 />
                             </FormControl>
                             <FormMessage className="ml-2" />
@@ -151,12 +178,20 @@ const ContactForm = () => {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                        <FormItem className="flex flex-1 flex-col border-b">
+                        <FormItem className="flex flex-col">
+                            <FormLabel className="flex items-center gap-2">
+                                <p className="rounded-full border px-2 py-0.5 text-xs">
+                                    03
+                                </p>
+                                What do you want to talk about?
+                            </FormLabel>
                             <FormControl>
                                 <Textarea
-                                    placeholder="3. Your Message"
+                                    placeholder="I'm interested in..."
+                                    rows={5}
                                     {...field}
-                                    className="flex-1 resize-none border-hidden bg-transparent min-h-[300px]"
+                                    className="flex-1 resize-none border-hidden bg-transparent focus-visible:ring-0"
+                                    disabled={submitted}
                                 />
                             </FormControl>
                             <FormMessage className="ml-2" />
@@ -166,9 +201,10 @@ const ContactForm = () => {
                 <Button
                     type="submit"
                     variant="ghost"
-                    className="justify-between rounded-bl-[26px] rounded-br-[26px] lg:rounded-bl"
+                    className="justify-between rounded-full hover:bg-background"
+                    disabled={submitted}
                 >
-                    {form.formState.isSubmitting ? "Contacting" : "Contact Me"}
+                    {form.formState.isSubmitting ? "Submitting" : "Submit"}
                     {form.formState.isSubmitting ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (

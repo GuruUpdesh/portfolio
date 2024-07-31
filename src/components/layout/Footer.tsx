@@ -38,11 +38,7 @@ const Footer = () => {
                         className="flex items-center justify-between rounded-full hover:invert"
                         asChild
                     >
-                        <Link
-                            href="/#contact"
-                            scroll
-                            aria-label="Contact Me"
-                        >
+                        <Link href="/#contact" scroll aria-label="Contact Me">
                             Contact Me
                             <ArrowRight className="h-4 w-4" />
                         </Link>
