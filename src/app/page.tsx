@@ -81,7 +81,6 @@ export default function Portfolio() {
                                 height={1500}
                                 alt=""
                                 className="rounded-lg"
-                                quality={100}
                             />
                             <p className="absolute bottom-0 left-0 bg-gradient-to-t from-background to-transparent p-10 text-sm text-muted-foreground xl:text-base xl:leading-8">
                                 I’m a new computer science graduate from Oregon

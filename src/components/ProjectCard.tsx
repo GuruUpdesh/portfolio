@@ -22,18 +22,18 @@ const ProjectCard = ({ project, className }: Props) => {
         >
             <div className="flex h-full flex-col overflow-hidden rounded-md group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25 md:group-active:bg-border/10">
                 <div className="relative flex-1">
-                    <div
-                        className="ease-out-expo absolute inset-0 aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25"
-                        style={{
-                            backgroundImage: `url(/icons/${project.key}.ico)`,
-                        }}
+                    <Image
+                        src={`/icons/${project.key}.ico`}
+                        fill
+                        alt="website icon"
+                        className="ease-out-expo aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 group-hover:opacity-25 group-focus-visible:opacity-25"
+                        quality={10}
                     />
                     <Image
                         src={`/${project.key}.webp`}
                         fill
                         alt="Ghost Project GUI Outline"
                         className="object-top-left linear-mask z-10 object-scale-down pl-5 pt-5 mix-blend-screen drop-shadow-lg transition-all"
-                        quality={100}
                     />
                 </div>
                 <div className="h-5 overflow-hidden pl-2 text-muted-foreground">
