@@ -13,6 +13,7 @@ const ProjectsDivider = (props: ProjectsDividerProps) => {
             <DynamicCircle
                 containerRef={containerRef}
                 intersectionOffset={81}
+                cut="bottom"
                 direction="bottom"
                 className="opacity-0 transition-opacity lg:opacity-100 lg:animate-fade-in"
             />
