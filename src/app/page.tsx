@@ -113,9 +113,9 @@ export default function Portfolio() {
                         <div className="order-last col-span-2 p-5 lg:order-first">
                             <ContactInfo />
                         </div>
-                        <div className="col-span-3 p-5">
+                        <div className="col-span-3 p-0 transition-all md:p-5">
                             <div className="relative overflow-hidden rounded-[20px] bg-border/50 p-5">
-                                <h1 className="mb-8 text-5xl">
+                                <h1 className="mb-8 text-5xl p-5 pb-0 md:p-0">
                                     Let&apos;s Connect!
                                 </h1>
                                 <ContactForm />
