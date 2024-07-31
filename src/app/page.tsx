@@ -17,7 +17,7 @@ import dynamic from "next/dynamic";
 
 export default function Portfolio() {
     return (
-        <main className="flex w-full flex-col items-center overflow-hidden px-[1px] transition-all sm:px-10 md:px-20">
+        <main className="flex w-full flex-col items-center overflow-clip px-[1px] transition-all sm:px-10 md:px-20">
             <Header />
             <section
                 className="extend-border-lines section-base z-0 rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"

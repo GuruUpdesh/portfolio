@@ -22,11 +22,13 @@ const CursorTracker = ({ children, className, ...props }: Props) => {
 
         const element = ref.current;
         if (element) {
+            element.addEventListener("mouseenter", handleMouseMove);
             element.addEventListener("mousemove", handleMouseMove);
         }
 
         return () => {
             if (element) {
+                element.removeEventListener("mouseenter", handleMouseMove);
                 element.removeEventListener("mousemove", handleMouseMove);
             }
         };

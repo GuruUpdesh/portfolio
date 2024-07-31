@@ -25,13 +25,5 @@ export function findRadius(L: number, dTop: number): number {
         }
     }
 
-    console.warn(
-        "Dynamic Circle failed to calculate radius\nL:",
-        L,
-        "d_top:",
-        dTop,
-        "\nmidPoint:",
-        midPoint,
-    );
     return midPoint;
 }

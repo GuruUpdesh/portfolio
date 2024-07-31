@@ -35,11 +35,17 @@ const Footer = () => {
                         </Link>
                     </div>
                     <Button
-                        className="justify-between rounded-full hover:invert"
-                        aria-label="Contact Me"
+                        className="flex items-center justify-between rounded-full hover:invert"
+                        asChild
                     >
-                        Contact Me
-                        <ArrowRight className="h-4 w-4" />
+                        <Link
+                            href="/#contact"
+                            scroll
+                            aria-label="Contact Me"
+                        >
+                            Contact Me
+                            <ArrowRight className="h-4 w-4" />
+                        </Link>
                     </Button>
                 </div>
 

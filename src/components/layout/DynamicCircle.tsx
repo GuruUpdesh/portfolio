@@ -4,7 +4,7 @@ import useContainerDimensions from "@/hooks/useContainer";
 import { cn } from "@/lib/utils";
 import { findRadius } from "@/utils/circleCalculations";
 import { CircleCut, getMaskImage } from "@/utils/cricleMask";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 type Props = {
     containerRef: React.RefObject<HTMLDivElement>;
