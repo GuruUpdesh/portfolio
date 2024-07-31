@@ -132,8 +132,8 @@
 }
 
 .menu-shadow {
-    filter: drop-shadow(-10px 0px 8px hsl(var(--background)))
-        drop-shadow(-4px 0px 3px hsl(var(--background)));
+    filter: drop-shadow(-10px 0px 8px hsl(var(--background) / 0.5))
+        drop-shadow(-4px 0px 3px hsl(var(--background) / 0.5));
 }
 
 body.overflow-hidden {
