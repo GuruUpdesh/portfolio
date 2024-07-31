@@ -27,7 +27,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
             >
                 portfolio website
             </a>
-            ! This auto-reply is just confirming that I've received your
+            ! This auto-reply is just confirming that I&apos;ve received your
             message.
         </p>
         <p style={{ fontSize: "14px" }}>
