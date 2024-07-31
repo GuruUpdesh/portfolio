@@ -34,6 +34,7 @@ const ProjectCard = ({ project, className }: Props) => {
                         fill
                         alt="Ghost Project GUI Outline"
                         className="object-top-left linear-mask z-10 object-scale-down pl-5 pt-5 mix-blend-screen drop-shadow-lg transition-all"
+                        priority
                     />
                 </div>
                 <div className="h-5 overflow-hidden pl-2 text-muted-foreground">

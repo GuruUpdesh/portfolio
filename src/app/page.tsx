@@ -68,20 +68,21 @@ export default function Portfolio() {
                                 About Me
                             </h1>
                             <div
-                                className="absolute -z-10 inset-0 blur-[100px] mix-blend-lighten"
+                                className="absolute inset-0 -z-10 mix-blend-lighten blur-[100px]"
                                 style={{
                                     backgroundImage: "url(/self.webp)",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
                                 }}
                             />
-                            <Image
-                                src="/self.webp"
-                                width={600}
-                                height={1500}
-                                alt=""
-                                className="rounded-lg"
-                            />
+                            <div className="relative w-full aspect-[9/15]">
+                                <Image
+                                    src="/self.webp"
+                                    fill
+                                    alt=""
+                                    className="rounded-lg"
+                                />
+                            </div>
                             <p className="absolute bottom-0 left-0 bg-gradient-to-t from-background to-transparent p-10 text-sm text-muted-foreground xl:text-base xl:leading-8">
                                 I’m a new computer science graduate from Oregon
                                 State University with a focus in cybersecurity
