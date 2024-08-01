@@ -152,19 +152,11 @@ body.overflow-hidden {
     inherits: false;
 }
 
-@property --mask-3 {
-    syntax: "<percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-
 @keyframes mask-gradient-1 {
     from {
-        --mask-1: 0%;
         --mask-2: 80%;
     }
     to {
-        --mask-1: 50%;
         --mask-2: 150%;
     }
 }
