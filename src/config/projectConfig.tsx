@@ -92,7 +92,7 @@ export const projects = {
     "effortless-eats": EffortlessEats,
 } as const;
 
-type ProjectKey = keyof typeof projects;
+export type ProjectKey = keyof typeof projects;
 
 export function isValidProjectKey(key: string): key is ProjectKey {
     return key in projects;

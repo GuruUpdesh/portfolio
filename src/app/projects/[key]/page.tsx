@@ -6,13 +6,14 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import {
     ArrowLeft,
     ArrowRight,
     ChevronDown,
     ChevronUp,
     Play,
+    X,
 } from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
@@ -34,6 +35,7 @@ import VideoComponent from "@/components/project/VideoComponent";
 import StickyHeader from "@/components/layout/StickyHeader";
 import { notFound } from "next/navigation";
 import "./typography.css";
+import ProjectHeader from "@/components/layout/ProjectHeader";
 
 type Props = {
     params: {
@@ -51,95 +53,40 @@ export default function Project({ params: { key } }: Props) {
     const previousProjectKey = getPreviousProjectKey(key);
 
     return (
-        <>
+        <div className="flex w-full flex-col items-center overflow-clip px-5">
+            <div className="flex w-full max-w-[1400px] items-center justify-end"></div>
             <StickyHeader>
-                <div className="flex w-full max-w-[1440px] items-center gap-2 transition-all lg:px-20 xl:px-40">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Link href="/">
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="rounded-full"
-                                        tabIndex={-1}
-                                    >
-                                        <ArrowLeft className="h-4 w-4" />
-                                    </Button>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent>Back</TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <div className="flex w-full items-center justify-between">
-                        <h1
-                            className="inline-flex max-w-[calc(100%-4ch)] items-baseline gap-2 truncate text-lg md:text-2xl"
-                            title={project.name}
-                        >
-                            <Image
-                                src={`/icons/${project.key}.ico`}
-                                height={20}
-                                width={20}
-                                alt="website icon"
-                                priority
-                                className="flex-shrink-0"
-                            />
-                            {project.name}
-                            <span className="inline-block flex-shrink-0 truncate text-sm opacity-75 md:text-lg">
-                                {" " + project.year}
-                            </span>
-                        </h1>
-                    </div>
-                    <div className="group flex flex-1 items-center justify-end">
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Link
-                                        href={`/projects/${previousProjectKey}`}
-                                    >
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            tabIndex={-1}
-                                        >
-                                            <ChevronUp className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                        </Button>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    {projects[previousProjectKey].name}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Link href={`/projects/${nextProjectKey}`}>
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            tabIndex={-1}
-                                        >
-                                            <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                        </Button>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    {projects[nextProjectKey].name}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                    </div>
-                </div>
+                <ProjectHeader
+                    project={project}
+                    nextProjectKey={nextProjectKey}
+                    previousProjectKey={previousProjectKey}
+                />
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Link href="/">
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="my-5 rounded-full"
+                                    tabIndex={-1}
+                                >
+                                    <X className="h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>Close Projects</TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </StickyHeader>
-            <div className="flex w-full justify-center overflow-hidden">
-                <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
-                    <section className="mb-8 w-full max-w-[1440px] px-5 transition-all lg:px-20 xl:px-40">
-                        {project.videoFileName ? (
-                            <VideoComponent filename={project.videoFileName} />
-                        ) : null}
-                    </section>
-                    <section className="flex w-full max-w-[1440px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
+            <main className="w-full max-w-[1400px] rounded-t-[40px] bg-gradient-to-b from-primary/10 to-background lg:rounded-t-[80px]">
+                <section className="p-5 !pb-0 transition-all lg:p-20">
+                    {project.videoFileName ? (
+                        <VideoComponent filename={project.videoFileName} />
+                    ) : null}
+                </section>
+                <ProjectDivider className="relative w-full max-w-[1440px] rounded-b-[80px] border border-t-0">
+                    <div className="flex flex-col-reverse gap-4 px-5 py-10 transition-all lg:flex-row lg:gap-2 lg:px-20">
                         <div className="paragraph">
                             {project.content.shortDescription}
                         </div>
@@ -181,6 +128,7 @@ export default function Project({ params: { key } }: Props) {
                                                     tabIndex={-1}
                                                 >
                                                     <span>Visit</span>
+                                                    <ArrowRight className="h-4 w-4" />
                                                 </Button>
                                             </Link>
                                         </TooltipTrigger>
@@ -191,18 +139,17 @@ export default function Project({ params: { key } }: Props) {
                                 </TooltipProvider>
                             ) : null}
                         </div>
-                    </section>
-                    <ProjectDivider className="relative w-full max-w-[1440px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                </main>
-            </div>
+                    </div>
+                </ProjectDivider>
+            </main>
             <section className="mb-8 w-full overflow-clip px-5">
                 <Gallery images={project.images} projectKey={project.key} />
             </section>
-            <main
+            <section
                 id="2"
-                className="overflow-clip transition-all sm:px-10 md:px-20"
+                className="mt-20 overflow-clip transition-all sm:px-10 md:px-20"
             >
-                <section className="relative flex w-full max-w-[1440px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
+                <div className="relative flex w-full max-w-[1440px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
                         <h1 className="header-1">Features</h1>
@@ -288,9 +235,9 @@ export default function Project({ params: { key } }: Props) {
                             </Tooltip>
                         </TooltipProvider>
                     </div>
-                </section>
-                <Footer />
-            </main>
-        </>
+                </div>
+            </section>
+            <Footer />
+        </div>
     );
 }
