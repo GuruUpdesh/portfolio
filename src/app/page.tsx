@@ -41,7 +41,7 @@ export default function Portfolio() {
                 id="projects"
                 className="section-base px-5 transition-all sm:px-10 md:px-20"
             >
-                <CursorTracker className="group/grid grid-row-auto relative mx-[1px] mt-[-1px] grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden bg-border px-[1px] py-[1px] md:grid-cols-2 lg:grid-cols-3">
+                <CursorTracker className="group/grid grid-row-auto relative mx-[1px] mt-[-1px] grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden bg-border px-[1px] py-[1px] lg:grid-cols-2 xl:grid-cols-3">
                     <ProjectCard project={projects.taskly} />
                     <ProjectCard project={projects["effortless-eats"]} />
                     <ProjectCard project={projects["track-it"]} />
