@@ -105,34 +105,20 @@ const Taskly: Project = {
                 <div>
                     <h1 className="header-1">Overview</h1>
                     <p className="paragraph">
-                        When first brainstorming the direction we wanted to take
-                        Taskly we identified that many of the dominant PM tools
-                        in the software industry were plagued with complexity
-                        and feature bloat. We identified that this complexity
-                        was leading to inefficiencies and steep learning curves
-                        which were both contributing to cost and time wasted for
-                        the businesses that were using them. We believed that
-                        this problem was something we could provide a solution
-                        to.
-                    </p>
-                    <p className="paragraph">
-                        Taskly was born as a strait forward, opinionated,
-                        approach to Agile PM that would reduce company
-                        onboarding time, free up developer resources, and
-                        improve project success. The final product delivers on
-                        our ideas.
+                        Taskly is an Agile project management app designed to be
+                        simpler than existing complex solutions. It aims to
+                        reduce onboarding time and improve efficiency for
+                        businesses, especially small ones. The project was
+                        developed by a capstone team over their senior year.
                     </p>
                     <Paragraph
                         paragraph="Our opinionated design approach emphasizes simplicity to minimize learning curves and maximize efficiency and success."
                         className="w-full py-8"
                     />
                     <p className="paragraph">
-                        Our hope was that small businesses would see the value
-                        in a simplified tool, especially because they have less
-                        margin for error. Despite never gaining traction the
-                        project was a successful learning experience for the
-                        whole team, and has future potential with the right
-                        direction.
+                        Despite never gaining traction the project was a
+                        successful learning experience for the whole team, and
+                        has future potential with the right direction.
                     </p>
                 </div>
                 <div>

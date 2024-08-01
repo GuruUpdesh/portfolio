@@ -5,10 +5,10 @@
         @apply mb-4 font-light leading-7 text-muted-foreground last:mb-0;
     }
     .header-1 {
-        @apply mb-4 text-4xl;
+        @apply mb-4 text-3xl font-semibold;
     }
     .header-2 {
-        @apply mb-4 mt-8 text-2xl;
+        @apply mb-4 mt-8 border-t pt-8 text-2xl;
     }
     .block-list {
         @apply flex flex-col gap-4 leading-7;

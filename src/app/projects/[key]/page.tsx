@@ -69,7 +69,7 @@ export default function Project({ params: { key } }: Props) {
                         <VideoComponent filename={project.videoFileName} />
                     ) : null}
                 </section>
-                <ProjectDivider className="relative rounded-b-[80px] border border-t-0 border-l-0 border-r-0">
+                <ProjectDivider className="relative rounded-b-[80px] border border-l-0 border-r-0 border-t-0">
                     <div className="flex flex-col-reverse gap-4 px-5 py-10 transition-all lg:flex-row lg:gap-2 lg:px-20">
                         <div className="paragraph">
                             {project.content.shortDescription}
@@ -129,18 +129,30 @@ export default function Project({ params: { key } }: Props) {
             <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
-            <section className="mb-8 w-full overflow-clip px-5">
+            <section className="relative mb-8 w-full px-5">
                 <Gallery images={project.images} projectKey={project.key} />
+                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] grayscale transition-opacity md:block">
+                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%] -hue-rotate-30">
+                        <Image
+                            fill
+                            src="/logo.webp"
+                            alt="abstract colorful blob"
+                            className="animate-spin-slow blur-lg"
+                        />
+                    </div>
+                </div>
             </section>
             <section
                 id="2"
-                className="mt-20 overflow-clip transition-all sm:px-10 md:px-20"
+                className="mt-20 w-full max-w-[1400px] overflow-clip"
             >
-                <div className="relative flex w-full max-w-[1440px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
-                    {project.content.detailedContent}
-                    <div>
+                <div className="relative flex w-full flex-col items-center gap-32 px-5 transition-all lg:px-20 xl:px-40">
+                    <div className="flex max-w-[690px] flex-col gap-32">
+                        {project.content.detailedContent}
+                    </div>
+                    <div className="w-full">
                         <h1 className="header-1">Features</h1>
-                        <ul className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+                        <ul className="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
                             {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
@@ -152,7 +164,7 @@ export default function Project({ params: { key } }: Props) {
                         </ul>
                     </div>
                     <TechStackContainer techStack={project.techStack} />
-                    <div>
+                    <div className="w-full">
                         <h1 className="header-1">Analytics</h1>
                         <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
                             {project.vercelProjectId && (

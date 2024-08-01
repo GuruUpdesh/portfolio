@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/carousel";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { getImage } from "@/utils/getImage";
+import CursorTracker from "../CursorTracker";
 
 const TWEEN_FACTOR_BASE = 0.6;
 
@@ -123,13 +124,8 @@ const Gallery = ({ images, projectKey }: Props) => {
     }
 
     return (
-        <div
-            className="my-10 grid w-full grid-cols-10 gap-2 md:gap-5"
-            style={{
-                height: `${images.length * 400}px`,
-                gridTemplateRows: `${images.length}`,
-            }}
-        >
+        <CursorTracker className="group/grid relative mt-[-1px] grid w-full grid-cols-4 gap-[1px] overflow-hidden rounded-[40px] bg-border p-[1px]">
+            <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
             {images.map((group, groupIndex) => (
                 <React.Fragment key={groupIndex}>
                     {group.map((src, index) => (
@@ -137,15 +133,14 @@ const Gallery = ({ images, projectKey }: Props) => {
                             <DialogTrigger asChild>
                                 <button
                                     className={cn(
-                                        "relative col-span-10 cursor-pointer overflow-hidden rounded-xl border border-border/10 bg-border/5 transition-all hover:border-border/25 md:col-span-5 lg:col-span-4",
+                                        "relative aspect-[6/7] cursor-pointer overflow-hidden transition-all last:rounded-r-[40px] first-of-type:rounded-l-[40px]",
                                         {
-                                            "lg:col-span-6":
+                                            "lg:":
                                                 (groupIndex % 2 == 0 &&
                                                     index == 0) ||
                                                 (groupIndex % 2 == 1 &&
                                                     index == 1),
-                                            "lg:col-span-10":
-                                                group.length === 1,
+                                            "lgx:": group.length === 1,
                                         },
                                     )}
                                     onClick={() => {
@@ -155,7 +150,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                                     <Image
                                         src={getImage(projectKey, src)}
                                         fill
-                                        className="object-cover object-top"
+                                        className="object-cover object-left-top"
                                         priority
                                         alt=""
                                     />
@@ -232,7 +227,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                     ))}
                 </React.Fragment>
             ))}
-        </div>
+        </CursorTracker>
     );
 };
 
