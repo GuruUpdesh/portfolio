@@ -22,7 +22,7 @@ const ExpandableAboutDescription = () => {
             >
                 <p
                     className={cn(
-                        "line-clamp-3 text-sm text-muted-foreground opacity-100 transition-opacity xl:text-base xl:leading-7",
+                        "line-clamp-4 text-sm text-muted-foreground opacity-100 transition-opacity xl:text-base xl:leading-7",
                         {
                             "opacity-0": open,
                         },

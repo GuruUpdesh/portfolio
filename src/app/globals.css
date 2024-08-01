@@ -138,6 +138,7 @@
 
 body.overflow-hidden {
     overflow: hidden;
+    padding-right: var(--scrollbar-width);
 }
 
 @property --mask-1 {
@@ -202,17 +203,10 @@ body.overflow-hidden {
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
-    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover, var(--scrollbar-thumb));
-}
-
-/* Firefox */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 /* For Internet Explorer */

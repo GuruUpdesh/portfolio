@@ -19,19 +19,14 @@ import { cn } from "@/lib/utils";
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1440px] flex-1 flex-col items-center px-10 pb-2 pt-20 sm:px-0">
+        <footer className="relative flex w-full max-w-[1440px] flex-1 flex-col items-center px-0 pb-2 pt-20 sm:px-0">
             <div className="flex w-full justify-between rounded-[40px] border p-5 mix-blend-luminosity lg:px-20">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
-                        <Link href="/" className="text-2xl" scroll={true}>
+                        <Link href="/" className="md:text-2xl text-lg" scroll={true}>
                             Guru Updesh Singh
-                        </Link>
-                        <Link
-                            href="/"
-                            className="-translate-y-2 text-2xl text-muted-foreground"
-                            scroll={true}
-                        >
-                            .dev
+                            <br />
+                            <span className="text-muted-foreground">.dev</span>
                         </Link>
                     </div>
                     <Button

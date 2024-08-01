@@ -16,7 +16,7 @@ const HeroVideo = (props: HeroVideoProps) => {
                     <Play className="h-10 w-10" />
                 </div>
                 <div className="absolute -z-10 h-full w-full overflow-clip blur-[100px] hidden md:block">
-                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
+                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%] -hue-rotate-30">
                         <Image
                             fill
                             src="/logo.webp"

@@ -87,10 +87,10 @@ export default function Portfolio() {
                             <div className="relative -z-20 aspect-square translate-x-0 p-2 transition-transform lg:translate-x-[-50%]">
                                 <TechCircle />
                             </div>
-                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:p-0">
+                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:py-0">
                                 <Paragraph
                                     paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications."
-                                    className="w-full"
+                                    
                                 />
                                 <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-xl" />
                                 <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-lg" />
@@ -98,10 +98,10 @@ export default function Portfolio() {
                         </div>
                     </div>
                     <div
-                        className="mt-[60px] grid grid-cols-1 overflow-hidden rounded-[40px] rounded-tr-[80px] border lg:grid-cols-5"
+                        className="mt-10 lg:mt-[60px] grid grid-cols-1 overflow-hidden rounded-[40px] rounded-tr-[80px] border lg:grid-cols-5"
                         id="contact"
                     >
-                        <div className="order-last col-span-2 p-10 lg:order-first lg:pr-0">
+                        <div className="order-last col-span-2 p-10 lg:order-first">
                             <ContactInfo />
                         </div>
                         <div className="col-span-3 p-0 transition-all md:p-5">

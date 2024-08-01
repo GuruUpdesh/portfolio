@@ -21,7 +21,6 @@ const Header = () => {
                         guruupdeshsingh.dev
                     </span>
                 </Link>
-                {/* <Navigation /> */}
                 <ProjectSheet />
             </div>
             <div className="mt-[36px] py-2 text-lg md:text-xl lg:text-2xl">

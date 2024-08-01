@@ -34,7 +34,7 @@ const ProjectCard = ({ project, className }: Props) => {
                             src={`/${project.key}.webp`}
                             fill
                             alt="Ghost Project GUI Outline"
-                            className="object-top-left linear-mask z-10 translate-y-[35%] scale-[200%] object-contain p-5 transition-all lg:translate-y-0 lg:scale-100"
+                            className="object-top-left linear-mask z-10 object-contain p-5"
                             priority
                         />
                     </div>
