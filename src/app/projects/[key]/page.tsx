@@ -131,13 +131,13 @@ export default function Project({ params: { key } }: Props) {
             </section>
             <section className="relative mb-8 w-full px-5">
                 <Gallery images={project.images} projectKey={project.key} />
-                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] grayscale transition-opacity md:block">
-                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%] -hue-rotate-30">
+                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
+                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
                         <Image
                             fill
                             src="/logo.webp"
-                            alt="abstract colorful blob"
-                            className="animate-spin-slow blur-lg"
+                            alt=""
+                            className="animate-spin-slow blur-lg grayscale"
                         />
                     </div>
                 </div>
