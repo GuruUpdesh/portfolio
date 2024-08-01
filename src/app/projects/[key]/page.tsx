@@ -53,7 +53,7 @@ export default function Project({ params: { key } }: Props) {
     return (
         <>
             <StickyHeader>
-                <div className="flex w-full max-w-[1360px] items-center gap-2 transition-all lg:px-20 xl:px-40">
+                <div className="flex w-full max-w-[1440px] items-center gap-2 transition-all lg:px-20 xl:px-40">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -134,7 +134,7 @@ export default function Project({ params: { key } }: Props) {
             </StickyHeader>
             <div className="flex w-full justify-center overflow-hidden">
                 <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
-                    <section className="mb-8 w-full max-w-[1360px] px-5 transition-all lg:px-20 xl:px-40">
+                    <section className="mb-8 w-full max-w-[1440px] px-5 transition-all lg:px-20 xl:px-40">
                         {project.videoFileName ? (
                             <VideoComponent filename={project.videoFileName} />
                         ) : (
@@ -143,7 +143,7 @@ export default function Project({ params: { key } }: Props) {
                             </div>
                         )}
                     </section>
-                    <section className="flex w-full max-w-[1360px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
+                    <section className="flex w-full max-w-[1440px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
                         <div className="paragraph">
                             {project.content.shortDescription}
                         </div>
@@ -196,7 +196,7 @@ export default function Project({ params: { key } }: Props) {
                             ) : null}
                         </div>
                     </section>
-                    <ProjectDivider className="relative w-full max-w-[1360px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
+                    <ProjectDivider className="relative w-full max-w-[1440px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
                 </main>
             </div>
             <section className="mb-8 w-full overflow-clip px-5">
@@ -206,7 +206,7 @@ export default function Project({ params: { key } }: Props) {
                 id="2"
                 className="overflow-clip transition-all sm:px-10 md:px-20"
             >
-                <section className="relative flex w-full max-w-[1360px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
+                <section className="relative flex w-full max-w-[1440px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     {project.content.detailedContent}
                     <div>
                         <h1 className="header-1">Features</h1>

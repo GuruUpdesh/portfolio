@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1360px] flex-1 flex-col items-center px-10 pb-2 pt-20 sm:px-0">
+        <footer className="relative flex w-full max-w-[1440px] flex-1 flex-col items-center px-10 pb-2 pt-20 sm:px-0">
             <div className="flex w-full justify-between rounded-[40px] border p-5 mix-blend-luminosity lg:px-20">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
