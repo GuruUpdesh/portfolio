@@ -54,7 +54,7 @@ export default function Portfolio() {
             <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
-            <section className="section-base extend-border-lines rounded-b-[60px] sm:rounded-b-[80px] border border-t-0 px-5 pb-5 sm:pb-10 transition-all sm:px-10 md:px-20 md:pb-20">
+            <section className="section-base extend-border-lines rounded-b-[60px] border border-t-0 px-5 pb-5 transition-all sm:rounded-b-[80px] sm:px-10 sm:pb-10 md:px-20 md:pb-20">
                 <div
                     className="extend-border-lines relative rounded-b-[60px] p-0 transition-all before:left-0 after:right-0 lg:border lg:border-t-0 lg:px-20 lg:pb-20 lg:before:-left-[1px] lg:after:-right-[1px]"
                     style={
@@ -64,51 +64,49 @@ export default function Portfolio() {
                         } as React.CSSProperties
                     }
                 >
-                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
-                        <div className="relative flex flex-col pb-0 md:col-span-3">
-                            <h1 className="p-5 text-5xl">About Me</h1>
-                            <div
-                                className="absolute inset-0 -z-10 bg-cover bg-center mix-blend-lighten blur-[100px]"
-                                style={{
-                                    backgroundImage: "url(/self.webp)",
-                                }}
-                            />
-                            <div className="relative aspect-[9/15] w-full overflow-clip rounded-tr-[20px]">
+                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[80px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
+                        <div className="relative flex flex-col pb-0 md:col-span-2">
+                            <div className="relative aspect-[9/15] w-full rounded-tr-[20px]">
+                                <div
+                                    className="absolute inset-0 -z-10 bg-cover bg-center mix-blend-lighten blur-[100px]"
+                                    style={{
+                                        backgroundImage: "url(/self.webp)",
+                                    }}
+                                />
                                 <Image
                                     src="/self.webp"
                                     fill
                                     alt="Portrait of a man with dark hair in a messy bun, beard, and dark t-shirt, looking to the side"
                                     quality={100}
+                                    className="rounded-tr-[20px]"
                                 />
                                 <ExpandableAboutDescription />
                             </div>
                         </div>
-                        <div className="relative -z-20 col-span-2 flex flex-col justify-between px-5 py-10">
+                        <div className="relative -z-20 col-span-3 flex flex-col px-5 py-10">
                             <div className="relative -z-20 aspect-square translate-x-0 p-2 transition-transform lg:translate-x-[-50%]">
                                 <TechCircle />
                             </div>
-                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:relative lg:top-0 lg:translate-y-0 lg:p-0">
+                            <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:p-0">
                                 <Paragraph
                                     paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications."
                                     className="w-full"
                                 />
-                                <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-xl" />
-                            </div>
-                            <div className="-z-20 hidden aspect-square translate-x-0 transition-transform lg:block lg:translate-x-[50%]">
-                                <TechCircle />
+                                <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-xl rounded-full" />
+                                <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-lg rounded-full" />
                             </div>
                         </div>
                     </div>
                     <div
-                        className="mt-[80px] grid grid-cols-1 overflow-hidden rounded-[40px] border lg:grid-cols-5"
+                        className="mt-[60px] grid grid-cols-1 overflow-hidden rounded-t-[80px] rounded-b-[40px] border lg:grid-cols-5"
                         id="contact"
                     >
-                        <div className="order-last col-span-2 p-10 lg:pr-0 lg:order-first">
+                        <div className="order-last col-span-2 p-10 lg:order-first lg:pr-0">
                             <ContactInfo />
                         </div>
                         <div className="col-span-3 p-0 transition-all md:p-5">
-                            <div className="relative overflow-hidden rounded-[20px] bg-border/50 p-5">
-                                <h1 className="mb-8 text-5xl">
+                            <div className="relative overflow-hidden rounded-[20px] rounded-tr-[60px] bg-primary/10 p-5">
+                                <h1 className="mb-4 text-3xl">
                                     Let&apos;s Connect!
                                 </h1>
                                 <ContactForm />

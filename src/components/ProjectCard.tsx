@@ -44,7 +44,7 @@ const ProjectCard = ({ project, className }: Props) => {
                     </div>
                 </div>
                 <div className="flex w-full items-center justify-between p-2 pt-0 transition-[padding] ease-out group-hover:pr-1 group-focus-visible:pr-1">
-                    <p className="flex items-center gap-2 truncate text-lg text-muted-foreground transition-colors group-hover:text-primary group-focus-visible:text-primary">
+                    <p className="flex items-center gap-2 truncate text-lg">
                         <Image
                             src={`/icons/${project.key}.ico`}
                             height={16}

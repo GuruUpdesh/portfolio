@@ -20,16 +20,21 @@ const ExpandableAboutDescription = () => {
                     "absolute bottom-0 left-0 flex w-full flex-col gap-2 bg-gradient-to-t from-background to-transparent p-10",
                 )}
             >
-                <div className="relative max-h-[50px] overflow-hidden">
-                    <p className="line-clamp-2 text-sm text-muted-foreground xl:text-base xl:leading-8">
-                        I&apos;m a new computer science graduate from Oregon
-                        State University with a focus in cybersecurity and full
-                        stack web development.
-                    </p>
-                </div>
+                <p
+                    className={cn(
+                        "line-clamp-3 text-sm text-muted-foreground opacity-100 transition-opacity xl:text-base xl:leading-7",
+                        {
+                            "opacity-0": open,
+                        },
+                    )}
+                >
+                    I&apos;m a new computer science graduate from Oregon State
+                    University with a focus in cybersecurity and full stack web
+                    development.
+                </p>
                 <Button
                     variant="outline"
-                    className="z-10 mt-2 rounded-full bg-transparent backdrop-blur-2xl md:mt-4"
+                    className="z-10 mt-2 rounded-full bg-transparent backdrop-blur-3xl md:mt-4"
                     onClick={toggleOpen}
                 >
                     {open ? "Close" : "Read More"}
@@ -42,7 +47,7 @@ const ExpandableAboutDescription = () => {
                         animate={{ height: "100%", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{
-                            duration: 0.8,
+                            duration: 0.6,
                             ease: [0.76, 0, 0.24, 1],
                         }}
                         className="absolute bottom-0 h-full w-full overflow-hidden rounded-tr-[20px] bg-background/25 p-5 backdrop-blur-2xl"
