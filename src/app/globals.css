@@ -144,6 +144,10 @@ body.overflow-hidden {
     mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
+.scroll-mask {
+    mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+}
+
 .tech-icon {
     --angle: calc(2 * 3.14159 * var(--index) / var(--total));
     --radius: calc(var(--container-size) / 2);
