@@ -64,7 +64,7 @@ export default function Portfolio() {
                         } as React.CSSProperties
                     }
                 >
-                    <div className="grid grid-cols-1 overflow-hidden rounded-b-[80px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
+                    <div className="grid grid-cols-1 overflow-hidden rounded-bl-[40px] rounded-br-[80px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
                         <div className="relative flex flex-col pb-0 md:col-span-2">
                             <div className="relative aspect-[9/15] w-full rounded-tr-[20px]">
                                 <div
@@ -92,13 +92,13 @@ export default function Portfolio() {
                                     paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications."
                                     className="w-full"
                                 />
-                                <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-xl rounded-full" />
-                                <div className="absolute left-0 top-0 -z-10 h-full w-full bg-background blur-lg rounded-full" />
+                                <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-xl" />
+                                <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-lg" />
                             </div>
                         </div>
                     </div>
                     <div
-                        className="mt-[60px] grid grid-cols-1 overflow-hidden rounded-t-[80px] rounded-b-[40px] border lg:grid-cols-5"
+                        className="mt-[60px] grid grid-cols-1 overflow-hidden rounded-[40px] rounded-tr-[80px] border lg:grid-cols-5"
                         id="contact"
                     >
                         <div className="order-last col-span-2 p-10 lg:order-first lg:pr-0">
@@ -106,7 +106,7 @@ export default function Portfolio() {
                         </div>
                         <div className="col-span-3 p-0 transition-all md:p-5">
                             <div className="relative overflow-hidden rounded-[20px] rounded-tr-[60px] bg-primary/10 p-5">
-                                <h1 className="mb-4 text-3xl">
+                                <h1 className="mb-6 text-3xl">
                                     Let&apos;s Connect!
                                 </h1>
                                 <ContactForm />

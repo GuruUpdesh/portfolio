@@ -84,7 +84,7 @@ const Taskly: Project = {
     vercelProjectId: "prj_6h9v6l7IyIi8H19zikijisuuhpOI",
     websiteLink: "https://www.tasklypm.com",
     videoFileName:
-        "https://res.cloudinary.com/dioxu1vph/video/upload/f_auto:video,q_auto/v1/samples/elephants",
+        "https://res.cloudinary.com/dioxu1vph/video/upload/v1722493771/s63xfqf57vgjaxcgazep.mp4",
     images: [
         ["/backlog.webp", "/settings.webp"],
         ["/createproject.webp", "/task.webp"],

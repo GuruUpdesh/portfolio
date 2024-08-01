@@ -137,11 +137,7 @@ export default function Project({ params: { key } }: Props) {
                     <section className="mb-8 w-full max-w-[1440px] px-5 transition-all lg:px-20 xl:px-40">
                         {project.videoFileName ? (
                             <VideoComponent filename={project.videoFileName} />
-                        ) : (
-                            <div className="relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[40px] rounded-b-[20px] border bg-[#fafafa] dark:bg-[#0A0A0A]">
-                                <Play className="h-10 w-10" />
-                            </div>
-                        )}
+                        ) : null}
                     </section>
                     <section className="flex w-full max-w-[1440px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
                         <div className="paragraph">

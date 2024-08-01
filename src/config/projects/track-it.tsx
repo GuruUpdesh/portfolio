@@ -8,6 +8,8 @@ const TrackIt: Project = {
     gitHubLink: "https://github.com/GuruUpdesh/track-it",
     vercelProjectId: "prj_VuKOQZjJA3tFdhvtxTXPvB7M9ma3",
     websiteLink: "https://tackit.guruupdeshsingh.dev",
+    videoFileName:
+        "https://res.cloudinary.com/dioxu1vph/video/upload/v1722495068/nrb5z1qfodaskfu0kjlp.mp4",
     images: [["/dashboard2.png"], ["/userguide.png", "/trackinghistory.png"]],
     content: {
         shortDescription: (

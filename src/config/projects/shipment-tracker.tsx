@@ -7,6 +7,8 @@ const ShipmentTracker: Project = {
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/shipment-tracker",
     websiteLink: "https://shipmenttracker.guruupdeshsingh.dev",
+    videoFileName:
+        "https://res.cloudinary.com/dioxu1vph/video/upload/v1722494250/pie494ieohqicdoen8fn.mp4",
     images: [
         ["/dashboard-dark.png", "/map-dark.png"],
         ["/tracking-light.png", "/add-light.png"],
