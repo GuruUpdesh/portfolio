@@ -140,8 +140,59 @@ body.overflow-hidden {
     overflow: hidden;
 }
 
+@property --mask-1 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+
+@property --mask-2 {
+    syntax: "<percentage>";
+    initial-value: 80%;
+    inherits: false;
+}
+
+@property --mask-3 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+
+@property --mask-4 {
+    syntax: "<percentage>";
+    initial-value: 90%;
+    inherits: false;
+}
+
+@keyframes mask-gradient-1 {
+    from {
+        --mask-1: 0%;
+        --mask-2: 80%;
+    }
+    to {
+        --mask-1: 50%;
+        --mask-2: 150%;
+    }
+}
+
+.group:hover .linear-mask {
+    animation: mask-gradient-1 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
 .linear-mask {
-    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-image: radial-gradient(
+        ellipse at top left,
+        rgb(0, 0, 0, 1) var(--mask-1),
+        transparent var(--mask-2)
+    );
+}
+
+.linear-mask-2 {
+    mask-image: linear-gradient(
+        to bottom,
+        rgb(0, 0, 0, 1) var(--mask-3),
+        transparent var(--mask-4)
+    );
 }
 
 .scroll-mask {
