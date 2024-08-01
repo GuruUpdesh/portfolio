@@ -10,7 +10,7 @@ const HeroVideo = (props: HeroVideoProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     return (
         <div ref={containerRef} {...props}>
-            <div className="relative z-10 flex aspect-video items-center justify-center rounded-b-[40px] border border-t-0 bg-[#fafafa] dark:bg-[#0A0A0A]">
+            <div className="relative z-10 flex aspect-video items-center justify-center rounded-b-[20px] sm:rounded-b-[40px] border border-t-0 bg-[#fafafa] dark:bg-[#0A0A0A]">
                 <Play className="h-10 w-10" />
             </div>
             <Circle

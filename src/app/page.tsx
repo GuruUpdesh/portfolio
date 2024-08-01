@@ -39,7 +39,7 @@ export default function Portfolio() {
             </section>
             <section
                 id="projects"
-                className="section-base px-10 transition-all md:px-20"
+                className="section-base px-5 transition-all sm:px-10 md:px-20"
             >
                 <CursorTracker className="group/grid grid-row-auto relative mx-[1px] mt-[-1px] grid min-h-[730px] grid-cols-1 gap-[1px] overflow-hidden bg-border px-[1px] py-[1px] md:grid-cols-2 lg:grid-cols-3">
                     <ProjectCard project={projects.taskly} />
@@ -51,10 +51,10 @@ export default function Portfolio() {
                     <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
                 </CursorTracker>
             </section>
-            <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-10 transition-all md:px-20 xl:overflow-visible">
+            <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
-            <section className="section-base extend-border-lines rounded-b-[80px] border border-t-0 px-10 pb-10 transition-all md:px-20 md:pb-20">
+            <section className="section-base extend-border-lines rounded-b-[60px] sm:rounded-b-[80px] border border-t-0 px-5 pb-5 sm:pb-10 transition-all sm:px-10 md:px-20 md:pb-20">
                 <div
                     className="extend-border-lines relative rounded-b-[60px] p-0 transition-all before:left-0 after:right-0 lg:border lg:border-t-0 lg:px-20 lg:pb-20 lg:before:-left-[1px] lg:after:-right-[1px]"
                     style={
@@ -103,12 +103,12 @@ export default function Portfolio() {
                         className="mt-[80px] grid grid-cols-1 overflow-hidden rounded-[40px] border lg:grid-cols-5"
                         id="contact"
                     >
-                        <div className="order-last col-span-2 p-5 lg:order-first">
+                        <div className="order-last col-span-2 p-10 lg:pr-0 lg:order-first">
                             <ContactInfo />
                         </div>
                         <div className="col-span-3 p-0 transition-all md:p-5">
                             <div className="relative overflow-hidden rounded-[20px] bg-border/50 p-5">
-                                <h1 className="mb-8 p-5 pb-0 text-5xl md:p-0">
+                                <h1 className="mb-8 text-5xl">
                                     Let&apos;s Connect!
                                 </h1>
                                 <ContactForm />

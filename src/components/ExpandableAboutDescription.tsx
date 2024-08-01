@@ -20,14 +20,16 @@ const ExpandableAboutDescription = () => {
                     "absolute bottom-0 left-0 flex w-full flex-col gap-2 bg-gradient-to-t from-background to-transparent p-10",
                 )}
             >
-                <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
-                    I&apos;m a new computer science graduate from Oregon State
-                    University with a focus in cybersecurity and full stack web
-                    development.
-                </p>
+                <div className="relative max-h-[50px] overflow-hidden">
+                    <p className="line-clamp-2 text-sm text-muted-foreground xl:text-base xl:leading-8">
+                        I&apos;m a new computer science graduate from Oregon
+                        State University with a focus in cybersecurity and full
+                        stack web development.
+                    </p>
+                </div>
                 <Button
                     variant="outline"
-                    className="z-10 mt-4 rounded-full bg-transparent backdrop-blur-2xl"
+                    className="z-10 mt-2 rounded-full bg-transparent backdrop-blur-2xl md:mt-4"
                     onClick={toggleOpen}
                 >
                     {open ? "Close" : "Read More"}
@@ -58,6 +60,12 @@ const ExpandableAboutDescription = () => {
                         </div>
                         <div className="scroll-mask h-[calc(100%-7rem)] overflow-y-auto">
                             <div className="mb-4 flex flex-col gap-2">
+                                <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
+                                    I&apos;m a new computer science graduate
+                                    from Oregon State University with a focus in
+                                    cybersecurity and full stack web
+                                    development.
+                                </p>
                                 <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
                                     I love to problem solve, and create visually
                                     elegant and user friendly experiences.
