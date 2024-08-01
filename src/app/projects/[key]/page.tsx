@@ -36,6 +36,7 @@ import StickyHeader from "@/components/layout/StickyHeader";
 import { notFound } from "next/navigation";
 import "./typography.css";
 import ProjectHeader from "@/components/layout/ProjectHeader";
+import ProjectsDivider from "@/components/layout/ProjectsDivider";
 
 type Props = {
     params: {
@@ -61,31 +62,14 @@ export default function Project({ params: { key } }: Props) {
                     nextProjectKey={nextProjectKey}
                     previousProjectKey={previousProjectKey}
                 />
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Link href="/">
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="my-5 rounded-full"
-                                    tabIndex={-1}
-                                >
-                                    <X className="h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </TooltipTrigger>
-                        <TooltipContent>Close Projects</TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
             </StickyHeader>
-            <main className="w-full max-w-[1400px] rounded-t-[40px] bg-gradient-to-b from-primary/10 to-background lg:rounded-t-[80px]">
+            <main className="w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:rounded-t-[80px]">
                 <section className="p-5 !pb-0 transition-all lg:p-20">
                     {project.videoFileName ? (
                         <VideoComponent filename={project.videoFileName} />
                     ) : null}
                 </section>
-                <ProjectDivider className="relative w-full max-w-[1440px] rounded-b-[80px] border border-t-0">
+                <ProjectDivider className="relative rounded-b-[80px] border border-t-0 border-l-0 border-r-0">
                     <div className="flex flex-col-reverse gap-4 px-5 py-10 transition-all lg:flex-row lg:gap-2 lg:px-20">
                         <div className="paragraph">
                             {project.content.shortDescription}
@@ -142,6 +126,9 @@ export default function Project({ params: { key } }: Props) {
                     </div>
                 </ProjectDivider>
             </main>
+            <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
+                <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
+            </section>
             <section className="mb-8 w-full overflow-clip px-5">
                 <Gallery images={project.images} projectKey={project.key} />
             </section>

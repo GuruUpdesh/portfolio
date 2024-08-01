@@ -30,6 +30,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import PrimaryTech from "../PrimaryTech";
 
 type Props = {
     project: Project;
@@ -43,53 +44,71 @@ const ProjectHeader = ({
     nextProjectKey,
 }: Props) => {
     return (
-        <div className="flex w-full items-center gap-2 py-6 transition-all lg:px-20">
-            <div className="flex w-full items-center justify-between px-8">
-                <DropdownMenu>
-                    <DropdownMenuTrigger className="flex items-baseline gap-2 rounded-full bg-transparent px-4 py-1 text-2xl transition-colors hover:bg-accent">
-                        <Image
-                            src={`/icons/${project.key}.ico`}
-                            height={20}
-                            width={20}
-                            alt="website icon"
-                            priority
-                            className="flex-shrink-0"
-                        />
-                        {project.name}
-                        <ChevronDown className="h-4 w-4" />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                        {projectOrder
-                            .filter((key) => key !== project.key)
-                            .map((key, index) => {
-                                const project = projects[key];
-                                return (
-                                    <DropdownMenuItem key={index} asChild>
-                                        <Link href={`/projects/${project.key}`}>
-                                            <p className="flex items-center gap-2 truncate text-lg">
-                                                <Image
-                                                    src={`/icons/${project.key}.ico`}
-                                                    height={16}
-                                                    width={16}
-                                                    alt="website icon"
-                                                />
-                                                {project.name}
-                                            </p>
-                                        </Link>
-                                    </DropdownMenuItem>
-                                );
-                            })}
-                    </DropdownMenuContent>
-                </DropdownMenu>
-                <div className="flex items-center gap-1 text-sm">
+        <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between px-20 py-6">
+            <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-baseline gap-2 rounded-full bg-transparent px-4 py-1 text-2xl transition-colors hover:bg-accent">
+                    <Image
+                        src={`/icons/${project.key}.ico`}
+                        height={20}
+                        width={20}
+                        alt="website icon"
+                        priority
+                        className="flex-shrink-0"
+                    />
+                    {project.name}
+                    <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                    {projectOrder
+                        .filter((key) => key !== project.key)
+                        .map((key, index) => {
+                            const project = projects[key];
+                            return (
+                                <DropdownMenuItem key={index} asChild>
+                                    <Link href={`/projects/${project.key}`}>
+                                        <p className="flex items-center gap-2 truncate text-lg">
+                                            <Image
+                                                src={`/icons/${project.key}.ico`}
+                                                height={16}
+                                                width={16}
+                                                alt="website icon"
+                                            />
+                                            {project.name}
+                                        </p>
+                                    </Link>
+                                </DropdownMenuItem>
+                            );
+                        })}
+                </DropdownMenuContent>
+            </DropdownMenu>
+            <div className="flex items-center gap-1 text-sm">
+                <div className="date-info flex w-[175px] items-center gap-1 overflow-hidden whitespace-nowrap transition-all duration-500 ease-out-expo">
                     <p className="text-muted">Nov {" " + project.year}</p>
                     <div className="h-1 w-1 rounded-full bg-muted" />
                     <div className="h-0.5 w-16 rounded-full bg-gradient-to-r from-muted to-muted-foreground" />
-                    <p className="text-muted-foreground">
-                        Jan {" " + project.year}
-                    </p>
+                    <p className="text-muted-foreground">Jan </p>
                 </div>
+                <p className="text-muted-foreground transition-all duration-500 ease-out-expo">
+                    {project.year}
+                </p>
             </div>
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Link href="/">
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                className="rounded-full"
+                                tabIndex={-1}
+                            >
+                                <X className="h-4 w-4" />
+                            </Button>
+                        </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>Close Projects</TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
             {/* <div className="group flex flex-1 items-center justify-end">
                 <TooltipProvider>
                     <Tooltip>

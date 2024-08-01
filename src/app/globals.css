@@ -125,10 +125,8 @@
     box-shadow: 0 1px 0 hsl(var(--background));
 }
 
-.is-pinned {
-    /* border-color: hsl(var(--primary) / 0.1) !important;
-    filter: drop-shadow(0 10px 8px hsl(var(--background)))
-        drop-shadow(0 4px 3px hsl(var(--background))); */
+.is-pinned .date-info {
+    width: 0;
 }
 
 .menu-shadow {
