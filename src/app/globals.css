@@ -152,6 +152,12 @@ body.overflow-hidden {
     inherits: false;
 }
 
+@property --mask-3 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+
 @keyframes mask-gradient-1 {
     from {
         --mask-1: 0%;
@@ -168,6 +174,8 @@ body.overflow-hidden {
 }
 
 .linear-mask {
+    --mask-1: 0%;
+    --mask-2: 80%;
     mask-image: radial-gradient(
         ellipse at top left,
         black var(--mask-1),
