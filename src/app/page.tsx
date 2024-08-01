@@ -15,6 +15,7 @@ const TechCircle = dynamic(() => import("@/components/TechCircle"), {
 import Paragraph from "@/lib/AnimatedParagraph";
 import dynamic from "next/dynamic";
 import ContactInfo from "@/components/ContactInfo";
+import ExpandableAboutDescription from "@/components/ExpandableAboutDescription";
 
 export default function Portfolio() {
     return (
@@ -64,31 +65,23 @@ export default function Portfolio() {
                     }
                 >
                     <div className="grid grid-cols-1 overflow-hidden rounded-b-[40px] border border-t-0 md:grid-cols-2 lg:grid-cols-5">
-                        <div className="relative flex flex-col p-5 pb-0 md:col-span-3">
-                            <h1 className="mb-4 text-5xl text-border">
-                                About Me
-                            </h1>
+                        <div className="relative flex flex-col pb-0 md:col-span-3">
+                            <h1 className="p-5 text-5xl">About Me</h1>
                             <div
-                                className="absolute inset-0 -z-10 mix-blend-lighten blur-[100px]"
+                                className="absolute inset-0 -z-10 bg-cover bg-center mix-blend-lighten blur-[100px]"
                                 style={{
                                     backgroundImage: "url(/self.webp)",
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center",
                                 }}
                             />
-                            <div className="relative aspect-[9/15] w-full">
+                            <div className="relative aspect-[9/15] w-full overflow-clip rounded-tr-[20px]">
                                 <Image
                                     src="/self.webp"
                                     fill
-                                    alt=""
-                                    className="rounded-lg"
+                                    alt="Portrait of a man with dark hair in a messy bun, beard, and dark t-shirt, looking to the side"
+                                    quality={100}
                                 />
+                                <ExpandableAboutDescription />
                             </div>
-                            <p className="absolute bottom-0 left-0 bg-gradient-to-t from-background to-transparent p-10 text-sm text-muted-foreground xl:text-base xl:leading-8">
-                                I’m a new computer science graduate from Oregon
-                                State University with a focus in cybersecurity
-                                and full stack web development.
-                            </p>
                         </div>
                         <div className="relative -z-20 col-span-2 flex flex-col justify-between px-5 py-10">
                             <div className="relative -z-20 aspect-square translate-x-0 p-2 transition-transform lg:translate-x-[-50%]">
@@ -115,7 +108,7 @@ export default function Portfolio() {
                         </div>
                         <div className="col-span-3 p-0 transition-all md:p-5">
                             <div className="relative overflow-hidden rounded-[20px] bg-border/50 p-5">
-                                <h1 className="mb-8 text-5xl p-5 pb-0 md:p-0">
+                                <h1 className="mb-8 p-5 pb-0 text-5xl md:p-0">
                                     Let&apos;s Connect!
                                 </h1>
                                 <ContactForm />
