@@ -152,18 +152,6 @@ body.overflow-hidden {
     inherits: false;
 }
 
-@property --mask-3 {
-    syntax: "<percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-
-@property --mask-4 {
-    syntax: "<percentage>";
-    initial-value: 90%;
-    inherits: false;
-}
-
 @keyframes mask-gradient-1 {
     from {
         --mask-1: 0%;
@@ -182,17 +170,13 @@ body.overflow-hidden {
 .linear-mask {
     mask-image: radial-gradient(
         ellipse at top left,
-        rgb(0, 0, 0, 1) var(--mask-1),
+        black var(--mask-1),
         transparent var(--mask-2)
     );
 }
 
 .linear-mask-2 {
-    mask-image: linear-gradient(
-        to bottom,
-        rgb(0, 0, 0, 1) var(--mask-3),
-        transparent var(--mask-4)
-    );
+    mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
 }
 
 .scroll-mask {
