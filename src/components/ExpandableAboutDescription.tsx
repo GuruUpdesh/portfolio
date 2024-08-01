@@ -21,7 +21,7 @@ const ExpandableAboutDescription = () => {
                 )}
             >
                 <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
-                    I'm a new computer science graduate from Oregon State
+                    I&apos;m a new computer science graduate from Oregon State
                     University with a focus in cybersecurity and full stack web
                     development.
                 </p>
