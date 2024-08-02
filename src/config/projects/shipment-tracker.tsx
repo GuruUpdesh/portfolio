@@ -10,8 +10,8 @@ const ShipmentTracker: Project = {
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722494250/pie494ieohqicdoen8fn.mp4",
     images: [
-        ["/dashboard-dark.png", "/map-dark.png"],
-        ["/tracking-light.png", "/add-light.png"],
+        ["/dashboard.webp", "/map.webp"],
+        ["/tracking.webp", "/add.webp"],
     ],
     content: {
         shortDescription: (

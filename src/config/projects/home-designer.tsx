@@ -9,8 +9,8 @@ const HomeDesigner: Project = {
     vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
     websiteLink: "https://homedesigner.guruupdeshsingh.dev",
     images: [
-        ["/homepage.png", "/addresses.png"],
-        ["/new.png", "/edit.png"],
+        ["/homepage.webp", "/clients.webp"],
+        ["/new.webp", "/edit.webp"],
     ],
     content: {
         shortDescription: (
@@ -30,7 +30,7 @@ const HomeDesigner: Project = {
                         remodel planning, and project management. The project
                         was developed as part of an introduction to databases
                         class, focusing on database design, SQL, and
-                        normalization. The application is designed to help
+                    normalization. The application is designed to help
                         employees, managers, and owners of the business keep a
                         close eye on current projects, providing a single
                         consolidated place to manage operations.

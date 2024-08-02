@@ -8,8 +8,8 @@ const EffortlessEats: Project = {
         "https://www.figma.com/proto/O0wG4BLDeQIDo8bkBqLs2x/Prototype?node-id=1019-51871&starting-point-node-id=1019%3A51871&t=tm9taTJIhQmsk4dW-1",
     embed: "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FO0wG4BLDeQIDo8bkBqLs2x%2FPrototype%3Fnode-id%3D1019-51871%26scaling%3Dscale-down%26content-scaling%3Dfixed%26t%3DrLha2lTfZRaTycUS-1",
     images: [
-        ["/home.png", "/menu.png"],
-        ["/cart.png", "/placed.png"],
+        ["/home.webp", "/menu.webp"],
+        ["/cart.webp", "/placed.webp"],
     ],
     content: {
         shortDescription: (
