@@ -15,7 +15,7 @@ const HeroVideo = (props: HeroVideoProps) => {
                 <div className="absolute flex h-full w-full items-center justify-center rounded-b-[20px] bg-[#fafafa] dark:bg-[#0A0A0A] sm:rounded-b-[40px]">
                     <Play className="h-10 w-10" />
                 </div>
-                <div className="absolute -z-10 h-full w-full overflow-clip blur-[100px] hidden md:block">
+                <div className="absolute -z-10 hidden h-full w-full overflow-clip blur-[100px] md:block">
                     <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%] -hue-rotate-30">
                         <Image
                             fill

@@ -23,7 +23,11 @@ const Footer = () => {
             <div className="flex w-full justify-between rounded-[40px] border p-5 mix-blend-luminosity lg:px-20">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
-                        <Link href="/" className="md:text-2xl text-lg" scroll={true}>
+                        <Link
+                            href="/"
+                            className="text-lg md:text-2xl"
+                            scroll={true}
+                        >
                             Guru Updesh Singh
                             <br />
                             <span className="text-muted-foreground">.dev</span>

@@ -29,9 +29,11 @@ const TechStackItems = ({
     });
 
     useEffect(() => {
-        const newGroupState = { ...groupState };
-        newGroupState[group] = isInView;
-        setGroupState(newGroupState);
+        setGroupState(() => {
+            const newGroupState = { ...groupState };
+            newGroupState[group] = isInView;
+            return newGroupState;
+        });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isInView, group]);
 

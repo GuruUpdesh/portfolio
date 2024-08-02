@@ -15,24 +15,9 @@ const featureImprovementItems = [
             "Implement for true real-time collaboration, improving upon the current polling solution.",
     },
     {
-        title: "Email Notifications",
-        description:
-            "Enhance user engagement and keep team members informed of project updates.",
-    },
-    {
-        title: "WebSockets",
-        description:
-            "Implement for true real-time collaboration, improving upon the current polling solution.",
-    },
-    {
         title: "Improved UI Responsiveness",
         description:
             "Optimize the interface for various devices and screen sizes.",
-    },
-    {
-        title: "Encrypted Task Information",
-        description:
-            "Enhance security by implementing end-to-end encryption for sensitive project data.",
     },
     {
         title: "Better Text Editor Integration",
@@ -50,11 +35,6 @@ const featureImprovementItems = [
             "Implement team structures for better organization in larger projects.",
     },
     {
-        title: "An API",
-        description:
-            "Develop a public API to allow integrations with other tools and services.",
-    },
-    {
         title: "Improved Search",
         description:
             "Enhance the search functionality for quicker access to tasks and information.",
@@ -63,6 +43,21 @@ const featureImprovementItems = [
         title: "Batch Actions",
         description:
             "Implement the ability to perform actions on multiple tasks simultaneously.",
+    },
+    {
+        title: "Email Notifications",
+        description:
+            "Enhance user engagement and keep team members informed of project updates.",
+    },
+    {
+        title: "Encrypted Task Information",
+        description:
+            "Enhance security by implementing end-to-end encryption for sensitive project data.",
+    },
+    {
+        title: "An API",
+        description:
+            "Develop a public API to allow integrations with other tools and services.",
     },
     {
         title: "AB Testing for UI design and Features",
@@ -95,9 +90,7 @@ const Taskly: Project = {
                 Taskly is an opinionated Agile project management (PM)
                 application. It offers a simplified featureset and experience,
                 to compete against the dominant PM solutions in the market. My
-                capstone team and I built the project over our senior year, and
-                worked together to overcome a multitude of challenges to deliver
-                on our team goals and requirements.
+                capstone team and I built the project over our senior year.
             </p>
         ),
         detailedContent: (
@@ -105,95 +98,64 @@ const Taskly: Project = {
                 <div>
                     <h1 className="header-1">Overview</h1>
                     <p className="paragraph">
-                        When first brainstorming the direction we wanted to take
-                        Taskly we identified that many of the dominant PM tools
-                        in the software industry were plagued with complexity
-                        and feature bloat. We identified that this complexity
-                        was leading to inefficiencies and steep learning curves
-                        which were both contributing to cost and time wasted for
-                        the businesses that were using them. We believed that
-                        this problem was something we could provide a solution
-                        to.
-                    </p>
-                    <p className="paragraph">
-                        Taskly was born as a strait forward, opinionated,
-                        approach to Agile PM that would reduce company
-                        onboarding time, free up developer resources, and
-                        improve project success. The final product delivers on
-                        our ideas.
+                        Taskly is an Agile project management app designed to be
+                        simpler than existing complex solutions. It aims to
+                        reduce onboarding time and improve efficiency for
+                        businesses, especially small ones. The project was
+                        developed by a capstone team over their senior year.
                     </p>
                     <Paragraph
                         paragraph="Our opinionated design approach emphasizes simplicity to minimize learning curves and maximize efficiency and success."
                         className="w-full py-8"
                     />
                     <p className="paragraph">
-                        Our hope was that small businesses would see the value
-                        in a simplified tool, especially because they have less
-                        margin for error. Despite never gaining traction the
-                        project was a successful learning experience for the
-                        whole team, and has future potential with the right
-                        direction.
+                        Despite never gaining traction the project was a
+                        successful learning experience for the whole team, and
+                        has future potential with the right direction.
                     </p>
                 </div>
                 <div>
                     <h1 className="header-1">Development</h1>
-                    <p className="">Sep, 2023 - Jun, 2024</p>
-                    <p className="paragraph">
-                        The development of Taskly was divided into three key
-                        phases.
-                    </p>
+                    {/* <p className="">Sep, 2023 - Jun, 2024</p> */}
                     <ul className="block-list">
                         <li>
                             <b>Initial Planning</b>
                             <p className="paragraph">
-                                In this phase the team met, researched the realm
-                                of project management, identified a goal, and
-                                constructed a loose plan of action including
-                                choosing our technology, system design,
-                                communication guidelines, project
-                                responsibilities, and UI mockups.
+                                Our team researched project management, set
+                                goals, and created an action plan. We chose
+                                technologies, designed the system, established
+                                communication guidelines, assigned
+                                responsibilities, and created UI mockups.
                             </p>
                         </li>
                         <li>
-                            <b>Active development</b>
+                            <b>Active Development</b>
                             <p className="paragraph">
-                                This was by far the most intense phase of our
-                                project, where we took the planned we had done
-                                and created sprints with overarching goals and
-                                delegated objectives. The entire team really
-                                pushed this term to move the project forward and
-                                accomplish our goals. By the end of the term we
-                                had an MVP, something which worked and had a
-                                subset of the primary features we had planned to
-                                integrate but we the project was still
-                                incomplete and unrefined.
+                                This phase involved creating and executing
+                                sprints with specific goals. We worked hard to
+                                move the project forward, resulting in an MVP
+                                with core features by the end of winter term.
+                                While functional, the project was still
+                                incomplete and needed refinement.
                             </p>
                         </li>
                         <li>
-                            <b className="font-normal">Refinement</b>
+                            <b>Refinement</b>
                             <p className="paragraph">
-                                We added missing features, overhauled the UI,
-                                went through most the codebase to improve
-                                stability and performance, worked on SEO,
-                                iterated on the basic features. By the end we
-                                had a fully functional project management
-                                solution, battle tested by our own team as a way
-                                for us to validate and verify our product.
+                                We focused on completing the project by adding
+                                missing features, improving the UI, enhancing
+                                stability and performance, and optimizing for
+                                SEO. We also iterated on existing features. The
+                                result was a fully functional project management
+                                solution, validated through our team&apos;s own
+                                use.
                             </p>
                         </li>
                     </ul>
-                    <p className="paragraph mt-4">
-                        Our hope was that small businesses would see the value
-                        in a simplified tool, especially because they have less
-                        margin for error. Despite never gaining traction the
-                        project was a successful learning experience for the
-                        whole team, and has future potential with the right
-                        direction.
-                    </p>
                     <h2 className="header-2">Challenges</h2>
                     <p className="paragraph">
-                        The road to production wasn’t always straightforward,
-                        and we faced a number of challenges.
+                        The road to production wasn&apos;t always
+                        straightforward, and we faced a number of challenges.
                     </p>
                     <ul className="block-list">
                         <li>
@@ -220,30 +182,36 @@ const Taskly: Project = {
                     </ul>
                     <h2 className="header-2">Future Improvements</h2>
                     <p className="paragraph">
-                        Our hope was that small businesses would see the value
-                        in a simplified tool, especially because they have less
-                        margin for error. Despite never gaining traction the
-                        project was a successful learning experience for the
-                        whole team, and has future potential with the right
-                        direction.
+                        The project has lots of room for future improvement.
+                        Some key features and focuses would be the following.
                     </p>
                     <CollapsibleList items={featureImprovementItems} />
-                    <p className="paragraph mt-4">
-                        And more... If you are interested in contributing to the
-                        project let me know!
-                    </p>
                 </div>
                 <div>
                     <h1 className="header-1">Lessons Learned</h1>
                     <p className="paragraph">
-                        This experience was priceless, and was the primary
-                        aspect of the development which helped me grow as a
-                        developer and as a person. My teammates and Taskly
-                        taught me a lot more than how to implement optimistic
-                        updates with Zustand, React Query, and Next.JS.
-                        Development was an intense real world exercise in
-                        utilizing every tool and piece of knowledge I had gained
-                        through my degree.
+                        This project was an invaluable learning experience that
+                        significantly contributed to my growth as both a
+                        developer and an individual. While I gained technical
+                        skills like implementing optimistic updates with
+                        Zustand, React Query, and Next.js, the lessons learned
+                        went far beyond just coding.
+                    </p>
+                    <p className="paragraph">
+                        Working on Taskly with my teammates provided a
+                        real-world environment to apply and expand upon the
+                        knowledge gained throughout my degree. It challenged me
+                        to integrate various tools and concepts, pushing the
+                        boundaries of my capabilities and understanding of
+                        software development.
+                    </p>
+                    <p className="paragraph">
+                        The project served as a bridge between academic learning
+                        and professional practice, offering insights into team
+                        dynamics, project management, and problem-solving in a
+                        practical setting. This experience has better prepared
+                        me for the challenges and opportunities in my future
+                        career as a software developer.
                     </p>
                 </div>
                 <div>

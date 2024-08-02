@@ -4,7 +4,9 @@ import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 const DynamicCircle = dynamic(() => import("./DynamicCircle"), { ssr: false });
 
-interface ProjectDividerProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ProjectDividerProps extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+}
 
 const ProjectDivider = (props: ProjectDividerProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -16,6 +18,7 @@ const ProjectDivider = (props: ProjectDividerProps) => {
                 direction="top"
                 cut="top"
             />
+            {props.children}
         </div>
     );
 };

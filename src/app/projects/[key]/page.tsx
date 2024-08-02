@@ -6,13 +6,14 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import {
     ArrowLeft,
     ArrowRight,
     ChevronDown,
     ChevronUp,
     Play,
+    X,
 } from "lucide-react";
 import "./techstack.css";
 import TechStackContainer from "@/components/project/TechStackContainer";
@@ -34,6 +35,8 @@ import VideoComponent from "@/components/project/VideoComponent";
 import StickyHeader from "@/components/layout/StickyHeader";
 import { notFound } from "next/navigation";
 import "./typography.css";
+import ProjectHeader from "@/components/layout/ProjectHeader";
+import ProjectsDivider from "@/components/layout/ProjectsDivider";
 
 type Props = {
     params: {
@@ -51,95 +54,30 @@ export default function Project({ params: { key } }: Props) {
     const previousProjectKey = getPreviousProjectKey(key);
 
     return (
-        <>
+        <div className="flex w-full flex-col items-center overflow-clip px-5">
+            <div className="flex w-full max-w-[1400px] items-center justify-end"></div>
             <StickyHeader>
-                <div className="flex w-full max-w-[1440px] items-center gap-2 transition-all lg:px-20 xl:px-40">
-                    <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Link href="/">
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className="rounded-full"
-                                        tabIndex={-1}
-                                    >
-                                        <ArrowLeft className="h-4 w-4" />
-                                    </Button>
-                                </Link>
-                            </TooltipTrigger>
-                            <TooltipContent>Back</TooltipContent>
-                        </Tooltip>
-                    </TooltipProvider>
-                    <div className="flex w-full items-center justify-between">
-                        <h1
-                            className="inline-flex max-w-[calc(100%-4ch)] items-baseline gap-2 truncate text-lg md:text-2xl"
-                            title={project.name}
-                        >
-                            <Image
-                                src={`/icons/${project.key}.ico`}
-                                height={20}
-                                width={20}
-                                alt="website icon"
-                                priority
-                                className="flex-shrink-0"
-                            />
-                            {project.name}
-                            <span className="inline-block flex-shrink-0 truncate text-sm opacity-75 md:text-lg">
-                                {" " + project.year}
-                            </span>
-                        </h1>
-                    </div>
-                    <div className="group flex flex-1 items-center justify-end">
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Link
-                                        href={`/projects/${previousProjectKey}`}
-                                    >
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            tabIndex={-1}
-                                        >
-                                            <ChevronUp className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                        </Button>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    {projects[previousProjectKey].name}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Link href={`/projects/${nextProjectKey}`}>
-                                        <Button
-                                            variant="ghost"
-                                            size="icon"
-                                            tabIndex={-1}
-                                        >
-                                            <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                        </Button>
-                                    </Link>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    {projects[nextProjectKey].name}
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                    </div>
-                </div>
+                <ProjectHeader
+                    project={project}
+                    nextProjectKey={nextProjectKey}
+                    previousProjectKey={previousProjectKey}
+                />
             </StickyHeader>
-            <div className="flex w-full justify-center overflow-hidden">
-                <main id="1" className="mb-8 transition-all sm:px-10 md:px-20">
-                    <section className="mb-8 w-full max-w-[1440px] px-5 transition-all lg:px-20 xl:px-40">
-                        {project.videoFileName ? (
-                            <VideoComponent filename={project.videoFileName} />
-                        ) : null}
-                    </section>
-                    <section className="flex w-full max-w-[1440px] flex-col-reverse gap-4 px-5 transition-all lg:flex-row lg:gap-2 lg:px-20 xl:px-40">
+            <main className="w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:rounded-t-[80px]">
+                <section className="p-5 !pb-0 transition-all lg:p-20">
+                    {project.videoFileName ? (
+                        <VideoComponent filename={project.videoFileName} />
+                    ) : project.embed ? (
+                        <iframe
+                            src={project.embed}
+                            allowFullScreen
+                            width="100%"
+                            className="aspect-video overflow-hidden rounded-[20px] bg-[#fafafa] shadow-2xl transition-all dark:bg-[#0A0A0A] lg:rounded-t-[40px]"
+                        ></iframe>
+                    ) : null}
+                </section>
+                <ProjectDivider className="relative rounded-b-[80px] border border-l-0 border-r-0 border-t-0">
+                    <div className="flex flex-col-reverse gap-4 px-5 py-10 transition-all lg:flex-row lg:gap-2 lg:px-20">
                         <div className="paragraph">
                             {project.content.shortDescription}
                         </div>
@@ -181,6 +119,7 @@ export default function Project({ params: { key } }: Props) {
                                                     tabIndex={-1}
                                                 >
                                                     <span>Visit</span>
+                                                    <ArrowRight className="h-4 w-4" />
                                                 </Button>
                                             </Link>
                                         </TooltipTrigger>
@@ -191,22 +130,51 @@ export default function Project({ params: { key } }: Props) {
                                 </TooltipProvider>
                             ) : null}
                         </div>
-                    </section>
-                    <ProjectDivider className="relative w-full max-w-[1440px] rounded-b-[80px] border border-t-0 px-40 pb-40" />
-                </main>
-            </div>
-            <section className="mb-8 w-full overflow-clip px-5">
-                <Gallery images={project.images} projectKey={project.key} />
+                    </div>
+                </ProjectDivider>
+            </main>
+            <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
+                <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
-            <main
+            {/* <section className="relative py-8 w-full">
+                <Gallery images={project.images} projectKey={project.key} />
+                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
+                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
+                        <Image
+                            fill
+                            src="/logo.webp"
+                            alt=""
+                            className="animate-spin-slow blur-lg grayscale"
+                        />
+                    </div>
+                </div>
+            </section> */}
+            {/* <div className="h-[200px] w-full mix-blend-lighten translate-x-[-40px] sticky top-0 translate-y-[-200px]">
+                <div className="absolute top-[-100%] w-[calc(100%+80px)] h-full bg-black"/>
+                <div className="relative h-full w-[calc(100%+80px)] bg-black">
+                    <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
+                        <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
+                            <Image
+                                fill
+                                src="/logo.webp"
+                                alt=""
+                                className="animate-spin-slow blur-lg grayscale"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div> */}
+            <section
                 id="2"
-                className="overflow-clip transition-all sm:px-10 md:px-20"
+                className="mt-20 w-full max-w-[1400px] overflow-clip rounded-b-[40px] border border-t-0"
             >
-                <section className="relative flex w-full max-w-[1440px] flex-col gap-32 px-5 transition-all lg:px-20 xl:px-40">
-                    {project.content.detailedContent}
-                    <div>
+                <div className="relative flex w-full flex-col items-center gap-32 px-5 transition-all lg:px-20 xl:px-40">
+                    <div className="flex max-w-[690px] flex-col gap-32">
+                        {project.content.detailedContent}
+                    </div>
+                    <div className="w-full">
                         <h1 className="header-1">Features</h1>
-                        <ul className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+                        <ul className="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
                             {project.content.features.map((feature, i) => (
                                 <li
                                     key={i}
@@ -218,7 +186,7 @@ export default function Project({ params: { key } }: Props) {
                         </ul>
                     </div>
                     <TechStackContainer techStack={project.techStack} />
-                    <div>
+                    <div className="w-full">
                         <h1 className="header-1">Analytics</h1>
                         <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
                             {project.vercelProjectId && (
@@ -288,9 +256,9 @@ export default function Project({ params: { key } }: Props) {
                             </Tooltip>
                         </TooltipProvider>
                     </div>
-                </section>
-                <Footer />
-            </main>
-        </>
+                </div>
+            </section>
+            <Footer />
+        </div>
     );
 }

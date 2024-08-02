@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Project } from "../projectConfig";
 
 const TrackIt: Project = {
@@ -24,8 +23,8 @@ const TrackIt: Project = {
         detailedContent: (
             <>
                 <div>
-                    <h1 className="mb-2 text-2xl">Project Overview</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Project Overview</h1>
+                    <p className="paragraph">
                         TrackIt is a comprehensive solution designed to
                         centralize and streamline the shipment tracking process.
                         By supporting multiple couriers, it offers users a
@@ -36,8 +35,8 @@ const TrackIt: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    <p className="mb-2">Jan 10, 2023 – Aug 25, 2023</p>
-                    <p className="font-light leading-7 opacity-75">
+                    {/* <p className="mb-2">Jan 10, 2023 – Aug 25, 2023</p> */}
+                    <p className="paragraph">
                         The development of TrackIt involved several stages,
                         including initial research, setting up the development
                         environment, creating the core features, and
@@ -48,8 +47,8 @@ const TrackIt: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Lessons Learned</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Lessons Learned</h1>
+                    <p className="paragraph">
                         Through the development of TrackIt, I enhanced my skills
                         in Next.js and React, learned the importance of
                         responsive design, and gained experience in implementing
@@ -59,8 +58,8 @@ const TrackIt: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Future Improvements</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Future Improvements</h1>
+                    <p className="paragraph">
                         In future iterations, I plan to enhance the real-time
                         update capabilities by incorporating WebSockets, improve
                         the UI for better user engagement, and add more advanced

@@ -61,7 +61,9 @@ const Word = ({ children, progress, range, styles }: Props) => {
     const opacity = useTransform(progress, range, [0, 1]);
     return (
         <span className={styles.word}>
-            <span className={styles.shadow}>{children}</span>
+            <span className={styles.shadow} style={{ userSelect: "none" }}>
+                {children}
+            </span>
             <motion.span style={{ opacity: opacity }}>{children}</motion.span>
         </span>
     );
