@@ -23,7 +23,7 @@ const TechStackItems = ({
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "-64px 0px 0px 0px",
-        amount: 0.5,
+        amount: 0.7,
     });
 
     useEffect(() => {
