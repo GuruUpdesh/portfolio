@@ -46,7 +46,7 @@ export default function Project({ params: { key } }: Props) {
                     previousProjectKey={previousProjectKey}
                 />
             </StickyHeader>
-            <section className="w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:rounded-t-[80px]">
+            <section className="mt-0 w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:mt-6 lg:rounded-t-[80px]">
                 <div className="p-5 !pb-0 transition-all lg:p-20">
                     {project.videoFileName ? (
                         <VideoComponent filename={project.videoFileName} />
@@ -108,7 +108,7 @@ export default function Project({ params: { key } }: Props) {
                 className="w-full max-w-[1400px] overflow-clip rounded-b-[40px] border border-t-0"
             >
                 <div className="relative flex w-full flex-col items-center gap-32 px-5 transition-all lg:px-20 xl:px-40">
-                    <div className="flex max-w-[690px] flex-col gap-32 mt-10 md:mt-20">
+                    <div className="mt-10 flex max-w-[690px] flex-col gap-32 md:mt-20">
                         {project.content.detailedContent}
                     </div>
                     <div className="w-full">
