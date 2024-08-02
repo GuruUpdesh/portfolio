@@ -129,7 +129,7 @@ export default function Project({ params: { key } }: Props) {
             <section className="section-base overflow-hidden border border-b-0 border-t-0 border-transparent px-5 transition-all sm:px-10 md:px-20 xl:overflow-visible">
                 <ProjectsDivider className="rounded-b-[60px] border border-t-0 px-20 py-8 transition-all md:py-10 lg:py-16" />
             </section>
-            <section className="relative mb-8 w-full px-5">
+            <section className="relative mb-8 w-full">
                 <Gallery images={project.images} projectKey={project.key} />
                 <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
                     <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">

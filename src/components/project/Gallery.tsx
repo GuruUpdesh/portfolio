@@ -124,7 +124,7 @@ const Gallery = ({ images, projectKey }: Props) => {
     }
 
     return (
-        <CursorTracker className="group/grid relative mt-[-1px] grid w-full grid-cols-4 gap-[1px] overflow-hidden rounded-[40px] bg-border p-[1px]">
+        <CursorTracker className="group/grid relative mt-[-1px] grid w-full grid-cols-2 xl:grid-cols-4 gap-[1px] overflow-hidden rounded-[40px] bg-border p-[1px]">
             <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
             {images.map((group, groupIndex) => (
                 <React.Fragment key={groupIndex}>
@@ -133,7 +133,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                             <DialogTrigger asChild>
                                 <button
                                     className={cn(
-                                        "relative aspect-[6/7] cursor-pointer overflow-hidden transition-all last:rounded-r-[40px] first-of-type:rounded-l-[40px]",
+                                        "relative aspect-[6/7] cursor-pointer overflow-hidden transition-all xl:last:rounded-r-[40px] xl:first-of-type:rounded-l-[40px]",
                                         {
                                             "lg:":
                                                 (groupIndex % 2 == 0 &&
@@ -175,9 +175,9 @@ const Gallery = ({ images, projectKey }: Props) => {
                                         {images.flat().map((src, idx) => (
                                             <CarouselItem
                                                 key={idx}
-                                                className="xl:basis-10/12"
+                                                className="xl:basis-1/2"
                                             >
-                                                <div className="relative h-[500px] lg:h-[700px]">
+                                                <div className="relative aspect-[6/7] max-h-[700px]">
                                                     <Image
                                                         src={getImage(
                                                             projectKey,
