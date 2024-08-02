@@ -21,6 +21,7 @@ import ProjectHeader from "@/components/layout/ProjectHeader";
 import ProjectSecondaryDivider from "@/components/layout/ProjectSecondaryDivider";
 import ProjectLinks from "@/components/project/ProjectLinks";
 import BottomNavigationLinks from "@/components/project/BottomNavigationLinks";
+import Image from "next/image";
 
 type Props = {
     params: {
@@ -74,20 +75,22 @@ export default function Project({ params: { key } }: Props) {
             <section className="section-base mt-[-1px] px-20">
                 <ProjectSecondaryDivider className="w-full rounded-b-[60px] border border-t-0 border-transparent px-20 py-8 transition-all sm:border-border md:py-16" />
             </section>
-
-            {/* <section className="relative py-8 w-full">
+            <section className="relative w-full px-4">
                 <Gallery images={project.images} projectKey={project.key} />
-                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
-                <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
-                <Image
-                fill
-                src="/logo.webp"
-                alt=""
-                className="animate-spin-slow blur-lg grayscale"
-                />
+                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-20 blur-[100px] md:block">
+                    <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
+                        <Image
+                            fill
+                            src="/logo.webp"
+                            alt=""
+                            className="animate-spin-slow blur-lg grayscale"
+                        />
+                    </div>
                 </div>
-                </div>
-                </section> */}
+            </section>
+            <section className="section-base mt-[-1px] px-20">
+                <ProjectSecondaryDivider className="w-full rounded-b-[60px] border border-t-0 border-transparent px-20 py-8 transition-all sm:border-border md:py-16" />
+            </section>
             {/* <div className="h-[200px] w-full mix-blend-lighten translate-x-[-40px] sticky top-0 translate-y-[-200px]">
                 <div className="absolute top-[-100%] w-[calc(100%+80px)] h-full bg-black"/>
                 <div className="relative h-full w-[calc(100%+80px)] bg-black">
@@ -105,7 +108,7 @@ export default function Project({ params: { key } }: Props) {
                 </div> */}
             <section
                 id="2"
-                className="w-full max-w-[1400px] overflow-clip rounded-b-[40px] border border-t-0"
+                className="w-full max-w-[1400px] rounded-b-[40px] border border-t-0"
             >
                 <div className="relative flex w-full flex-col items-center gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     <div className="mt-10 flex max-w-[690px] flex-col gap-32 md:mt-20">
