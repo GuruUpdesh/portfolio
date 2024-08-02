@@ -133,7 +133,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                             <DialogTrigger asChild>
                                 <button
                                     className={cn(
-                                        "relative aspect-[6/7] cursor-pointer overflow-hidden transition-all xl:last:rounded-r-[40px] xl:first-of-type:rounded-l-[40px]",
+                                        "group/image relative aspect-[6/7] cursor-pointer overflow-hidden transition-all xl:last:rounded-r-[40px] xl:first-of-type:rounded-l-[40px]",
                                         {
                                             "lg:":
                                                 (groupIndex % 2 == 0 &&
@@ -150,7 +150,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                                     <Image
                                         src={getImage(projectKey, src)}
                                         fill
-                                        className="object-cover object-left-top"
+                                        className="object-cover object-left-top group-hover/grid:blur-sm group-hover/image:blur-0 transition-all duration-500 ease-out-expo"
                                         priority
                                         alt=""
                                     />
