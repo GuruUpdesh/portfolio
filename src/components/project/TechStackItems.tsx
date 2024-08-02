@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 type Props = {
     group: TechStackCategory;
     items: Tech[];
-    groupState: Record<TechStackCategory, boolean>;
     setGroupState: React.Dispatch<
         React.SetStateAction<Record<TechStackCategory, boolean>>
     >;
@@ -18,7 +17,6 @@ type Props = {
 const TechStackItems = ({
     group,
     items,
-    groupState,
     setGroupState,
     active,
 }: Props) => {
@@ -29,8 +27,8 @@ const TechStackItems = ({
     });
 
     useEffect(() => {
-        setGroupState(() => {
-            const newGroupState = { ...groupState };
+        setGroupState((prev) => {
+            const newGroupState = { ...prev };
             newGroupState[group] = isInView;
             return newGroupState;
         });
@@ -45,7 +43,7 @@ const TechStackItems = ({
             ref={ref}
             id={group}
             className={cn(
-                "pointer-events-none scroll-m-[64px] opacity-50 transition-opacity",
+                "pointer-events-none scroll-m-[120px] opacity-50 transition-opacity",
                 {
                     "pointer-events-auto opacity-100": active,
                 },
