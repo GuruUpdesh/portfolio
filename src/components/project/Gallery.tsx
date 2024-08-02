@@ -124,7 +124,7 @@ const Gallery = ({ images, projectKey }: Props) => {
     }
 
     return (
-        <CursorTracker className="group/grid relative mt-[-1px] grid w-full grid-cols-2 xl:grid-cols-4 gap-[1px] overflow-hidden rounded-[40px] bg-border p-[1px]">
+        <CursorTracker className="group/grid relative mt-[-1px] grid w-full grid-cols-2 gap-[1px] overflow-hidden rounded-[40px] bg-border p-[1px] xl:grid-cols-4">
             <div className="pointer-events-none absolute left-[var(--x)] top-[var(--y)] h-[300px] w-[300px] translate-x-[-50%] translate-y-[-50%] bg-primary opacity-0 blur-3xl transition-opacity duration-300 md:group-hover/grid:opacity-100" />
             {images.map((group, groupIndex) => (
                 <React.Fragment key={groupIndex}>
@@ -150,7 +150,7 @@ const Gallery = ({ images, projectKey }: Props) => {
                                     <Image
                                         src={getImage(projectKey, src)}
                                         fill
-                                        className="object-cover object-left-top group-hover/grid:blur-sm group-hover/image:blur-0 transition-all duration-500 ease-out-expo"
+                                        className="object-cover object-left-top transition-all duration-500 ease-out-expo group-hover/grid:blur-sm group-hover/image:blur-0"
                                         priority
                                         alt=""
                                     />

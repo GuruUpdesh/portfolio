@@ -6,7 +6,7 @@ type Props = {
 
 const VideoPlayer = ({ url }: Props) => {
     return (
-        <div className="group relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[20px] bg-[#fafafa] transition-all dark:bg-[#0A0A0A] lg:rounded-t-[40px] shadow-2xl">
+        <div className="group relative z-10 flex aspect-video w-full items-center justify-center overflow-hidden rounded-[20px] bg-[#fafafa] shadow-2xl transition-all dark:bg-[#0A0A0A] lg:rounded-t-[40px]">
             <video
                 playsInline
                 controls

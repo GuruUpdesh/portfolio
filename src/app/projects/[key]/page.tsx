@@ -67,6 +67,13 @@ export default function Project({ params: { key } }: Props) {
                 <section className="p-5 !pb-0 transition-all lg:p-20">
                     {project.videoFileName ? (
                         <VideoComponent filename={project.videoFileName} />
+                    ) : project.embed ? (
+                        <iframe
+                            src={project.embed}
+                            allowFullScreen
+                            width="100%"
+                            className="aspect-video overflow-hidden rounded-[20px] bg-[#fafafa] shadow-2xl transition-all dark:bg-[#0A0A0A] lg:rounded-t-[40px]"
+                        ></iframe>
                     ) : null}
                 </section>
                 <ProjectDivider className="relative rounded-b-[80px] border border-l-0 border-r-0 border-t-0">
@@ -159,7 +166,7 @@ export default function Project({ params: { key } }: Props) {
             </div> */}
             <section
                 id="2"
-                className="mt-20 w-full max-w-[1400px] overflow-clip"
+                className="mt-20 w-full max-w-[1400px] overflow-clip rounded-b-[40px] border border-t-0"
             >
                 <div className="relative flex w-full flex-col items-center gap-32 px-5 transition-all lg:px-20 xl:px-40">
                     <div className="flex max-w-[690px] flex-col gap-32">

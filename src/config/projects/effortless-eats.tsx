@@ -6,6 +6,7 @@ const EffortlessEats: Project = {
     year: 2023,
     websiteLink:
         "https://www.figma.com/proto/O0wG4BLDeQIDo8bkBqLs2x/Prototype?node-id=1019-51871&starting-point-node-id=1019%3A51871&t=tm9taTJIhQmsk4dW-1",
+    embed: "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FO0wG4BLDeQIDo8bkBqLs2x%2FPrototype%3Fnode-id%3D1019-51871%26scaling%3Dscale-down%26content-scaling%3Dfixed%26t%3DrLha2lTfZRaTycUS-1",
     images: [
         ["/home.png", "/menu.png"],
         ["/cart.png", "/placed.png"],
@@ -21,8 +22,8 @@ const EffortlessEats: Project = {
         detailedContent: (
             <>
                 <div>
-                    <h1 className="mb-2 text-2xl">Project Overview</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Overview</h1>
+                    <p className="paragraph">
                         Effortless Eats aims to provide users with an
                         easy-to-navigate platform for ordering food, featuring a
                         series of well-thought-out pages to streamline the
@@ -33,9 +34,9 @@ const EffortlessEats: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-1 text-2xl">Development</h1>
-                    <p className="mb-2">Jan 15, 2022 – May 5, 2022</p>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Development</h1>
+                    {/* <p className="mb-2">Jan 15, 2022 – May 5, 2022</p> */}
+                    <p className="paragraph">
                         This project involved creating high-fidelity prototypes
                         and conducting usability testing to gather feedback and
                         improve the design. The design process was iterative,
@@ -44,94 +45,86 @@ const EffortlessEats: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Pages</h1>
-                    <ul className="ml-4 flex flex-col gap-2 leading-7">
+                    <h1 className="header-1">Pages</h1>
+                    <ul className="block-list">
                         <li>
-                            <strong className="font-normal">- Landing:</strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Landing</b>
+                            <p className="paragraph">
                                 The first point of contact, offering a brief
                                 description, navigation, and call-to-action
                                 buttons for ordering and account creation.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">- Order:</strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Order</b>
+                            <p className="paragraph">
                                 Features an interactive menu with
                                 recommendations and order information, designed
                                 for simplicity and ease of use.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">- Cart:</strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Cart</b>
+                            <p className="paragraph">
                                 Enables users to review and customize their
                                 orders, integrating the checkout process for a
                                 seamless experience.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">- Review:</strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Review</b>
+                            <p className="paragraph">
                                 Provides a summary of the order, including a QR
                                 code for pickup, and essential details such as
                                 location, time, and instructions.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Sign Up and Login:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Sign Up and Login</b>
+                            <p className="paragraph">
                                 Simple and straightforward registration and
                                 login processes with back buttons for improved
                                 navigation.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Rating Modal:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Rating Modal</b>
+                            <p className="paragraph">
                                 Presents general and personalized ratings to
                                 help users make informed decisions about their
                                 food choices.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">- Settings:</strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Settings</b>
+                            <p className="paragraph">
                                 Centralized location to manage account settings,
                                 payment information, dietary restrictions, and
                                 toggle recommendations.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Edit Modal:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Edit Modal</b>
+                            <p className="paragraph">
                                 Allows users to quickly modify selected menu
                                 items by adjusting ingredient quantities,
                                 removing ingredients, and providing special
                                 instructions.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Order History:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Order History</b>
+                            <p className="paragraph">
                                 Enables users to view and manage past orders,
                                 including details such as placed date, status,
                                 order code, and amount.
-                            </span>
+                            </p>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Challenges and Solutions</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Challenges and Solutions</h1>
+                    <p className="paragraph">
                         Some challenges included ensuring a consistent and
                         intuitive navigation experience, integrating user
                         feedback effectively, and balancing functionality with
@@ -140,8 +133,8 @@ const EffortlessEats: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Lessons Learned</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Lessons Learned</h1>
+                    <p className="paragraph">
                         This project reinforced the importance of user feedback
                         and iterative design in creating a successful product. I
                         also learned how to conduct usability tests and
@@ -150,8 +143,8 @@ const EffortlessEats: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Future Improvements</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Future Improvements</h1>
+                    <p className="paragraph">
                         Future improvements include refining the user interface
                         based on additional feedback, enhancing the
                         responsiveness for mobile devices, and incorporating

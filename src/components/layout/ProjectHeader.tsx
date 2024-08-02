@@ -82,7 +82,7 @@ const ProjectHeader = ({
                 </DropdownMenuContent>
             </DropdownMenu>
             <div className="flex items-center gap-1 text-sm">
-                <div className="date-info ease-out-expo flex w-[200px] items-center gap-1 overflow-hidden whitespace-nowrap transition-all duration-500">
+                <div className="date-info flex w-[200px] items-center gap-1 overflow-hidden whitespace-nowrap transition-all duration-500 ease-out-expo">
                     <p className="text-muted">Nov {project.year}</p>
                     <div className="h-1 w-1 rounded-full bg-muted" />
                     <div className="h-0.5 w-16 rounded-full bg-gradient-to-r from-muted to-muted-foreground" />

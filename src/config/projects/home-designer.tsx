@@ -23,8 +23,8 @@ const HomeDesigner: Project = {
         detailedContent: (
             <>
                 <div>
-                    <h1 className="mb-2 text-2xl">Project Overview</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Project Overview</h1>
+                    <p className="paragraph">
                         Home Designer is a webapp designed for a hypothetical
                         interior design firm that specializes in decoration,
                         remodel planning, and project management. The project
@@ -38,8 +38,8 @@ const HomeDesigner: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    <p className="mb-2">Sep 10, 2022 - Dec 15, 2022</p>
-                    <p className="font-light leading-7 opacity-75">
+                    {/* <p className="mb-2">Sep 10, 2022 - Dec 15, 2022</p> */}
+                    <p className="paragraph">
                         This project was a collaboration with my partner Liheng
                         Yi. We focused on implementing both the frontend and
                         backend, with the frontend development involving over
@@ -51,8 +51,8 @@ const HomeDesigner: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Lessons Learned</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Lessons Learned</h1>
+                    <p className="paragraph">
                         Working on Home Designer significantly improved my
                         skills in React, SCSS, and JavaScript. Additionally, it
                         provided hands-on experience with database design and
@@ -63,8 +63,8 @@ const HomeDesigner: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Future Improvements</h1>
-                    <p className="font-light leading-7 opacity-75">
+                    <h1 className="header-1">Future Improvements</h1>
+                    <p className="paragraph">
                         In future iterations, I plan to address issues such as
                         context menu overflow, improving mobile view, and
                         enhancing the search functionality. Additionally, I aim
@@ -73,46 +73,38 @@ const HomeDesigner: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">Known Issues</h1>
-                    <ul className="ml-4 flex flex-col gap-2 leading-7">
+                    <h1 className="header-1">Known Issues</h1>
+                    <ul className="block-list">
                         <li>
-                            <strong className="font-normal">
-                                - Context Menu Overflow:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Context Menu Overflow</b>
+                            <p className="paragraph">
                                 Sometimes causes overflow issues.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Mobile View:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Mobile View</b>
+                            <p className="paragraph">
                                 Some elements are positioned incorrectly inside
                                 the table on mobile devices.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Search by Feature:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Search by Feature</b>
+                            <p className="paragraph">
                                 Displays the key instead of attribute in the
                                 search input.
-                            </span>
+                            </p>
                         </li>
                         <li>
-                            <strong className="font-normal">
-                                - Firefox Rendering:
-                            </strong>
-                            <span className="ml-[0.5ch] font-light opacity-75">
+                            <b>Firefox Rendering</b>
+                            <p className="paragraph">
                                 Firefox doesn&apos;t render the table correctly.
-                            </span>
+                            </p>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h1 className="mb-2 text-2xl">The Team</h1>
+                    <h1 className="header-1">The Team</h1>
                     <ul className="ml-4 flex flex-col gap-2 leading-7">
                         <li>
                             <strong className="font-normal">

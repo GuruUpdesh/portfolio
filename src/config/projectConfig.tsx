@@ -15,6 +15,7 @@ export type Project = {
     vercelProjectId?: string;
     websiteLink?: string;
     videoFileName?: string;
+    embed?: string;
     images?: string[][];
     content: ProjectContent;
     primaryTech: PrimaryTech;

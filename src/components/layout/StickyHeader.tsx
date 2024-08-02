@@ -30,7 +30,7 @@ const StickyHeader = ({ children }: Props) => {
     return (
         <header
             ref={ref}
-            className="sticky top-[-1px] z-20 flex justify-center w-full bg-gradient-to-b from-background to-transparent"
+            className="sticky top-[-1px] z-20 flex w-full justify-center bg-gradient-to-b from-background to-transparent"
         >
             {children}
         </header>
