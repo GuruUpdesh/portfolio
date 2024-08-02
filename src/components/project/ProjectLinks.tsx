@@ -22,16 +22,20 @@ const ProjectLinks = ({ project: { gitHubLink, websiteLink } }: Props) => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Link href={gitHubLink} target="_blank">
-                                <Button
-                                    variant="outline"
-                                    className="group flex items-center gap-2 rounded-full px-2 lg:px-3"
-                                    tabIndex={-1}
+                            <Button
+                                variant="outline"
+                                className="group gap-2 rounded-full px-2 lg:px-3"
+                                asChild
+                            >
+                                <Link
+                                    href={gitHubLink}
+                                    target="_blank"
+                                    className="flex items-center"
                                 >
                                     <GitHubLogoIcon className="h-5 w-5" />
                                     <span>GitHub</span>
-                                </Button>
-                            </Link>
+                                </Link>
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>See on GitHub</TooltipContent>
                     </Tooltip>
@@ -41,15 +45,19 @@ const ProjectLinks = ({ project: { gitHubLink, websiteLink } }: Props) => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Link href={websiteLink} target="_blank">
-                                <Button
-                                    className="rounded-full px-2.5 lg:px-3"
-                                    tabIndex={-1}
+                            <Button
+                                className="rounded-full px-2.5 lg:px-3"
+                                asChild
+                            >
+                                <Link
+                                    href={websiteLink}
+                                    target="_blank"
+                                    className="flex items-center gap-2"
                                 >
                                     <span>Visit</span>
                                     <ArrowRight className="h-4 w-4" />
-                                </Button>
-                            </Link>
+                                </Link>
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>Visit {websiteLink}</TooltipContent>
                     </Tooltip>

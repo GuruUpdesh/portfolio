@@ -64,7 +64,7 @@ const TechStackContainer = ({ techStack }: Props) => {
                                     },
                                 )}
                                 title={group}
-                                tabIndex={1}
+                                tabIndex={0}
                                 onClick={handleScroll}
                                 href={`/#${group}`}
                             />

@@ -14,12 +14,7 @@ type Props = {
     active: Boolean;
 };
 
-const TechStackItems = ({
-    group,
-    items,
-    setGroupState,
-    active,
-}: Props) => {
+const TechStackItems = ({ group, items, setGroupState, active }: Props) => {
     const ref = useRef(null);
     const isInView = useInView(ref, {
         margin: "-64px 0px 0px 0px",
@@ -57,7 +52,13 @@ const TechStackItems = ({
                         className="highlight flex items-center justify-between !rounded-md p-2"
                     >
                         <p>{tech.name}</p>
-                        <p className="opacity-75">{tech.version}</p>
+                        <p
+                            className={cn("opacity-75 transition-opacity", {
+                                "hidden opacity-0": !active,
+                            })}
+                        >
+                            {tech.version}
+                        </p>
                     </div>
                 ))}
             </div>

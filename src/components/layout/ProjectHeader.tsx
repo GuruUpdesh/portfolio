@@ -7,10 +7,7 @@ import {
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import {
-    ChevronDown,
-    X,
-} from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import Image from "next/image";
 import {
     Project,
@@ -29,11 +26,9 @@ type Props = {
     project: Project;
 };
 
-const ProjectHeader = ({
-    project,
-}: Props) => {
+const ProjectHeader = ({ project }: Props) => {
     return (
-        <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between lg:px-20 py-6">
+        <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between py-6 lg:px-20">
             <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-baseline gap-2 rounded-full bg-transparent px-4 py-1 text-2xl transition-colors hover:bg-accent">
                     <Image
@@ -73,16 +68,16 @@ const ProjectHeader = ({
             <TooltipProvider>
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <Link href="/">
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="rounded-full"
-                                tabIndex={-1}
-                            >
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="rounded-full"
+                            asChild
+                        >
+                            <Link href="/" aria-label="Close Projects">
                                 <X className="h-4 w-4" />
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </TooltipTrigger>
                     <TooltipContent>Close Projects</TooltipContent>
                 </Tooltip>
