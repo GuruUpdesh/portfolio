@@ -52,7 +52,6 @@ const TrackIt: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    {/* <p className="mb-2">Jan 10, 2023 – Aug 25, 2023</p> */}
                     <p className="paragraph">
                         The development of TrackIt involved several stages,
                         including initial research, setting up the development

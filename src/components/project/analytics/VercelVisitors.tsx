@@ -1,4 +1,4 @@
-import z, { string } from "zod";
+import z from "zod";
 import { sub, formatISO } from "date-fns";
 import { PersonIcon } from "@radix-ui/react-icons";
 

@@ -54,7 +54,6 @@ const ShipmentTracker: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    {/* <p className="mb-2">Jan 10, 2022 – Mar 11, 2022</p> */}
                     <p className="paragraph">
                         The development process involved extensive use of React
                         for the frontend and Node.js for the backend,

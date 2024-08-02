@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import dynamic from "next/dynamic";
-const DynamicCircle = dynamic(() => import("./DynamicCircle"), { ssr: false });
+const DynamicCircle = dynamic(() => import("../DynamicCircle"), { ssr: false });
 
 interface ProjectDividerProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import { cn } from "./utils";
 
 type WordStyles = {

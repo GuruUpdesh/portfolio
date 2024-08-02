@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Project } from "@/config/projectConfig";
+import { type Project } from "@/config/projectConfig";
 
 type Props = {
     project: Project;

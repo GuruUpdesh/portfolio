@@ -1,12 +1,12 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, { useRef } from "react";
-import { getImage } from "@/utils/getImage";
 import CursorTracker from "../CursorTracker";
+import { getImage } from "@/utils/getImage";
 import { useInView } from "framer-motion";
 import { type Image as ImageType } from "@/config/projectConfig";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 type Props = {
     images?: ImageType[];

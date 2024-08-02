@@ -1,21 +1,21 @@
 import React from "react";
-import ContactForm from "@/components/ContantForm";
-import Circle from "@/components/layout/Circle";
-import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import HeroVideo from "@/components/layout/HeroVideo";
-import ProjectsDivider from "@/components/layout/ProjectsDivider";
-import ProjectCard from "@/components/ProjectCard";
+import Circle from "@/components/layout/Circle";
 import { projects } from "@/config/projectConfig";
+import ProjectCard from "@/components/ProjectCard";
 import CursorTracker from "@/components/CursorTracker";
+import ProjectsDivider from "@/components/layout/dividers/ProjectsDivider";
+import Footer from "@/components/layout/Footer";
 import Image from "next/image";
+import ExpandableAboutDescription from "@/components/ExpandableAboutDescription";
+import dynamic from "next/dynamic";
 const TechCircle = dynamic(() => import("@/components/TechCircle"), {
     ssr: false,
 });
 import Paragraph from "@/lib/AnimatedParagraph";
-import dynamic from "next/dynamic";
-import ContactInfo from "@/components/ContactInfo";
-import ExpandableAboutDescription from "@/components/ExpandableAboutDescription";
+import ContactForm from "@/components/contact/ContactForm";
+import ContactInfo from "@/components/contact/ContactInfo";
 
 export default function Portfolio() {
     return (

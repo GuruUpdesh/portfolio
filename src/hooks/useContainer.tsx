@@ -1,4 +1,4 @@
-import { useEffect, useState, RefObject } from "react";
+import { useEffect, RefObject } from "react";
 
 function useContainerDimensions<T extends HTMLElement>(
     containerRef: RefObject<T>,
@@ -27,6 +27,7 @@ function useContainerDimensions<T extends HTMLElement>(
             }
             window.removeEventListener("resize", updateDimensions);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [containerRef, callback, ...dependencies]);
 }
 

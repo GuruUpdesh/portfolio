@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import React, { useRef } from "react";
-const DynamicCircle = dynamic(() => import("./DynamicCircle"), { ssr: false });
+const DynamicCircle = dynamic(() => import("../DynamicCircle"), { ssr: false });
 
 interface ProjectsDividerProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -12,17 +12,17 @@ const ProjectsDivider = (props: ProjectsDividerProps) => {
         <div ref={containerRef} {...props}>
             <DynamicCircle
                 containerRef={containerRef}
-                intersectionOffset={-80}
+                intersectionOffset={81}
                 cut="bottom"
                 direction="bottom"
-                className="animate-fade-in"
+                className="opacity-0 transition-opacity lg:animate-fade-in lg:opacity-100"
             />
-            {/* <DynamicCircle
+            <DynamicCircle
                 containerRef={containerRef}
-                intersectionOffset={-80}
+                intersectionOffset={-160}
                 direction="bottom"
-                className="transition-opacity animate-fade-in opacity-100 lg:animate-none lg:opacity-0"
-            /> */}
+                className="opacity-0 transition-opacity md:animate-fade-in md:opacity-100 lg:animate-none lg:opacity-0"
+            />
         </div>
     );
 };

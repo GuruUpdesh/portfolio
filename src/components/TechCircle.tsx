@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import useContainerDimensions from "@/hooks/useContainer";
 import {
     SiNextdotjs,
     SiJetpackcompose,
@@ -12,7 +13,6 @@ import { FaReact, FaPython, FaAws } from "react-icons/fa";
 import { PiFileSql } from "react-icons/pi";
 import { DiMongodb } from "react-icons/di";
 import { CgFigma, CgGoogle } from "react-icons/cg";
-import useContainerDimensions from "@/hooks/useContainer";
 
 const iconComponents = [
     { Icon: SiNextdotjs, name: "Next.js" },

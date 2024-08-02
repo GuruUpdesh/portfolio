@@ -1,10 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { TechStack, TechStackCategory } from "@/config/projectConfig";
 import React, { useMemo, useState } from "react";
 import TechStackItems from "./TechStackItems";
+import type { TechStack, TechStackCategory } from "@/config/projectConfig";
 import handleScroll from "@/utils/handleScroll";
+import { cn } from "@/lib/utils";
 
 type Props = {
     techStack: TechStack;

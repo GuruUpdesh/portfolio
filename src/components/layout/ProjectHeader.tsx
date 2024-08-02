@@ -8,10 +8,7 @@ import {
 import Link from "next/link";
 import { Button } from "../ui/button";
 import {
-    ArrowLeft,
-    ArrowRight,
     ChevronDown,
-    ChevronRight,
     X,
 } from "lucide-react";
 import Image from "next/image";
@@ -21,27 +18,19 @@ import {
     projectOrder,
     projects,
 } from "@/config/projectConfig";
-import { ChevronUpIcon } from "@radix-ui/react-icons";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import PrimaryTech from "../PrimaryTech";
 
 type Props = {
     project: Project;
-    previousProjectKey: ProjectKey;
-    nextProjectKey: ProjectKey;
 };
 
 const ProjectHeader = ({
     project,
-    previousProjectKey,
-    nextProjectKey,
 }: Props) => {
     return (
         <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between lg:px-20 py-6">
@@ -98,44 +87,6 @@ const ProjectHeader = ({
                     <TooltipContent>Close Projects</TooltipContent>
                 </Tooltip>
             </TooltipProvider>
-            {/* <div className="group flex flex-1 items-center justify-end">
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Link href={`/projects/${previousProjectKey}`}>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    tabIndex={-1}
-                                >
-                                    <ChevronUpIcon className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                </Button>
-                            </Link>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            {projects[previousProjectKey].name}
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <Link href={`/projects/${nextProjectKey}`}>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    tabIndex={-1}
-                                >
-                                    <ChevronDown className="h-4 w-4 opacity-75 transition-opacity group-hover:opacity-100" />
-                                </Button>
-                            </Link>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            {projects[nextProjectKey].name}
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </div> */}
         </div>
     );
 };

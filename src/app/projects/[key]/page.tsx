@@ -1,6 +1,18 @@
-import ProjectDivider from "@/components/layout/ProjectDivider";
-import "./techstack.css";
+import StickyHeader from "@/components/layout/StickyHeader";
+import ProjectHeader from "@/components/layout/ProjectHeader";
+import ProjectLinks from "@/components/project/ProjectLinks";
+import VideoPlayer from "@/components/project/VideoPlayer";
+import ProjectDivider from "@/components/layout/dividers/ProjectDivider";
+import Image from "next/image";
+import Gallery from "@/components/project/Gallery";
+import ProjectSecondaryDivider from "@/components/layout/dividers/ProjectSecondaryDivider";
+import { notFound } from "next/navigation";
 import TechStackContainer from "@/components/project/TechStackContainer";
+import GitHubStars from "@/components/project/analytics/GitHubStars";
+import GitHubFiles from "@/components/project/analytics/GitHubFiles";
+import VercelVisitors from "@/components/project/analytics/VercelVisitors";
+import { Suspense } from "react";
+import BottomNavigationLinks from "@/components/project/BottomNavigationLinks";
 import Footer from "@/components/layout/Footer";
 import {
     getNextProjectKey,
@@ -8,20 +20,8 @@ import {
     isValidProjectKey,
     projects,
 } from "@/config/projectConfig";
-import GitHubStars from "@/components/project/analytics/GitHubStars";
-import { Suspense } from "react";
-import GitHubFiles from "@/components/project/analytics/GitHubFiles";
-import VercelVisitors from "@/components/project/analytics/VercelVisitors";
-import Gallery from "@/components/project/Gallery";
-import VideoComponent from "@/components/project/VideoComponent";
-import StickyHeader from "@/components/layout/StickyHeader";
-import { notFound } from "next/navigation";
 import "./typography.css";
-import ProjectHeader from "@/components/layout/ProjectHeader";
-import ProjectSecondaryDivider from "@/components/layout/ProjectSecondaryDivider";
-import ProjectLinks from "@/components/project/ProjectLinks";
-import BottomNavigationLinks from "@/components/project/BottomNavigationLinks";
-import Image from "next/image";
+import "./techstack.css";
 
 type Props = {
     params: {
@@ -41,16 +41,12 @@ export default function Project({ params: { key } }: Props) {
     return (
         <main className="flex w-full flex-col items-center overflow-clip px-[1px] sm:px-5">
             <StickyHeader>
-                <ProjectHeader
-                    project={project}
-                    nextProjectKey={nextProjectKey}
-                    previousProjectKey={previousProjectKey}
-                />
+                <ProjectHeader project={project} />
             </StickyHeader>
             <section className="mt-0 w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:mt-6 lg:rounded-t-[80px]">
                 <div className="p-5 !pb-0 transition-all lg:p-20">
                     {project.videoFileName ? (
-                        <VideoComponent filename={project.videoFileName} />
+                        <VideoPlayer url={project.videoFileName} />
                     ) : project.embed ? (
                         <iframe
                             src={project.embed}
@@ -91,21 +87,6 @@ export default function Project({ params: { key } }: Props) {
             <section className="section-base mt-[-1px] px-20">
                 <ProjectSecondaryDivider className="w-full rounded-b-[60px] border border-t-0 border-transparent px-20 py-8 transition-all sm:border-border md:py-16" />
             </section>
-            {/* <div className="h-[200px] w-full mix-blend-lighten translate-x-[-40px] sticky top-0 translate-y-[-200px]">
-                <div className="absolute top-[-100%] w-[calc(100%+80px)] h-full bg-black"/>
-                <div className="relative h-full w-[calc(100%+80px)] bg-black">
-                <div className="absolute left-0 top-0 -z-10 hidden h-full w-full overflow-clip opacity-40 blur-[100px] md:block">
-                <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%]">
-                <Image
-                fill
-                src="/logo.webp"
-                alt=""
-                className="animate-spin-slow blur-lg grayscale"
-                />
-                </div>
-                </div>
-                </div>
-                </div> */}
             <section
                 id="2"
                 className="w-full max-w-[1400px] rounded-b-[40px] border border-t-0"

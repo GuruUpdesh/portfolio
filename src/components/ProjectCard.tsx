@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
 import React from "react";
-import { ArrowRight, Eye } from "lucide-react";
 import PrimaryTech from "./PrimaryTech";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Project } from "@/config/projectConfig";
 import Image from "next/image";
+import { type Project } from "@/config/projectConfig";
+import { cn } from "@/lib/utils";
 
 type Props = {
     project: Project;

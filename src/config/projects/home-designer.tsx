@@ -52,7 +52,6 @@ const HomeDesigner: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    {/* <p className="mb-2">Sep 10, 2022 - Dec 15, 2022</p> */}
                     <p className="paragraph">
                         This project was a collaboration with my partner Liheng
                         Yi. We focused on implementing both the frontend and

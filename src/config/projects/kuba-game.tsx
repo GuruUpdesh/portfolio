@@ -6,8 +6,6 @@ const KubaGame: Project = {
     year: 2021,
     gitHubLink: "https://github.com/GuruUpdesh/kuba-game",
     websiteLink: "https://guruupdesh.github.io/kuba-game/",
-    // videoFileName:
-    //     "https://res.cloudinary.com/dioxu1vph/video/upload/v1722046497/xsgq0l4qsxzo6nux1rmu.mp4",
     embed: "https://guruupdesh.github.io/kuba-game/",
     images: [],
     content: {
@@ -33,7 +31,6 @@ const KubaGame: Project = {
                 </div>
                 <div>
                     <h1 className="mb-1 text-2xl">Development</h1>
-                    {/* <p className="mb-2">Feb 1, 2022 – Apr 15, 2022</p> */}
                     <p className="paragraph">
                         The development process involved creating a Python
                         program using Pygame for the graphical interface and

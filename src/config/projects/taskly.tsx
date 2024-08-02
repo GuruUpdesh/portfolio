@@ -130,7 +130,6 @@ const Taskly: Project = {
                 </div>
                 <div>
                     <h1 className="header-1">Development</h1>
-                    {/* <p className="">Sep, 2023 - Jun, 2024</p> */}
                     <ul className="block-list">
                         <li>
                             <b>Initial Planning</b>

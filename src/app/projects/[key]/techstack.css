@@ -1,9 +1,6 @@
 .stack-container {
     width: 350px;
     height: 440px;
-    /* perspective: 15000px;
-    transform-style: preserve-3d; */
-    /* position: absolute; */
 }
 
 .stack-item {

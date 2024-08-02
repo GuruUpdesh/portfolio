@@ -49,7 +49,6 @@ const EffortlessEats: Project = {
                 </div>
                 <div>
                     <h1 className="header-1">Development</h1>
-                    {/* <p className="mb-2">Jan 15, 2022 – May 5, 2022</p> */}
                     <p className="paragraph">
                         This project involved creating high-fidelity prototypes
                         and conducting usability testing to gather feedback and

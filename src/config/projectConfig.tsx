@@ -2,9 +2,9 @@ import Taskly from "./projects/taskly";
 import TrackIt from "./projects/track-it";
 import HomeDesigner from "./projects/home-designer";
 import ShipmentTracker from "./projects/shipment-tracker";
-import { PrimaryTech } from "@/components/PrimaryTech";
 import EffortlessEats from "./projects/effortless-eats";
 import KubaGame from "./projects/kuba-game";
+import { PrimaryTech } from "@/components/PrimaryTech";
 
 export type Project = {
     key: string;
