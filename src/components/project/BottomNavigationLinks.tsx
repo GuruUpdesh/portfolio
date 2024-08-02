@@ -27,7 +27,7 @@ const BottomNavigationLinks = ({
                     <TooltipTrigger asChild>
                         <Link
                             href={`/projects/${previousProjectKey}`}
-                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
+                            className="animated-underline flex items-center gap-4 text-lg sm:text-xl opacity-75 transition-opacity after:bottom-0 after:right-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
                             <ArrowLeft className="h-4 w-4 md:h-6 md:w-6" />
                             Last Project
@@ -51,7 +51,7 @@ const BottomNavigationLinks = ({
                     <TooltipTrigger asChild>
                         <Link
                             href={`/projects/${nextProjectKey}`}
-                            className="animated-underline flex items-center gap-4 text-sm opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
+                            className="animated-underline flex items-center gap-4 text-lg sm:text-xl opacity-75 transition-opacity after:bottom-0 after:left-0 hover:opacity-100 md:text-2xl md:after:bottom-1 lg:text-4xl"
                         >
                             Next Project
                             <ArrowRight className="h-4 w-4 md:h-6 md:w-6" />
