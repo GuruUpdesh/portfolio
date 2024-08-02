@@ -14,7 +14,7 @@ const Header = () => {
                     <Image
                         width={20}
                         height={20}
-                        alt="abstract colorful blob"
+                        alt=""
                         src="/logo.png"
                     />
                     <span className="text-muted transition-all group-hover:text-primary">

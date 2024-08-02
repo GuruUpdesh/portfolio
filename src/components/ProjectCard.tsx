@@ -25,7 +25,7 @@ const ProjectCard = ({ project, className }: Props) => {
                     <Image
                         src={`/icons/${project.key}.ico`}
                         fill
-                        alt="website icon"
+                        alt=""
                         className="-z-10 aspect-square translate-y-[-50%] opacity-[1%] blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25"
                         quality={10}
                     />
@@ -33,7 +33,7 @@ const ProjectCard = ({ project, className }: Props) => {
                         <Image
                             src={`/${project.key}.webp`}
                             fill
-                            alt="Ghost Project GUI Outline"
+                            alt=""
                             className="object-top-left linear-mask z-10 object-contain p-5"
                             priority
                         />
@@ -51,7 +51,7 @@ const ProjectCard = ({ project, className }: Props) => {
                             src={`/icons/${project.key}.ico`}
                             height={16}
                             width={16}
-                            alt="website icon"
+                            alt=""
                         />
                         {project.name}
                     </p>

@@ -76,7 +76,7 @@ export default function Portfolio() {
                                 <Image
                                     src="/self.webp"
                                     fill
-                                    alt="Portrait of a man with dark hair in a messy bun, beard, and dark t-shirt, looking to the side"
+                                    alt="Portrait of a man with dark hair in a messy bun, beard, and t-shirt, looking to the side"
                                     quality={100}
                                     className="rounded-tr-[20px]"
                                 />

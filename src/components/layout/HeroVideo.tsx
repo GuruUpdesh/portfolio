@@ -20,7 +20,7 @@ const HeroVideo = (props: HeroVideoProps) => {
                         <Image
                             fill
                             src="/logo.webp"
-                            alt="abstract colorful blob"
+                            alt=""
                             className="animate-spin-slow blur-lg"
                         />
                     </div>

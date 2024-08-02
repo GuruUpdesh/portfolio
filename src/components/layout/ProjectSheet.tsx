@@ -245,17 +245,17 @@ const ProjectSheet = () => {
                                                             src={`/icons/${project.key}.ico`}
                                                             height={25}
                                                             width={25}
-                                                            alt="website icon"
+                                                            alt=""
                                                             className="scale-75 transition-all md:scale-100"
                                                         />
                                                         {project.name}
                                                         <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/10 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25">
                                                             <Image
                                                                 src={`/icons/${project.key}.ico`}
-                                                                height={25}
-                                                                width={25}
-                                                                alt="website icon"
-                                                                className="absolute -z-10 translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-[2000%]"
+                                                                height={500}
+                                                                width={500}
+                                                                alt=""
+                                                                className="absolute -z-10 translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-100"
                                                             />
                                                         </div>
                                                     </motion.div>

@@ -81,8 +81,22 @@ const Taskly: Project = {
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722493771/s63xfqf57vgjaxcgazep.mp4",
     images: [
-        ["/backlog.webp", "/settings.webp"],
-        ["/createproject.webp", "/task.webp"],
+        {
+            src: "/backlog.webp",
+            alt: "Taskly project management interface showing 'New Task' creation modal for 'Example Project (42)'. The modal includes fields for Task Title, Description, and options for Backlog, Priority, and Task Type.",
+        },
+        {
+            src: "/settings.webp",
+            alt: "Taskly project settings page showing GitHub integration, connected repository 'GuruUpdesh/taskly', and sprint planning. Displays multiple sprints from Sprint 1 to Sprint 11, with Sprint 11 highlighted starting August 6. Also shows options for Sprint Duration and Start Date.",
+        },
+        {
+            src: "/createproject.webp",
+            alt: "Taskly 'Create a Project' interface showing a 4-step process: Create Project, Configure Sprints, Initialize Project, and Invite Your Team. The first step is active, with fields for Project Name and Description visible.",
+        },
+        {
+            src: "/task.webp",
+            alt: "Taskly task details page for 'Add New Tasks To Sprint Board' in 'Example Project'. Shows a text editor with task description, formatting options, and Sprint ID: 158. Below is an activity log showing user 'guruupdesh' making multiple changes including status updates, point estimation changes, and sprint reassignment.",
+        },
     ],
     content: {
         shortDescription: (

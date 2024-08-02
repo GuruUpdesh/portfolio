@@ -9,8 +9,22 @@ const HomeDesigner: Project = {
     vercelProjectId: "prj_SZLtDtXUF1riSqf9Xf8SldZZTRRN",
     websiteLink: "https://homedesigner.guruupdeshsingh.dev",
     images: [
-        ["/homepage.webp", "/clients.webp"],
-        ["/new.webp", "/edit.webp"],
+        {
+            src: "/homepage.webp",
+            alt: "Dark-themed Home Designer dashboard with navigation sidebar. Main area displays clickable cards for 'clients', 'addresses', 'projects', 'projects & employees', and 'employees'. Each card has a 'VISIT' button.",
+        },
+        {
+            src: "/clients.webp",
+            alt: "Home Designer 'Clients' table view displaying 6 entries. Columns show id, name, and email for each client. A search bar is visible at the top right.",
+        },
+        {
+            src: "/new.webp",
+            alt: "Home Designer interface showing a 'New Client' modal form overlaying a blurred project list. The form includes input fields for name, email, and phone, with 'cancel' and 'confirm' buttons at the bottom.",
+        },
+        {
+            src: "/edit.webp",
+            alt: "Home Designer 'Addresses' table view with 8 entries. Columns include id, address, client, status, and date started. A dropdown menu for client selection is open, demonstrating relational database functionality",
+        },
     ],
     content: {
         shortDescription: (
@@ -30,7 +44,7 @@ const HomeDesigner: Project = {
                         remodel planning, and project management. The project
                         was developed as part of an introduction to databases
                         class, focusing on database design, SQL, and
-                    normalization. The application is designed to help
+                        normalization. The application is designed to help
                         employees, managers, and owners of the business keep a
                         close eye on current projects, providing a single
                         consolidated place to manage operations.

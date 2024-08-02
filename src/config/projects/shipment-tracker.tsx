@@ -10,8 +10,22 @@ const ShipmentTracker: Project = {
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722494250/pie494ieohqicdoen8fn.mp4",
     images: [
-        ["/dashboard.webp", "/map.webp"],
-        ["/tracking.webp", "/add.webp"],
+        {
+            src: "/dashboard.webp",
+            alt: "Shipment Tracker dashboard in dark mode. Left sidebar shows user email and navigation options. Main area displays tracked packages (Elephant, Air Pods, Shoes) with delivery status and location maps centered on Eugene, Oregon.",
+        },
+        {
+            src: "/map.webp",
+            alt: "Shipment Tracker detailed view for 'iPhone' package. Shows US map with package route from California to Oregon. Transit history timeline indicates completed delivery, with updates listing delivery steps in Eugene, OR on 04/09/2024.",
+        },
+        {
+            src: "/tracking.webp",
+            alt: "Shipment Tracker detail view for 'Shoes' package. Shows expected delivery date of 08/02/2024 and transit history timeline. FedEx tracking updates listed, including current status 'On FedEx vehicle for delivery' in Eugene, OR.",
+        },
+        {
+            src: "/add.webp",
+            alt: "Shipment Tracker 'Add Package' modal. Form includes fields for package name, tracking number, and courier selection. 'Add' and 'Cancel' buttons at the bottom.",
+        },
     ],
     content: {
         shortDescription: (

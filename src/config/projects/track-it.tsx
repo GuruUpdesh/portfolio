@@ -9,7 +9,24 @@ const TrackIt: Project = {
     websiteLink: "https://tackit.guruupdeshsingh.dev",
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722495068/nrb5z1qfodaskfu0kjlp.mp4",
-    images: [["/dashboard.webp", "/trackinghistory.webp"], ["/userguide.webp", "/packageinfo.webp"]],
+    images: [
+        {
+            src: "/dashboard.webp",
+            alt: "TrackIt dashboard displaying multiple shipments with their status, including Guitar, iPhone, Shoes, and Airpods Pro. A context menu is open for one shipment, showing options like 'Open Detailed View' and 'Copy Tracking Number'.",
+        },
+        {
+            src: "/trackinghistory.webp",
+            alt: "Tracking history for Guitar shipment in TrackIt. Timeline shows multiple status updates from Pooler, GA to Portland, OR, with the latest update indicating departure from a shipping partner's facility in Portland.",
+        },
+        {
+            src: "/userguide.webp",
+            alt: "TrackIt user guide showing sidebar navigation and instructions for adding a shipment, including steps to enter tracking numbers and name packages.",
+        },
+        {
+            src: "/packageinfo.webp",
+            alt: "Detailed view of Airpods Pro shipment in TrackIt. Shows package info including 3-day transit time, tracking number, route from Mira Loma, CA to Eugene, OR, and USPS Parcel Select service.",
+        },
+    ],
     content: {
         shortDescription: (
             <p>

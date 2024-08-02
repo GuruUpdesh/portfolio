@@ -39,7 +39,7 @@ const BottomNavigationLinks = ({
                                 src={`/icons/${projects[previousProjectKey].key}.ico`}
                                 height={11}
                                 width={11}
-                                alt="website icon"
+                                alt=""
                             />
                             {projects[previousProjectKey].name}
                         </div>
@@ -63,7 +63,7 @@ const BottomNavigationLinks = ({
                                 src={`/icons/${projects[nextProjectKey].key}.ico`}
                                 height={11}
                                 width={11}
-                                alt="website icon"
+                                alt=""
                             />
                             {projects[nextProjectKey].name}
                         </div>

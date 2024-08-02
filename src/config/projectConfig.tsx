@@ -1,5 +1,4 @@
 import Taskly from "./projects/taskly";
-import BoatsAndLoads from "./projects/boats-and-loads";
 import TrackIt from "./projects/track-it";
 import HomeDesigner from "./projects/home-designer";
 import ShipmentTracker from "./projects/shipment-tracker";
@@ -16,10 +15,15 @@ export type Project = {
     websiteLink?: string;
     videoFileName?: string;
     embed?: string;
-    images?: string[][];
+    images?: Image[];
     content: ProjectContent;
     primaryTech: PrimaryTech;
     techStack: TechStack;
+};
+
+export type Image = {
+    src: string;
+    alt: string;
 };
 
 type ProjectContent = {
@@ -40,48 +44,6 @@ export type Tech = {
 };
 export type TechStack = {
     [category in TechStackCategory]: Tech[];
-};
-
-const MobileTreasureHunt: Project = {
-    name: "Mobile Treasure Hunt",
-    key: "mobile-treasure-hunt",
-    year: 2024,
-    gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    websiteLink: "https://www.tasklypm.com",
-    content: {
-        shortDescription: "",
-        detailedContent: "",
-        features: [],
-    },
-    primaryTech: "Jetpack Compose",
-    techStack: {
-        frontend: [],
-        state: [],
-        backend: [],
-        testing: [],
-        tools: [],
-    },
-};
-
-const Portfolio: Project = {
-    name: "Portfolio",
-    key: "portfolio",
-    year: 2024,
-    gitHubLink: "https://github.com/GuruUpdesh/taskly",
-    websiteLink: "https://www.tasklypm.com",
-    content: {
-        shortDescription: "",
-        detailedContent: "",
-        features: [],
-    },
-    primaryTech: "Next.js",
-    techStack: {
-        frontend: [],
-        state: [],
-        backend: [],
-        testing: [],
-        tools: [],
-    },
 };
 
 export const projects = {

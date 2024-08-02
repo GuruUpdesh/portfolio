@@ -8,8 +8,22 @@ const EffortlessEats: Project = {
         "https://www.figma.com/proto/O0wG4BLDeQIDo8bkBqLs2x/Prototype?node-id=1019-51871&starting-point-node-id=1019%3A51871&t=tm9taTJIhQmsk4dW-1",
     embed: "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FO0wG4BLDeQIDo8bkBqLs2x%2FPrototype%3Fnode-id%3D1019-51871%26scaling%3Dscale-down%26content-scaling%3Dfixed%26t%3DrLha2lTfZRaTycUS-1",
     images: [
-        ["/home.webp", "/menu.webp"],
-        ["/cart.webp", "/placed.webp"],
+        {
+            src: "/home.webp",
+            alt: "Effortless Eats landing page with logo and navigation menu. Main text reads 'Effortless Eats' with a description highlighting speed, ease, and customization. Features 'Order Now' and 'Create an Account' buttons. Background shows floating food ingredients.",
+        },
+        {
+            src: "/menu.webp",
+            alt: "Effortless Eats ordering interface. Left side shows recommended items and menu categories with food images. Right side displays pickup information and order summary with items like Coffee and Fresh Burger. Total cost is $19.96.",
+        },
+        {
+            src: "/cart.webp",
+            alt: "Effortless Eats checkout page showing cart contents on the left with items like Mac & Cheese and Lemonade. Right side displays pickup information, payment options including Visa and PayPal, and tip selection. Total order cost is $19.96.",
+        },
+        {
+            src: "/placed.webp",
+            alt: "Blurred Effortless Eats information page with a QR code visible. Right side shows a partially visible navigation menu including Home, Menu, and Order History options.",
+        },
     ],
     content: {
         shortDescription: (

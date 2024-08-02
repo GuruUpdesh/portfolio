@@ -51,7 +51,7 @@ const ProjectHeader = ({
                         src={`/icons/${project.key}.ico`}
                         height={20}
                         width={20}
-                        alt="website icon"
+                        alt=""
                         priority
                         className="flex-shrink-0"
                     />
@@ -71,7 +71,7 @@ const ProjectHeader = ({
                                                 src={`/icons/${project.key}.ico`}
                                                 height={16}
                                                 width={16}
-                                                alt="website icon"
+                                                alt=""
                                             />
                                             {project.name}
                                         </p>
