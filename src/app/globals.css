@@ -78,7 +78,7 @@
 .section-base {
     position: relative;
     width: 100%;
-    max-width: 1440px;
+    max-width: 1400px;
 }
 
 .extend-border-lines {
@@ -123,10 +123,6 @@
     height: 1px;
     transition: width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-shadow: 0 1px 0 hsl(var(--background));
-}
-
-.is-pinned .date-info {
-    width: 0;
 }
 
 .menu-shadow {

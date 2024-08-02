@@ -2,7 +2,7 @@
 
 @layer utilities {
     .paragraph {
-        @apply mb-4 font-light leading-7 text-muted-foreground last:mb-0;
+        @apply mb-4 font-light leading-7 text-muted-foreground last:mb-0 text-sm md:text-base;
     }
     .header-1 {
         @apply mb-4 text-3xl font-semibold;

@@ -44,7 +44,7 @@ const ProjectHeader = ({
     nextProjectKey,
 }: Props) => {
     return (
-        <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between px-20 py-6">
+        <div className="mb-6 flex w-full max-w-[1400px] items-center justify-between lg:px-20 py-6">
             <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-baseline gap-2 rounded-full bg-transparent px-4 py-1 text-2xl transition-colors hover:bg-accent">
                     <Image
@@ -81,14 +81,6 @@ const ProjectHeader = ({
                         })}
                 </DropdownMenuContent>
             </DropdownMenu>
-            <div className="flex items-center gap-1 text-sm">
-                <div className="date-info flex w-[200px] items-center gap-1 overflow-hidden whitespace-nowrap transition-all duration-500 ease-out-expo">
-                    <p className="text-muted">Nov {project.year}</p>
-                    <div className="h-1 w-1 rounded-full bg-muted" />
-                    <div className="h-0.5 w-16 rounded-full bg-gradient-to-r from-muted to-muted-foreground" />
-                    <p className="text-muted-foreground">Jan {project.year}</p>
-                </div>
-            </div>
             <TooltipProvider>
                 <Tooltip>
                     <TooltipTrigger asChild>
