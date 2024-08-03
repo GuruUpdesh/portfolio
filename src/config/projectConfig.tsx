@@ -27,7 +27,7 @@ export type Image = {
 };
 
 type ProjectContent = {
-    shortDescription: React.ReactNode;
+    shortDescription: string;
     detailedContent: React.ReactNode;
     features: string[];
 };

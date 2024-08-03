@@ -26,13 +26,8 @@ const EffortlessEats: Project = {
         },
     ],
     content: {
-        shortDescription: (
-            <p>
-                Effortless Eats is a UI/UX project designed for an Intro to
-                Usability Engineering course, focused on creating a seamless and
-                intuitive food ordering experience.
-            </p>
-        ),
+        shortDescription:
+            "Effortless Eats is a UI/UX project designed for an Intro to Usability Engineering course, focused on creating a seamless and intuitive food ordering experience.",
         detailedContent: (
             <>
                 <div>

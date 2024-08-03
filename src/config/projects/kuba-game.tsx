@@ -9,13 +9,8 @@ const KubaGame: Project = {
     embed: "https://guruupdesh.github.io/kuba-game/",
     images: [],
     content: {
-        shortDescription: (
-            <p>
-                Kuba Game is a Python-based implementation of the traditional
-                board game Kuba. It features a 7x7 board, turn-based gameplay,
-                and unique rules such as the KO rule.
-            </p>
-        ),
+        shortDescription:
+            "Kuba Game is a Python-based implementation of the traditional board game Kuba. It features a 7x7 board, turn-based gameplay, and unique rules such as the KO rule.",
         detailedContent: (
             <>
                 <div>

@@ -28,13 +28,8 @@ const ShipmentTracker: Project = {
         },
     ],
     content: {
-        shortDescription: (
-            <p>
-                Shipment Tracker is a web application developed to simplify the
-                process of tracking shipments. This project was part of my
-                coursework in CS361.
-            </p>
-        ),
+        shortDescription:
+            "Shipment Tracker is a web application developed to simplify the process of tracking shipments. This project was part of my coursework in CS361.",
         detailedContent: (
             <>
                 <div>

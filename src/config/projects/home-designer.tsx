@@ -27,13 +27,8 @@ const HomeDesigner: Project = {
         },
     ],
     content: {
-        shortDescription: (
-            <p>
-                Home Designer is the final project for my introduction to
-                databases class, where we learned about database design, SQL,
-                and normalization.
-            </p>
-        ),
+        shortDescription:
+            "Home Designer is the final project for my introduction to databases class, where we learned about database design, SQL, and normalization.",
         detailedContent: (
             <>
                 <div>

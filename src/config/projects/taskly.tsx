@@ -99,14 +99,8 @@ const Taskly: Project = {
         },
     ],
     content: {
-        shortDescription: (
-            <p>
-                Taskly is an opinionated Agile project management (PM)
-                application. It offers a simplified featureset and experience,
-                to compete against the dominant PM solutions in the market. My
-                capstone team and I built the project over our senior year.
-            </p>
-        ),
+        shortDescription:
+            "Taskly is an opinionated Agile project management (PM) application. It offers a simplified featureset and experience, to compete against the dominant PM solutions in the market. My capstone team and I built the project over our senior year.",
         detailedContent: (
             <>
                 <div>

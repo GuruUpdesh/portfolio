@@ -29,6 +29,21 @@ type Props = {
     };
 };
 
+export async function generateMetadata({ params: { key } }: Props) {
+    if (!isValidProjectKey(key)) {
+        return {
+            title: "Guru Updesh Singh - Full Stack Developer",
+        };
+    }
+
+    const project = projects[key];
+
+    return {
+        title: `Guru Updesh Singh - ${project.name}`,
+        description: project.content.shortDescription
+    };
+}
+
 export default function Project({ params: { key } }: Props) {
     if (!isValidProjectKey(key)) {
         notFound();

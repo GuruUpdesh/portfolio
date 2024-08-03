@@ -28,15 +28,8 @@ const TrackIt: Project = {
         },
     ],
     content: {
-        shortDescription: (
-            <p>
-                TrackIt is a sophisticated web-based application designed to
-                simplify shipment tracking by providing a unified platform. It
-                allows users to monitor the status and journey of their packages
-                across various couriers, including UPS, USPS, FedEx, OnTrac, and
-                more.
-            </p>
-        ),
+        shortDescription:
+            "TrackIt is a sophisticated web-based application designed to simplify shipment tracking by providing a unified platform. It allows users to monitor the status and journey of their packages across various couriers, including UPS, USPS, FedEx, OnTrac, and more.",
         detailedContent: (
             <>
                 <div>
