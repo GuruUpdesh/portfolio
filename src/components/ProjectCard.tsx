@@ -16,7 +16,7 @@ const ProjectCard = ({ project, className }: Props) => {
         <Link
             href={`/projects/${project.key}`}
             className={cn(
-                "group z-10 min-h-[200px] overflow-clip rounded-sm bg-[#fafafa] text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:bg-[#0A0A0A]",
+                "group z-10 min-h-[200px] overflow-clip rounded-sm text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-background",
                 className,
             )}
         >
