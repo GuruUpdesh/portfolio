@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "@/components/layout/Header";
-import HeroVideo from "@/components/layout/HeroVideo";
+import HeroSection from "@/components/layout/HeroSection";
 import Circle from "@/components/layout/Circle";
 import { projects } from "@/config/projectConfig";
 import ProjectCard from "@/components/ProjectCard";
@@ -30,7 +30,7 @@ export default function Portfolio() {
                     } as React.CSSProperties
                 }
             >
-                <HeroVideo className="relative rounded-b-[60px] p-0 transition-all lg:border lg:border-t-0 lg:px-20 lg:pb-20" />
+                <HeroSection className="relative rounded-b-[60px] p-0 transition-all lg:border lg:border-t-0 lg:px-20 lg:pb-20" />
                 <Circle
                     scale={0}
                     bottom={160 + 2}

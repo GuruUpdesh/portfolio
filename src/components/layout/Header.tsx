@@ -23,22 +23,6 @@ const Header = () => {
                 </Link>
                 <ProjectSheet />
             </div>
-            <div className="mt-[36px] py-2 text-lg md:text-xl lg:text-2xl">
-                <h1 className="text-muted-foreground">
-                    Hey, I’m <span className="text-primary">Guru Updesh</span>
-                </h1>
-                <div className="pl-5 text-muted-foreground lg:pl-[60px]">
-                    <h2 className="text-base md:text-xl">
-                        I love to build for the web
-                    </h2>
-                    <h2 className="text-base md:text-xl">
-                        I do full stack, cybersecurity, & design
-                    </h2>
-                    <h2 className="text-base md:text-xl">
-                        welcome to my portfolio!
-                    </h2>
-                </div>
-            </div>
         </header>
     );
 };
