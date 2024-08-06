@@ -22,7 +22,7 @@ export default function Portfolio() {
         <main className="flex w-full flex-col items-center overflow-clip px-[1px] transition-all sm:px-10 md:px-20">
             <Header />
             <section
-                className="extend-border-lines section-base z-0 rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 md:border md:border-t-0 md:px-20 md:pb-20 md:before:-left-[1px] md:after:-right-[1px]"
+                className="extend-border-lines section-base z-0 rounded-b-[20px] sm:rounded-b-[40px] md:rounded-b-[80px] p-0 transition-all before:left-0 after:right-0 border border-t-0 md:px-20 md:before:-left-[1px] md:after:-right-[1px]"
                 style={
                     {
                         "--top": "80px",
@@ -30,12 +30,35 @@ export default function Portfolio() {
                     } as React.CSSProperties
                 }
             >
-                <HeroSection className="relative rounded-b-[60px] p-0 transition-all lg:border lg:border-t-0 lg:px-20 lg:pb-20" />
+                <HeroSection />
+                <div className="relative flex h-20 items-center justify-between px-[40px] gap-6">
+                    <p className="text-sm text-primary/50">
+                        Welcome to my portfolio!
+                    </p>
+                    <p className="text-sm text-primary/50">
+                        <span className="opacity-70">
+                            I&apos;m building with{" "}
+                        </span>
+                        Next.js<span className="opacity-70">, </span>React
+                        <span className="opacity-70">, and </span>
+                        Python
+                    </p>
+                    <p className="text-sm text-primary/50 hidden lg:block">
+                        Eugene, OR
+                    </p>
+                </div>
+                {/* <Circle
+                    scale={4}
+                    bottom={0}
+                    className="-z-10 opacity-0 transition-opacity lg:opacity-100"
+                    cut="left"
+                />
                 <Circle
                     scale={0}
-                    bottom={160 + 2}
+                    bottom={0}
                     className="-z-10 opacity-0 transition-opacity lg:opacity-100"
-                />
+                    cut="right"
+                /> */}
             </section>
             <section
                 id="projects"
