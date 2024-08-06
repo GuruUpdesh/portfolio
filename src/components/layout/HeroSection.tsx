@@ -10,34 +10,34 @@ const HeroSection = (props: Props) => {
     const containerRef = useRef<HTMLDivElement>(null);
     return (
         <div ref={containerRef} {...props}>
-            <div className="relative z-10 aspect-[5/2] rounded-b-[20px] border border-t-0 sm:rounded-b-[40px]">
+            <div className="relative z-10 rounded-b-[20px] border border-t-0 sm:rounded-b-[40px]">
                 <div className="flex h-full w-full items-center justify-center rounded-b-[20px] sm:rounded-b-[40px]">
-                    <div className="flex h-full w-full justify-between p-[60px]">
+                    <div className="flex h-full flex-col gap-10 lg:gap-0 lg:flex-row w-full justify-between py-[60px] px-5 sm:px-[60px]">
                         <div className="flex flex-col justify-between">
-                            <p className="text-2xl">
+                            <p className="text-xl xl:text-2xl mb-10 lg:mb-16 transition-[margin]">
                                 <span className="opacity-70">Hey I&apos;m</span>{" "}
                                 <span className="font-medium">Guru Updesh</span>
                             </p>
-                            <div className="flex flex-col gap-3">
-                                <h1 className="text-6xl">Full Stack</h1>
-                                <h1 className="text-6xl">Security</h1>
-                                <h1 className="text-6xl">
+                            <div className="flex flex-col gap-3 text-5xl xl:text-6xl transition-all">
+                                <h1>Full Stack</h1>
+                                <h1>Security</h1>
+                                <h1>
                                     <span className="opacity-70">&</span>{" "}
                                     Design.
                                 </h1>
                             </div>
                         </div>
-                        <div className="flex max-w-44 flex-col justify-between">
-                            <p className="text-xl text-[#270015]">
+                        <div className="flex lg:flex-col justify-between">
+                            <p className="text-sm sm:text-lg xl:text-xl max-w-44 transition-all  text-[#270015]">
                                 I love to build for the web.
                             </p>
-                            <p className="text-xl text-[#270015]">
+                            <p className="text-sm sm:text-lg xl:text-xl max-w-44 transition-all  text-[#270015]">
                                 Welcome to my portfolio!
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className="absolute top-0 -z-10 hidden h-full w-full overflow-clip blur-[100px] md:block">
+                <div className="absolute top-0 -z-10 h-full w-full overflow-clip blur-[100px]">
                     <div className="absolute left-[-50%] top-[-50%] h-[200%] w-[200%] -hue-rotate-30">
                         <Image
                             fill

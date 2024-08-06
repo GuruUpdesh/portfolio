@@ -202,7 +202,7 @@ const ProjectSheet = () => {
                                 initial="initial"
                                 animate="enter"
                                 exit="exit"
-                                className="menu-shadow absolute top-[-50%] h-[200%] w-[200%] overflow-hidden border-l bg-background"
+                                className="absolute top-[-50%] h-[200%] w-[200%] overflow-hidden border-l bg-background"
                             >
                                 <motion.div
                                     ref={circleRef}
