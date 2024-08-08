@@ -81,8 +81,8 @@ const StarScene = () => {
     }, []);
 
     return (
-        <div ref={ref} className="h-[150px] w-[150px]">
-            <Canvas width={150} height={150}>
+        <div ref={ref} className="relative h-[150px] w-[150px]">
+            <Canvas width={150} height={150} className="h-[150px] w-[150px]">
                 <PerspectiveCamera makeDefault fov={35} position={[0, 0, 5]} />
                 <directionalLight
                     intensity={5}
