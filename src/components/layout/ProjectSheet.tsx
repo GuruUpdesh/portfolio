@@ -247,6 +247,7 @@ const ProjectSheet = () => {
                                                             width={25}
                                                             alt=""
                                                             className="scale-75 transition-all md:scale-100"
+                                                            priority
                                                         />
                                                         {project.name}
                                                         <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/10 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25">

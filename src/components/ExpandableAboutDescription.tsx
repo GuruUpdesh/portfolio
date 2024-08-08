@@ -29,8 +29,7 @@ const ExpandableAboutDescription = () => {
                     )}
                 >
                     I&apos;m a new computer science graduate from Oregon State
-                    University with a focus in cybersecurity and full stack web
-                    development.
+                    University with a passion for software development.
                 </p>
                 <Button
                     variant="outline"
@@ -67,22 +66,22 @@ const ExpandableAboutDescription = () => {
                             <div className="mb-4 flex flex-col gap-2">
                                 <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
                                     I&apos;m a new computer science graduate
-                                    from Oregon State University with a focus in
-                                    cybersecurity and full stack web
-                                    development.
+                                    from Oregon State University with a passion
+                                    for software development.
                                 </p>
                                 <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
                                     I love to problem solve, and create visually
                                     elegant and user friendly experiences.
                                 </p>
-                                <ul className="flex flex-col gap-2">
+                                <ul className="mb-4 flex flex-col gap-2">
                                     <li className="rounded-lg bg-background/50 p-5">
                                         <p>Full Stack</p>
                                         <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
-                                            With a passion for web applications
-                                            I enjoy implementing full and robust
-                                            features that utilize the full range
-                                            of the tech stack.
+                                            With experience in building web
+                                            applications and utilities I enjoy
+                                            implementing thoughtful features
+                                            that utilize the full range of
+                                            modern technologies.
                                         </p>
                                     </li>
                                     <li className="rounded-lg bg-background/50 p-5">
@@ -91,21 +90,25 @@ const ExpandableAboutDescription = () => {
                                             Throughout college I focused in
                                             security, learning about
                                             cryptography, hacking, and best
-                                            practices. This practice experience
-                                            has translated into a technical
-                                            passion and knowledge in building
-                                            secure applications.
+                                            practices. This experience has
+                                            translated into a technical passion
+                                            and knowledge in building secure
+                                            websites.
                                         </p>
                                     </li>
                                     <li className="rounded-lg bg-background/50 p-5">
                                         <p>Design</p>
                                         <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
-                                            With experience in graph design and
-                                            a love for ascetics I enjoy crafting
-                                            visually appealing and usable
-                                            interfaces.
+                                            With experience in graphic design
+                                            and a love for ascetics and a smooth
+                                            UI I enjoy crafting visually
+                                            appealing and usable interfaces.
                                         </p>
                                     </li>
+                                    <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
+                                        I&apos;m always learning and expanding
+                                        my knowledge!
+                                    </p>
                                 </ul>
                             </div>
                         </div>

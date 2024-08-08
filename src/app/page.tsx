@@ -111,7 +111,7 @@ export default function Portfolio() {
                                 <TechCircle />
                             </div>
                             <div className="absolute top-[50%] translate-y-[-50%] p-10 lg:py-0">
-                                <Paragraph paragraph="I use a variety of modern web technologies to deliver secure, user focused, web applications." />
+                                <Paragraph paragraph="I transform ideas into reality, utilizing a comprehensive tech stack to build efficient, secure, and user-friendly applications." />
                                 <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-xl" />
                                 <div className="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-background blur-lg" />
                             </div>
