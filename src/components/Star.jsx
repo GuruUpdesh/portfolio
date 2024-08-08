@@ -2,20 +2,13 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
-import { useGLTF } from "@react-three/drei";
-import { useInView } from "framer-motion";
-import { Group, Vector2 } from "three";
+import { PerspectiveCamera, useGLTF } from "@react-three/drei";
+import { Vector2 } from "three";
 
 useGLTF.preload("/star.glb");
 
-type ModelProps = {
-    mousePosition: Vector2;
-    isMouseInWindow: boolean;
-};
-
-function Model({ mousePosition, isMouseInWindow }: ModelProps) {
-    const ref = useRef<Group>(null);
+function Model({ mousePosition, isMouseInWindow }) {
+    const ref = useRef(null);
     const { nodes, materials } = useGLTF("/star.glb");
     const { viewport } = useThree();
     const bobbingRef = useRef({ y: 0 });
@@ -33,13 +26,13 @@ function Model({ mousePosition, isMouseInWindow }: ModelProps) {
                 targetRotation.current.set(0, 0);
             }
 
-            // Smoothly interpolate towards the target rotation
+            // smoothly interpolate towards the target rotation
             currentRotation.current.lerp(targetRotation.current, 0.1);
 
             ref.current.rotation.x = currentRotation.current.x;
             ref.current.rotation.y = currentRotation.current.y;
 
-            // Bobbing animation
+            // bobbing animation
             const t = state.clock.getElapsedTime();
             bobbingRef.current.y = Math.sin(t * 2) * 0.05;
             ref.current.position.y = bobbingRef.current.y;
@@ -51,20 +44,20 @@ function Model({ mousePosition, isMouseInWindow }: ModelProps) {
             <mesh
                 receiveShadow
                 castShadow
-                geometry={nodes.inner.geometry} // @ts-nocheck
+                geometry={nodes.inner.geometry}
                 material={materials[""]}
             ></mesh>
         </group>
     );
 }
 
-const StarScene: React.FC = () => {
+const StarScene = () => {
     const [mousePosition, setMousePosition] = useState(new Vector2(0, 0));
     const [isMouseInWindow, setIsMouseInWindow] = useState(true);
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef(null);
 
     useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
+        const handleMouseMove = (event) => {
             setIsMouseInWindow(true);
             setMousePosition(
                 new Vector2(
@@ -102,8 +95,8 @@ const StarScene: React.FC = () => {
                     color={"#bc92d9"}
                 />
                 <directionalLight
-                    intensity={4}
-                    position={[-16, 10, -2]}
+                    intensity={2}
+                    position={[16, -2, -2]}
                     color={"#7db498"}
                 />
                 <Model

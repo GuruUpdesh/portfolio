@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import SizeTracker from "../SizeTracker";
 import dynamic from "next/dynamic";
-const StarScene = dynamic(() => import("../Star"), { ssr: false });
+const StarScene = dynamic(() => import("../Star.jsx"), { ssr: false });
 
 const HeroSection = () => {
     return (
