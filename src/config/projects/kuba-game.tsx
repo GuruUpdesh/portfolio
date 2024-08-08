@@ -81,7 +81,7 @@ const KubaGame: Project = {
         state: [],
         backend: [{ name: "Python" }],
         testing: [],
-        tools: [{ name: "VS Code" }, { name: "GitHub" }],
+        tools: [{ name: "PyCharm" }],
     },
 };
 

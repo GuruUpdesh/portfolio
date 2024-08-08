@@ -22,6 +22,7 @@ import {
 } from "@/config/projectConfig";
 import "./typography.css";
 import "./techstack.css";
+import { cn } from "@/lib/utils";
 
 type Props = {
     params: {
@@ -40,7 +41,7 @@ export async function generateMetadata({ params: { key } }: Props) {
 
     return {
         title: `Guru Updesh Singh - ${project.name}`,
-        description: project.content.shortDescription
+        description: project.content.shortDescription,
     };
 }
 
@@ -58,8 +59,16 @@ export default function Project({ params: { key } }: Props) {
             <StickyHeader>
                 <ProjectHeader project={project} />
             </StickyHeader>
-            <section className="mt-0 w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:mt-6 lg:rounded-t-[80px]">
-                <div className="p-5 !pb-0 transition-all lg:p-20">
+            <section
+                className={cn(
+                    "w-full max-w-[1400px] rounded-b-[80px] rounded-t-[40px] border border-b-0 bg-gradient-to-b from-primary/5 to-background lg:rounded-t-[80px]",
+                )}
+            >
+                <div
+                    className={cn("p-5 !pb-0 transition-all lg:p-20", {
+                        "p-3 lg:p-3": !project.videoFileName && !project.embed,
+                    })}
+                >
                     {project.videoFileName ? (
                         <VideoPlayer url={project.videoFileName} />
                     ) : project.embed ? (
@@ -99,9 +108,11 @@ export default function Project({ params: { key } }: Props) {
                     </div>
                 </div>
             </section>
-            <section className="section-base mt-[-1px] px-20">
-                <ProjectSecondaryDivider className="w-full rounded-b-[60px] border border-t-0 border-transparent px-20 py-8 transition-all sm:border-border md:py-16" />
-            </section>
+            {project.images && project.images.length > 0 && (
+                <section className="section-base mt-[-1px] px-20">
+                    <ProjectSecondaryDivider className="w-full rounded-b-[60px] border border-t-0 border-transparent px-20 py-8 transition-all sm:border-border md:py-16" />
+                </section>
+            )}
             <section
                 id="2"
                 className="w-full max-w-[1400px] rounded-b-[40px] border border-t-0"
@@ -110,40 +121,48 @@ export default function Project({ params: { key } }: Props) {
                     <div className="mt-10 flex max-w-[690px] flex-col gap-32 md:mt-20">
                         {project.content.detailedContent}
                     </div>
-                    <div className="w-full">
-                        <h1 className="header-1">Features</h1>
-                        <ul className="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
-                            {project.content.features.map((feature, i) => (
-                                <li
-                                    key={i}
-                                    className="highlight overflow-hidden whitespace-nowrap p-4 pr-0"
-                                >
-                                    <p>{feature}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                    {project.content.features.length > 0 && (
+                        <div className="w-full">
+                            <h1 className="header-1">Features</h1>
+                            <ul className="grid w-full grid-cols-2 gap-2 lg:grid-cols-4">
+                                {project.content.features.map((feature, i) => (
+                                    <li
+                                        key={i}
+                                        className="highlight overflow-hidden whitespace-nowrap p-4 pr-0"
+                                    >
+                                        <p>{feature}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                     <TechStackContainer techStack={project.techStack} />
-                    <div className="w-full">
-                        <h1 className="header-1">Analytics</h1>
-                        <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
-                            {project.vercelProjectId && (
-                                <Suspense>
-                                    <VercelVisitors
-                                        vercelProjectId={
-                                            project.vercelProjectId
-                                        }
+                    {(project.vercelProjectId || project.gitHubLink) && (
+                        <div className="w-full">
+                            <h1 className="header-1">Analytics</h1>
+                            <ul className="grid grid-cols-1 gap-2 md:grid-cols-3">
+                                {project.vercelProjectId && (
+                                    <Suspense>
+                                        <VercelVisitors
+                                            vercelProjectId={
+                                                project.vercelProjectId
+                                            }
+                                        />
+                                    </Suspense>
+                                )}
+                                <Suspense fallback={0}>
+                                    <GitHubStars
+                                        gitHubLink={project.gitHubLink}
                                     />
                                 </Suspense>
-                            )}
-                            <Suspense fallback={0}>
-                                <GitHubStars gitHubLink={project.gitHubLink} />
-                            </Suspense>
-                            <Suspense fallback={0}>
-                                <GitHubFiles gitHubLink={project.gitHubLink} />
-                            </Suspense>
-                        </ul>
-                    </div>
+                                <Suspense fallback={0}>
+                                    <GitHubFiles
+                                        gitHubLink={project.gitHubLink}
+                                    />
+                                </Suspense>
+                            </ul>
+                        </div>
+                    )}
                     <div className="mb-32 flex w-full justify-between gap-4">
                         <BottomNavigationLinks
                             nextProjectKey={nextProjectKey}

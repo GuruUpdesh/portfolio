@@ -1,50 +1,54 @@
 "use client";
 
-import React, { MouseEventHandler, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import {
-    DragControls,
-    Environment,
-    MeshTransmissionMaterial,
-    OrbitControls,
-    OrthographicCamera,
-    PerspectiveCamera,
-} from "@react-three/drei";
-
+import { PerspectiveCamera } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
-import { ReceiptText } from "lucide-react";
 import { useInView } from "framer-motion";
+import { Group, Vector2 } from "three";
 
 useGLTF.preload("/star.glb");
 
-function Model({ mouse }) {
-    const ref = useRef(null);
+type ModelProps = {
+    mousePosition: Vector2;
+    isMouseInWindow: boolean;
+};
+
+function Model({ mousePosition, isMouseInWindow }: ModelProps) {
+    const ref = useRef<Group>(null);
     const { nodes, materials } = useGLTF("/star.glb");
-    console.log(materials);
     const { viewport } = useThree();
-
     const bobbingRef = useRef({ y: 0 });
+    const targetRotation = useRef(new Vector2(0, 0));
+    const currentRotation = useRef(new Vector2(0, 0));
 
-    useFrame((state) => {
+    useFrame((state, delta) => {
         if (ref.current) {
-            // Rotate based on mouse position
-            ref.current.rotation.x = -mouse.current[1] + -0.5; // Tilt up slightly
-            ref.current.rotation.y = mouse.current[0] + -0.5; // Tilt to the right slightly
+            if (isMouseInWindow) {
+                targetRotation.current.set(
+                    -mousePosition.y + -0.5,
+                    mousePosition.x + -0.5,
+                );
+            } else {
+                targetRotation.current.set(0, 0);
+            }
+
+            // Smoothly interpolate towards the target rotation
+            currentRotation.current.lerp(targetRotation.current, 0.1);
+
+            ref.current.rotation.x = currentRotation.current.x;
+            ref.current.rotation.y = currentRotation.current.y;
 
             // Bobbing animation
             const t = state.clock.getElapsedTime();
-            bobbingRef.current.y = Math.sin(t * 2) * 0.05; // Adjust frequency and amplitude here
+            bobbingRef.current.y = Math.sin(t * 2) * 0.05;
             ref.current.position.y = bobbingRef.current.y;
         }
     });
 
     return (
         <group ref={ref} scale={viewport.width / 3}>
-            <mesh receiveShadow castShadow geometry={nodes.outer.geometry}>
-                <MeshTransmissionMaterial />
-            </mesh>
             <mesh
-                // ref={ref}
                 receiveShadow
                 castShadow
                 geometry={nodes.inner.geometry}
@@ -55,24 +59,34 @@ function Model({ mouse }) {
 }
 
 const StarScene: React.FC = () => {
-    const mouse = useRef([0, 0]);
+    const [mousePosition, setMousePosition] = useState(new Vector2(0, 0));
+    const [isMouseInWindow, setIsMouseInWindow] = useState(true);
     const ref = useRef<HTMLDivElement>(null);
     const inView = useInView(ref);
 
-    // useEffect(() => {
-    //     const handleMouseMove = (event: MouseEvent) => {
-    //         mouse.current = [
-    //             (event.clientX / window.innerWidth) * 2 - 1,
-    //             -(event.clientY / window.innerHeight) * 2 + 1,
-    //         ];
-    //     };
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            setIsMouseInWindow(true);
+            setMousePosition(
+                new Vector2(
+                    (event.clientX / window.innerWidth) * 2 - 1,
+                    -(event.clientY / window.innerHeight) * 2 + 1,
+                ),
+            );
+        };
 
-    //     window.addEventListener("mousemove", handleMouseMove);
+        const handleMouseLeave = () => {
+            setIsMouseInWindow(false);
+        };
 
-    //     return () => {
-    //         window.removeEventListener("mousemove", handleMouseMove);
-    //     };
-    // }, []);
+        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mouseout", handleMouseLeave);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("mouseout", handleMouseLeave);
+        };
+    }, []);
 
     return (
         <div ref={ref} className="h-[150px] w-[150px]">
@@ -94,12 +108,14 @@ const StarScene: React.FC = () => {
                         color={"#bc92d9"}
                     />
                     <directionalLight
-                        intensity={5}
-                        position={[2, 0, 5]}
-                        color={"#e2bbd0"}
+                        intensity={4}
+                        position={[-16, 10, -2]}
+                        color={"#7db498"}
                     />
-                    {/* <ambientLight intensity={1} color={"0xffffff"}/> */}
-                    <Model mouse={mouse} />
+                    <Model
+                        mousePosition={mousePosition}
+                        isMouseInWindow={isMouseInWindow}
+                    />
                 </Canvas>
             )}
         </div>

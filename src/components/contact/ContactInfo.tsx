@@ -5,8 +5,7 @@ const ContactInfo = () => {
         <div className="flex h-full flex-col justify-between gap-4">
             <p className="text-sm text-muted-foreground xl:text-base xl:leading-8">
                 Whether you&apos;re a developer, recruiter, student, or anyone
-                in between, I&apos;m always eager to discuss tech! Let&apos;s
-                connect and explore how we can create something great together.
+                in between, I&apos;m always eager to discuss tech!
             </p>
             <div>
                 <p>Email me</p>

@@ -44,7 +44,7 @@ const TrackIt: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-1 text-2xl">Development</h1>
+                    <h1 className="header-1">Development</h1>
                     <p className="paragraph">
                         The development of TrackIt involved several stages,
                         including initial research, setting up the development
@@ -80,11 +80,14 @@ const TrackIt: Project = {
             </>
         ),
         features: [
-            "Centralized Tracking Dashboard",
+            "Centralized Tracking",
             "Multi-Courier Support",
-            "Detailed Tracking History",
+            "Detailed Transit History",
             "Accessible UI",
             "Power User Friendly",
+            "User Guide",
+            "Keyboard Shortcuts",
+            "Filters & Search",
         ],
     },
     primaryTech: "Next.js",

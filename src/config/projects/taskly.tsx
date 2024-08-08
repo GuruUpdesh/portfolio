@@ -159,7 +159,9 @@ const Taskly: Project = {
                             </p>
                         </li>
                     </ul>
-                    <h2 className="header-2">Challenges</h2>
+                </div>
+                <div>
+                    <h1 className="header-1">Challenges</h1>
                     <p className="paragraph">
                         The road to production wasn&apos;t always
                         straightforward, and we faced a number of challenges.
@@ -187,7 +189,9 @@ const Taskly: Project = {
                             </p>
                         </li>
                     </ul>
-                    <h2 className="header-2">Future Improvements</h2>
+                </div>
+                <div>
+                    <h1 className="header-1">Future Improvements</h1>
                     <p className="paragraph">
                         The project has lots of room for future improvement.
                         Some key features and focuses would be the following.
@@ -237,7 +241,7 @@ const Taskly: Project = {
                             <Link
                                 href="https://github.com/cameronhollis4"
                                 target="_blank"
-                                className="animated-underline font-light after:bottom-0 after:left-0"
+                                className="underline font-light"
                             >
                                 Cameron Hollis
                             </Link>{" "}
@@ -247,7 +251,7 @@ const Taskly: Project = {
                             <Link
                                 href="https://github.com/sankanay"
                                 target="_blank"
-                                className="animated-underline font-light after:bottom-0 after:left-0"
+                                className="underline font-light"
                             >
                                 Yash Sankanagouda
                             </Link>
