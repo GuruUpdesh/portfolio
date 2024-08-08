@@ -51,7 +51,7 @@ function Model({ mousePosition, isMouseInWindow }: ModelProps) {
             <mesh
                 receiveShadow
                 castShadow
-                geometry={nodes.inner.geometry}
+                geometry={nodes.inner.geometry} // @ts-nocheck
                 material={materials[""]}
             ></mesh>
         </group>
@@ -62,7 +62,6 @@ const StarScene: React.FC = () => {
     const [mousePosition, setMousePosition] = useState(new Vector2(0, 0));
     const [isMouseInWindow, setIsMouseInWindow] = useState(true);
     const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref);
 
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
@@ -90,34 +89,28 @@ const StarScene: React.FC = () => {
 
     return (
         <div ref={ref} className="h-[150px] w-[150px]">
-            {inView && (
-                <Canvas>
-                    <PerspectiveCamera
-                        makeDefault
-                        fov={35}
-                        position={[0, 0, 5]}
-                    />
-                    <directionalLight
-                        intensity={5}
-                        position={[-2, 10, 0]}
-                        color={"#be2268"}
-                    />
-                    <directionalLight
-                        intensity={4}
-                        position={[-8, -2, -2]}
-                        color={"#bc92d9"}
-                    />
-                    <directionalLight
-                        intensity={4}
-                        position={[-16, 10, -2]}
-                        color={"#7db498"}
-                    />
-                    <Model
-                        mousePosition={mousePosition}
-                        isMouseInWindow={isMouseInWindow}
-                    />
-                </Canvas>
-            )}
+            <Canvas>
+                <PerspectiveCamera makeDefault fov={35} position={[0, 0, 5]} />
+                <directionalLight
+                    intensity={5}
+                    position={[-2, 10, 0]}
+                    color={"#be2268"}
+                />
+                <directionalLight
+                    intensity={4}
+                    position={[-8, -2, -2]}
+                    color={"#bc92d9"}
+                />
+                <directionalLight
+                    intensity={4}
+                    position={[-16, 10, -2]}
+                    color={"#7db498"}
+                />
+                <Model
+                    mousePosition={mousePosition}
+                    isMouseInWindow={isMouseInWindow}
+                />
+            </Canvas>
         </div>
     );
 };
