@@ -227,13 +227,23 @@ const ProjectSheet = () => {
                                                     href={`/projects/${project.key}`}
                                                     className="group relative w-[400%] whitespace-nowrap px-4 py-5 text-lg transition-all md:gap-4 md:py-8 md:text-4xl"
                                                 >
+                                                    <div className="absolute -left-24 top-0 h-full w-[400%] bg-transparent transition-all duration-1000 ease-out-expo group-hover:bg-primary/10 group-focus-visible:bg-primary/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25">
+                                                        <Image
+                                                            src={`/icons/${project.key}.ico`}
+                                                            height={500}
+                                                            width={500}
+                                                            alt=""
+                                                            className="pointer-events-none absolute translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-100"
+                                                            quality={5}
+                                                        />
+                                                    </div>
                                                     <motion.div
                                                         custom={index}
                                                         variants={itemVariants}
                                                         initial="initial"
                                                         animate="enter"
                                                         exit="exit"
-                                                        className="flex items-center gap-2 lg:gap-4"
+                                                        className="flex items-center gap-2 contain-content lg:gap-4"
                                                         style={{
                                                             marginLeft:
                                                                 itemMargins[
@@ -250,15 +260,6 @@ const ProjectSheet = () => {
                                                             priority
                                                         />
                                                         {project.name}
-                                                        <div className="transparent absolute -left-24 -z-10 h-full w-[400%] transition-all group-hover:bg-border/10 group-focus-visible:bg-border/10 group-focus-visible:ring-1 group-focus-visible:ring-ring/25">
-                                                            <Image
-                                                                src={`/icons/${project.key}.ico`}
-                                                                height={500}
-                                                                width={500}
-                                                                alt=""
-                                                                className="absolute -z-10 translate-x-[-25%] translate-y-[-45%] opacity-0 blur-[100px] transition-opacity duration-1000 ease-out-expo group-hover:opacity-25 group-focus-visible:opacity-25 md:scale-100"
-                                                            />
-                                                        </div>
                                                     </motion.div>
                                                 </Link>
                                             );

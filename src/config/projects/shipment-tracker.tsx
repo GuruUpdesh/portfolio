@@ -105,7 +105,7 @@ const ShipmentTracker: Project = {
                 </div>
             </>
         ),
-        features: ["UI Animations", "Custom Components", "Dark Light Mode"],
+        features: [],
     },
     primaryTech: "React",
     techStack: {

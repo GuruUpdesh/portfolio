@@ -46,7 +46,7 @@ const HomeDesigner: Project = {
                     </p>
                 </div>
                 <div>
-                    <h1 className="mb-1 text-2xl">Development</h1>
+                    <h1 className="header-1">Development</h1>
                     <p className="paragraph">
                         This project was a collaboration with my partner Liheng
                         Yi. We focused on implementing both the frontend and
@@ -121,7 +121,7 @@ const HomeDesigner: Project = {
                             <Link
                                 href="https://github.com/Liheng-Yi"
                                 target="_blank"
-                                className="ml-[0.5ch] font-light hover:underline"
+                                className="ml-[0.5ch] font-light underline"
                             >
                                 Liheng Yi
                             </Link>
@@ -130,13 +130,7 @@ const HomeDesigner: Project = {
                 </div>
             </>
         ),
-        features: [
-            "Centralized Tracking Dashboard",
-            "Multi-Courier Support",
-            "Detailed Tracking History",
-            "Accessible UI",
-            "Power User Friendly",
-        ],
+        features: [],
     },
     primaryTech: "React",
     techStack: {

@@ -119,10 +119,6 @@ const ContactForm = () => {
                         "absolute bottom-0 left-0 -z-10 h-[50%] w-full bg-gradient-to-b from-transparent to-[#2aaf70] opacity-0 transition-opacity duration-1000 ease-out-expo",
                         {
                             "opacity-25": form.formState.isValid,
-                            "to-[#ff1c02] opacity-25":
-                                form.formState.errors &&
-                                !form.formState.isValid &&
-                                form.formState.isDirty,
                         },
                     )}
                 />
