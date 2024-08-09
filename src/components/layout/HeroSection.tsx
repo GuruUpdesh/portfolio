@@ -7,7 +7,7 @@ const StarScene = dynamic(() => import("../Star.jsx"), { ssr: false });
 const HeroSection = () => {
     return (
         <div className="relative">
-            <div className="absolute bottom-0 right-0">
+            <div className="absolute bottom-0 right-0 h-[150px] w-[150px]">
                 <StarScene />
             </div>
             <SizeTracker className="relative z-10 overflow-clip rounded-br-[calc(var(--height,0px)-1px)] border border-l-0 border-t-0 bg-background pt-[74px] transition-all md:rounded-bl-[60px] md:border-l md:pt-0">
