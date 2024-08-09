@@ -1,13 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import SizeTracker from "../SizeTracker";
+import dynamic from "next/dynamic";
+const StarScene = dynamic(() => import("../Star.jsx"), { ssr: false });
 
 const HeroSection = () => {
     return (
         <div className="relative">
-            <SizeTracker
-                className="relative z-10 overflow-clip rounded-br-[calc(var(--height)-1px)] border border-l-0 border-t-0 bg-background pt-[74px] transition-all md:rounded-bl-[60px] md:border-l md:pt-0"
-            >
+            <div className="absolute bottom-0 right-0 h-[150px] w-[150px]">
+                <StarScene />
+            </div>
+            <SizeTracker className="relative z-10 overflow-clip rounded-br-[calc(var(--height,0px)-1px)] border border-l-0 border-t-0 bg-background pt-[74px] transition-all md:rounded-bl-[60px] md:border-l md:pt-0">
                 <div className="flex h-full w-full flex-col justify-between gap-10 px-5 pb-[120px] pt-[60px] sm:px-[60px] md:flex-row lg:gap-0">
                     <div className="flex flex-col justify-between">
                         <p className="mb-6 text-xl transition-[margin] lg:text-2xl">
