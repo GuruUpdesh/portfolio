@@ -6,7 +6,8 @@ const ShipmentTracker: Project = {
     key: "shipment-tracker",
     year: 2022,
     gitHubLink: "https://github.com/GuruUpdesh/shipment-tracker",
-    websiteLink: "https://shipmenttracker.guruupdeshsingh.dev",
+    websiteLink: "https://www.packagetracr.com",
+    vercelProjectId: "prj_V3BwI6xLBTzNa2SGhuz9HHY9kPF2",
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722494250/pie494ieohqicdoen8fn.mp4",
     images: [
