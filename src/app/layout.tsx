@@ -10,7 +10,7 @@ import ScrollbarWidthCalculator from "@/components/ScrollbarWidthCalculator";
 const sora = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Guru Updesh Singh - Full Stack Developer",
+    title: "Guru Updesh Singh",
     description:
         "Recent CS graduate from Oregon State University. Full stack developer specializing in cybersecurity and UX design. Portfolio showcases Next.js, React, and Python projects. Let's connect and create something great!",
 };

@@ -33,15 +33,6 @@ const Footer = () => {
                             <span className="text-muted-foreground">.dev</span>
                         </Link>
                     </div>
-                    <Button
-                        className="flex items-center justify-between rounded-full hover:invert"
-                        asChild
-                    >
-                        <Link href="/#contact" scroll aria-label="Contact Me">
-                            Contact Me
-                            <ArrowRight className="h-4 w-4" />
-                        </Link>
-                    </Button>
                 </div>
 
                 <ul className="flex flex-col gap-2" aria-label="Social links">
@@ -140,12 +131,12 @@ const Footer = () => {
                 </p>
                 <p className="text-xs md:text-sm">Eugene, Oregon</p>
             </div>
-            <div className="pointer-events-none absolute -z-10 aspect-square w-[200%] opacity-80">
+            <div className="pointer-events-none absolute -z-10 aspect-square w-[200%] opacity-25 grayscale">
                 <Image
                     fill
                     src="/logo.webp"
                     alt=""
-                    className="animate-spin-slow blur-lg"
+                    className="animate-spin-slow blur-xl"
                 />
                 <div
                     className="absolute inset-0 animate-spin-slow blur-[100px] delay-75"

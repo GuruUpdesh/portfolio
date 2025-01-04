@@ -11,12 +11,7 @@ const Header = () => {
                     href="/"
                     className="group flex items-center gap-2 text-sm md:text-base"
                 >
-                    <Image
-                        width={20}
-                        height={20}
-                        alt=""
-                        src="/logo.png"
-                    />
+                    <span className="w-[20px] h-[20px] rounded-full bg-foreground"></span>
                     <span className="text-muted transition-all group-hover:text-primary">
                         guruupdeshsingh.dev
                     </span>
