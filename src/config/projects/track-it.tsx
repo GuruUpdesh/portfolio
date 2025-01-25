@@ -6,7 +6,7 @@ const TrackIt: Project = {
     year: 2023,
     gitHubLink: "https://github.com/GuruUpdesh/track-it",
     vercelProjectId: "prj_VuKOQZjJA3tFdhvtxTXPvB7M9ma3",
-    websiteLink: "https://tackit.guruupdeshsingh.dev",
+    websiteLink: "https://www.shipmentracker.com",
     videoFileName:
         "https://res.cloudinary.com/dioxu1vph/video/upload/v1722495068/nrb5z1qfodaskfu0kjlp.mp4",
     images: [
