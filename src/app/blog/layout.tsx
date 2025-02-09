@@ -1,4 +1,6 @@
+import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import "../blog.css"
 
 export default function BlogLayout({
     children,
@@ -6,7 +8,7 @@ export default function BlogLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <main className="flex w-full flex-col items-center overflow-clip px-[1px] transition-all sm:px-10 md:px-20">
+        <main className="flex w-full flex-col items-center overflow-clip px-[1px] transition-all sm:px-10 md:px-20 min-h-screen">
             <header className="z-40 w-full flex items-center justify-center pb-5 pt-2 md:pt-10">
                 <Link
                     href="/"
@@ -20,9 +22,9 @@ export default function BlogLayout({
             </header>
             <section
                 id="projects"
-                className="section-base px-5 transition-all sm:px-10 md:px-20"
+                className="section-base px-5 transition-all sm:px-10 md:px-20 grow h-full"
             >
-                <div className="flex justify-center px-4 py-8 min-h-[600px] rounded-b-[60px]">
+                <div className="flex justify-center px-4 py-8 rounded-b-[60px]">
                     <div className="max-w-[600px] w-full">
                         {children}
                     </div>

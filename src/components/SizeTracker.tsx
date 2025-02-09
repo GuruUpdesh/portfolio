@@ -18,7 +18,7 @@ const SizeTracker = (props: Props) => {
     });
 
     return (
-        <div ref={ref} className={props.className}>
+        <div ref={ref} className={props.className} style={{ "--height": "420px" } as React.CSSProperties}>
             {props.children}
         </div>
     );

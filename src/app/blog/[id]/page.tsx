@@ -19,8 +19,17 @@ export default function PostPage({params: {id}}: Params) {
         <div>
             <h1 className="text-5xl">{post.title}</h1>
             <p className="text-sm opacity-70">{post.date}</p>
-            <section className="flex flex-col items-center gap-16 mt-16">
+            <section className="flex flex-col items-center gap-16 mt-16 pb-[30%]">
                 {post.content}
+                <div className="gradient-blur">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div className="gradient-bg"></div>
             </section> 
         </div>
     );

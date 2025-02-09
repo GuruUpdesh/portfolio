@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Separator } from "../ui/separator";
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
-import { Button, buttonVariants } from "../ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { FileTextIcon, GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
+import { Download } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
@@ -19,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 const Footer = () => {
     return (
-        <footer className="relative flex w-full max-w-[1400px] flex-1 flex-col items-center px-0 pb-2 pt-20 sm:px-0">
+        <footer className="relative flex w-full max-w-[1400px] flex-col items-center px-0 pb-2 pt-20 sm:px-0">
             <div className="flex w-full justify-between rounded-[40px] border p-5 mix-blend-luminosity lg:px-20">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
@@ -92,6 +91,23 @@ const Footer = () => {
                     aria-label="Additional links"
                 >
                     <li>
+                        <Button
+                            variant="ghost"
+                            className="flex items-center justify-start gap-2 rounded-full px-2 lg:px-3"
+                            asChild
+                        >
+                            <Link
+                                href="/blog"
+                                aria-label="Blog"
+                            >
+                                <FileTextIcon className="h-5 w-5" />
+                                <span className="hidden lg:block">
+                                    Blog
+                                </span>
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
                         <EmailButton />
                     </li>
                     <li>
@@ -123,7 +139,11 @@ const Footer = () => {
                         </TooltipProvider>
                     </li>
                 </ul>
-                <ThemeToggle />
+                <ul>
+                    <li>
+                        <ThemeToggle />
+                    </li>
+                </ul>
             </div>
             <div className="flex w-full items-center justify-between px-[20px] py-2 font-medium mix-blend-luminosity">
                 <p className="text-xs md:text-sm">

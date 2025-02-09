@@ -9,8 +9,9 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Link from "next/link";
-import { MdEmail, MdCheck } from "react-icons/md";
+import { MdCheck } from "react-icons/md";
 import { cn } from "@/lib/utils";
+import { EnvelopeClosedIcon } from "@radix-ui/react-icons";
 
 export function EmailButton() {
     const [copied, setCopied] = useState(false);
@@ -48,7 +49,7 @@ export function EmailButton() {
                                         },
                                     )}
                                 />
-                                <MdEmail
+                                <EnvelopeClosedIcon
                                     className={cn(
                                         "absolute h-5 w-5 scale-100 transition-all",
                                         {
